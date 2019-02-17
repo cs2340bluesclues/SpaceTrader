@@ -3,7 +3,7 @@ package macbookpro.cs2340.spacetrader.model;
 public enum Ship {
 
     FLEA("flea"),
-    GNAT("gnat"),;
+    GNAT("gnat");
 
     private String shipName;
 
