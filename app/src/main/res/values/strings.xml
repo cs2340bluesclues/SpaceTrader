@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">SpaceTrader</string>
     <string name="action_settings">Settings</string>
+    <string name="player_name">Name:</string>
+    <string name="input_name">Enter name</string>
+    <string name="difficulty_label">Set Difficulty</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
 </resources>
