@@ -65,8 +65,8 @@ public class ConfigurationActivity extends AppCompatActivity {
         Log.d("APP", "Making intent");
         Log.d("APP", "Data - " + name + " " + " " + level.toString());
         Intent intent = new Intent();
-        intent.putExtra(name);
-        intent.putExtra(level);
+//        intent.putExtra(name);
+//        intent.putExtra(level);
 
         setResult(RESULT_OK, intent);
 
