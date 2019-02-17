@@ -16,4 +16,8 @@ public enum GameDifficulty {
     public String getDifficultyLevel() {
         return difficultyLevel;
     }
+
+    public void setDifficultyLevel(String difficultyLevel) {
+        this.difficultyLevel = difficultyLevel;
+    }
 }
