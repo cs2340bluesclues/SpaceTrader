@@ -7,7 +7,7 @@ public enum Ship {
 
     private String shipName;
 
-    private Ship (String shipName) {
+    Ship (String shipName) {
         this.shipName = shipName;
     }
 

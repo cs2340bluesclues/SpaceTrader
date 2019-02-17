@@ -9,11 +9,15 @@ public enum GameDifficulty {
 
     private String difficultyLevel;
 
-    private GameDifficulty(String difficultyLevel) {
+    GameDifficulty(String difficultyLevel) {
         this.difficultyLevel = difficultyLevel;
     }
 
     public String getDifficultyLevel() {
         return difficultyLevel;
+    }
+
+    public void setDifficultyLevel(String difficultyLevel) {
+        this.difficultyLevel = difficultyLevel;
     }
 }

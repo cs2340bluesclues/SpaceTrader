@@ -67,12 +67,12 @@ public class Player {
         this.credits = credits;
     }
 
-    public GameDifficulty getDifficulty() {
-        return difficulty;
+    public String getDifficulty() {
+        return difficulty.getDifficultyLevel();
     }
 
-    public void setDifficulty(GameDifficulty difficulty) {
-        this.difficulty = difficulty;
+    public void setDifficulty(String difficultyLevel) {
+        this.difficulty.setDifficultyLevel(difficultyLevel);
     }
 
     public Ship getShip() {
