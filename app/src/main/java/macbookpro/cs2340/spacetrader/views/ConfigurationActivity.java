@@ -46,7 +46,7 @@ public class ConfigurationActivity extends AppCompatActivity {
         Button subtractPilot = findViewById(R.id.subtract_pilot_skill_button);
         Button addFighter = findViewById(R.id.add_fighter_skill_button);
         Button subtractFighter = findViewById(R.id.subtract_fighter_skill_button);
-        Button addTrader = findViewById(R.id.add_Trader_skill_button);
+        Button addTrader = findViewById(R.id.add_trader_skill_button);
         Button subtractTrader = findViewById(R.id.subtract_trader_skill_button);
         Button addEngineer = findViewById(R.id.add_engineer_skill_button);
         Button subtractEngineer = findViewById(R.id.subtract_engineer_skill_button);
@@ -65,8 +65,8 @@ public class ConfigurationActivity extends AppCompatActivity {
         Log.d("APP", "Making intent");
         Log.d("APP", "Data - " + name + " " + " " + level.toString());
         Intent intent = new Intent();
-        intent.putExtra(name);
-        intent.putExtra(level);
+//        intent.putExtra(name);
+//        intent.putExtra(level);
 
         setResult(RESULT_OK, intent);
 
