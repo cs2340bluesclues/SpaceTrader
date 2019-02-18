@@ -4,7 +4,10 @@ import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.support.annotation.NonNull;
 
+import macbookpro.cs2340.spacetrader.model.GameDifficulty;
 import macbookpro.cs2340.spacetrader.model.Player;
+
+import static macbookpro.cs2340.spacetrader.model.ModelFacade.*;
 
 public class ConfigurationViewModel {
 
@@ -72,6 +75,21 @@ public class ConfigurationViewModel {
 
     public boolean checkCountGreater16() {
         return totalCount < 16;
+    }
+
+    //if its true, show toast
+    public boolean checkCount16() {
+        return totalCount != 16;
+    }
+
+    //if its true, show toast
+    public boolean checkNameLength(String name) {
+        return name.length() == 0;
+    }
+
+    public void sendData(String name, GameDifficulty diff) {
+        createGame(diff);
+        createPlayer(name, pilotCount, fighterCount, traderCount, engineerCount);
     }
 
 }

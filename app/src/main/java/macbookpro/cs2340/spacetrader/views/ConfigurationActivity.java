@@ -30,7 +30,7 @@ public class ConfigurationActivity extends AppCompatActivity {
     private EditText inputName;
     private Spinner difficultySpinner;
     //some experimental shit
-    Button addPilot, subtractPilot, addFighter, subtractFighter, addTrader, subtractTrader, addEngineer, subtractEngineer;
+    Button addPilot, subtractPilot, addFighter, subtractFighter, addTrader, subtractTrader, addEngineer, subtractEngineer, submit;
     TextView pilotSkill, fighterSkill, traderSkill, engineerSkill;
     ConfigurationViewModel pilotVM, fighterVM, traderVM, engineerVM, totalVM;
     //new player??
@@ -67,7 +67,7 @@ public class ConfigurationActivity extends AppCompatActivity {
         subtractEngineer = findViewById(R.id.subtract_engineer_skill_button);
         engineerSkill = findViewById(R.id.engineer_skill_tracker);
 
-        Button submit = findViewById(R.id.submit_player_info_button);
+        submit = findViewById(R.id.submit_player_info_button);
 
         //makes difficulties visible in the spinner
         ArrayAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, GameDifficulty.values());
@@ -156,7 +156,7 @@ public class ConfigurationActivity extends AppCompatActivity {
                 }
             }
         });
-    }
+
 
 
         //ok doesn't work yet but think this is next step to store the data??
@@ -166,6 +166,27 @@ public class ConfigurationActivity extends AppCompatActivity {
 //        player.setDifficulty((String) difficultySpinner.getSelectedItem()); // not sure if this should be a string
 //        Log.d("submit", "new player data: " + player);
 //    }
+
+    submit.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            String name = inputName.getText().toString();
+            GameDifficulty level = (GameDifficulty) difficultySpinner.getSelectedItem();
+//            if(totalVM.checkCount16()) {
+//                Toast.makeText(this, "Total skill count must be 16", Toast.LENGTH_LONG).show();
+//            } else if(totalVM.checkNameLength()) {
+//                Toast.makeText(this, "Name field cannot be blank", Toast.LENGTH_LONG).show();
+//            } else {
+//
+//            }
+
+            totalVM.sendData(name, level);
+            String r = "we dunnit";
+            Log.d("PLAYER", r);
+        }
+    });
+}
+
     private void saveConfiguration() {
         String name = inputName.getText().toString();
         GameDifficulty level = (GameDifficulty) difficultySpinner.getSelectedItem();
@@ -174,6 +195,8 @@ public class ConfigurationActivity extends AppCompatActivity {
             Toast.makeText(this, "Fields cannot be blank", Toast.LENGTH_LONG).show();
             return;
         }
+
+
 
         Log.d("APP", "Making intent");
         Log.d("APP", "Data - " + name + " " + " " + level.toString());
