@@ -2,14 +2,24 @@ package macbookpro.cs2340.spacetrader.model;
 
 public class Player {
     private String name;
-    private int totalSkillPoints = 16;
-    private int pilot = 1;
-    private int fighter = 1;
-    private int trader = 1;
-    private int engineer = 1;
-    private int credits = 1000;
-    private GameDifficulty difficulty;
+    private int pilot;
+    private int fighter;
+    private int trader;
+    private int engineer;
+    private int totalSkillPoints;
+    private int credits;
     private Ship ship;
+
+    public Player(String name, int pilot, int fighter, int trader, int engineer) {
+        this.name = name;
+        this.pilot = pilot;
+        this.fighter = fighter;
+        this.trader = trader;
+        this.engineer = engineer;
+        totalSkillPoints = pilot + fighter + trader + engineer;
+        credits = 1000;
+        ship = Ship.GNAT;
+    }
 
     public String getName() {
         return name;
@@ -65,14 +75,6 @@ public class Player {
 
     public void setCredits(int credits) {
         this.credits = credits;
-    }
-
-    public String getDifficulty() {
-        return difficulty.getDifficultyLevel();
-    }
-
-    public void setDifficulty(String difficultyLevel) {
-        this.difficulty.setDifficultyLevel(difficultyLevel);
     }
 
     public Ship getShip() {
