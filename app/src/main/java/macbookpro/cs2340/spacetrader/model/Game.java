@@ -4,6 +4,7 @@ public class Game {
     private GameDifficulty diff;
 
     public Game(GameDifficulty diff) {
+
         this.diff = diff;
     }
 
