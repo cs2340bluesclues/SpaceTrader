@@ -32,8 +32,7 @@ public class ConfigurationActivity extends AppCompatActivity {
     //some experimental shit
     Button addPilot, subtractPilot, addFighter, subtractFighter, addTrader, subtractTrader, addEngineer, subtractEngineer;
     TextView pilotSkill, fighterSkill, traderSkill, engineerSkill;
-    ConfigurationViewModel pilotVM, fighterVM, traderVM, engineerVM;
-    int totalSkillCount;
+    ConfigurationViewModel pilotVM, fighterVM, traderVM, engineerVM, totalVM;
     //new player??
     private Player player;
     //private ;
@@ -76,7 +75,7 @@ public class ConfigurationActivity extends AppCompatActivity {
         difficultySpinner.setAdapter(adapter);
 
         //updates the textview of each skill, still need to figure out how to cap at 16 total
-
+        totalVM = new ConfigurationViewModel();
         pilotVM = new ConfigurationViewModel();
         fighterVM = new ConfigurationViewModel();
         traderVM = new ConfigurationViewModel();
@@ -85,8 +84,11 @@ public class ConfigurationActivity extends AppCompatActivity {
         addPilot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pilotVM.setCount(pilotVM.getCount() + 1);
-                pilotSkill.setText("" + pilotVM.getCount());
+                if (totalVM.checkCount()) {
+                    pilotVM.setCount(pilotVM.getCount() + 1);
+                    totalVM.setCount(totalVM.getCount() + 1);
+                    pilotSkill.setText("" + pilotVM.getCount());
+                }
             }
         });
 
@@ -95,6 +97,7 @@ public class ConfigurationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (pilotVM.getCount() > 0) {
                     pilotVM.setCount(pilotVM.getCount() - 1);
+                    totalVM.setCount(totalVM.getCount() - 1);
                     pilotSkill.setText("" + pilotVM.getCount());
                 }
             }
@@ -103,8 +106,11 @@ public class ConfigurationActivity extends AppCompatActivity {
         addFighter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fighterVM.setCount(fighterVM.getCount() + 1);
-                fighterSkill.setText("" + fighterVM.getCount());
+                if (totalVM.checkCount()) {
+                    fighterVM.setCount(fighterVM.getCount() + 1);
+                    totalVM.setCount(totalVM.getCount() + 1);
+                    fighterSkill.setText("" + fighterVM.getCount());
+                }
             }
         });
 
@@ -113,6 +119,7 @@ public class ConfigurationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (fighterVM.getCount() > 0) {
                     fighterVM.setCount(fighterVM.getCount() - 1);
+                    totalVM.setCount(totalVM.getCount() - 1);
                     fighterSkill.setText("" + fighterVM.getCount());
                 }
             }
@@ -121,8 +128,11 @@ public class ConfigurationActivity extends AppCompatActivity {
         addTrader.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                traderVM.setCount(traderVM.getCount() + 1);
-                traderSkill.setText("" + traderVM.getCount());
+                if (totalVM.checkCount()) {
+                    traderVM.setCount(traderVM.getCount() + 1);
+                    totalVM.setCount(totalVM.getCount() + 1);
+                    traderSkill.setText("" + traderVM.getCount());
+                }
             }
         });
 
@@ -131,6 +141,7 @@ public class ConfigurationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (traderVM.getCount() > 0) {
                     traderVM.setCount(traderVM.getCount() - 1);
+                    totalVM.setCount(totalVM.getCount() - 1);
                     traderSkill.setText("" + traderVM.getCount());
                 }
             }
@@ -139,8 +150,11 @@ public class ConfigurationActivity extends AppCompatActivity {
         addEngineer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                engineerVM.setCount(engineerVM.getCount() + 1);
-                engineerSkill.setText("" + engineerVM.getCount());
+                if (totalVM.checkCount()) {
+                    engineerVM.setCount(engineerVM.getCount() + 1);
+                    totalVM.setCount(totalVM.getCount() + 1);
+                    engineerSkill.setText("" + engineerVM.getCount());
+                }
             }
         });
 
@@ -149,6 +163,7 @@ public class ConfigurationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (engineerVM.getCount() > 0) {
                     engineerVM.setCount(engineerVM.getCount() - 1);
+                    totalVM.setCount(totalVM.getCount() - 1);
                     engineerSkill.setText("" + engineerVM.getCount());
                 }
             }

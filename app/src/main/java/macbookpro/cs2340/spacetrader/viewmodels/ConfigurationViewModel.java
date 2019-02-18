@@ -22,4 +22,8 @@ public class ConfigurationViewModel {
         return count;
     }
 
+    public boolean checkCount() {
+        return count < 16;
+    }
+
 }
