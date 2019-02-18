@@ -29,7 +29,10 @@ public class ConfigurationActivity extends AppCompatActivity {
     private TextView playerNameLabel;
     private EditText inputName;
     private Spinner difficultySpinner;
-
+    //some experimental shit
+    Button addPilot, subtractPilot, addFighter, subtractFighter, addTrader, subtractTrader, addEngineer, subtractEngineer;
+    TextView pilotSkill, fighterSkill, traderSkill, engineerSkill;
+    ConfigurationViewModel pilotVM, fighterVM, traderVM, engineerVM, totalVM;
     //new player??
     private Player player;
     //private ;
@@ -48,21 +51,125 @@ public class ConfigurationActivity extends AppCompatActivity {
         difficultySpinner = findViewById(R.id.difficulty_spinner);
         inputName = findViewById(R.id.input_name);
 
-        Button addPilot = findViewById(R.id.add_pilot_skill_button);
-        Button subtractPilot = findViewById(R.id.subtract_pilot_skill_button);
-        Button addFighter = findViewById(R.id.add_fighter_skill_button);
-        Button subtractFighter = findViewById(R.id.subtract_fighter_skill_button);
-        Button addTrader = findViewById(R.id.add_trader_skill_button);
-        Button subtractTrader = findViewById(R.id.subtract_trader_skill_button);
-        Button addEngineer = findViewById(R.id.add_engineer_skill_button);
-        Button subtractEngineer = findViewById(R.id.subtract_engineer_skill_button);
+        addPilot = findViewById(R.id.add_pilot_skill_button);
+        subtractPilot = findViewById(R.id.subtract_pilot_skill_button);
+        pilotSkill = findViewById(R.id.pilot_skill_tracker);
+
+        addFighter = findViewById(R.id.add_fighter_skill_button);
+        subtractFighter = findViewById(R.id.subtract_fighter_skill_button);
+        fighterSkill = findViewById(R.id.fighter_skill_tracker);
+
+        addTrader = findViewById(R.id.add_trader_skill_button);
+        subtractTrader = findViewById(R.id.subtract_trader_skill_button);
+        traderSkill = findViewById(R.id.trader_skill_tracker);
+
+        addEngineer = findViewById(R.id.add_engineer_skill_button);
+        subtractEngineer = findViewById(R.id.subtract_engineer_skill_button);
+        engineerSkill = findViewById(R.id.engineer_skill_tracker);
+
         Button submit = findViewById(R.id.submit_player_info_button);
 
         //makes difficulties visible in the spinner
         ArrayAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, GameDifficulty.values());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         difficultySpinner.setAdapter(adapter);
+
+        //updates the textview of each skill, still need to figure out how to cap at 16 total
+        totalVM = new ConfigurationViewModel();
+        pilotVM = new ConfigurationViewModel();
+        fighterVM = new ConfigurationViewModel();
+        traderVM = new ConfigurationViewModel();
+        engineerVM = new ConfigurationViewModel();
+
+        addPilot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (totalVM.checkCount()) {
+                    pilotVM.setCount(pilotVM.getCount() + 1);
+                    totalVM.setCount(totalVM.getCount() + 1);
+                    pilotSkill.setText("" + pilotVM.getCount());
+                }
+            }
+        });
+
+        subtractPilot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (pilotVM.getCount() > 0) {
+                    pilotVM.setCount(pilotVM.getCount() - 1);
+                    totalVM.setCount(totalVM.getCount() - 1);
+                    pilotSkill.setText("" + pilotVM.getCount());
+                }
+            }
+        });
+
+        addFighter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (totalVM.checkCount()) {
+                    fighterVM.setCount(fighterVM.getCount() + 1);
+                    totalVM.setCount(totalVM.getCount() + 1);
+                    fighterSkill.setText("" + fighterVM.getCount());
+                }
+            }
+        });
+
+        subtractFighter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (fighterVM.getCount() > 0) {
+                    fighterVM.setCount(fighterVM.getCount() - 1);
+                    totalVM.setCount(totalVM.getCount() - 1);
+                    fighterSkill.setText("" + fighterVM.getCount());
+                }
+            }
+        });
+
+        addTrader.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (totalVM.checkCount()) {
+                    traderVM.setCount(traderVM.getCount() + 1);
+                    totalVM.setCount(totalVM.getCount() + 1);
+                    traderSkill.setText("" + traderVM.getCount());
+                }
+            }
+        });
+
+        subtractTrader.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (traderVM.getCount() > 0) {
+                    traderVM.setCount(traderVM.getCount() - 1);
+                    totalVM.setCount(totalVM.getCount() - 1);
+                    traderSkill.setText("" + traderVM.getCount());
+                }
+            }
+        });
+
+        addEngineer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (totalVM.checkCount()) {
+                    engineerVM.setCount(engineerVM.getCount() + 1);
+                    totalVM.setCount(totalVM.getCount() + 1);
+                    engineerSkill.setText("" + engineerVM.getCount());
+                }
+            }
+        });
+
+        subtractEngineer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (engineerVM.getCount() > 0) {
+                    engineerVM.setCount(engineerVM.getCount() - 1);
+                    totalVM.setCount(totalVM.getCount() - 1);
+                    engineerSkill.setText("" + engineerVM.getCount());
+                }
+            }
+        });
     }
+
 
         //ok doesn't work yet but think this is next step to store the data??
 //    public void onSubmitPressed(View view) {
