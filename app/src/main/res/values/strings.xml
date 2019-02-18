@@ -6,4 +6,5 @@
     <string name="difficulty_label">Set Difficulty</string>
     <string name="plus">+</string>
     <string name="minus">-</string>
+    <string name="submit">Submit</string>
 </resources>
