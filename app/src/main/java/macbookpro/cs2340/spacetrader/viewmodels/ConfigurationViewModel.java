@@ -6,11 +6,20 @@ import android.support.annotation.NonNull;
 
 import macbookpro.cs2340.spacetrader.model.Player;
 
-public class ConfigurationViewModel extends AndroidViewModel {
-    private Player player;
+public class ConfigurationViewModel {
 
-    public ConfigurationViewModel(@NonNull Application app) {
-        super(app);
+    private int count;
+
+    public ConfigurationViewModel() {
+        count = 0;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public int getCount() {
+        return count;
     }
 
 }

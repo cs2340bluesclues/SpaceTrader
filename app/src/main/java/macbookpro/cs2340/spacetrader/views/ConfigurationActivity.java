@@ -32,7 +32,8 @@ public class ConfigurationActivity extends AppCompatActivity {
     //some experimental shit
     Button addPilot, subtractPilot, addFighter, subtractFighter, addTrader, subtractTrader, addEngineer, subtractEngineer;
     TextView pilotSkill, fighterSkill, traderSkill, engineerSkill;
-    int pilotCounter, fighterCounter, traderCounter, engineerCounter, totalCounter;
+    ConfigurationViewModel pilotVM, fighterVM, traderVM, engineerVM;
+    int totalSkillCount;
     //new player??
     private Player player;
     //private ;
@@ -51,26 +52,21 @@ public class ConfigurationActivity extends AppCompatActivity {
         difficultySpinner = findViewById(R.id.difficulty_spinner);
         inputName = findViewById(R.id.input_name);
 
-        addPilot = (Button) findViewById(R.id.add_pilot_skill_button);
-        subtractPilot = (Button) findViewById(R.id.subtract_pilot_skill_button);
-        pilotSkill = (TextView) findViewById(R.id.pilot_skill_tracker);
-        pilotCounter = 0;
+        addPilot = findViewById(R.id.add_pilot_skill_button);
+        subtractPilot = findViewById(R.id.subtract_pilot_skill_button);
+        pilotSkill = findViewById(R.id.pilot_skill_tracker);
 
         addFighter = findViewById(R.id.add_fighter_skill_button);
         subtractFighter = findViewById(R.id.subtract_fighter_skill_button);
         fighterSkill = findViewById(R.id.fighter_skill_tracker);
-        fighterCounter = 0;
 
         addTrader = findViewById(R.id.add_trader_skill_button);
         subtractTrader = findViewById(R.id.subtract_trader_skill_button);
         traderSkill = findViewById(R.id.trader_skill_tracker);
-        traderCounter = 0;
 
         addEngineer = findViewById(R.id.add_engineer_skill_button);
         subtractEngineer = findViewById(R.id.subtract_engineer_skill_button);
         engineerSkill = findViewById(R.id.engineer_skill_tracker);
-        engineerCounter = 0;
-
 
         Button submit = findViewById(R.id.submit_player_info_button);
 
@@ -80,20 +76,26 @@ public class ConfigurationActivity extends AppCompatActivity {
         difficultySpinner.setAdapter(adapter);
 
         //updates the textview of each skill, still need to figure out how to cap at 16 total
+
+        pilotVM = new ConfigurationViewModel();
+        fighterVM = new ConfigurationViewModel();
+        traderVM = new ConfigurationViewModel();
+        engineerVM = new ConfigurationViewModel();
+
         addPilot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pilotCounter = pilotCounter + 1;
-                pilotSkill.setText("" + pilotCounter);
+                pilotVM.setCount(pilotVM.getCount() + 1);
+                pilotSkill.setText("" + pilotVM.getCount());
             }
         });
 
         subtractPilot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (pilotCounter > 0) {
-                    pilotCounter = pilotCounter - 1;
-                    pilotSkill.setText("" + pilotCounter);
+                if (pilotVM.getCount() > 0) {
+                    pilotVM.setCount(pilotVM.getCount() - 1);
+                    pilotSkill.setText("" + pilotVM.getCount());
                 }
             }
         });
@@ -101,17 +103,17 @@ public class ConfigurationActivity extends AppCompatActivity {
         addFighter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fighterCounter = fighterCounter + 1;
-                fighterSkill.setText("" + fighterCounter);
+                fighterVM.setCount(fighterVM.getCount() + 1);
+                fighterSkill.setText("" + fighterVM.getCount());
             }
         });
 
         subtractFighter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (fighterCounter > 0) {
-                    fighterCounter = fighterCounter - 1;
-                    fighterSkill.setText("" + fighterCounter);
+                if (fighterVM.getCount() > 0) {
+                    fighterVM.setCount(fighterVM.getCount() - 1);
+                    fighterSkill.setText("" + fighterVM.getCount());
                 }
             }
         });
@@ -119,17 +121,17 @@ public class ConfigurationActivity extends AppCompatActivity {
         addTrader.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                traderCounter = traderCounter + 1;
-                traderSkill.setText("" + traderCounter);
+                traderVM.setCount(traderVM.getCount() + 1);
+                traderSkill.setText("" + traderVM.getCount());
             }
         });
 
         subtractTrader.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (traderCounter > 0) {
-                    traderCounter = traderCounter - 1;
-                    traderSkill.setText("" + traderCounter);
+                if (traderVM.getCount() > 0) {
+                    traderVM.setCount(traderVM.getCount() - 1);
+                    traderSkill.setText("" + traderVM.getCount());
                 }
             }
         });
@@ -137,17 +139,17 @@ public class ConfigurationActivity extends AppCompatActivity {
         addEngineer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                engineerCounter = engineerCounter + 1;
-                engineerSkill.setText("" + engineerCounter);
+                engineerVM.setCount(engineerVM.getCount() + 1);
+                engineerSkill.setText("" + engineerVM.getCount());
             }
         });
 
         subtractEngineer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (engineerCounter > 0) {
-                    engineerCounter = engineerCounter - 1;
-                    engineerSkill.setText("" + engineerCounter);
+                if (engineerVM.getCount() > 0) {
+                    engineerVM.setCount(engineerVM.getCount() - 1);
+                    engineerSkill.setText("" + engineerVM.getCount());
                 }
             }
         });
