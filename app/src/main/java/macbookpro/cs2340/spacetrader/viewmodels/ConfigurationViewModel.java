@@ -71,9 +71,7 @@ public class ConfigurationViewModel {
     }
 
     public boolean checkCountGreater16() {
-        return totalCount <= 16;
+        return totalCount < 16;
     }
-
-    public boolean checkCountLess0() { return totalCount >= 0; }
 
 }

@@ -76,18 +76,13 @@ public class ConfigurationActivity extends AppCompatActivity {
 
         //updates the textview of each skill, still need to figure out how to cap at 16 total
         totalVM = new ConfigurationViewModel();
-        pilotVM = new ConfigurationViewModel();
-        fighterVM = new ConfigurationViewModel();
-        traderVM = new ConfigurationViewModel();
-        engineerVM = new ConfigurationViewModel();
 
         addPilot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (totalVM.checkCount()) {
-                    pilotVM.setCount(pilotVM.getCount() + 1);
-                    totalVM.setCount(totalVM.getCount() + 1);
-                    pilotSkill.setText("" + pilotVM.getCount());
+                if (totalVM.checkCountGreater16()) {
+                    totalVM.setPilotCount(totalVM.getPilotCount() + 1);
+                    pilotSkill.setText("" + totalVM.getPilotCount());
                 }
             }
         });
@@ -95,10 +90,9 @@ public class ConfigurationActivity extends AppCompatActivity {
         subtractPilot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (pilotVM.getCount() > 0) {
-                    pilotVM.setCount(pilotVM.getCount() - 1);
-                    totalVM.setCount(totalVM.getCount() - 1);
-                    pilotSkill.setText("" + pilotVM.getCount());
+                if (totalVM.getPilotCount() > 0) {
+                    totalVM.setPilotCount(totalVM.getPilotCount() - 1);
+                    pilotSkill.setText("" + totalVM.getPilotCount());
                 }
             }
         });
@@ -106,10 +100,9 @@ public class ConfigurationActivity extends AppCompatActivity {
         addFighter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (totalVM.checkCount()) {
-                    fighterVM.setCount(fighterVM.getCount() + 1);
-                    totalVM.setCount(totalVM.getCount() + 1);
-                    fighterSkill.setText("" + fighterVM.getCount());
+                if (totalVM.checkCountGreater16()) {
+                    totalVM.setFighterCount(totalVM.getFighterCount() + 1);
+                    fighterSkill.setText("" + totalVM.getFighterCount());
                 }
             }
         });
@@ -117,10 +110,9 @@ public class ConfigurationActivity extends AppCompatActivity {
         subtractFighter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (fighterVM.getCount() > 0) {
-                    fighterVM.setCount(fighterVM.getCount() - 1);
-                    totalVM.setCount(totalVM.getCount() - 1);
-                    fighterSkill.setText("" + fighterVM.getCount());
+                if (totalVM.getFighterCount() > 0) {
+                    totalVM.setFighterCount(totalVM.getFighterCount() - 1);
+                    fighterSkill.setText("" + totalVM.getFighterCount());
                 }
             }
         });
@@ -128,10 +120,9 @@ public class ConfigurationActivity extends AppCompatActivity {
         addTrader.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (totalVM.checkCount()) {
-                    traderVM.setCount(traderVM.getCount() + 1);
-                    totalVM.setCount(totalVM.getCount() + 1);
-                    traderSkill.setText("" + traderVM.getCount());
+                if (totalVM.checkCountGreater16()) {
+                    totalVM.setTraderCount(totalVM.getTraderCount() + 1);
+                    traderSkill.setText("" + totalVM.getTraderCount());
                 }
             }
         });
@@ -139,10 +130,9 @@ public class ConfigurationActivity extends AppCompatActivity {
         subtractTrader.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (traderVM.getCount() > 0) {
-                    traderVM.setCount(traderVM.getCount() - 1);
-                    totalVM.setCount(totalVM.getCount() - 1);
-                    traderSkill.setText("" + traderVM.getCount());
+                if (totalVM.getTraderCount() > 0) {
+                    totalVM.setTraderCount(totalVM.getTraderCount() - 1);
+                    traderSkill.setText("" + totalVM.getTraderCount());
                 }
             }
         });
@@ -150,10 +140,9 @@ public class ConfigurationActivity extends AppCompatActivity {
         addEngineer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (totalVM.checkCount()) {
-                    engineerVM.setCount(engineerVM.getCount() + 1);
-                    totalVM.setCount(totalVM.getCount() + 1);
-                    engineerSkill.setText("" + engineerVM.getCount());
+                if (totalVM.checkCountGreater16()) {
+                    totalVM.setEngineerCount(totalVM.getEngineerCount() + 1);
+                    engineerSkill.setText("" + totalVM.getEngineerCount());
                 }
             }
         });
@@ -161,10 +150,9 @@ public class ConfigurationActivity extends AppCompatActivity {
         subtractEngineer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (engineerVM.getCount() > 0) {
-                    engineerVM.setCount(engineerVM.getCount() - 1);
-                    totalVM.setCount(totalVM.getCount() - 1);
-                    engineerSkill.setText("" + engineerVM.getCount());
+                if (totalVM.getEngineerCount() > 0) {
+                    totalVM.setEngineerCount(totalVM.getEngineerCount() - 1);
+                    engineerSkill.setText("" + totalVM.getEngineerCount());
                 }
             }
         });
