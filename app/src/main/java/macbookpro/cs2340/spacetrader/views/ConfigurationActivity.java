@@ -22,6 +22,7 @@ public class ConfigurationActivity extends AppCompatActivity {
 
     /** reference to our view model */
     private ConfigurationViewModel viewModel;
+    public final static String EXTRA_MESSAGE = "PRINT_PLAYER_MESSAGE";
 
     /* ************************
         Widgets we will need for binding and getting information
@@ -158,6 +159,7 @@ public class ConfigurationActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String name = inputName.getText().toString();
                 GameDifficulty level = (GameDifficulty) difficultySpinner.getSelectedItem();
                 if (totalVM.checkCount16() && totalVM.checkNameLength(name)) {
@@ -168,8 +170,9 @@ public class ConfigurationActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Name field cannot be blank", Toast.LENGTH_LONG).show();
                 } else {
                     totalVM.sendData(name, level);
-                    String r = "we dunnit";
-                    Log.d("PLAYER", r);
+                    Intent messageIntent = new Intent(ConfigurationActivity.this, MainActivity.class);
+                    messageIntent.putExtra("PRINT_PLAYER_MESSAGE", ??person.toString());
+                    startActivity(messageIntent);
                 }
             }
         });
