@@ -172,17 +172,17 @@ public class ConfigurationActivity extends AppCompatActivity {
         public void onClick(View v) {
             String name = inputName.getText().toString();
             GameDifficulty level = (GameDifficulty) difficultySpinner.getSelectedItem();
-//            if(totalVM.checkCount16()) {
-//                Toast.makeText(this, "Total skill count must be 16", Toast.LENGTH_LONG).show();
-//            } else if(totalVM.checkNameLength()) {
-//                Toast.makeText(this, "Name field cannot be blank", Toast.LENGTH_LONG).show();
-//            } else {
-//
-//            }
-
-            totalVM.sendData(name, level);
-            String r = "we dunnit";
-            Log.d("PLAYER", r);
+            if(totalVM.checkCount16() && totalVM.checkNameLength(name)) {
+                Toast.makeText(getApplicationContext(), "Name field cannot be blank and total skill count must be 16", Toast.LENGTH_LONG).show();
+            } else if(totalVM.checkCount16()) {
+                Toast.makeText(getApplicationContext(), "Total skill count must be 16", Toast.LENGTH_LONG).show();
+            } else if(totalVM.checkNameLength(name)) {
+                Toast.makeText(getApplicationContext(), "Name field cannot be blank", Toast.LENGTH_LONG).show();
+            } else {
+                totalVM.sendData(name, level);
+                String r = "we dunnit";
+                Log.d("PLAYER", r);
+            }
         }
     });
 }
