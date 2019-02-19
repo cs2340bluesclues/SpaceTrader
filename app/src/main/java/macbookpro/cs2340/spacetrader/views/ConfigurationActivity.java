@@ -169,10 +169,12 @@ public class ConfigurationActivity extends AppCompatActivity {
                 } else if (totalVM.checkNameLength(name)) {
                     Toast.makeText(getApplicationContext(), "Name field cannot be blank", Toast.LENGTH_LONG).show();
                 } else {
-                    totalVM.sendData(name, level);
-                    Intent messageIntent = new Intent(ConfigurationActivity.this, MainActivity.class);
-                    messageIntent.putExtra("PRINT_PLAYER_MESSAGE", ??person.toString());
-                    startActivity(messageIntent);
+                    String s = totalVM.sendData(name, level);
+                    //Intent messageIntent = new Intent(ConfigurationActivity.this, StartActivity.class);
+                    //messageIntent.putExtra("PRINT_PLAYER_MESSAGE", s);
+                    //startActivity(messageIntent);
+                    Log.i("player info!", s);
+                    Toast.makeText(getApplicationContext(), "Success!", Toast.LENGTH_LONG).show();
                 }
             }
         });

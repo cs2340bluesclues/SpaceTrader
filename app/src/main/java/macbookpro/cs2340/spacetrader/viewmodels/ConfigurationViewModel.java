@@ -87,9 +87,10 @@ public class ConfigurationViewModel {
         return name.length() == 0;
     }
 
-    public void sendData(String name, GameDifficulty diff) {
+    public String sendData(String name, GameDifficulty diff) {
         createGame(diff);
-        createPlayer(name, pilotCount, fighterCount, traderCount, engineerCount);
+        return createPlayer(name, pilotCount, fighterCount, traderCount, engineerCount);
+
     }
 
 }

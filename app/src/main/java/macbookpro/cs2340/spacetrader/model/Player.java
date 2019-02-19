@@ -85,5 +85,12 @@ public class Player {
         this.ship = ship;
     }
 
+    public String toString() {
+        return "name: " + this.getName() + "\n pilot: " + this.getPilot() + "\n fighter: "
+                + this.getFighter() + "\n trader:" + this.getTrader() + "\n engineer: "
+                + this.getEngineer() + "\n total skill points: " + this.getTotalSkillPoints()
+                + "\n credits: " + this.getCredits() + "\n ship: " + this.getShip().getShipName();
+    }
+
 
 }
