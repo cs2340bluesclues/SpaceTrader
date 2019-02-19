@@ -41,8 +41,6 @@ public class ConfigurationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.config);
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
 
         /*
          * Grab the dialog widgets so we can get info for later
@@ -157,57 +155,24 @@ public class ConfigurationActivity extends AppCompatActivity {
             }
         });
 
-
-
-        //ok doesn't work yet but think this is next step to store the data??
-//    public void onSubmitPressed(View view) {
-//        Log.d("submit", "info submitted");
-//        player.setName(playerNameLabel.getText().toString());
-//        player.setDifficulty((String) difficultySpinner.getSelectedItem()); // not sure if this should be a string
-//        Log.d("submit", "new player data: " + player);
-//    }
-
-    submit.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            String name = inputName.getText().toString();
-            GameDifficulty level = (GameDifficulty) difficultySpinner.getSelectedItem();
-            if(totalVM.checkCount16() && totalVM.checkNameLength(name)) {
-                Toast.makeText(getApplicationContext(), "Name field cannot be blank and total skill count must be 16", Toast.LENGTH_LONG).show();
-            } else if(totalVM.checkCount16()) {
-                Toast.makeText(getApplicationContext(), "Total skill count must be 16", Toast.LENGTH_LONG).show();
-            } else if(totalVM.checkNameLength(name)) {
-                Toast.makeText(getApplicationContext(), "Name field cannot be blank", Toast.LENGTH_LONG).show();
-            } else {
-                totalVM.sendData(name, level);
-                String r = "we dunnit";
-                Log.d("PLAYER", r);
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = inputName.getText().toString();
+                GameDifficulty level = (GameDifficulty) difficultySpinner.getSelectedItem();
+                if (totalVM.checkCount16() && totalVM.checkNameLength(name)) {
+                    Toast.makeText(getApplicationContext(), "Name field cannot be blank and total skill count must be 16", Toast.LENGTH_LONG).show();
+                } else if (totalVM.checkCount16()) {
+                    Toast.makeText(getApplicationContext(), "Total skill count must be 16", Toast.LENGTH_LONG).show();
+                } else if (totalVM.checkNameLength(name)) {
+                    Toast.makeText(getApplicationContext(), "Name field cannot be blank", Toast.LENGTH_LONG).show();
+                } else {
+                    totalVM.sendData(name, level);
+                    String r = "we dunnit";
+                    Log.d("PLAYER", r);
+                }
             }
-        }
-    });
-}
-
-    private void saveConfiguration() {
-        String name = inputName.getText().toString();
-        GameDifficulty level = (GameDifficulty) difficultySpinner.getSelectedItem();
-
-        if (name.trim().isEmpty()) {
-            Toast.makeText(this, "Fields cannot be blank", Toast.LENGTH_LONG).show();
-            return;
-        }
-
-
-
-        Log.d("APP", "Making intent");
-        Log.d("APP", "Data - " + name + " " + " " + level.toString());
-        Intent intent = new Intent();
-//        intent.putExtra(name);
-//        intent.putExtra(level);
-
-        setResult(RESULT_OK, intent);
-
-        finish();
-
+        });
     }
 
 }
