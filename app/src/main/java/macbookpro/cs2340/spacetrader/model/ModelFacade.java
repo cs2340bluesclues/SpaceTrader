@@ -19,7 +19,8 @@ public class ModelFacade {
         Game newGame = new Game(difficulty);
     }
 
-    public static void createPlayer(String name, int pilot, int fighter, int trader, int engineer) {
+    public static String createPlayer(String name, int pilot, int fighter, int trader, int engineer) {
         Player player = new Player(name, pilot, fighter, trader, engineer);
+        return player.toString();
     }
 }
