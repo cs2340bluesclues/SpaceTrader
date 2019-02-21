@@ -9,4 +9,12 @@ public class Universe {
         system = new HashSet<>();
     }
 
+    public void addSolarSystem(SolarSystem s) {
+        system.add(s);
+    }
+
+    public void travel() {
+        //something that allows to go to new solar system coords
+    }
+
 }
