@@ -5,6 +5,11 @@ public class Coord {
     private int x;
     private int y;
 
+    public Coord(int xcoord, int ycoord) {
+        x = xcoord;
+        y = ycoord;
+    }
+
     @Override
     public int hashCode() {
         int result = x;
@@ -12,8 +17,12 @@ public class Coord {
         return result;
     }
 
-    public boolean equals() {
-        return false;
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) { return true; }
+        if (!(o instanceof Coord)) { return false; }
+        Coord c = (Coord) o;
+        return c.hashCode() == this.hashCode();
     }
 
 }
