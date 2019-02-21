@@ -9,6 +9,7 @@ public class Player {
     private int totalSkillPoints;
     private int credits;
     private Ship ship;
+    private boolean lawfulStatus;
 
     public Player(String name, int pilot, int fighter, int trader, int engineer) {
         this.name = name;
@@ -17,6 +18,7 @@ public class Player {
         this.trader = trader;
         this.engineer = engineer;
         totalSkillPoints = pilot + fighter + trader + engineer;
+        lawfulStatus = true;
         credits = 1000;
         ship = Ship.GNAT;
     }
