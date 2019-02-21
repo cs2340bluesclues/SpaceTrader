@@ -7,7 +7,9 @@ public class Coord {
 
     @Override
     public int hashCode() {
-        return 1;
+        int result = x;
+        result = 31 * result + y;
+        return result;
     }
 
     public boolean equals() {
