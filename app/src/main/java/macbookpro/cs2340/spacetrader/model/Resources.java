@@ -1,6 +1,7 @@
 package macbookpro.cs2340.spacetrader.model;
 
 public enum Resources {
+    NO_SPECIAL_RESOURCES("no special resources"),
     MINERAL_RICH("mineral rich"),
     MINERAL_POOR("mineral poor"),
     DESERT("desert"),
