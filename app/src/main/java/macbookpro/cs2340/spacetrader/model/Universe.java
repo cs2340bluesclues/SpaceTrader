@@ -20,11 +20,10 @@ public class Universe {
 
     public Universe() {
         system = new HashSet<>();
-        createList();
     }
 
     public void addSolarSystem(int seed) {
-        SolarSystem s1 = new SolarSystem();
+        SolarSystem s1 = new SolarSystem(seed);
     }
 
     public void travel() {

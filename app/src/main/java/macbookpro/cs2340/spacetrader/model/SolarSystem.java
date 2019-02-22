@@ -30,10 +30,6 @@ public class SolarSystem {
         //I'm not sure if this works correctly
         Coord temp = new Coord(r.nextInt(), r.nextInt());
         coordsMap.put(temp, temp.hashCode());
-
-    }
-
-    public void addPlanet() {
         planets.add(new Planet(name));
     }
 
