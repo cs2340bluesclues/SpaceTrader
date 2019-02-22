@@ -1,5 +1,15 @@
 package macbookpro.cs2340.spacetrader.model;
 
+import android.util.Log;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -16,7 +26,7 @@ public class Universe {
 
     private void readList() {
 
-        String arr[] = new String[]{"Aldea", "Andevian", "Baratas", "Brax", "Calondia", "Capelle",
+        String[] planetNames = new String[]{"Aldea", "Andevian", "Baratas", "Brax", "Calondia", "Capelle",
                 "Carzon", "Cestus", "Cheron", "Damast", "Draylon", "Drema", "Endor", "Esmee",
                 "Exo", "Ferris", "Fourmi", "Frolix", "Gemulon", "Helena", "Iralius", "Janus",
                 "Japori", "Jarada", "Jason", "Kaylon", "Keanu", "Khefka", "Kira", "Klaatu",
@@ -25,17 +35,23 @@ public class Universe {
                 "Rakhar", "Rhymus", "Rochani", "Rubicum", "Sarpeidon", "Sefalla", "Sol", "Stakoron",
                 "Styris", "Tantalos", "Tarchannen", "Thera", "Titan", "Triacus", "Tyrus", "Vandor",
                 "Ventax", "Xenon", "Xerxes", "Yojimbo", "Zalkon", "Zuul"};
-        names = Arrays.asList();
-//        BufferedReader reader;
-//        reader = new BufferedReader(new FileReader("./Names"));
-//        String line;
-//        while ((line = reader.readLine()) != null) {
-//            names.add(line);
+        names = new ArrayList<String>(Arrays.asList(planetNames));
+        Log.i("List creation", "List of Planet names made");
+
+//        try {
+//            BufferedReader reader = new BufferedReader(new FileReader("./Names"));
+//            String line;
+//            while ((line = reader.readLine()) != null) {
+//                names.add(line);
+//            }
+//            reader.close();
+//            for (int i = 0; i < names.size(); i++) {
+//                //System.out.println(names.get(i));
+//                Log.i("List creation", "List of Planet names made");
+//            }
+//        } catch (IOException e){
+//            e.printStackTrace();
 //        }
-//        reader.close();
-        for (int i = 0; i < names.size(); i++) {
-            System.out.println(names.get(i));
-        }
     }
 
     public void addSolarSystem() {
