@@ -1,16 +1,30 @@
 package macbookpro.cs2340.spacetrader.model;
 
+import android.util.Log;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 
 public class Universe {
+
     private HashSet<SolarSystem> system;
 
     public Universe() {
         system = new HashSet<>();
+        createList();
     }
 
-    public void addSolarSystem(SolarSystem s) {
-        system.add(s);
+    public void addSolarSystem(int seed) {
+        SolarSystem s1 = new SolarSystem();
     }
 
     public void travel() {
