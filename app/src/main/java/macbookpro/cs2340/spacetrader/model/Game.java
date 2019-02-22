@@ -6,8 +6,13 @@ public class Game {
 
     private GameDifficulty diff;
 
+    /**
+     * Game constructor; makes an instance of game, which creates a universe and sets game
+     * difficulty
+     * @param diff player-selected difficulty of game
+     */
     public Game(GameDifficulty diff) {
-
+        Universe universe = new Universe();
         this.diff = diff;
     }
 
