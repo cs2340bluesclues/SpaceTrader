@@ -26,7 +26,6 @@ public class Game {
 
     public Universe generateUniverse(int seed) {
         Random random = new Random(seed);
-
         return null;
     }
 }
