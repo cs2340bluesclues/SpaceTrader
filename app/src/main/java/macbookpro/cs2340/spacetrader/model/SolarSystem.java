@@ -28,7 +28,7 @@ public class SolarSystem {
         Random r = new Random(seed);
         this.name = nameList.remove(r.nextInt(nameList.size()));
         //I'm not sure if this works correctly
-        Coord temp = new Coord(r.nextInt(), r.nextInt());
+        Coord temp = new Coord(r.nextInt(16), r.nextInt(16));
         coordsMap.put(temp, temp.hashCode());
         planets.add(new Planet(name));
     }
