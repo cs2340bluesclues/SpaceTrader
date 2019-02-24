@@ -10,7 +10,8 @@ import java.util.Random;
 
 public class SolarSystem {
 
-    private static List<String> nameList = new ArrayList<>(Arrays.asList(new String[]{"Aldea", "Andevian", "Baratas", "Brax", "Calondia", "Capelle",
+    private static List<String> nameList = new ArrayList<>(Arrays.asList(new String[]{"Aldea",
+            "Andevian", "Baratas", "Brax", "Calondia", "Capelle",
             "Carzon", "Cestus", "Cheron", "Damast", "Draylon", "Drema", "Endor", "Esmee",
             "Exo", "Ferris", "Fourmi", "Frolix", "Gemulon", "Helena", "Iralius", "Janus",
             "Japori", "Jarada", "Jason", "Kaylon", "Keanu", "Khefka", "Kira", "Klaatu",
@@ -19,6 +20,7 @@ public class SolarSystem {
             "Rakhar", "Rhymus", "Rochani", "Rubicum", "Sarpeidon", "Sefalla", "Sol", "Stakoron",
             "Styris", "Tantalos", "Tarchannen", "Thera", "Titan", "Triacus", "Tyrus", "Vandor",
             "Ventax", "Xenon", "Xerxes", "Yojimbo", "Zalkon", "Zuul"}));
+    
     private static Map<Coord, Integer> coordsMap = new HashMap<>();
     private HashSet<Planet> planets;
     private String name;
