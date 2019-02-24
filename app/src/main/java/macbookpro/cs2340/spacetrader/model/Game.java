@@ -12,7 +12,7 @@ public class Game {
      * @param diff player-selected difficulty of game
      */
     public Game(GameDifficulty diff) {
-        Universe universe = new Universe();
+        Universe universe = new Universe(10,10);
         this.diff = diff;
     }
 

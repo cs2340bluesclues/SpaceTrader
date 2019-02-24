@@ -10,7 +10,8 @@ import java.util.Random;
 
 public class SolarSystem {
 
-    private static List<String> nameList = new ArrayList<>(Arrays.asList(new String[]{"Aldea", "Andevian", "Baratas", "Brax", "Calondia", "Capelle",
+    private static List<String> nameList = new ArrayList<>(Arrays.asList(new String[]{"Aldea",
+            "Andevian", "Baratas", "Brax", "Calondia", "Capelle",
             "Carzon", "Cestus", "Cheron", "Damast", "Draylon", "Drema", "Endor", "Esmee",
             "Exo", "Ferris", "Fourmi", "Frolix", "Gemulon", "Helena", "Iralius", "Janus",
             "Japori", "Jarada", "Jason", "Kaylon", "Keanu", "Khefka", "Kira", "Klaatu",
