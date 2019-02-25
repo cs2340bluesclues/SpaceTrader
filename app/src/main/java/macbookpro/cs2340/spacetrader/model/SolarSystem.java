@@ -1,5 +1,7 @@
 package macbookpro.cs2340.spacetrader.model;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -45,9 +47,14 @@ public class SolarSystem {
 
         // populates solar system with planets
         planets.add(new Planet(name));
-        numPlanets = r.nextInt(5);
+        numPlanets = r.nextInt(3);
         for (int i = 0; i < numPlanets; i++) {
             addPlanet();
+        }
+
+        //print to log cat
+        for (Planet s: planets) {
+            Log.i("Universe" , "a planet made: " + s.getName());
         }
     }
 

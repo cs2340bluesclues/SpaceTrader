@@ -29,20 +29,19 @@ public class ConfigurationActivity extends AppCompatActivity {
     private TextView playerNameLabel;
     private EditText inputName;
     private Spinner difficultySpinner;
-    //some experimental shit
-    Button addPilot, subtractPilot, addFighter, subtractFighter, addTrader, subtractTrader, addEngineer, subtractEngineer, submit;
+
+    Button addPilot, subtractPilot, addFighter, subtractFighter, addTrader, subtractTrader,
+            addEngineer, subtractEngineer, submit;
     TextView pilotSkill, fighterSkill, traderSkill, engineerSkill;
-    ConfigurationViewModel pilotVM, fighterVM, traderVM, engineerVM, totalVM;
-    //new player??
+    ConfigurationViewModel totalVM;
+
     private Player player;
-    //private ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.config);
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
+
 
         /*
          * Grab the dialog widgets so we can get info for later
@@ -74,7 +73,7 @@ public class ConfigurationActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         difficultySpinner.setAdapter(adapter);
 
-        //updates the textview of each skill, still need to figure out how to cap at 16 total
+        //updates the textview of each skill
         totalVM = new ConfigurationViewModel();
 
         addPilot.setOnClickListener(new View.OnClickListener() {

@@ -20,4 +20,8 @@ public class Planet {
         int output = generator.nextInt(max);
         return output;
     }
+
+    public String getName() {
+        return name;
+    }
 }

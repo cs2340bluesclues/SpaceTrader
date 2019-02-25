@@ -1,5 +1,7 @@
 package macbookpro.cs2340.spacetrader.model;
 
+import android.util.Log;
+
 import java.util.HashSet;
 import java.util.Random;
 
@@ -17,6 +19,11 @@ public class Universe {
             system.add(new SolarSystem(r));
             seed++;
             r.setSeed(seed);
+        }
+
+        //print to log cat
+        for (SolarSystem s: system) {
+            Log.i("Universe" , "a system made");
         }
     }
 
