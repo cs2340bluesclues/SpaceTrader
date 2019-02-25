@@ -169,14 +169,20 @@ public class ConfigurationActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Name field cannot be blank", Toast.LENGTH_LONG).show();
                 } else {
                     String s = totalVM.sendData(name, level);
-                    //Intent messageIntent = new Intent(ConfigurationActivity.this, StartActivity.class);
-                    //messageIntent.putExtra("PRINT_PLAYER_MESSAGE", s);
-                    //startActivity(messageIntent);
-                    Log.i("player info!", s);
-                    Toast.makeText(getApplicationContext(), "Success!", Toast.LENGTH_LONG).show();
+//                    Intent messageIntent = new Intent(ConfigurationActivity.this, StartActivity.class);
+//                    messageIntent.putExtra("PRINT_PLAYER_MESSAGE", s);
+//                    startActivity(messageIntent);
+                    launchGame();
+//                    Log.i("player info!", s);
+//                    Toast.makeText(getApplicationContext(), "Success!", Toast.LENGTH_LONG).show();
                 }
             }
         });
+    }
+
+    private void launchGame() {
+        Intent intent = new Intent(this, StartActivity.class);
+        startActivity(intent);
     }
 
 }
