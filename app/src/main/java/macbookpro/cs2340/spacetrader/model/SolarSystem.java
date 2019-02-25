@@ -4,10 +4,8 @@ import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
@@ -57,8 +55,13 @@ public class SolarSystem {
         return name;
     }
 
+    public Coord getCoords(){
+        return coords;
+    }
+
     public void printSolarSystem() {
-        Log.i("Universe" , "a Solar System made: " + getName());
+        Log.i("Universe" , "a Solar System made: " + getName() + ". Coordinates: ("
+                + getCoords().getX() + " , " + getCoords().getY() + ")");
         for (Planet p : planets) {
             p.printPlanet();
         }
