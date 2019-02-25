@@ -1,4 +1,6 @@
 package macbookpro.cs2340.spacetrader.model;
+import android.util.Log;
+
 import java.util.Random;
 
 public class Planet {
@@ -23,5 +25,9 @@ public class Planet {
 
     public String getName() {
         return name;
+    }
+
+    public void printPlanet() {
+        Log.i("Universe", "a Planet made: " + getName());
     }
 }

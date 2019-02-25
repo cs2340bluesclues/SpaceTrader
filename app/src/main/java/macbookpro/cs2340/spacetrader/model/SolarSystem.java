@@ -25,7 +25,7 @@ public class SolarSystem {
             "Ventax", "Xenon", "Xerxes", "Yojimbo", "Zalkon", "Zuul"}));
     
     private static Set<Coord> coordsSet = new HashSet<>();
-    private HashSet<Planet> planets;
+    private Set<Planet> planets = new HashSet<>();
     private String name;
     private Coord coords;
     private int numPlanets;
@@ -51,10 +51,16 @@ public class SolarSystem {
         for (int i = 0; i < numPlanets; i++) {
             addPlanet();
         }
+    }
 
-        //print to log cat
-        for (Planet s: planets) {
-            Log.i("Universe" , "a planet made: " + s.getName());
+    public String getName() {
+        return name;
+    }
+
+    public void printSolarSystem() {
+        Log.i("Universe" , "a Solar System made: " + getName());
+        for (Planet p : planets) {
+            p.printPlanet();
         }
     }
 

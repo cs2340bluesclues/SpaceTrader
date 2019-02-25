@@ -4,10 +4,11 @@ import android.util.Log;
 
 import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 
 public class Universe {
 
-    private HashSet<SolarSystem> system;
+    private Set<SolarSystem> system;
     private Random r;
     private int numSolarSystems;
 
@@ -23,7 +24,7 @@ public class Universe {
 
         //print to log cat
         for (SolarSystem s: system) {
-            Log.i("Universe" , "a system made");
+            s.printSolarSystem();
         }
     }
 
