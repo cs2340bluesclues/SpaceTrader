@@ -22,7 +22,7 @@ public class Coord {
         if (o == this) { return true; }
         if (!(o instanceof Coord)) { return false; }
         Coord c = (Coord) o;
-        return c.hashCode() == this.hashCode();
+        return c.x == this.x && c.y == this.y;
     }
 
 }

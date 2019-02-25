@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.Set;
 
 public class SolarSystem {
 
@@ -21,7 +22,7 @@ public class SolarSystem {
             "Styris", "Tantalos", "Tarchannen", "Thera", "Titan", "Triacus", "Tyrus", "Vandor",
             "Ventax", "Xenon", "Xerxes", "Yojimbo", "Zalkon", "Zuul"}));
     
-    private static Map<Coord, Integer> coordsMap = new HashMap<>();
+    private static Set<Coord> coordsSet = new HashSet<>();
     private HashSet<Planet> planets;
     private String name;
     private Coord coords;
@@ -33,8 +34,13 @@ public class SolarSystem {
         this.name = nameList.remove(r.nextInt(nameList.size()));
 
         // Not sure if this works correctly
+
         Coord temp = new Coord(r.nextInt(16), r.nextInt(16));
-        coordsMap.put(temp, temp.hashCode());
+        //while adding temp returns false (meaning there's a duplicate), regenerate
+        while (!coordsSet.add(temp)) {
+            temp = new Coord(r.nextInt(16), r.nextInt(16));
+        }
+        coordsSet.add(temp);
         coords = temp;
 
         // populates solar system with planets
