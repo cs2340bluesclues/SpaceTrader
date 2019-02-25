@@ -42,7 +42,7 @@ public class Planet {
     }
 
     /**
-     * getter for planet tech level
+     * Getter for planet tech level
      * @return TechLevel for the planet
      */
     public TechLevel getTechLevel(){

@@ -12,6 +12,13 @@ public class Universe {
     private Random r;
     private int numSolarSystems;
 
+    /**
+     * Universe constructor instantiates the HashSet of SolarSystems, creates random SolarSystems
+     * and adds them to the HashSet
+     *
+     * @param n number of SolarSystems to be created and added to the set
+     * @param seed value for the random generator
+     */
     public Universe(int n, int seed) {
         system = new HashSet<>();
         r = new Random(seed);
@@ -28,6 +35,9 @@ public class Universe {
         }
     }
 
+    /**
+     * method to change what SolarSystem the player will interact with
+     */
     public void travel() {
         //something that allows to go to new solar system coords
     }

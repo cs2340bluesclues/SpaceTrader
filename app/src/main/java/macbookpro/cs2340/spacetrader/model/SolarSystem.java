@@ -29,11 +29,18 @@ public class SolarSystem {
     private int numPlanets;
     private Random r;
 
+    /**
+     * SolarSystem constructor that takes in a Random object and randomly generates a name, and set
+     * of coordinates and adds randomly generated planets
+     * @param random
+     */
     public SolarSystem(Random random) {
         r = random;
-        this.name = nameList.remove(r.nextInt(nameList.size()));
-
-        // Not sure if this works correctly
+        try {
+            this.name = nameList.remove(r.nextInt(nameList.size()));
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
 
         Coord temp = new Coord(r.nextInt(16), r.nextInt(16));
         //while adding temp returns false (meaning there's a duplicate), regenerate
@@ -51,10 +58,18 @@ public class SolarSystem {
         }
     }
 
+    /**
+     * Getter method for SolarSystem name
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Getter method for SolarSystem's coordinates
+     * @return
+     */
     public Coord getCoords(){
         return coords;
     }
