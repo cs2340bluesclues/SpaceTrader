@@ -29,9 +29,10 @@ public class SolarSystem {
     private Random r;
 
     /**
-     * SolarSystem constructor that takes in a Random object and randomly generates a name, and set
-     * of coordinates and adds randomly generated planets
-     * @param random
+     * SolarSystem constructor that takes in a Random object and randomly generates a unique name
+     * and a unique set of coordinates and adds randomly generated planets
+     *
+     * @param random the Random object used to randomly generate the instances of the SolarSystem
      */
     public SolarSystem(Random random) {
         r = random;
@@ -75,6 +76,9 @@ public class SolarSystem {
         return coords;
     }
 
+    /**
+     * prints the SolarSystem and its corresponding planet information to the logcat
+     */
     public void printSolarSystem() {
         Log.i("Universe" , "a Solar System made: " + getName() + ". Coordinates: ("
                 + getCoords().getX() + " , " + getCoords().getY() + ")");
@@ -83,6 +87,7 @@ public class SolarSystem {
         }
     }
 
+    // adds a planet to the HashSet
     private void addPlanet() {
         String planetName = nameList.remove(r.nextInt(nameList.size()));
         planets.add(new Planet(planetName));
