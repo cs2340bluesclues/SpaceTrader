@@ -21,7 +21,6 @@ public class SolarSystem {
             "Rakhar", "Rhymus", "Rochani", "Rubicum", "Sarpeidon", "Sefalla", "Sol", "Stakoron",
             "Styris", "Tantalos", "Tarchannen", "Thera", "Titan", "Triacus", "Tyrus", "Vandor",
             "Ventax", "Xenon", "Xerxes", "Yojimbo", "Zalkon", "Zuul"}));
-    
     private static Set<Coord> coordsSet = new HashSet<>();
     private Set<Planet> planets = new HashSet<>();
     private String name;
@@ -36,6 +35,8 @@ public class SolarSystem {
      */
     public SolarSystem(Random random) {
         r = random;
+
+        // catches exception if the list of names is size of 0
         try {
             this.name = nameList.remove(r.nextInt(nameList.size()));
         } catch (IllegalArgumentException e) {
