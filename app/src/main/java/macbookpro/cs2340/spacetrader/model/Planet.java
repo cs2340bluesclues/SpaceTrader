@@ -8,18 +8,25 @@ public class Planet {
     private String name;
     private Resources resources;
     private TechLevel techLevel;
+    private IncreaseEvents ie;
+    private Market market;
 
     /**
-     * Planet constructor. Assigns name from parameter, and randomly sets the planet resource
-     * and tech level using the Resources and Techlevel enums
+     * Planet constructor. Assigns name from parameter, and randomly sets the planet resource,
+     * increase event, and tech level using the Resources, IncreaseEvents, & TechLevel enums
      * @param name
      */
     public Planet(String name) {
         this.name = name;
         int resourceOrdinal = randomGen(12);
         int techOrdinal = randomGen(7);
+        int ieOrdinal = randomGen(7);
+
         resources = Resources.values()[resourceOrdinal];
         techLevel = TechLevel.values()[techOrdinal];
+        ie = IncreaseEvents.values()[ieOrdinal];
+
+        market = new Market();
     }
 
     /**
@@ -55,6 +62,22 @@ public class Planet {
      */
     public Resources getResources(){
         return resources;
+    }
+
+    /**
+     * Getter for IncreaseEvent
+     * @return IncreaseEvent currently happening on the planet
+     */
+    public IncreaseEvents getIe() {
+        return ie;
+    }
+
+    /**
+     * Method to reassign a random IncreaseEvent to the planet using the IncreaseEvents enum
+     */
+    public void RegenerateIe() {
+        int ieOrdinal = randomGen(7);
+        ie = IncreaseEvents.values()[ieOrdinal];
     }
 
     /**

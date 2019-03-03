@@ -1,6 +1,7 @@
 package macbookpro.cs2340.spacetrader.model;
 
 public enum IncreaseEvents {
+    NONE,
     DROUGHT,
     COLD,
     CROP_FAIL,
