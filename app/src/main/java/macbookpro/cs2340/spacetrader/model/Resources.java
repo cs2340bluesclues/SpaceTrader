@@ -11,7 +11,7 @@ public enum Resources {
     RICHFAUNA("rich fauna"),
     LIFELESS("lifeless"),
     WEIRD_MUSHROOMS("weird mushrooms"),
-    LOST_OF_HERBS("lots of herbs"),
+    LOTS_OF_HERBS("lots of herbs"),
     ARTISTIC("artistic"),
     WARLIKE("warlike");
 
