@@ -25,10 +25,10 @@ public class Market {
         int index = r.nextInt(10);
 
         for(int i = 0; i < r.nextInt(25); i++) {
-            while(items[index].getMtlp() < techLevel.ordinal()) {
-                marketItems.add(items[index]);
+            while(items[index].getMtlp() > techLevel.ordinal()) {
                 index = r.nextInt(10);
             }
+            marketItems.add(items[index]);
         }
     }
 }
