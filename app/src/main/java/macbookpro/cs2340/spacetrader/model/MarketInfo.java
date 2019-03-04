@@ -15,7 +15,7 @@ public class MarketInfo {
         buyable = techLevel.ordinal() >= item.getMtlp();
         sellable = techLevel.ordinal() >= item.getMtlu();
         price =  calculatePrice(ie,  techLevel, resources);
-        quantity = calculateQuantity();
+        quantity = calculateQuantity(techLevel);
     }
 
     private int calculatePrice(IncreaseEvents ie,  TechLevel techlevel, Resources resources) {
@@ -59,9 +59,13 @@ public class MarketInfo {
         return price;
     }
 
-    private int calculateQuantity() {
-
-        return 0;
+    private int calculateQuantity(TechLevel techLevel) {
+        Random rand = new Random();
+        quantity = rand.nextInt(20);
+        if (item.getTtp() == techLevel.ordinal()) {
+            quantity += 20;
+        }
+        return quantity;
     }
 
     public MarketItem getItem() {
