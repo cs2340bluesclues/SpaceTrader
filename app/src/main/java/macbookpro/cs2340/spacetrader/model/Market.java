@@ -8,7 +8,8 @@ public class Market {
 
     static MarketItem[] items = {new Water(), new Furs(), new Food(), new Ore(), new Games(),
             new Firearms(), new Medicine(), new Machines(), new Narcotics(), new Robots()};
-    List<MarketItem> marketItems = new ArrayList<>();
+
+    private List<MarketInfo> marketInfos = new ArrayList<>();
 
     private IncreaseEvents ie;
     private TechLevel techLevel;
@@ -18,17 +19,12 @@ public class Market {
         techLevel = planetTechLevel;
         ie = planetIE;
         resources = planetResources;
+        generateMarket();
     }
 
-    public void generateMarket() {
-        Random r = new Random();
-        int index = r.nextInt(10);
-
-        for(int i = 0; i < r.nextInt(25); i++) {
-            while(items[index].getMtlp() > techLevel.ordinal()) {
-                index = r.nextInt(10);
-            }
-            marketItems.add(items[index]);
+    private void generateMarket() {
+        for (int i = 0; i < items.length; i++) {
+            marketInfos.add(new MarketInfo(items[i], ie, techLevel, resources));
         }
     }
 }

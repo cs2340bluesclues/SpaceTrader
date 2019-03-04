@@ -5,6 +5,8 @@ public class MarketInfo {
     private MarketItem item;
     private int price;
     private int quantity;
+    private boolean buyable;
+    private boolean sellable;
 
     public MarketInfo(MarketItem item, IncreaseEvents ie, TechLevel techLevel, Resources resources) {
         this.item = item;
