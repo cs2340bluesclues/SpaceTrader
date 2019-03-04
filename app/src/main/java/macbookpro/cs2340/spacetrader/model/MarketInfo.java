@@ -15,16 +15,31 @@ public class MarketInfo {
         buyable = techLevel.ordinal() >= item.getMtlp();
         sellable = techLevel.ordinal() >= item.getMtlu();
         price =  calculatePrice(ie,  techLevel, resources);
-        quantity = calculateQuantity(ie,  techLevel, resources);
+        quantity = calculateQuantity();
     }
 
     private int calculatePrice(IncreaseEvents ie,  TechLevel techlevel, Resources resources) {
         int price = item.getBasePrice();
         int IPLIncrease = techlevel.ordinal() * item.getIpl();
         int variability = item.getVar();
-        boolean radicalPriceIncrease = ie.ordinal() == item.getIe().ordinal();
-        boolean cheapResource = item.getCr().ordinal() == resources.ordinal();
-        boolean expensiveResource =  item.getEr().ordinal() == resources.ordinal();
+        boolean radicalPriceIncrease;
+        boolean cheapResource;
+        boolean expensiveResource;
+        if (item.getIe() == null) {
+            radicalPriceIncrease =  false;
+        } else {
+            radicalPriceIncrease = ie.ordinal() == item.getIe().ordinal();
+        }
+        if (item.getCr() == null) {
+            cheapResource = false;
+        } else {
+            cheapResource = item.getCr().ordinal() == resources.ordinal();
+        }
+        if (item.getEr() == null) {
+            expensiveResource =  false;
+        } else {
+            expensiveResource =  item.getEr().ordinal() == resources.ordinal();
+        }
 
         Random rand = new Random();
         double varianceDifference = price * .01 * rand.nextInt(variability);
@@ -44,7 +59,28 @@ public class MarketInfo {
         return price;
     }
 
-    private int calculateQuantity(IncreaseEvents ie,  TechLevel techlevel, Resources resources) {
+    private int calculateQuantity() {
+
         return 0;
+    }
+
+    public MarketItem getItem() {
+        return item;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public boolean getSellable() {
+        return sellable;
+    }
+
+    public boolean getBuyable() {
+        return buyable;
     }
 }
