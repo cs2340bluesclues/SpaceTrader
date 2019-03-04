@@ -26,7 +26,11 @@ public class Planet {
         techLevel = TechLevel.values()[techOrdinal];
         ie = IncreaseEvents.values()[ieOrdinal];
 
-        market = new Market();
+        generateMarket();
+    }
+
+    public void generateMarket() {
+        market = new Market(techLevel, ie, resources);
     }
 
     /**
@@ -75,7 +79,7 @@ public class Planet {
     /**
      * Method to reassign a random IncreaseEvent to the planet using the IncreaseEvents enum
      */
-    public void RegenerateIe() {
+    public void regenerateIE() {
         int ieOrdinal = randomGen(7);
         ie = IncreaseEvents.values()[ieOrdinal];
     }

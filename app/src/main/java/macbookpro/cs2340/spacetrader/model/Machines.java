@@ -1,14 +1,6 @@
 package macbookpro.cs2340.spacetrader.model;
 
-public class Machines implements MarketItem {
-    private int mtlp;
-    private int mtlu;
-    private int ttp;
-    private int basePrice;
-    private int ipl;
-    private int var;
-
-    private IncreaseEvents ie;
+public class Machines extends MarketItem {
 
     public Machines () {
         //Minimum Tech Level to Produce this resource (You can't buy on planets below this level)
@@ -29,36 +21,6 @@ public class Machines implements MarketItem {
         // the price may increase astronomically
         ie = IncreaseEvents.LACK_OF_WORKERS;
 
-
     }
-
-    public int getMtlp() {
-        return mtlp;
-    }
-
-    public int getMtlu() {
-        return mtlu;
-    }
-
-    public int getTtp() {
-        return ttp;
-    }
-
-    public int getBasePrice() {
-        return basePrice;
-    }
-
-    public int getIpl() {
-        return ipl;
-    }
-
-    public int getVar() {
-        return var;
-    }
-
-    public IncreaseEvents getIe() {
-        return ie;
-    }
-
 
 }
