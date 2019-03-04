@@ -13,6 +13,9 @@ public abstract class MarketItem {
     protected Resources cr;
     protected Resources er;
 
+    protected int price;
+    protected int quantity;
+
     public MarketItem(int mtlp, int mtlu, int ttp, int basePrice, int ipl, int var,
                       IncreaseEvents ie, Resources cr, Resources er) {
         //Minimum Tech Level to Produce this resource (You can't buy on planets below this level)
@@ -38,7 +41,24 @@ public abstract class MarketItem {
 
         // When this condition is present, the resource is expensive
         this.er = er;
+
+        price = calculatePrice();
+        quantity = calculateQuantity();
     }
+
+    private int calculatePrice() {
+        int price = basePrice;
+        return price;
+    }
+
+    private int calculateQuantity() {
+        int price = 0;
+        return price;
+    }
+
+    public int getPrice() { return price; }
+
+    public int getQuantity() { return quantity; }
 
     public int getMtlp() {
         return mtlp;
