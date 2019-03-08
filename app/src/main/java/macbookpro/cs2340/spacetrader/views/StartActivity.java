@@ -12,8 +12,14 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import macbookpro.cs2340.spacetrader.R;
+import macbookpro.cs2340.spacetrader.views.ItemAdapter;
 
 public class StartActivity extends AppCompatActivity {
+
+    //private CourseViewModel courseViewModel;
+
+    /** make an adapter for the list of courses */
+    private final ItemAdapter adapter = new ItemAdapter();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +27,7 @@ public class StartActivity extends AppCompatActivity {
         setContentView(R.layout.start_activity);
 
         //first grab a reference to the widget
-        RecyclerView recyclerView = findViewById(R.id.course_list);
+        RecyclerView recyclerView = findViewById(R.id.marketInfoRecycler);
         //Set the layout manager for the list to just be a vertical list of stuff
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
