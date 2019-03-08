@@ -16,6 +16,7 @@ public class StartViewModel extends AndroidViewModel {
     List<MarketInfo> marketInfoList;
 
     public StartViewModel(@NonNull Application application, List<MarketInfo> marketInfoList) {
+
         super(application);
         this.marketInfoList = marketInfoList;
     }
