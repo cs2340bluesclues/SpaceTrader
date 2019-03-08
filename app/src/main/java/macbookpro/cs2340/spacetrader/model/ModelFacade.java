@@ -25,8 +25,8 @@ public class ModelFacade {
         return player.toString();
     }
 
-    public static List<MarketInfo> getPlanetMarket(Planet p) {
-        return p.getMarket().getMarketInfos();
+    public static List<MarketInfo> getPlanetMarket(Player p) {
+        return p.getCurrentPlanet().getMarket().getMarketInfos();
     }
 
 
