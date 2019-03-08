@@ -1,18 +1,11 @@
 package macbookpro.cs2340.spacetrader.views;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
+
 import macbookpro.cs2340.spacetrader.R;
-import macbookpro.cs2340.spacetrader.views.ItemAdapter;
 
 public class StartActivity extends AppCompatActivity {
 
@@ -24,7 +17,7 @@ public class StartActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.start_activity);
+        setContentView(R.layout.market_activity);
 
         //first grab a reference to the widget
         RecyclerView recyclerView = findViewById(R.id.marketInfoRecycler);
