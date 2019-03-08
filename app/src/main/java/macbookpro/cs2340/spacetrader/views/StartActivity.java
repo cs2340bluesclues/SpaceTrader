@@ -6,12 +6,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import macbookpro.cs2340.spacetrader.R;
+import macbookpro.cs2340.spacetrader.viewmodels.StartViewModel;
 
 public class StartActivity extends AppCompatActivity {
 
-    //private CourseViewModel courseViewModel;
+    private StartViewModel startViewModel;
 
-    /** make an adapter for the list of courses */
+    /** make an adapter for the list */
     private final ItemAdapter adapter = new ItemAdapter();
 
     @Override

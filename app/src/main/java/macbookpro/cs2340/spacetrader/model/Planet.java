@@ -1,6 +1,7 @@
 package macbookpro.cs2340.spacetrader.model;
 import android.util.Log;
 
+import java.util.List;
 import java.util.Random;
 
 public class Planet {
@@ -50,6 +51,10 @@ public class Planet {
      */
     public Market getMarket() {
         return market;
+    }
+
+    public List<MarketInfo> getMarketInfos() {
+        return market.getMarketInfos();
     }
 
     /**

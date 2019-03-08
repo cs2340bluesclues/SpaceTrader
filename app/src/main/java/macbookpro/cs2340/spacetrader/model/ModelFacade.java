@@ -4,7 +4,8 @@ import java.util.List;
 
 public class ModelFacade {
     private static ModelFacade instance;
-
+    private static Game newGame;
+    private static Player newPlayer;
     private ModelFacade() {
 
     }
@@ -17,16 +18,25 @@ public class ModelFacade {
     }
 
     public static void createGame(GameDifficulty difficulty) {
-        Game newGame = new Game(difficulty);
+        newGame = new Game(difficulty);
     }
 
     public static String createPlayer(String name, int pilot, int fighter, int trader, int engineer) {
-        Player player = new Player(name, pilot, fighter, trader, engineer);
-        return player.toString();
+        newPlayer = new Player(name, pilot, fighter, trader, engineer);
+        return newPlayer.toString();
     }
 
-    public static List<MarketInfo> getPlanetMarket(Player p) {
-        return p.getCurrentPlanet().getMarket().getMarketInfos();
+    public static List<MarketInfo> getPlanetMarket() {
+        return newPlayer.getMarketInfos();
+    }
+
+    public static Game getNewGame() {
+        return newGame;
+    }
+
+
+    public static Player getNewPlayer() {
+        return newPlayer;
     }
 
 

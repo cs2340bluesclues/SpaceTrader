@@ -1,5 +1,7 @@
 package macbookpro.cs2340.spacetrader.model;
 
+import java.util.List;
+
 public class Player {
     private String name;
     private int pilot;
@@ -100,6 +102,10 @@ public class Player {
 
     public Planet getCurrentPlanet() {
         return currentPlanet;
+    }
+
+    public List<MarketInfo> getMarketInfos() {
+        return currentPlanet.getMarketInfos();
     }
 
     public void setCurrentPlanet(Planet currentPlanet) {
