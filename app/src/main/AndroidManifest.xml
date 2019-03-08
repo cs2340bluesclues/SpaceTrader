@@ -22,7 +22,11 @@
         <activity
             android:name=".views.StartActivity"
             android:label="SpaceTrader">
-    </activity>
+        </activity>
+        <activity
+            android:name=".views.PlanetActivity"
+            android:label="SpaceTrader">
+        </activity>
     </application>
 
 </manifest>

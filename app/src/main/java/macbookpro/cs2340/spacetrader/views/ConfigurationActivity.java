@@ -181,7 +181,7 @@ public class ConfigurationActivity extends AppCompatActivity {
     }
 
     private void launchGame() {
-        Intent intent = new Intent(this, StartActivity.class);
+        Intent intent = new Intent(this, PlanetActivity.class);
         startActivity(intent);
     }
 
