@@ -1,31 +1,36 @@
 package macbookpro.cs2340.spacetrader.views;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Button;
 
 import macbookpro.cs2340.spacetrader.R;
 
 public class PlanetActivity extends AppCompatActivity {
     //private CourseViewModel courseViewModel;
 
-    /** make an adapter for the list of courses */
-    private final ItemAdapter adapter = new ItemAdapter();
+    Button marketButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.planet_activity);
 
-        //first grab a reference to the widget
-        RecyclerView recyclerView = findViewById(R.id.marketInfoRecycler);
-        //Set the layout manager for the list to just be a vertical list of stuff
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setHasFixedSize(true);
-        //Setup the adapter for the view
-        recyclerView.setAdapter(adapter);
+        marketButton = findViewById(R.id.market_button);
 
+        marketButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToMarket();
+            }
+        });
+    }
 
+    private void goToMarket() {
+        Intent intent = new Intent(this, StartActivity.class);
+        startActivity(intent);
     }
 }
