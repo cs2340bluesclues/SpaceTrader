@@ -7,7 +7,6 @@ public class ModelFacade {
 
     }
 
-
     public static ModelFacade getInstance() {
         if(instance == null){
             instance = new ModelFacade();
