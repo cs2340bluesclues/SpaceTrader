@@ -10,6 +10,8 @@ public class Player {
     private int credits;
     private Ship ship;
     private boolean lawfulStatus;
+    private Planet currentPlanet;
+
 
     public Player(String name, int pilot, int fighter, int trader, int engineer) {
         this.name = name;
@@ -85,6 +87,23 @@ public class Player {
 
     public void setShip(Ship ship) {
         this.ship = ship;
+    }
+
+
+    public boolean isLawfulStatus() {
+        return lawfulStatus;
+    }
+
+    public void setLawfulStatus(boolean lawfulStatus) {
+        this.lawfulStatus = lawfulStatus;
+    }
+
+    public Planet getCurrentPlanet() {
+        return currentPlanet;
+    }
+
+    public void setCurrentPlanet(Planet currentPlanet) {
+        this.currentPlanet = currentPlanet;
     }
 
     public String toString() {

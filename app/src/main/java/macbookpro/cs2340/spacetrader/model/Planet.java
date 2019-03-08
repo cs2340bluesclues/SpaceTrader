@@ -46,12 +46,19 @@ public class Planet {
 
     /**
      * Getter for planet name
+     * @return planet market
+     */
+    public Market getMarket() {
+        return market;
+    }
+
+    /**
+     * Getter for planet name
      * @return planet name String
      */
     public String getName() {
         return name;
     }
-
     /**
      * Getter for planet tech level
      * @return TechLevel for the planet

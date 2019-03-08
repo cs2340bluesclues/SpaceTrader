@@ -6,6 +6,7 @@ import java.util.Random;
 
 public class Market {
 
+
     static MarketItem[] items = {new Water(), new Furs(), new Food(), new Ore(), new Games(),
             new Firearms(), new Medicine(), new Machines(), new Narcotics(), new Robots()};
 
@@ -27,4 +28,21 @@ public class Market {
             marketInfos.add(new MarketInfo(items[i], ie, techLevel, resources));
         }
     }
+
+    public List<MarketInfo> getMarketInfos() {
+        return marketInfos;
+    }
+
+    public IncreaseEvents getIe() {
+        return ie;
+    }
+
+    public TechLevel getTechLevel() {
+        return techLevel;
+    }
+
+    public Resources getResources() {
+        return resources;
+    }
+
 }

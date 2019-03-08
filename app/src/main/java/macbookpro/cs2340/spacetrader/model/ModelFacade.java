@@ -1,5 +1,7 @@
 package macbookpro.cs2340.spacetrader.model;
 
+import java.util.List;
+
 public class ModelFacade {
     private static ModelFacade instance;
 
@@ -22,4 +24,10 @@ public class ModelFacade {
         Player player = new Player(name, pilot, fighter, trader, engineer);
         return player.toString();
     }
+
+    public static List<MarketInfo> getPlanetMarket(Player p) {
+        return p.getCurrentPlanet().getMarket().getMarketInfos();
+    }
+
+
 }
