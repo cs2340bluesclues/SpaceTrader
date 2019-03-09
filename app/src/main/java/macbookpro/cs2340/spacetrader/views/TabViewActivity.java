@@ -26,7 +26,7 @@ public class TabViewActivity extends AppCompatActivity{
         //spec.setContent(R.id.tab1);
         spec.setIndicator("Market");
 
-        Intent intent = new Intent(this, StartActivity.class);
+        Intent intent = new Intent(this, PlanetActivity.class);
         spec.setContent(intent);
 
         host.addTab(spec);
