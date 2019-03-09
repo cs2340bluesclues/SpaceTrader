@@ -21,8 +21,9 @@ public class StartViewModel extends AndroidViewModel {
         this.marketInfoList = marketInfoList;
     }
 
-    public void getMarketInfos() {
+    public List<MarketInfo> getMarketInfos() {
         marketInfoList = getPlanetMarket();
+        return marketInfoList;
     }
 
 
