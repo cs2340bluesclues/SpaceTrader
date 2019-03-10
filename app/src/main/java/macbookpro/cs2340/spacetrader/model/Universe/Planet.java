@@ -1,8 +1,14 @@
-package macbookpro.cs2340.spacetrader.model;
+package macbookpro.cs2340.spacetrader.model.Universe;
 import android.util.Log;
 
 import java.util.List;
 import java.util.Random;
+
+import macbookpro.cs2340.spacetrader.model.IncreaseEvents;
+import macbookpro.cs2340.spacetrader.model.Market;
+import macbookpro.cs2340.spacetrader.model.MarketInfo;
+import macbookpro.cs2340.spacetrader.model.Resources;
+import macbookpro.cs2340.spacetrader.model.TechLevel;
 
 public class Planet {
 

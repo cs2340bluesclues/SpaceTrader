@@ -1,6 +1,6 @@
 package macbookpro.cs2340.spacetrader.model;
 
-import java.util.Random;
+import macbookpro.cs2340.spacetrader.model.Universe.Universe;
 
 public class Game {
 

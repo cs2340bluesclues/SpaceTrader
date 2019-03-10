@@ -1,4 +1,4 @@
-package macbookpro.cs2340.spacetrader.model;
+package macbookpro.cs2340.spacetrader.model.Universe;
 
 public class Coord {
 

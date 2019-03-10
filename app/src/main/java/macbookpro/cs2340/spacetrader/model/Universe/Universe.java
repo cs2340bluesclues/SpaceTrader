@@ -1,6 +1,4 @@
-package macbookpro.cs2340.spacetrader.model;
-
-import android.util.Log;
+package macbookpro.cs2340.spacetrader.model.Universe;
 
 import java.util.HashSet;
 import java.util.Random;

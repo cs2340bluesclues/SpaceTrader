@@ -2,7 +2,17 @@ package macbookpro.cs2340.spacetrader.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+
+import macbookpro.cs2340.spacetrader.model.Items.Firearms;
+import macbookpro.cs2340.spacetrader.model.Items.Food;
+import macbookpro.cs2340.spacetrader.model.Items.Furs;
+import macbookpro.cs2340.spacetrader.model.Items.Games;
+import macbookpro.cs2340.spacetrader.model.Items.Machines;
+import macbookpro.cs2340.spacetrader.model.Items.Medicine;
+import macbookpro.cs2340.spacetrader.model.Items.Narcotics;
+import macbookpro.cs2340.spacetrader.model.Items.Ore;
+import macbookpro.cs2340.spacetrader.model.Items.Robots;
+import macbookpro.cs2340.spacetrader.model.Items.Water;
 
 public class Market {
 
@@ -44,5 +54,7 @@ public class Market {
     public Resources getResources() {
         return resources;
     }
+
+
 
 }

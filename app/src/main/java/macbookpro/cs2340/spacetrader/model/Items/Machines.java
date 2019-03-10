@@ -1,4 +1,7 @@
-package macbookpro.cs2340.spacetrader.model;
+package macbookpro.cs2340.spacetrader.model.Items;
+
+import macbookpro.cs2340.spacetrader.model.IncreaseEvents;
+import macbookpro.cs2340.spacetrader.model.MarketItem;
 
 public class Machines extends MarketItem {
 

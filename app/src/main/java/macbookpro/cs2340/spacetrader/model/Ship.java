@@ -1,17 +1,34 @@
 package macbookpro.cs2340.spacetrader.model;
 
-public enum Ship {
+import java.util.ArrayList;
+import java.util.List;
 
-    FLEA("flea"),
-    GNAT("gnat");
+public class Ship {
 
-    private String shipName;
+    private String name;
+    private List<MarketItem> cargo;
 
-    Ship (String shipName) {
-        this.shipName = shipName;
+    private final int MAX_CARGO;
+    private final int MAX_SPEED;
+
+    public Ship(ShipType shipType) {
+        this.name = shipType.getShipName();
+        this.cargo = new ArrayList<>();
+
+        this.MAX_CARGO = shipType.getCargoSpace();
+        this.MAX_SPEED = shipType.getSpeed();
     }
 
-    public String getShipName() {
-        return shipName;
+    public String getName() {
+        return name;
+    }
+
+    public void addItem(MarketItem item) {
+        cargo.add(item);
+    }
+
+    public void removeItem(MarketItem item) {
+        cargo.remove(item);
+
     }
 }

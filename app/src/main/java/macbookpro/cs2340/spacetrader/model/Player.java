@@ -2,6 +2,8 @@ package macbookpro.cs2340.spacetrader.model;
 
 import java.util.List;
 
+import macbookpro.cs2340.spacetrader.model.Universe.Planet;
+
 public class Player {
     private String name;
     private int pilot;
@@ -24,7 +26,7 @@ public class Player {
         totalSkillPoints = pilot + fighter + trader + engineer;
         lawfulStatus = true;
         credits = 1000;
-        ship = Ship.GNAT;
+        ship = new Ship(ShipType.GNAT);
     }
 
     public String getName() {
@@ -116,7 +118,7 @@ public class Player {
         return "name: " + this.getName() + "\n pilot: " + this.getPilot() + "\n fighter: "
                 + this.getFighter() + "\n trader:" + this.getTrader() + "\n engineer: "
                 + this.getEngineer() + "\n total skill points: " + this.getTotalSkillPoints()
-                + "\n credits: " + this.getCredits() + "\n ship: " + this.getShip().getShipName();
+                + "\n credits: " + this.getCredits() + "\n ship: " + this.getShip().getName();
     }
 
 
