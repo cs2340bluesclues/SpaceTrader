@@ -9,9 +9,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import macbookpro.cs2340.spacetrader.R;
+import macbookpro.cs2340.spacetrader.model.Market;
 import macbookpro.cs2340.spacetrader.model.MarketInfo;
 import macbookpro.cs2340.spacetrader.model.MarketItem;
 
@@ -21,6 +25,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     public List<MarketInfo> marketInfoList = new ArrayList<>();
 
     private OnMarketInfoClickListener listener;
+
 
     @NonNull
     @Override
@@ -89,5 +94,15 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     public void setOnMarketInfoClickListener(OnMarketInfoClickListener listener) {
         this.listener = listener;
+    }
+
+    public void setList(Map<MarketInfo, Integer> map) {
+        for (Map.Entry<MarketInfo, Integer> entry : map.entrySet()) {
+            MarketInfo m = entry.getKey();
+            int quantity = entry.getValue();
+            for (int i = 0; i < quantity; i++) {
+                marketInfoList.add(m);
+            }
+        }
     }
 }

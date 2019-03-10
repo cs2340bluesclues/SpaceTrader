@@ -1,6 +1,6 @@
 package macbookpro.cs2340.spacetrader.model;
 
-public abstract class MarketItem {
+public abstract class MarketItem implements Comparable<MarketItem> {
 
     protected int mtlp;
     protected int mtlu;
@@ -38,6 +38,17 @@ public abstract class MarketItem {
 
         // When this condition is present, the resource is expensive
         this.er = er;
+    }
+
+    @Override
+    public int compareTo(MarketItem o) {
+        if (this.mtlp != o.mtlp) {
+            return this.mtlp - o.mtlp;
+        } else if (this.mtlu != o.mtlu) {
+            return this.mtlu - o.mtlu;
+        } else {
+            return this.ttp - o.ttp;
+        }
     }
 
     private int calculatePrice() {

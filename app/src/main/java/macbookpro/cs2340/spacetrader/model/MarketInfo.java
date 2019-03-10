@@ -2,7 +2,7 @@ package macbookpro.cs2340.spacetrader.model;
 
 import java.util.Random;
 
-public class MarketInfo {
+public class MarketInfo implements Comparable<MarketInfo> {
 
     private MarketItem item;
     private int price;
@@ -16,6 +16,11 @@ public class MarketInfo {
         sellable = techLevel.ordinal() >= item.getMtlu();
         price =  calculatePrice(ie,  techLevel, resources);
         quantity = calculateQuantity(techLevel);
+    }
+
+    @Override
+    public int compareTo(MarketInfo o) {
+        return this.getItem().compareTo(o.getItem());
     }
 
     private int calculatePrice(IncreaseEvents ie,  TechLevel techlevel, Resources resources) {

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import macbookpro.cs2340.spacetrader.model.Items.Firearms;
 import macbookpro.cs2340.spacetrader.model.Items.Food;
@@ -22,7 +23,7 @@ public class Market {
     static MarketItem[] items = {new Water(), new Furs(), new Food(), new Ore(), new Games(),
             new Firearms(), new Medicine(), new Machines(), new Narcotics(), new Robots()};
 
-    private Map<MarketInfo, Integer> goods = new HashMap<>();
+    private Map<MarketInfo, Integer> goods = new TreeMap<>();
 
     private IncreaseEvents ie;
     private TechLevel techLevel;
