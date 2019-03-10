@@ -1,6 +1,9 @@
 package macbookpro.cs2340.spacetrader.model;
 
+import android.util.Pair;
+
 import java.util.List;
+import java.util.Map;
 
 import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 
@@ -27,6 +30,24 @@ public class Player {
         lawfulStatus = true;
         credits = 1000;
         ship = new Ship(ShipType.GNAT);
+    }
+
+    public boolean buy(MarketInfo item) {
+        if (credits > item.getPrice()) {
+            if (ship.addItem(item.getItem())){
+                credits -= item.getPrice();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean sell(MarketInfo item) {
+        if (ship.removeItem(item.getItem())) {
+            credits += item.getPrice();
+            return true;
+        }
+        return false;
     }
 
     public String getName() {
@@ -106,8 +127,8 @@ public class Player {
         return currentPlanet;
     }
 
-    public List<MarketInfo> getMarketInfos() {
-        return currentPlanet.getMarketInfos();
+    public Map<MarketInfo, Integer> getMarketInfos() {
+        return currentPlanet.getMarket().getMarketGoods();
     }
 
     public void setCurrentPlanet(Planet currentPlanet) {

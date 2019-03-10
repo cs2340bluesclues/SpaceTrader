@@ -1,6 +1,9 @@
 package macbookpro.cs2340.spacetrader.model;
 
+import android.util.Pair;
+
 import java.util.List;
+import java.util.Map;
 
 public class ModelFacade {
     private static ModelFacade instance;
@@ -26,14 +29,13 @@ public class ModelFacade {
         return newPlayer.toString();
     }
 
-    public static List<MarketInfo> getPlanetMarket() {
+    public static Map<MarketInfo, Integer> getPlanetMarket() {
         return newPlayer.getMarketInfos();
     }
 
     public static Game getNewGame() {
         return newGame;
     }
-
 
     public static Player getNewPlayer() {
         return newPlayer;

@@ -23,12 +23,14 @@ public class Ship {
         return name;
     }
 
-    public void addItem(MarketItem item) {
-        cargo.add(item);
+    public boolean addItem(MarketItem item) {
+        if (cargo.size() < MAX_CARGO) {
+            return cargo.add(item);
+        }
+        return false;
     }
 
-    public void removeItem(MarketItem item) {
-        cargo.remove(item);
-
+    public boolean removeItem(MarketItem item) {
+        return cargo.remove(item);
     }
 }

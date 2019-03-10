@@ -2,6 +2,7 @@ package macbookpro.cs2340.spacetrader.model.Universe;
 import android.util.Log;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import macbookpro.cs2340.spacetrader.model.IncreaseEvents;
@@ -57,10 +58,6 @@ public class Planet {
      */
     public Market getMarket() {
         return market;
-    }
-
-    public List<MarketInfo> getMarketInfos() {
-        return market.getMarketInfos();
     }
 
     /**

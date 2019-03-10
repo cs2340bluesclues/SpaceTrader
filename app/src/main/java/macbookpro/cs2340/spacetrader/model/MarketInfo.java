@@ -63,7 +63,7 @@ public class MarketInfo {
         Random rand = new Random();
         quantity = rand.nextInt(20);
         if (item.getTtp() == techLevel.ordinal()) {
-            quantity += 20;
+            quantity += rand.nextInt(20);
         }
         return quantity;
     }
