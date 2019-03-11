@@ -15,12 +15,12 @@ public enum ShipType {
 
     private String shipName;
     private int cargoSpace;
-    private int speed;
+    private int range;
 
-    ShipType (String shipName, int cargoSpace, int speed) {
+    ShipType (String shipName, int cargoSpace, int range) {
         this.shipName = shipName;
         this.cargoSpace = cargoSpace;
-        this.speed = speed;
+        this.range = range;
     }
 
     public String getShipName() {
@@ -31,7 +31,7 @@ public enum ShipType {
         return cargoSpace;
     }
 
-    public int getSpeed() {
-        return speed;
+    public int getRange() {
+        return range;
     }
 }

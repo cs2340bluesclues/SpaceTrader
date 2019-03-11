@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import macbookpro.cs2340.spacetrader.model.Universe.Planet;
+import macbookpro.cs2340.spacetrader.model.Universe.SolarSystem;
 
 public class Player {
     private String name;
@@ -17,6 +18,7 @@ public class Player {
     private int credits;
     private Ship ship;
     private boolean lawfulStatus;
+    private SolarSystem currentSolarSystem;
     private Planet currentPlanet;
 
 
@@ -32,13 +34,21 @@ public class Player {
         ship = new Ship(ShipType.GNAT);
     }
 
-    public boolean travel(Planet next) {
+    private boolean travelInSolarSystem(Planet next) {
         if (ship.travel()) {
             currentPlanet = next;
             next.generateMarket();
             return true;
         }
         return false;
+    }
+
+    public boolean travel(SolarSystem next) {
+        if (currentSolarSystem.equals(next)) {
+            return travelInSolarSystem(?????);
+        } else {
+            return currentSolarSystem.getCoords().calculateDistance(next.getCoords()) <= ship.getMAX_RANGE();
+        }
     }
 
     public boolean buy(MarketInfo item, int quantity) {
@@ -135,6 +145,14 @@ public class Player {
 
     public void setLawfulStatus(boolean lawfulStatus) {
         this.lawfulStatus = lawfulStatus;
+    }
+
+    public SolarSystem getCurrentSolarSystem() {
+        return currentSolarSystem;
+    }
+
+    public void setCurrentSolarSystem(SolarSystem currentSolarSystem) {
+        this.currentSolarSystem = currentSolarSystem;
     }
 
     public Planet getCurrentPlanet() {

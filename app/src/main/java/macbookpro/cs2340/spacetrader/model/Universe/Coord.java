@@ -30,6 +30,10 @@ public class Coord {
         return c.x == this.x && c.y == this.y;
     }
 
+    public double calculateDistance(Coord c) {
+        return Math.sqrt(Math.pow(this.getX() - c.getX(), 2) + Math.pow(this.getY() - c.getY(), 2));
+    }
+
     /**
      * Getter for x axis location
      * @return integer on x-axis

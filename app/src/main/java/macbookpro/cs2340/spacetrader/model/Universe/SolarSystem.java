@@ -93,4 +93,12 @@ public class SolarSystem {
         planets.add(new Planet(planetName));
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) { return true; }
+        if (!(o instanceof SolarSystem)) { return false; }
+        SolarSystem s = (SolarSystem) o;
+        return this.getCoords().equals(((SolarSystem) o).getCoords());
+    }
+
 }

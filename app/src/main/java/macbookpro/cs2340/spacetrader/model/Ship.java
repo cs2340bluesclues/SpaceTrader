@@ -10,7 +10,7 @@ public class Ship {
     private List<MarketItem> cargo;
 
     private final int MAX_CARGO;
-    private final int MAX_SPEED;
+    private final int MAX_RANGE;
 
     public Ship(ShipType shipType) {
         this.name = shipType.getShipName();
@@ -18,15 +18,15 @@ public class Ship {
         this.cargo = new ArrayList<>();
 
         this.MAX_CARGO = shipType.getCargoSpace();
-        this.MAX_SPEED = shipType.getSpeed();
+        this.MAX_RANGE = shipType.getRange();
     }
 
     public String getName() {
         return name;
     }
 
-    public int getMAX_SPEED() {
-        return MAX_SPEED;
+    public int getMAX_RANGE() {
+        return MAX_RANGE;
     }
 
     public boolean addItem(MarketItem item) {

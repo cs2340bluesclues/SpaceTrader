@@ -81,7 +81,6 @@ public class Market {
                 marketList.add(m);
             }
         }
-
         return marketList;
     }
 
