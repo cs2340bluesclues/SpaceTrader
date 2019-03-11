@@ -16,7 +16,7 @@ import static macbookpro.cs2340.spacetrader.model.ModelFacade.*;
 
 public class StartViewModel extends AndroidViewModel {
 
-    List<MarketInfo> marketInfoList;
+    List<Pair<MarketInfo, Integer>> marketInfoList;
     Planet currPlanet;
 
     public StartViewModel(@NonNull Application application, Planet p) {
@@ -25,7 +25,7 @@ public class StartViewModel extends AndroidViewModel {
         this.marketInfoList = currPlanet.getMarket().setMarketList();
     }
 
-    public List<MarketInfo> getMarketInfos() {
+    public List<Pair<MarketInfo,Integer>> getMarketInfos() {
         return marketInfoList;
     }
 

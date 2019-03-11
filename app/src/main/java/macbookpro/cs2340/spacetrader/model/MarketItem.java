@@ -13,8 +13,11 @@ public abstract class MarketItem implements Comparable<MarketItem> {
     protected Resources cr;
     protected Resources er;
 
-    public MarketItem(int mtlp, int mtlu, int ttp, int basePrice, int ipl, int var,
+    private String name;
+
+    public MarketItem(String name, int mtlp, int mtlu, int ttp, int basePrice, int ipl, int var,
                       Event ie, Resources cr, Resources er) {
+        this.name = name;
         //Minimum Tech Level to Produce this resource (You can't buy on planets below this level)
         this.mtlp = mtlp;
         //Minimum Tech Level to Use this resource (You can't sell on planets below this level)

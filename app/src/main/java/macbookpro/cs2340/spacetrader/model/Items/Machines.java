@@ -6,7 +6,7 @@ import macbookpro.cs2340.spacetrader.model.MarketItem;
 public class Machines extends MarketItem {
 
     public Machines () {
-        super(4,3,5,900,-30,5,
+        super("Machines",4,3,5,900,-30,5,
                 Event.LACK_OF_WORKERS, null, null);
 
     }

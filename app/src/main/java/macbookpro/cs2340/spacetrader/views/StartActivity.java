@@ -34,9 +34,7 @@ public class StartActivity extends AppCompatActivity {
         startViewModel = ViewModelProviders.of(this).get(StartViewModel.class);
 
         //set the list of courses in the view by using the adapter
-        adapter.setMarketMap(startViewModel.getCurrPlanet());
-
-
+        adapter.setMarketList(startViewModel.getMarketInfos());
     }
 
 }

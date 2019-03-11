@@ -12,10 +12,10 @@
         android:padding="8dp">
 
         <TextView
-            android:id="@+id/text_resource_name"
+            android:id="@+id/text_market_item_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Resource"
+            android:text="Market Item"
             android:layout_alignParentTop="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 

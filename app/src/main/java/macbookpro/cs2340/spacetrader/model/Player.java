@@ -43,13 +43,13 @@ public class Player {
         return false;
     }
 
-    public boolean travel(SolarSystem next) {
-        if (currentSolarSystem.equals(next)) {
-            return travelInSolarSystem(?????);
-        } else {
-            return currentSolarSystem.getCoords().calculateDistance(next.getCoords()) <= ship.getMAX_RANGE();
-        }
-    }
+//    public boolean travel(SolarSystem next) {
+//        if (currentSolarSystem.equals(next)) {
+//            return travelInSolarSystem(?????);
+//        } else {
+//            return currentSolarSystem.getCoords().calculateDistance(next.getCoords()) <= ship.getMAX_RANGE();
+//        }
+//    }
 
     public boolean buy(MarketInfo item, int quantity) {
         int count = 0;

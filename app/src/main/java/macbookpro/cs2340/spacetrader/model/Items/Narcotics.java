@@ -7,7 +7,7 @@ import macbookpro.cs2340.spacetrader.model.Resources;
 public class Narcotics extends MarketItem {
 
     public Narcotics () {
-        super(5, 0, 5, 3500, -125, 150,
+        super("Narcotics",5, 0, 5, 3500, -125, 150,
                 Event.BOREDOM, Resources.WEIRD_MUSHROOMS, null);
 
     }

@@ -1,5 +1,7 @@
 package macbookpro.cs2340.spacetrader.model;
 
+import android.util.Pair;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -71,15 +73,13 @@ public class Market {
         return goods;
     }
 
-    public List<MarketInfo> setMarketList() {
-        List<MarketInfo> marketList = new ArrayList<>();
+    public List<Pair<MarketInfo, Integer>> setMarketList() {
+        List<Pair<MarketInfo, Integer>> marketList = new ArrayList<>();
 
         for (Map.Entry<MarketInfo, Integer> entry : goods.entrySet()) {
             MarketInfo m = entry.getKey();
-            int quantity = entry.getValue();
-            for (int i = 0; i < quantity; i++) {
-                marketList.add(m);
-            }
+            Integer q = entry.getValue();
+            marketList.add(Pair.create(m,q));
         }
         return marketList;
     }
