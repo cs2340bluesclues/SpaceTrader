@@ -6,16 +6,14 @@ public class MarketInfo implements Comparable<MarketInfo> {
 
     private MarketItem item;
     private int price;
-    private int quantity;
     private boolean buyable;
     private boolean sellable;
 
-    public MarketInfo(MarketItem item, IncreaseEvents ie, TechLevel techLevel, Resources resources) {
+    public MarketInfo(MarketItem item, Event ie, TechLevel techLevel, Resources resources) {
         this.item = item;
         buyable = techLevel.ordinal() >= item.getMtlp();
         sellable = techLevel.ordinal() >= item.getMtlu();
         price =  calculatePrice(ie,  techLevel, resources);
-        quantity = calculateQuantity(techLevel);
     }
 
     @Override
@@ -23,7 +21,7 @@ public class MarketInfo implements Comparable<MarketInfo> {
         return this.getItem().compareTo(o.getItem());
     }
 
-    private int calculatePrice(IncreaseEvents ie,  TechLevel techlevel, Resources resources) {
+    private int calculatePrice(Event ie, TechLevel techlevel, Resources resources) {
         int price = item.getBasePrice();
         int IPLIncrease = techlevel.ordinal() * item.getIpl();
         int variability = item.getVar();
@@ -64,25 +62,12 @@ public class MarketInfo implements Comparable<MarketInfo> {
         return price;
     }
 
-    private int calculateQuantity(TechLevel techLevel) {
-        Random rand = new Random();
-        quantity = rand.nextInt(20);
-        if (item.getTtp() == techLevel.ordinal()) {
-            quantity += rand.nextInt(20);
-        }
-        return quantity;
-    }
-
     public MarketItem getItem() {
         return item;
     }
 
     public int getPrice() {
         return price;
-    }
-
-    public int getQuantity() {
-        return quantity;
     }
 
     public boolean getSellable() {

@@ -18,14 +18,16 @@ import macbookpro.cs2340.spacetrader.R;
 import macbookpro.cs2340.spacetrader.model.Market;
 import macbookpro.cs2340.spacetrader.model.MarketInfo;
 import macbookpro.cs2340.spacetrader.model.MarketItem;
+import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder>{
 
-    public List<MarketInfo> marketInfoList = new ArrayList<>();
 
     private OnMarketInfoClickListener listener;
 
+    public Map<MarketInfo, Integer> map;
+    private List<MarketInfo> list;
 
     @NonNull
     @Override
@@ -34,32 +36,35 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         //Tell the adapter what layout to use for each course in the list
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.market_item, parent, false);
-
-        return new ItemViewHolder(itemView);
+        ItemViewHolder ivHolder = new ItemViewHolder(itemView);
+        return ivHolder;
     }
 
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
 
-        MarketInfo item = marketInfoList.get(position);
-
-        holder.price.setText(item.getPrice());
-        holder.quantity.setText(item.getQuantity());
+        for (Map.Entry<MarketInfo, Integer> entry : map.entrySet()) {
+            holder.price.setText(entry.getValue());
+            holder.quantity.setText(entry.getValue());
+        }
     }
 
     @Override
     public int getItemCount() {
-        if (marketInfoList == null) {
+        if (map == null) {
             return 0;
         }
-        return marketInfoList.size();
+        return map.size();
     }
 
-    public void setMarketInfoList(List<MarketInfo> items) {
-        marketInfoList = items;
+    public void setMarketMap(Planet p) {
+        map = p.getMarket().getMarketGoods();
+        list = p.getMarket().setMarketList();
         notifyDataSetChanged();
     }
 
-    public MarketInfo getMarketInfo(int position) { return marketInfoList.get(position); }
+    public MarketInfo getMarketInfo(int position) {
+        return list.get(position);
+    }
 
 
     class ItemViewHolder extends RecyclerView.ViewHolder {
@@ -81,7 +86,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                     int position = getAdapterPosition();
 
                     if (listener != null && position != RecyclerView.NO_POSITION) {
-                        listener.onMarketInfoClicked(marketInfoList.get(position));
+                        listener.onMarketInfoClicked(list.get(position));
                     }
                 }
             });
@@ -94,15 +99,5 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     public void setOnMarketInfoClickListener(OnMarketInfoClickListener listener) {
         this.listener = listener;
-    }
-
-    public void setList(Map<MarketInfo, Integer> map) {
-        for (Map.Entry<MarketInfo, Integer> entry : map.entrySet()) {
-            MarketInfo m = entry.getKey();
-            int quantity = entry.getValue();
-            for (int i = 0; i < quantity; i++) {
-                marketInfoList.add(m);
-            }
-        }
     }
 }

@@ -1,6 +1,6 @@
 package macbookpro.cs2340.spacetrader.model;
 
-public enum IncreaseEvents {
+public enum Event {
     NONE,
     DROUGHT,
     COLD,

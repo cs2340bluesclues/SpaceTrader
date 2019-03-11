@@ -1,5 +1,7 @@
 package macbookpro.cs2340.spacetrader.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class ModelFacade {
@@ -24,10 +26,6 @@ public class ModelFacade {
     public static String createPlayer(String name, int pilot, int fighter, int trader, int engineer) {
         newPlayer = new Player(name, pilot, fighter, trader, engineer);
         return newPlayer.toString();
-    }
-
-    public static Map<MarketInfo, Integer> getPlanetMarket() {
-        return newPlayer.getMarketInfos();
     }
 
     public static Game getNewGame() {

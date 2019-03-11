@@ -32,30 +32,45 @@ public class Player {
         ship = new Ship(ShipType.GNAT);
     }
 
-    public boolean buy(MarketInfo item) {
-        if (credits > item.getPrice()) {
-            if (ship.addItem(item.getItem())){
-                credits -= item.getPrice();
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean sell(MarketInfo item) {
-        if (ship.removeItem(item.getItem())) {
-            credits += item.getPrice();
+    public boolean travel(Planet next) {
+        if (ship.travel()) {
+            currentPlanet = next;
+            next.generateMarket();
             return true;
         }
         return false;
     }
 
-    public String getName() {
-        return name;
+    public boolean buy(MarketInfo item, int quantity) {
+        int count = 0;
+        boolean bought = false;
+        while (count < quantity &&
+                currentPlanet.getMarket().buyAsPlayer(item)) {
+            if (credits > item.getPrice()) {
+                if (ship.addItem(item.getItem())) {
+                    credits -= item.getPrice();
+                    count++;
+                    bought = true;
+                }
+            }
+        }
+        return bought;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public boolean sell(MarketInfo item, int quantity) {
+        int count = 0;
+        boolean sold = false;
+        while (count < quantity && ship.removeItem(item.getItem())) {
+            credits += item.getPrice();
+            currentPlanet.getMarket().sellAsPlayer(item);
+            count++;
+            sold = true;
+        }
+        return sold;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getTotalSkillPoints() {
@@ -114,7 +129,6 @@ public class Player {
         this.ship = ship;
     }
 
-
     public boolean isLawfulStatus() {
         return lawfulStatus;
     }
@@ -125,10 +139,6 @@ public class Player {
 
     public Planet getCurrentPlanet() {
         return currentPlanet;
-    }
-
-    public Map<MarketInfo, Integer> getMarketInfos() {
-        return currentPlanet.getMarket().getMarketGoods();
     }
 
     public void setCurrentPlanet(Planet currentPlanet) {

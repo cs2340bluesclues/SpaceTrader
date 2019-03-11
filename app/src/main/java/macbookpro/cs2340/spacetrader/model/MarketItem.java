@@ -9,12 +9,12 @@ public abstract class MarketItem implements Comparable<MarketItem> {
     protected int ipl;
     protected int var;
 
-    protected IncreaseEvents ie;
+    protected Event ie;
     protected Resources cr;
     protected Resources er;
 
     public MarketItem(int mtlp, int mtlu, int ttp, int basePrice, int ipl, int var,
-                      IncreaseEvents ie, Resources cr, Resources er) {
+                      Event ie, Resources cr, Resources er) {
         //Minimum Tech Level to Produce this resource (You can't buy on planets below this level)
         this.mtlp = mtlp;
         //Minimum Tech Level to Use this resource (You can't sell on planets below this level)
@@ -86,7 +86,7 @@ public abstract class MarketItem implements Comparable<MarketItem> {
         return var;
     }
 
-    public IncreaseEvents getIe() {
+    public Event getIe() {
         return ie;
     }
 

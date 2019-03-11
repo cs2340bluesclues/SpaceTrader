@@ -1,13 +1,10 @@
 package macbookpro.cs2340.spacetrader.model.Universe;
 import android.util.Log;
 
-import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
-import macbookpro.cs2340.spacetrader.model.IncreaseEvents;
+import macbookpro.cs2340.spacetrader.model.Event;
 import macbookpro.cs2340.spacetrader.model.Market;
-import macbookpro.cs2340.spacetrader.model.MarketInfo;
 import macbookpro.cs2340.spacetrader.model.Resources;
 import macbookpro.cs2340.spacetrader.model.TechLevel;
 
@@ -16,12 +13,12 @@ public class Planet {
     private String name;
     private Resources resources;
     private TechLevel techLevel;
-    private IncreaseEvents ie;
+    private Event event;
     private Market market;
 
     /**
      * Planet constructor. Assigns name from parameter, and randomly sets the planet resource,
-     * increase event, and tech level using the Resources, IncreaseEvents, & TechLevel enums
+     * increase event, and tech level using the Resources, Event, & TechLevel enums
      * @param name
      */
     public Planet(String name) {
@@ -32,13 +29,13 @@ public class Planet {
 
         resources = Resources.values()[resourceOrdinal];
         techLevel = TechLevel.values()[techOrdinal];
-        ie = IncreaseEvents.values()[ieOrdinal];
+        event = Event.values()[ieOrdinal];
 
         generateMarket();
     }
 
     public void generateMarket() {
-        market = new Market(techLevel, ie, resources);
+        market.generateMarket(eventOccur());
     }
 
     /**
@@ -84,19 +81,19 @@ public class Planet {
     }
 
     /**
-     * Getter for IncreaseEvent
-     * @return IncreaseEvent currently happening on the planet
+     * Getter for Event
+     * @return Event currently happening on the planet
      */
-    public IncreaseEvents getIe() {
-        return ie;
+    public Event getEvent() {
+        return event;
     }
 
     /**
-     * Method to reassign a random IncreaseEvent to the planet using the IncreaseEvents enum
+     * Method to reassign a random IncreaseEvent to the planet using the Event enum
      */
-    public void regenerateIE() {
+    public Event eventOccur() {
         int ieOrdinal = randomGen(7);
-        ie = IncreaseEvents.values()[ieOrdinal];
+        return Event.values()[ieOrdinal];
     }
 
     /**

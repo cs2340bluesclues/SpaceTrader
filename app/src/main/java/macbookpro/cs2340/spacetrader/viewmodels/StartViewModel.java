@@ -10,25 +10,26 @@ import java.util.Map;
 
 
 import macbookpro.cs2340.spacetrader.model.MarketInfo;
+import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 
 import static macbookpro.cs2340.spacetrader.model.ModelFacade.*;
 
 public class StartViewModel extends AndroidViewModel {
 
-    Map<MarketInfo, Integer> marketInfoList;
+    List<MarketInfo> marketInfoList;
+    Planet currPlanet;
 
-    public StartViewModel(@NonNull Application application, Map<MarketInfo, Integer> marketInfoList) {
-
+    public StartViewModel(@NonNull Application application, Planet p) {
         super(application);
-        this.marketInfoList = marketInfoList;
+        currPlanet = p;
+        this.marketInfoList = currPlanet.getMarket().setMarketList();
     }
 
-    public Map<MarketInfo, Integer> getMarketInfos() {
-        marketInfoList = getPlanetMarket();
+    public List<MarketInfo> getMarketInfos() {
         return marketInfoList;
     }
 
-
-
-
+    public Planet getCurrPlanet() {
+        return currPlanet;
+    }
 }
