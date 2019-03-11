@@ -37,7 +37,7 @@ public class Player {
     private boolean travelInSolarSystem(Planet next) {
         if (ship.travel()) {
             currentPlanet = next;
-            next.generateMarket();
+            //next.generateMarket();
             return true;
         }
         return false;

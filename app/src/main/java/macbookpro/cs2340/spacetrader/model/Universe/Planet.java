@@ -31,12 +31,12 @@ public class Planet {
         techLevel = TechLevel.values()[techOrdinal];
         event = Event.values()[ieOrdinal];
 
-        generateMarket();
+        market = new Market(techLevel, resources, event);
     }
 
-    public void generateMarket() {
-        market.generateMarket(eventOccur());
-    }
+   // public void generateMarket() {
+       // market.generateMarket(eventOccur());
+   // }
 
     /**
      * Random generator used to return a random number to assign resource and tech level
