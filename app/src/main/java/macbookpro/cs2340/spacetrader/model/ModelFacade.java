@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import macbookpro.cs2340.spacetrader.model.Universe.Planet;
+
 public class ModelFacade {
     private static ModelFacade instance;
     private static Game newGame;
@@ -35,6 +37,8 @@ public class ModelFacade {
     public static Player getNewPlayer() {
         return newPlayer;
     }
+
+    public static Planet getCurrentPlanet( ){ return newPlayer.getCurrentPlanet(); }
 
 
 }
