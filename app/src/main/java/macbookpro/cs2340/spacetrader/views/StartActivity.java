@@ -14,6 +14,8 @@ public class StartActivity extends AppCompatActivity {
     /** a reference to our view model */
     private StartViewModel startViewModel;
 
+    //StartViewModel startvm = new StartViewModel();
+
     /** make an adapter for the list */
     private final ItemAdapter adapter = new ItemAdapter();
 
