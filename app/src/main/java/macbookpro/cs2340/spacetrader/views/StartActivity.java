@@ -18,16 +18,17 @@ public class StartActivity extends AppCompatActivity {
     //StartViewModel startvm = new StartViewModel();
 
     /** make an adapter for the list */
-    private final ItemAdapter adapter = new ItemAdapter(startViewModel.getMarketInfos());
+    private ItemAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.market_activity);
 
-        StartViewModelFactory svmf = new StartViewModelFactory(new Application());
         //grab the reference to our view model
-        startViewModel = ViewModelProviders.of(this, svmf).get(StartViewModel.class);
+        startViewModel = ViewModelProviders.of(this).get(StartViewModel.class);
+
+        adapter = new ItemAdapter(startViewModel.getMarketInfos());
 
         //first grab a reference to the widget
         RecyclerView recyclerView = findViewById(R.id.marketInfoRecycler);
@@ -36,6 +37,7 @@ public class StartActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         //Setup the adapter for the view
         recyclerView.setAdapter(adapter);
+
     }
 
 }

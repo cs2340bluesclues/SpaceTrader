@@ -28,7 +28,7 @@ public class StartViewModel extends AndroidViewModel {
         Log.i("StartVM", "got till line 27 in STARTVM. Curr planet is " + currPlanet);
     }
 
-    public Map<MarketInfo,Integer> getMarketInfos() {
+    public Map<MarketInfo, Integer> getMarketInfos() {
         return marketInfoMap;
     }
 

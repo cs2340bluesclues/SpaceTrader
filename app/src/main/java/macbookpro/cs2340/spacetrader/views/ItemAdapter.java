@@ -41,8 +41,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         holder.name.setText(mapKeys[position].getItem().getName());
-        holder.price.setText(mapKeys[position].getPrice());
-        holder.quantity.setText(mapValues[position]);
+        holder.price.setText(String.valueOf(mapKeys[position].getPrice()));
+        holder.quantity.setText(String.valueOf(mapValues[position]));
     }
 
     @Override
