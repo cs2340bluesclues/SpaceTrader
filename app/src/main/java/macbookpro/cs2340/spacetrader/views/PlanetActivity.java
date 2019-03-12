@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import macbookpro.cs2340.spacetrader.R;
+import macbookpro.cs2340.spacetrader.model.ModelFacade;
 
 public class PlanetActivity extends AppCompatActivity {
     //private CourseViewModel courseViewModel;
@@ -24,7 +25,7 @@ public class PlanetActivity extends AppCompatActivity {
 
         marketButton = findViewById(R.id.market_button);
         planetLabel = findViewById(R.id.planet_label);
-        planetLabel.setText("Current Planet: ");
+        planetLabel.setText("Current Planet: " + ModelFacade.getCurrentPlanet().getName());
         cargoButton = findViewById(R.id.cargo_button);
 
         marketButton.setOnClickListener(new View.OnClickListener() {
