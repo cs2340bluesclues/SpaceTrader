@@ -13,6 +13,7 @@ public class PlanetActivity extends AppCompatActivity {
     //private CourseViewModel courseViewModel;
 
     Button marketButton;
+    Button cargoButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,7 @@ public class PlanetActivity extends AppCompatActivity {
         setContentView(R.layout.planet_activity);
 
         marketButton = findViewById(R.id.market_button);
+        cargoButton = findViewById(R.id.cargo_button);
 
         marketButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -27,10 +29,22 @@ public class PlanetActivity extends AppCompatActivity {
                 goToMarket();
             }
         });
+        cargoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToCargo();
+            }
+        });
+
     }
 
     private void goToMarket() {
         Intent intent = new Intent(this, StartActivity.class);
+        startActivity(intent);
+    }
+
+    private void goToCargo() {
+        Intent intent = new Intent(this, CargoActivity.class);
         startActivity(intent);
     }
 }

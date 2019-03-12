@@ -5,12 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/market_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Market"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="29dp" />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <Button
+            android:id="@+id/market_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Market"
+            tools:layout_editor_absoluteX="32dp"
+            tools:layout_editor_absoluteY="29dp" />
+
+        <Button
+            android:id="@+id/cargo_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cargo"
+            tools:layout_editor_absoluteX="80dp"
+            tools:layout_editor_absoluteY="29dp" />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
