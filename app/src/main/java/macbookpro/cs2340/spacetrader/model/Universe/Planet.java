@@ -103,4 +103,9 @@ public class Planet {
         Log.i("Universe", "A Planet made: \n" + getName() + ".\n Tech Level: "
                 + getTechLevel() + ".\n Resources: " + getResources());
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
