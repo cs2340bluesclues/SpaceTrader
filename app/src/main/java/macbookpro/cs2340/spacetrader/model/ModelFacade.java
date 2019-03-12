@@ -10,6 +10,7 @@ public class ModelFacade {
     private static ModelFacade instance;
     private static Game newGame;
     private static Player newPlayer;
+
     private ModelFacade() {
 
     }

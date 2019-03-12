@@ -24,10 +24,9 @@ public class StartViewModel extends AndroidViewModel {
     public StartViewModel(@NonNull Application application) {
         super(application);
         currPlanet = getCurrentPlanet();
-        Log.i("StartVM", "got till line 27 in STARTVM. Curr planet is " + currPlanet);
         marketInfoList = currPlanet.getMarket().setMarketList();
+        Log.i("StartVM", "got till line 27 in STARTVM. Curr planet is " + currPlanet);
     }
-
 
     public List<Pair<MarketInfo,Integer>> getMarketInfos() {
         return marketInfoList;

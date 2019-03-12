@@ -5,6 +5,7 @@ import android.arch.lifecycle.AndroidViewModel;
 import android.support.annotation.NonNull;
 
 import macbookpro.cs2340.spacetrader.model.GameDifficulty;
+import macbookpro.cs2340.spacetrader.model.ModelFacade;
 import macbookpro.cs2340.spacetrader.model.Player;
 
 import static macbookpro.cs2340.spacetrader.model.ModelFacade.*;
@@ -90,7 +91,6 @@ public class ConfigurationViewModel {
     public String sendData(String name, GameDifficulty diff) {
         createGame(diff);
         return createPlayer(name, pilotCount, fighterCount, traderCount, engineerCount);
-
     }
 
 }

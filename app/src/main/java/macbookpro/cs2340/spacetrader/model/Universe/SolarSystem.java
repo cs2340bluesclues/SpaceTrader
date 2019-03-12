@@ -83,10 +83,7 @@ public class SolarSystem {
     public Planet findBeginnerPlanet() { //may be a tiny bit messed up
         Planet beginnerPlanet = null;
         for(Planet p: planets) {
-            if (p.getTechLevel().ordinal() == 0) {
-                beginnerPlanet = p;
-            }
-
+            beginnerPlanet = p;
         }
         return beginnerPlanet;
     }
