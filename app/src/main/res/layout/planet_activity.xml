@@ -5,15 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<<<<<<< HEAD
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="35dp">
-=======
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -22,7 +14,7 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp">
 
->>>>>>> Matt
+
         <Button
             android:id="@+id/market_button"
             android:layout_width="wrap_content"
@@ -31,22 +23,22 @@
             tools:layout_editor_absoluteX="32dp"
             tools:layout_editor_absoluteY="29dp" />
 
-<<<<<<< HEAD
+
         <TextView
             android:id="@+id/planet_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Current Planet: "
-            tools:layout_editor_absoluteX="60dp"
-=======
+            tools:layout_editor_absoluteX="60dp" />
+
         <Button
             android:id="@+id/cargo_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cargo"
             tools:layout_editor_absoluteX="80dp"
->>>>>>> Matt
             tools:layout_editor_absoluteY="29dp" />
     </LinearLayout>
+
 
 </android.support.constraint.ConstraintLayout>
