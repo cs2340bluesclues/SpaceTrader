@@ -1,5 +1,7 @@
 package macbookpro.cs2340.spacetrader.model.Universe;
 
+import android.util.Log;
+
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
@@ -38,6 +40,18 @@ public class Universe {
      */
     public void travel() {
         //something that allows to go to new solar system coords
+    }
+
+    public Planet retrieveBeginnerPlanet(){
+        //SolarSystem randomSolarSystem; //also may be tiny bit messed up
+        SolarSystem randomSolarSystem = null;
+        for(SolarSystem aSolarSystem: system) {
+            randomSolarSystem = aSolarSystem;
+        }
+        Log.i("StartVM", "find beginner planet is " + randomSolarSystem.findBeginnerPlanet());
+        return randomSolarSystem.findBeginnerPlanet();
+
+        //return randomSolarSystem.findBeginnerPlanet();
     }
 
 }

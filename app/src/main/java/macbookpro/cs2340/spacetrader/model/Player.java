@@ -22,7 +22,7 @@ public class Player {
     private Planet currentPlanet;
 
 
-    public Player(String name, int pilot, int fighter, int trader, int engineer) {
+    public Player(String name, int pilot, int fighter, int trader, int engineer, Planet planet) {
         this.name = name;
         this.pilot = pilot;
         this.fighter = fighter;
@@ -32,6 +32,7 @@ public class Player {
         lawfulStatus = true;
         credits = 1000;
         ship = new Ship(ShipType.GNAT);
+        currentPlanet = planet;
     }
 
     private boolean travelInSolarSystem(Planet next) {
@@ -51,11 +52,11 @@ public class Player {
 //        }
 //    }
 
-    public boolean buy(MarketInfo item, int quantity) {
+    public boolean buy(MarketInfo item, int quantityToPurchase) {
         int count = 0;
         boolean bought = false;
-        while (count < quantity &&
-                currentPlanet.getMarket().buyAsPlayer(item)) {
+        while (count < quantityToPurchase &&
+                currentPlanet.getMarket().buyAsPlayer(item, quantityToPurchase)) {
             if (credits > item.getPrice()) {
                 if (ship.addItem(item.getItem())) {
                     credits -= item.getPrice();

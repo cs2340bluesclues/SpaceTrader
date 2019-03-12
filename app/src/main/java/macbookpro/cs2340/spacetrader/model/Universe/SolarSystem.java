@@ -76,6 +76,19 @@ public class SolarSystem {
         return coords;
     }
 
+    public Set<Planet> getPlanets() {
+        return planets;
+    }
+
+    public Planet findBeginnerPlanet() { //may be a tiny bit messed up
+        Planet beginnerPlanet = null;
+        for(Planet p: planets) {
+            beginnerPlanet = p;
+        }
+        return beginnerPlanet;
+    }
+
+
     /**
      * prints the SolarSystem and its corresponding planet information to the logcat
      */

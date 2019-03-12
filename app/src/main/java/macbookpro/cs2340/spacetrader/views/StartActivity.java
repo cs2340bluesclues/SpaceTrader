@@ -1,5 +1,6 @@
 package macbookpro.cs2340.spacetrader.views;
 
+import android.app.Application;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,12 +18,17 @@ public class StartActivity extends AppCompatActivity {
     //StartViewModel startvm = new StartViewModel();
 
     /** make an adapter for the list */
-    private final ItemAdapter adapter = new ItemAdapter();
+    private ItemAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.market_activity);
+
+        //grab the reference to our view model
+        startViewModel = ViewModelProviders.of(this).get(StartViewModel.class);
+
+        adapter = new ItemAdapter(startViewModel.getMarketInfos());
 
         //first grab a reference to the widget
         RecyclerView recyclerView = findViewById(R.id.marketInfoRecycler);
@@ -32,11 +38,6 @@ public class StartActivity extends AppCompatActivity {
         //Setup the adapter for the view
         recyclerView.setAdapter(adapter);
 
-        //grab the reference to our view model
-        startViewModel = ViewModelProviders.of(this).get(StartViewModel.class);
-
-        //set the list of courses in the view by using the adapter
-        adapter.setMarketList(startViewModel.getMarketInfos());
     }
 
 }

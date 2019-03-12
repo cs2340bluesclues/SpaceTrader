@@ -3,6 +3,7 @@ package macbookpro.cs2340.spacetrader.viewmodels;
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.util.Pair;
 
 import java.util.List;
@@ -17,18 +18,18 @@ import static macbookpro.cs2340.spacetrader.model.ModelFacade.*;
 
 public class StartViewModel extends AndroidViewModel {
 
-    List<Pair<MarketInfo, Integer>> marketInfoList;
+    Map<MarketInfo, Integer> marketInfoMap;
     Planet currPlanet;
 
     public StartViewModel(@NonNull Application application) {
         super(application);
-        currPlanet = ModelFacade.getCurrentPlanet();
-        this.marketInfoList = currPlanet.getMarket().setMarketList();
+        currPlanet = getCurrentPlanet();
+        marketInfoMap = currPlanet.getMarket().getMarketGoods();
+        Log.i("StartVM", "got till line 27 in STARTVM. Curr planet is " + currPlanet);
     }
 
-
-    public List<Pair<MarketInfo,Integer>> getMarketInfos() {
-        return marketInfoList;
+    public Map<MarketInfo, Integer> getMarketInfos() {
+        return marketInfoMap;
     }
 
     public Planet getCurrPlanet() {

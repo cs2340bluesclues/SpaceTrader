@@ -64,6 +64,9 @@ public abstract class MarketItem implements Comparable<MarketItem> {
         return price;
     }
 
+    public String getName() {
+        return name;
+    }
 
     public int getMtlp() {
         return mtlp;

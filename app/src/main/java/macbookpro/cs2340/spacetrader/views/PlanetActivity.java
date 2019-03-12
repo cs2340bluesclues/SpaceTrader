@@ -15,6 +15,7 @@ public class PlanetActivity extends AppCompatActivity {
 
     Button marketButton;
     TextView planetLabel;
+    Button cargoButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,7 @@ public class PlanetActivity extends AppCompatActivity {
         marketButton = findViewById(R.id.market_button);
         planetLabel = findViewById(R.id.planet_label);
         planetLabel.setText("Current Planet: ");
+        cargoButton = findViewById(R.id.cargo_button);
 
         marketButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,10 +33,22 @@ public class PlanetActivity extends AppCompatActivity {
                 goToMarket();
             }
         });
+        cargoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToCargo();
+            }
+        });
+
     }
 
     private void goToMarket() {
         Intent intent = new Intent(this, StartActivity.class);
+        startActivity(intent);
+    }
+
+    private void goToCargo() {
+        Intent intent = new Intent(this, CargoActivity.class);
         startActivity(intent);
     }
 }

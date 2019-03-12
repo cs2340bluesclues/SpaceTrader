@@ -10,6 +10,7 @@ public class ModelFacade {
     private static ModelFacade instance;
     private static Game newGame;
     private static Player newPlayer;
+
     private ModelFacade() {
 
     }
@@ -26,7 +27,8 @@ public class ModelFacade {
     }
 
     public static String createPlayer(String name, int pilot, int fighter, int trader, int engineer) {
-        newPlayer = new Player(name, pilot, fighter, trader, engineer);
+        Planet beginnerPlanet = newGame.getUniverse().retrieveBeginnerPlanet();
+        newPlayer = new Player(name, pilot, fighter, trader, engineer, beginnerPlanet);
         return newPlayer.toString();
     }
 
