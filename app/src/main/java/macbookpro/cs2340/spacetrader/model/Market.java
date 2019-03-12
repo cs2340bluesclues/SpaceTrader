@@ -56,15 +56,18 @@ public class Market {
         return quantity;
     }
 
-    public boolean buyAsPlayer(MarketInfo item) {
+    public boolean buyAsPlayer(MarketInfo item, int quanitityPurchased) {
         if (goods.containsKey(item)) {
-            goods.put(item, goods.get(item) - 1);
+            goods.remove(item);
+            goods.put(item, goods.get(item) - quanitityPurchased);
+
             return true;
         }
         return false;
     }
 
     public boolean sellAsPlayer(MarketInfo item) {
+        goods.remove(item);
         goods.put(item, goods.containsKey(item) ? goods.get(item) + 1 : 1);
         return true;
     }

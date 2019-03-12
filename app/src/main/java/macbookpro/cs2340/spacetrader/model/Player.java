@@ -52,11 +52,11 @@ public class Player {
 //        }
 //    }
 
-    public boolean buy(MarketInfo item, int quantity) {
+    public boolean buy(MarketInfo item, int quantityToPurchase) {
         int count = 0;
         boolean bought = false;
-        while (count < quantity &&
-                currentPlanet.getMarket().buyAsPlayer(item)) {
+        while (count < quantityToPurchase &&
+                currentPlanet.getMarket().buyAsPlayer(item, quantityToPurchase)) {
             if (credits > item.getPrice()) {
                 if (ship.addItem(item.getItem())) {
                     credits -= item.getPrice();
