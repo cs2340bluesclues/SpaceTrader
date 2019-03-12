@@ -17,7 +17,7 @@ public class StartActivity extends AppCompatActivity {
     //StartViewModel startvm = new StartViewModel();
 
     /** make an adapter for the list */
-    private final ItemAdapter adapter = new ItemAdapter();
+    private final ItemAdapter adapter = new ItemAdapter(startViewModel.getMarketInfos());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +34,6 @@ public class StartActivity extends AppCompatActivity {
 
         //grab the reference to our view model
         startViewModel = ViewModelProviders.of(this).get(StartViewModel.class);
-
-        //set the list of courses in the view by using the adapter
-        adapter.setMarketList(startViewModel.getMarketInfos());
     }
 
 }

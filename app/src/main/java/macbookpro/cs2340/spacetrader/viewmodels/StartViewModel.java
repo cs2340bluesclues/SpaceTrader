@@ -18,18 +18,18 @@ import static macbookpro.cs2340.spacetrader.model.ModelFacade.*;
 
 public class StartViewModel extends AndroidViewModel {
 
-    List<Pair<MarketInfo, Integer>> marketInfoList;
+    Map<MarketInfo, Integer> marketInfoMap;
     Planet currPlanet;
 
     public StartViewModel(@NonNull Application application) {
         super(application);
         currPlanet = getCurrentPlanet();
-        marketInfoList = currPlanet.getMarket().setMarketList();
+        marketInfoMap = currPlanet.getMarket().getMarketGoods();
         Log.i("StartVM", "got till line 27 in STARTVM. Curr planet is " + currPlanet);
     }
 
-    public List<Pair<MarketInfo,Integer>> getMarketInfos() {
-        return marketInfoList;
+    public Map<MarketInfo,Integer> getMarketInfos() {
+        return marketInfoMap;
     }
 
     public Planet getCurrPlanet() {
