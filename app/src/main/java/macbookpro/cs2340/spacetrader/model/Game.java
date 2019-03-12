@@ -32,4 +32,8 @@ public class Game {
     public GameDifficulty getDiff() {
         return diff;
     }
+
+    public Universe getUniverse() {
+        return universe;
+    }
 }

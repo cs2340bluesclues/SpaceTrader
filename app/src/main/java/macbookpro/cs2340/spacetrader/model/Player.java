@@ -22,7 +22,7 @@ public class Player {
     private Planet currentPlanet;
 
 
-    public Player(String name, int pilot, int fighter, int trader, int engineer) {
+    public Player(String name, int pilot, int fighter, int trader, int engineer, Planet planet) {
         this.name = name;
         this.pilot = pilot;
         this.fighter = fighter;
@@ -32,6 +32,7 @@ public class Player {
         lawfulStatus = true;
         credits = 1000;
         ship = new Ship(ShipType.GNAT);
+        currentPlanet = planet;
     }
 
     private boolean travelInSolarSystem(Planet next) {
