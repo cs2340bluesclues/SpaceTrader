@@ -1,58 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginEnd="8dp"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:layout_marginStart="8dp"
     android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp"
     android:layout_marginBottom="8dp">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:padding="8dp">
 
         <TextView
             android:id="@+id/text_market_item_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
             android:text="Market Item"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_name"
+            android:layout_width="96dp"
+            android:layout_height="19dp"
+            android:layout_marginTop="76dp"
+            android:maxLines="1"
+            android:paddingEnd="25dp"
+            android:text="Name: ####"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="37dp" />
+
+        <TextView
+            android:id="@+id/text_price"
+            android:layout_width="96dp"
+            android:layout_height="19dp"
+            android:layout_marginTop="76dp"
+            android:maxLines="1"
+            android:paddingEnd="25dp"
+            android:text="Price: ####"
+            app:layout_constraintRight_toLeftOf="@+id/text_quantity"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/text_quantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/text_price"
-            android:maxLines="1"
-            android:paddingEnd="25dp"
-            android:text="Quantity: ###" />
-
-        <TextView
-            android:id="@+id/text_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
+            android:layout_marginTop="76dp"
+            android:layout_marginEnd="4dp"
             android:maxLines="1"
             android:paddingEnd="16dp"
-            android:text="Price: ####" />
+            android:text="Total Quantity: ####"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/text_quantity_desired"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:text="Quantity to buy"
+            tools:layout_editor_absoluteX="63dp"
+            tools:layout_editor_absoluteY="168dp" />
 
-    </RelativeLayout>
+        <Button
+            android:id="@+id/increase_quantity_button"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="@string/plus"
+            tools:layout_editor_absoluteX="127dp"
+            tools:layout_editor_absoluteY="168dp" />
 
-    <LinearLayout
-        android:layout_height="8dp"
-        android:layout_width="8dp"
-        android:layout_gravity="center">
+        <TextView
+            android:id="@+id/quantity_tracker"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            tools:layout_editor_absoluteX="170dp"
+            tools:layout_editor_absoluteY="168dp" />
+
+        <Button
+            android:id="@+id/decrease_quantity_button"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="@string/minus"
+            tools:layout_editor_absoluteX="211dp"
+            tools:layout_editor_absoluteY="168dp" />
+
+        <TextView
+            android:id="@+id/text_total_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="260dp"
+            android:layout_marginEnd="124dp"
+            android:maxLines="1"
+            android:paddingEnd="16dp"
+            android:text="Total Price: ####"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/buy_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Buy" />
+            android:layout_width="105dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Buy"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.529"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.484" />
 
-    </LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.v7.widget.CardView>
