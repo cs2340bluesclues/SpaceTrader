@@ -1,10 +1,6 @@
 package macbookpro.cs2340.spacetrader.model;
 
-import android.util.Pair;
-
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -25,7 +21,7 @@ public class Market {
     static MarketItem[] items = {new Water(), new Furs(), new Food(), new Ore(), new Games(),
             new Firearms(), new Medicine(), new Machines(), new Narcotics(), new Robots()};
 
-    private Map<MarketInfo, Integer> goods = new HashMap<>();
+    private Map<MarketInfo, Integer> map = new HashMap<>();
 
     private Event event;
     private TechLevel techLevel;
@@ -43,23 +39,31 @@ public class Market {
         Random r = new Random(10);
         for (int index = 0; index < items.length; index++) {
             MarketInfo key = new MarketInfo(items[index], event, techLevel, resources);
-            goods.put(key, goods.containsKey(key) ? calculateQuantity(techLevel, key.getItem()) : 1);
+            int quantity = calculateQuantity(techLevel, key.getItem());
+            if (quantity > 0) {
+                map.put(key, quantity);
+            }
         }
     }
 
     private int calculateQuantity(TechLevel techLevel, MarketItem item) {
         Random rand = new Random();
+        if (item.getMtlp() > techLevel.ordinal()) {
+            return 0;
+        }
         int quantity = rand.nextInt(20);
-        if (item.getTtp() == techLevel.ordinal()) {
-            quantity += rand.nextInt(20);
+        if (map.containsKey(item) && map.get(item) < 40) {
+            if (item.getTtp() == techLevel.ordinal()) {
+                quantity += rand.nextInt(20);
+            }
         }
         return quantity;
     }
 
     public boolean buyAsPlayer(MarketInfo item, int quanitityPurchased) {
-        if (goods.containsKey(item)) {
-            goods.remove(item);
-            goods.put(item, goods.get(item) - quanitityPurchased);
+        if (map.containsKey(item)) {
+            map.remove(item);
+            map.put(item, map.get(item) - quanitityPurchased);
 
             return true;
         }
@@ -67,24 +71,13 @@ public class Market {
     }
 
     public boolean sellAsPlayer(MarketInfo item) {
-        goods.remove(item);
-        goods.put(item, goods.containsKey(item) ? goods.get(item) + 1 : 1);
+        map.remove(item);
+        map.put(item, map.containsKey(item) ? map.get(item) + 1 : 1);
         return true;
     }
 
     public Map<MarketInfo, Integer> getMarketGoods() {
-        return goods;
-    }
-
-    public List<Pair<MarketInfo, Integer>> setMarketList() {
-        List<Pair<MarketInfo, Integer>> marketList = new ArrayList<>();
-
-        for (Map.Entry<MarketInfo, Integer> entry : goods.entrySet()) {
-            MarketInfo m = entry.getKey();
-            Integer q = entry.getValue();
-            marketList.add(Pair.create(m,q));
-        }
-        return marketList;
+        return map;
     }
 
     public TechLevel getTechLevel() {
