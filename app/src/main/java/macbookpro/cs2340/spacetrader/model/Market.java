@@ -58,10 +58,10 @@ public class Market {
         return quantity;
     }
 
-    public boolean buyAsPlayer(MarketInfo item, int quanitityPurchased) {
+    public boolean buyAsPlayer(MarketInfo item, int quantityPurchased) {
         if (map.containsKey(item)) {
             map.remove(item);
-            map.put(item, map.get(item) - quanitityPurchased);
+            map.put(item, map.get(item) - quantityPurchased);
 
             return true;
         }

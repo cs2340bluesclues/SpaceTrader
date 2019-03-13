@@ -1,9 +1,6 @@
 package macbookpro.cs2340.spacetrader.model;
 
-import android.util.Pair;
 
-import java.util.List;
-import java.util.Map;
 
 import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 import macbookpro.cs2340.spacetrader.model.Universe.SolarSystem;
@@ -53,14 +50,17 @@ public class Player {
 //    }
 
     public boolean buy(MarketInfo item, int quantityToPurchase) {
-        int count = 0;
+        //int count = 0;
         boolean bought = false;
-        while (count < quantityToPurchase &&
-                currentPlanet.getMarket().buyAsPlayer(item, quantityToPurchase)) {
+        //ALERT LOOK AT THIS ALERT CHECK THIS LATER
+        //what if you do not have enough money? Then the items will still be removed from the market??????????????
+
+        //while (count < quantityToPurchase &&
+        if (currentPlanet.getMarket().buyAsPlayer(item, quantityToPurchase)) {
             if (credits > item.getPrice()) {
-                if (ship.addItem(item.getItem())) {
+                if (ship.addItem(item, quantityToPurchase)) {
                     credits -= item.getPrice();
-                    count++;
+                    //count++;
                     bought = true;
                 }
             }
@@ -71,7 +71,7 @@ public class Player {
     public boolean sell(MarketInfo item, int quantity) {
         int count = 0;
         boolean sold = false;
-        while (count < quantity && ship.removeItem(item.getItem())) {
+        while (count < quantity && ship.removeItem(item, quantity)) {
             credits += item.getPrice();
             currentPlanet.getMarket().sellAsPlayer(item);
             count++;
