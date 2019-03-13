@@ -13,68 +13,14 @@
         tools:layout_editor_absoluteX="37dp"
         tools:layout_editor_absoluteY="35dp">
 
-        <LinearLayout
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/marketInfoRecycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="16dp">
+            tools:context=".StartActivity"
+            tools:layout_editor_absoluteX="32dp"
+            tools:layout_editor_absoluteY="62dp"
+            tools:listitem="@layout/market_item" />
 
-            <TextView
-                android:id="@+id/Items_Label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Items"
-                tools:layout_editor_absoluteX="32dp"
-                tools:layout_editor_absoluteY="29dp" />
-
-            <TextView
-                android:id="@+id/items_Label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Items"
-                tools:layout_editor_absoluteX="32dp"
-                tools:layout_editor_absoluteY="29dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <android.support.v7.widget.RecyclerView
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:id="@+id/marketInfoRecycler"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                tools:context=".StartActivity"
-                tools:layout_editor_absoluteX="32dp"
-                tools:layout_editor_absoluteY="62dp"
-                tools:listitem="@layout/market_item" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="16dp">
-
-            <Button
-                android:id="@+id/buy_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Buy"
-                tools:layout_editor_absoluteX="83dp"
-                tools:layout_editor_absoluteY="393dp" />
-
-            <Button
-                android:id="@+id/Sell_Button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sell"
-                tools:layout_editor_absoluteX="213dp"
-                tools:layout_editor_absoluteY="393dp" />
-        </LinearLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
