@@ -42,5 +42,7 @@ public class ModelFacade {
 
     public static Planet getCurrentPlanet( ){ return newPlayer.getCurrentPlanet(); }
 
+    public static Ship getCurrentShip() {return newPlayer.getShip();}
+
 
 }
