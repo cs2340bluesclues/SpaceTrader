@@ -27,7 +27,7 @@ public class CargoActivity extends AppCompatActivity {
         adapter = new ItemAdapter(cargoViewModel.getCargoMap());
 
         //first grab a reference to the widget
-        RecyclerView recyclerView = findViewById(R.id.marketInfoRecycler);
+        RecyclerView recyclerView = findViewById(R.id.cargoRecycler);
         //Set the layout manager for the list to just be a vertical list of stuff
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
