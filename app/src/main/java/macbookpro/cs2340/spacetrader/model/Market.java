@@ -30,23 +30,21 @@ public class Market {
     public Market(TechLevel planetTechLevel, Resources planetResources, Event ie) {
         techLevel = planetTechLevel;
         resources = planetResources;
-        event = ie;
-        generateMarket(event);
+        generateMarket(ie);
     }
 
     public void generateMarket(Event ie) {
         event = ie;
-        Random r = new Random(10);
         for (int index = 0; index < items.length; index++) {
             MarketInfo key = new MarketInfo(items[index], event, techLevel, resources);
-            int quantity = calculateQuantity(techLevel, key.getItem());
+            int quantity = calculateQuantity(key.getItem());
             if (quantity > 0) {
                 map.put(key, quantity);
             }
         }
     }
 
-    private int calculateQuantity(TechLevel techLevel, MarketItem item) {
+    private int calculateQuantity(MarketItem item) {
         Random rand = new Random();
         if (item.getMtlp() > techLevel.ordinal()) {
             return 0;
@@ -79,15 +77,5 @@ public class Market {
     public Map<MarketInfo, Integer> getMarketGoods() {
         return map;
     }
-
-    public TechLevel getTechLevel() {
-        return techLevel;
-    }
-
-    public Resources getResources() {
-        return resources;
-    }
-
-
 
 }

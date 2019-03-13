@@ -12,17 +12,20 @@ import java.util.Map;
 
 import macbookpro.cs2340.spacetrader.model.MarketInfo;
 import macbookpro.cs2340.spacetrader.model.ModelFacade;
+import macbookpro.cs2340.spacetrader.model.Player;
 import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 
 import static macbookpro.cs2340.spacetrader.model.ModelFacade.*;
 
-public class StartViewModel extends AndroidViewModel {
+public class MarketViewModel extends AndroidViewModel {
 
     Map<MarketInfo, Integer> marketInfoMap;
     Planet currPlanet;
+    Player player;
 
-    public StartViewModel(@NonNull Application application) {
+    public MarketViewModel(@NonNull Application application) {
         super(application);
+        player = getNewPlayer();
         currPlanet = getCurrentPlanet();
         marketInfoMap = currPlanet.getMarket().getMarketGoods();
         Log.i("StartVM", "got till line 27 in STARTVM. Curr planet is " + currPlanet);
@@ -34,5 +37,9 @@ public class StartViewModel extends AndroidViewModel {
 
     public Planet getCurrPlanet() {
         return currPlanet;
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 }

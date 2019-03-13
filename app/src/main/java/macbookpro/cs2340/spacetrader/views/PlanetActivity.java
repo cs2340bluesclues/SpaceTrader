@@ -3,7 +3,6 @@ package macbookpro.cs2340.spacetrader.views;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -44,7 +43,7 @@ public class PlanetActivity extends AppCompatActivity {
     }
 
     private void goToMarket() {
-        Intent intent = new Intent(this, StartActivity.class);
+        Intent intent = new Intent(this, MarketActivity.class);
         startActivity(intent);
     }
 

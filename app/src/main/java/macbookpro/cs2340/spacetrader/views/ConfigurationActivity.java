@@ -169,7 +169,7 @@ public class ConfigurationActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Name field cannot be blank", Toast.LENGTH_LONG).show();
                 } else {
                     String s = totalVM.sendData(name, level);
-//                    Intent messageIntent = new Intent(ConfigurationActivity.this, StartActivity.class);
+//                    Intent messageIntent = new Intent(ConfigurationActivity.this, MarketActivity.class);
 //                    messageIntent.putExtra("PRINT_PLAYER_MESSAGE", s);
 //                    startActivity(messageIntent);
                     launchGame();
