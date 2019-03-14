@@ -106,6 +106,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
             decreaseQ = itemView.findViewById(R.id.decrease_quantity_button);
             increaseQ = itemView.findViewById(R.id.increase_quantity_button);
 
+            quantityToTrade = 0;
+            totalTradePrice = 0;
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -149,8 +152,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                 public void onClick(View v) {
                     int position = getAdapterPosition();
                     transaction(player, market, position, quantityToTrade);
-                    String s = "";
-                    Log.i("wedunnit!", s);
+
+                    Log.i("wedunnit!", "got here ");
 
                 }
             });
