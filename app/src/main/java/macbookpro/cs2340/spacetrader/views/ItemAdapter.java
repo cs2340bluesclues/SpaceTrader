@@ -165,10 +165,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     private void transaction(Player p, Market m, int position, int quantityToTrade) {
         if(buying) {
             p.buy(mapKeys[position], quantityToTrade);
-            m.buyAsPlayer(mapKeys[position], quantityToTrade);
+            //m.buyAsPlayer(mapKeys[position], quantityToTrade);
         } else {
             p.sell(mapKeys[position], quantityToTrade);
-            m.sellAsPlayer(mapKeys[position]);
+            //m.sellAsPlayer(mapKeys[position]);
         }
     }
     public interface OnMarketInfoClickListener {
