@@ -106,6 +106,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
             decreaseQ = itemView.findViewById(R.id.decrease_quantity_button);
             increaseQ = itemView.findViewById(R.id.increase_quantity_button);
 
+            quantityToTrade = 0;
+            totalTradePrice = 0;
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -148,10 +151,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                 @Override
                 public void onClick(View v) {
                     int position = getAdapterPosition();
-                    transaction(player, market, position, quantityToTrade, quantity);
+                    transaction(player, market, position, quantityToTrade);
 
-                    String s = "";
-                    Log.i("wedunnit!", s);
+                    Log.i("wedunnit!", "got here ");
 
                 }
             });
@@ -160,7 +162,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     }
 
 
-    private void transaction(Player p, Market m, int position, int quantityToTrade, TextView quantity) {
+    private void transaction(Player p, Market m, int position, int quantityToTrade) {
         if(buying) {
             p.buy(mapKeys[position], quantityToTrade);
             m.buyAsPlayer(mapKeys[position], quantityToTrade);
@@ -168,8 +170,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
             p.sell(mapKeys[position], quantityToTrade);
             m.sellAsPlayer(mapKeys[position]);
         }
-        quantity.setText(String.valueOf(mapValues[position]));
-
     }
     public interface OnMarketInfoClickListener {
         void onMarketInfoClicked(MarketInfo marketInfo);

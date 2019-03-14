@@ -1,5 +1,7 @@
 package macbookpro.cs2340.spacetrader.model;
 
+import android.util.Log;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -60,8 +62,10 @@ public class Market {
 
     public boolean buyAsPlayer(MarketInfo item, int quantityPurchased) {
         if (map.containsKey(item)) {
-            map.remove(item);
-            map.put(item, map.get(item) - quantityPurchased);
+            Log.i("wedunnit!", "map " + map + " map get item " + map.get(item));
+
+            int originalQuantity = map.get(item);
+            map.put(item, originalQuantity - quantityPurchased);
 
             return true;
         }
