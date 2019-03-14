@@ -148,7 +148,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                 @Override
                 public void onClick(View v) {
                     int position = getAdapterPosition();
-                    transaction(player, market, position, quantityToTrade);
+                    transaction(player, market, position, quantityToTrade, quantity);
+
                     String s = "";
                     Log.i("wedunnit!", s);
 
@@ -159,7 +160,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     }
 
 
-    private void transaction(Player p, Market m, int position, int quantityToTrade) {
+    private void transaction(Player p, Market m, int position, int quantityToTrade, TextView quantity) {
         if(buying) {
             p.buy(mapKeys[position], quantityToTrade);
             m.buyAsPlayer(mapKeys[position], quantityToTrade);
@@ -167,6 +168,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
             p.sell(mapKeys[position], quantityToTrade);
             m.sellAsPlayer(mapKeys[position]);
         }
+        quantity.setText(String.valueOf(mapValues[position]));
+
     }
     public interface OnMarketInfoClickListener {
         void onMarketInfoClicked(MarketInfo marketInfo);
