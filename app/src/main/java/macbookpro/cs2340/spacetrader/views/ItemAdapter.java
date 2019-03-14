@@ -153,11 +153,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                     int position = getAdapterPosition();
                     transaction(player, market, position, quantityToTrade);
                     quantity.setText("" + mapData.get(mapKeys[position]));
-                    buyQuantity.setText("0");
-                    totalPrice.setText("0");
+
+                    quantityToTrade = 0;
+                    totalTradePrice = 0;
+
+                    buyQuantity.setText("" + quantityToTrade);
+                    totalPrice.setText("" + totalTradePrice);
 
                     Log.i("wedunnit!", "got here ");
-
                 }
             });
 

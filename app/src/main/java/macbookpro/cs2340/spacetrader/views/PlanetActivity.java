@@ -23,9 +23,10 @@ public class PlanetActivity extends AppCompatActivity {
         setContentView(R.layout.planet_activity);
 
         marketButton = findViewById(R.id.market_button);
+        cargoButton = findViewById(R.id.cargo_button);
+
         planetLabel = findViewById(R.id.planet_label);
         planetLabel.setText("Current Planet: " + ModelFacade.getCurrentPlanet().getName());
-        cargoButton = findViewById(R.id.cargo_button);
 
         marketButton.setOnClickListener(new View.OnClickListener() {
             @Override

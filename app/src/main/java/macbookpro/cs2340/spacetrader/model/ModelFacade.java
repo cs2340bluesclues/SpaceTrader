@@ -46,5 +46,7 @@ public class ModelFacade {
 
     public static Ship getCurrentShip() {return newPlayer.getShip();}
 
+    public static int getCurrentCredits() {return newPlayer.getCredits();}
+
 
 }
