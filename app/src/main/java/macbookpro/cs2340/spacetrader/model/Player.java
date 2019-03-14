@@ -59,7 +59,7 @@ public class Player {
         if (currentPlanet.getMarket().buyAsPlayer(item, quantityToPurchase)) {
             if (credits > item.getPrice()) {
                 if (ship.addItem(item, quantityToPurchase)) {
-                    credits -= item.getPrice();
+                    credits -= (item.getPrice()*quantityToPurchase);
                     //count++;
                     bought = true;
                 }
@@ -72,7 +72,7 @@ public class Player {
         int count = 0;
         boolean sold = false;
         while (count < quantity && ship.removeItem(item, quantity)) {
-            credits += item.getPrice();
+            credits += (item.getPrice()*quantity);
             currentPlanet.getMarket().sellAsPlayer(item);
             count++;
             sold = true;

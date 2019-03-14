@@ -23,6 +23,7 @@ public class MarketActivity extends AppCompatActivity {
     private MarketViewModel marketViewModel;
 
     /** widgets*/
+    TextView playerName, playerCredits;
 
 
     /** make an adapter for the list */
@@ -38,8 +39,13 @@ public class MarketActivity extends AppCompatActivity {
         //grab the reference to our view model
         marketViewModel = ViewModelProviders.of(this).get(MarketViewModel.class);
 
+        playerName = findViewById(R.id.player_name_label);
+        playerName.setText(marketViewModel.getPlayerName());
+        playerCredits = findViewById(R.id.credits);
+        playerCredits.setText(String.valueOf(marketViewModel.getPlayerCredits()));
 
-        adapter = new ItemAdapter(marketViewModel.getMarketInfos(), true, marketViewModel.getPlayer(), marketViewModel.getMarket());
+        adapter = new ItemAdapter(marketViewModel.getMarketInfos(), true, marketViewModel.getPlayer(),
+                marketViewModel.getMarket());
 
         //first grab a reference to the widget
         RecyclerView recyclerView = findViewById(R.id.marketInfoRecycler);
@@ -57,6 +63,8 @@ public class MarketActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
 
 

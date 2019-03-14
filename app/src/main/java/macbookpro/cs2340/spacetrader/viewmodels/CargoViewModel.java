@@ -50,6 +50,14 @@ public class CargoViewModel extends AndroidViewModel {
         return player;
     }
 
+    public String getPlayerName() {
+        return player.getName();
+    }
+
+    public int getPlayerCredits() {
+        return player.getCredits();
+    }
+
     public Market getMarket() {
         return market;
     }

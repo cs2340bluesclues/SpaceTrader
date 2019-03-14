@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.TextView;
 
 import macbookpro.cs2340.spacetrader.R;
 import macbookpro.cs2340.spacetrader.viewmodels.CargoViewModel;
@@ -16,6 +17,7 @@ public class CargoActivity extends AppCompatActivity {
 
     private CargoViewModel cargoViewModel;
     private ItemAdapter adapter;
+    private TextView playerName, playerCredits;
 
 
     @Override
@@ -24,6 +26,13 @@ public class CargoActivity extends AppCompatActivity {
         setContentView(R.layout.cargo_activity);
 
         cargoViewModel = ViewModelProviders.of(this).get(CargoViewModel.class);
+
+
+        playerName = findViewById(R.id.player_name_label);
+        playerName.setText(cargoViewModel.getPlayerName());
+        playerCredits = findViewById(R.id.credits);
+        playerCredits.setText(String.valueOf(cargoViewModel.getPlayerCredits()));
+
         adapter = new ItemAdapter(cargoViewModel.getCargoMap(), false, cargoViewModel.getPlayer(), cargoViewModel.getMarket());
 
         //first grab a reference to the widget

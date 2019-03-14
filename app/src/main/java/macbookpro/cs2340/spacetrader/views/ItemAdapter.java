@@ -1,5 +1,6 @@
 package macbookpro.cs2340.spacetrader.views;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -125,10 +126,17 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                 public void onClick(View v) {
                     int position = getAdapterPosition();
                     if (quantityToTrade < mapValues[position]) {
-                        quantityToTrade++;
-                        totalTradePrice = quantityToTrade * mapKeys[position].getPrice();
-                        buyQuantity.setText("" + quantityToTrade);
-                        totalPrice.setText("" + totalTradePrice);
+                       if (buying && player.getCredits() >= (quantityToTrade + 1) * mapKeys[position].getPrice()) {
+                            quantityToTrade++;
+                            totalTradePrice = quantityToTrade * mapKeys[position].getPrice();
+                            buyQuantity.setText("" + quantityToTrade);
+                            totalPrice.setText("" + totalTradePrice);
+                       } else if (!buying) {
+                           quantityToTrade++;
+                           totalTradePrice = quantityToTrade * mapKeys[position].getPrice();
+                           buyQuantity.setText("" + quantityToTrade);
+                           totalPrice.setText("" + totalTradePrice);
+                       }
                     }
                 }
             });
@@ -151,6 +159,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                 @Override
                 public void onClick(View v) {
                     int position = getAdapterPosition();
+
                     transaction(player, market, position, quantityToTrade);
                     quantity.setText("" + mapData.get(mapKeys[position]));
 
@@ -159,6 +168,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
                     buyQuantity.setText("" + quantityToTrade);
                     totalPrice.setText("" + totalTradePrice);
+
 
                     Log.i("wedunnit!", "got here ");
                 }
@@ -184,4 +194,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     public void setOnMarketInfoClickListener(OnMarketInfoClickListener listener) {
         this.listener = listener;
     }
+
+
 }
