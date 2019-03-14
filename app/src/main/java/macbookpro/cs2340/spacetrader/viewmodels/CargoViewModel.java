@@ -10,8 +10,10 @@ import java.util.List;
 import java.util.Map;
 
 
+import macbookpro.cs2340.spacetrader.model.Market;
 import macbookpro.cs2340.spacetrader.model.MarketInfo;
 import macbookpro.cs2340.spacetrader.model.ModelFacade;
+import macbookpro.cs2340.spacetrader.model.Player;
 import macbookpro.cs2340.spacetrader.model.Ship;
 import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 
@@ -21,15 +23,34 @@ public class CargoViewModel extends AndroidViewModel {
 
     Map<MarketInfo, Integer> cargoMap;
     Ship currShip;
+    Player player;
+    Market market;
+    Planet currPlanet;
 
 
     public CargoViewModel(@NonNull Application application) {
         super(application);
         currShip = getCurrentShip();
         cargoMap = currShip.getCargo();
+        player = getNewPlayer();
+        market = getCurrentMarket();
+        currPlanet = getCurrentPlanet();
     }
 
     public Map<MarketInfo, Integer> getCargoMap() {
         return cargoMap;
+    }
+
+
+    public Planet getCurrPlanet() {
+        return currPlanet;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public Market getMarket() {
+        return market;
     }
 }

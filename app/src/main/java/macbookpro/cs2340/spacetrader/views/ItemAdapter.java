@@ -2,15 +2,21 @@ package macbookpro.cs2340.spacetrader.views;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Map;
 
 import macbookpro.cs2340.spacetrader.R;
+import macbookpro.cs2340.spacetrader.model.GameDifficulty;
+import macbookpro.cs2340.spacetrader.model.Market;
 import macbookpro.cs2340.spacetrader.model.MarketInfo;
+import macbookpro.cs2340.spacetrader.model.Player;
 
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder>{
@@ -21,12 +27,19 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     private Map<MarketInfo, Integer> mapData;
     private MarketInfo[] mapKeys;
+    Player player;
+    Market market;
     private Integer[] mapValues;
+    private boolean buying;
 
-    public ItemAdapter(Map<MarketInfo, Integer> data){
+    public ItemAdapter(Map<MarketInfo, Integer> data, boolean buy, Player p, Market m){
         mapData  = data;
         mapKeys = mapData.keySet().toArray(new MarketInfo[data.size()]);
         mapValues = mapData.values().toArray(new Integer[data.size()]);
+        buying = buy;
+        player = p;
+        market = m;
+
     }
 
     @NonNull
@@ -43,6 +56,15 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         holder.name.setText(mapKeys[position].getItem().getName());
         holder.price.setText(String.valueOf(mapKeys[position].getPrice()));
         holder.quantity.setText(String.valueOf(mapValues[position]));
+        if (buying) {
+            holder.transaction.setText("Buy");
+            holder.buyQuantityLabel.setText("Quantity to buy");
+        } else {
+            holder.transaction.setText("sell");
+            holder.buyQuantityLabel.setText("Quantity to sell");
+        }
+
+
     }
 
     @Override
@@ -66,11 +88,23 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         private TextView quantity;
         private TextView price;
 
+        private TextView buyQuantityLabel, buyQuantity, totalPrice;
+        private Button transaction, decreaseQ, increaseQ;
+        private int quantityToTrade, totalTradePrice;
+
+
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.text_market_item_name);
             quantity = itemView.findViewById(R.id.text_quantity);
             price = itemView.findViewById(R.id.text_price);
+            buyQuantityLabel = itemView.findViewById(R.id.text_quantity_desired);
+            buyQuantity = itemView.findViewById(R.id.quantity_tracker);
+            totalPrice = itemView.findViewById(R.id.text_total_price);
+
+            transaction = itemView.findViewById(R.id.transaction_button);
+            decreaseQ = itemView.findViewById(R.id.decrease_quantity_button);
+            increaseQ = itemView.findViewById(R.id.increase_quantity_button);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -82,9 +116,58 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                     }
                 }
             });
+
+            increaseQ.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if (quantityToTrade < mapValues[position]) {
+                        quantityToTrade++;
+                        totalTradePrice = quantityToTrade * mapKeys[position].getPrice();
+                        buyQuantity.setText("" + quantityToTrade);
+                        totalPrice.setText("" + totalTradePrice);
+                    }
+                }
+            });
+
+            decreaseQ.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if (quantityToTrade  > 0) {
+                        quantityToTrade--;
+                        totalTradePrice = quantityToTrade * mapKeys[position].getPrice();
+                        buyQuantity.setText("" + quantityToTrade);
+                        totalPrice.setText("" + totalTradePrice);
+                    }
+                }
+            });
+
+
+            transaction.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    transaction(player, market, position, quantityToTrade);
+                    String s = "";
+                    Log.i("wedunnit!", s);
+
+                }
+            });
+
         }
     }
 
+
+    private void transaction(Player p, Market m, int position, int quantityToTrade) {
+        if(buying) {
+            p.buy(mapKeys[position], quantityToTrade);
+            m.buyAsPlayer(mapKeys[position], quantityToTrade);
+        } else {
+            p.sell(mapKeys[position], quantityToTrade);
+            m.sellAsPlayer(mapKeys[position]);
+        }
+    }
     public interface OnMarketInfoClickListener {
         void onMarketInfoClicked(MarketInfo marketInfo);
     }

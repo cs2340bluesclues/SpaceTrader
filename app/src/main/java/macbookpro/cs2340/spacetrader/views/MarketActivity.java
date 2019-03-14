@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import macbookpro.cs2340.spacetrader.R;
@@ -20,7 +22,8 @@ public class MarketActivity extends AppCompatActivity {
     /** a reference to our view model */
     private MarketViewModel marketViewModel;
 
-    //MarketViewModel startvm = new MarketViewModel();
+    /** widgets*/
+
 
     /** make an adapter for the list */
     private ItemAdapter adapter;
@@ -35,7 +38,8 @@ public class MarketActivity extends AppCompatActivity {
         //grab the reference to our view model
         marketViewModel = ViewModelProviders.of(this).get(MarketViewModel.class);
 
-        adapter = new ItemAdapter(marketViewModel.getMarketInfos());
+
+        adapter = new ItemAdapter(marketViewModel.getMarketInfos(), true, marketViewModel.getPlayer(), marketViewModel.getMarket());
 
         //first grab a reference to the widget
         RecyclerView recyclerView = findViewById(R.id.marketInfoRecycler);

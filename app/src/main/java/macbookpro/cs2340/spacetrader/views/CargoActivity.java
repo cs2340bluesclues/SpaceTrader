@@ -24,7 +24,7 @@ public class CargoActivity extends AppCompatActivity {
         setContentView(R.layout.cargo_activity);
 
         cargoViewModel = ViewModelProviders.of(this).get(CargoViewModel.class);
-        adapter = new ItemAdapter(cargoViewModel.getCargoMap());
+        adapter = new ItemAdapter(cargoViewModel.getCargoMap(), false, cargoViewModel.getPlayer(), cargoViewModel.getMarket());
 
         //first grab a reference to the widget
         RecyclerView recyclerView = findViewById(R.id.cargoRecycler);

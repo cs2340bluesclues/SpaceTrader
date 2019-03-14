@@ -171,5 +171,8 @@ public class Player {
                 + "\n credits: " + this.getCredits() + "\n ship: " + this.getShip().getName();
     }
 
+    public Market getMarket() { return currentPlanet.getMarket(); }
+
+
 
 }

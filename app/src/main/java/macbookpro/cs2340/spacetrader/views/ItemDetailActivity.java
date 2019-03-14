@@ -28,7 +28,7 @@ public class ItemDetailActivity extends AppCompatActivity {
         nameField.findViewById(R.id.text_market_item_name);
         quantityField.findViewById(R.id.text_quantity);
         priceField.findViewById(R.id.text_price);
-        Button button = findViewById(R.id.buy_button);
+        Button transactionButton = findViewById(R.id.transaction_button);
 
         if (getIntent().hasExtra(MarketActivity.EXTRA_ITEM)) {
             marketInfo = (MarketInfo) getIntent().getSerializableExtra(MarketActivity.EXTRA_ITEM);
