@@ -16,6 +16,8 @@ public class Ship {
     private final int MAX_CARGO;
     private final int MAX_RANGE;
 
+    private int remainingCargo;
+
     public Ship(ShipType shipType) {
         this.name = shipType.getShipName();
         this.fuelled = false;
@@ -23,6 +25,7 @@ public class Ship {
 
         this.MAX_CARGO = shipType.getCargoSpace();
         this.MAX_RANGE = shipType.getRange();
+        remainingCargo = MAX_CARGO;
     }
 
     public String getName() {
@@ -61,6 +64,7 @@ public class Ship {
             }
             //put the previous amount of the product + the additional amount in map
             cargo.put(item, originalQuantity + quantityAdded);
+            remainingCargo -= quantityAdded;
             return true;
         }
         return false;
@@ -84,6 +88,7 @@ public class Ship {
             int originalQuantity = cargo.get(item);
             //put the original amount minus the removed amount
             cargo.put(item, originalQuantity - quantityRemoved);
+            remainingCargo += quantityRemoved;
             return true;
         }
         return false;

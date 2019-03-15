@@ -59,6 +59,9 @@ public class MarketInfo implements Comparable<MarketInfo> {
         if (cheapResource) {
             price = price / 2;
         }
+        if (price < 1) {
+            price = 1;
+        }
         return price;
     }
 
