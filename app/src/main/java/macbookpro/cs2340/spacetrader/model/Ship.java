@@ -36,6 +36,10 @@ public class Ship {
         return MAX_RANGE;
     }
 
+    public int getRemainingCargo() {
+        return remainingCargo;
+    }
+
     /**
      * Getter for list of cargo items
      * @return

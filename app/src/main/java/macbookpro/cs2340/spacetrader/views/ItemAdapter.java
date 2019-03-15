@@ -18,6 +18,7 @@ import macbookpro.cs2340.spacetrader.model.GameDifficulty;
 import macbookpro.cs2340.spacetrader.model.Market;
 import macbookpro.cs2340.spacetrader.model.MarketInfo;
 import macbookpro.cs2340.spacetrader.model.Player;
+import macbookpro.cs2340.spacetrader.model.Ship;
 
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder>{
@@ -29,6 +30,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     private Map<MarketInfo, Integer> mapData;
     private MarketInfo[] mapKeys;
     Player player;
+    Ship ship;
     Market market;
     private Integer[] mapValues;
     private boolean buying;
@@ -39,6 +41,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         mapValues = mapData.values().toArray(new Integer[data.size()]);
         buying = buy;
         player = p;
+        ship = p.getShip();
         market = m;
 
     }
@@ -125,8 +128,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                 @Override
                 public void onClick(View v) {
                     int position = getAdapterPosition();
-                    if (quantityToTrade < mapValues[position]) {
+                    if (quantityToTrade < mapValues[position] && ship.getRemainingCargo() >= quantityToTrade) {
                        if (buying && player.getCredits() >= (quantityToTrade + 1) * mapKeys[position].getPrice()) {
+                           Log.i("wedunnit!", "remaining cargo: " + ship.getRemainingCargo()+ " ");
                             quantityToTrade++;
                             totalTradePrice = quantityToTrade * mapKeys[position].getPrice();
                             buyQuantity.setText("" + quantityToTrade);
@@ -160,17 +164,19 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                 public void onClick(View v) {
                     int position = getAdapterPosition();
 
-                    transaction(player, market, position, quantityToTrade);
-                    quantity.setText("" + mapData.get(mapKeys[position]));
+                    if (ship.getRemainingCargo() >= quantityToTrade) {
+                        transaction(player, market, position, quantityToTrade);
+                        quantity.setText("" + mapData.get(mapKeys[position]));
 
-                    quantityToTrade = 0;
-                    totalTradePrice = 0;
+                        quantityToTrade = 0;
+                        totalTradePrice = 0;
 
-                    buyQuantity.setText("" + quantityToTrade);
-                    totalPrice.setText("" + totalTradePrice);
+                        buyQuantity.setText("" + quantityToTrade);
+                        totalPrice.setText("" + totalTradePrice);
+                    }
 
 
-                    Log.i("wedunnit!", "got here ");
+
                 }
             });
 
