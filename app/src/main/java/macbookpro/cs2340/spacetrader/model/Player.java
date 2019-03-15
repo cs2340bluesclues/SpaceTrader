@@ -53,7 +53,7 @@ public class Player {
         //int count = 0;
         boolean bought = false;
         //ALERT LOOK AT THIS ALERT CHECK THIS LATER
-        //what if you do not have enough money? Then the items will still be removed from the market?????????????? fixed
+        //what if you do not have enough money? Then the items will still be removed from the market?????????????? fixed?
 
         //while (count < quantityToPurchase &&
         if (credits > item.getPrice() && currentPlanet.getMarket().buyAsPlayer(item, quantityToPurchase)) {
