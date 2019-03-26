@@ -32,15 +32,23 @@ public class Player {
         currentPlanet = planet;
     }
 
-    private boolean travelInSolarSystem(Planet next) {
-        if (ship.travel()) {
-            currentPlanet = next;
-            //next.generateMarket();
-            return true;
+    public boolean refuelShip() {
+        if (credits > currentPlanet.getFuelCost()) {
+            credits -= currentPlanet.getFuelCost();
+            return ship.refuel();
         }
         return false;
     }
 
+//    private boolean travelInSolarSystem(Planet next) {
+//        if (ship.travel()) {
+//            currentPlanet = next;
+//            //next.generateMarket();
+//            return true;
+//        }
+//        return false;
+//    }
+//
 //    public boolean travel(SolarSystem next) {
 //        if (currentSolarSystem.equals(next)) {
 //            return travelInSolarSystem(?????);

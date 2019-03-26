@@ -15,6 +15,7 @@ public class Planet {
     private TechLevel techLevel;
     private Event event;
     private Market market;
+    private int fuelCost;
 
     /**
      * Planet constructor. Assigns name from parameter, and randomly sets the planet resource,
@@ -37,6 +38,12 @@ public class Planet {
    // public void generateMarket() {
        // market.generateMarket(eventOccur());
    // }
+
+    public double getFuelCost() {
+        int cost = randomGen(61) + 40;
+        cost -= techLevel.ordinal()*randomGen(11);
+        return cost;
+    }
 
     /**
      * Random generator used to return a random number to assign resource and tech level

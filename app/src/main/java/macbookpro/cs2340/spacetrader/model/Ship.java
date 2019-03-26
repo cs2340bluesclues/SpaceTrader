@@ -1,16 +1,13 @@
 package macbookpro.cs2340.spacetrader.model;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public class Ship {
 
     private String name;
-    private boolean fuelled;
+    private boolean fueled;
     private Map<MarketInfo, Integer> cargo;
 
     private final int MAX_CARGO;
@@ -20,7 +17,7 @@ public class Ship {
 
     public Ship(ShipType shipType) {
         this.name = shipType.getShipName();
-        this.fuelled = false;
+        this.fueled = false;
         this.cargo = new HashMap<>();
 
         this.MAX_CARGO = shipType.getCargoSpace();
@@ -74,12 +71,13 @@ public class Ship {
         return false;
     }
 
-    public void refuel() {
-        fuelled = true;
+    public boolean refuel() {
+        fueled = true;
+        return fueled;
     }
 
     public boolean travel() {
-        if (fuelled) {
+        if (fueled) {
             return true;
         }
         return false;
