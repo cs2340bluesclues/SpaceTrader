@@ -87,7 +87,7 @@ public class Ship {
             //put the original amount minus the removed amount
             cargo.put(item, originalQuantity - quantityRemoved);
             remainingCargo += quantityRemoved;
-            return true;
+            return true;git
         }
         return false;
 
