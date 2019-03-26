@@ -71,16 +71,12 @@ public class Ship {
         return false;
     }
 
-    public boolean refuel() {
+    public void refuel() {
         fueled = true;
-        return fueled;
     }
 
-    public boolean travel() {
-        if (fueled) {
-            return true;
-        }
-        return false;
+    public boolean canTravel() {
+        return fueled;
     }
 
     public boolean removeItem(MarketInfo item, Integer quantityRemoved) {

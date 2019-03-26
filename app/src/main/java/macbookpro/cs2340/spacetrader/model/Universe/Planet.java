@@ -15,7 +15,6 @@ public class Planet {
     private TechLevel techLevel;
     private Event event;
     private Market market;
-    private int fuelCost;
 
     /**
      * Planet constructor. Assigns name from parameter, and randomly sets the planet resource,
