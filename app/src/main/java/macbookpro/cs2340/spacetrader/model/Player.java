@@ -34,9 +34,9 @@ public class Player {
 
     public void refuelShip(int quantityToRefuel) {
         if (quantityToRefuel > ship.getMAX_FUEL())
-        if (credits > currentPlanet.getFuelCost(quantityToRefuel)) {
-            credits -= currentPlanet.getFuelCost(quantityToRefuel);
-        }
+            if (credits > currentPlanet.getFuelCost(quantityToRefuel)) {
+                credits -= currentPlanet.getFuelCost(quantityToRefuel);
+            }
     }
 
     public boolean travel(SolarSystem nextSol, Planet nextPlanet) {
@@ -57,11 +57,11 @@ public class Player {
 
         //while (count < quantityToPurchase &&
         if (credits > item.getPrice() && currentPlanet.getMarket().buyAsPlayer(item, quantityToPurchase)) {
-                if (ship.addItem(item, quantityToPurchase)) {
-                    credits -= (item.getPrice()*quantityToPurchase);
-                    //count++;
-                    bought = true;
-                }
+            if (ship.addItem(item, quantityToPurchase)) {
+                credits -= (item.getPrice()*quantityToPurchase);
+                //count++;
+                bought = true;
+            }
         }
         return bought;
     }

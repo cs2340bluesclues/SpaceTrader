@@ -99,4 +99,9 @@ public class Ship {
         return false;
 
     }
+
+
+    public String toString() {
+        return name;
+    }
 }
