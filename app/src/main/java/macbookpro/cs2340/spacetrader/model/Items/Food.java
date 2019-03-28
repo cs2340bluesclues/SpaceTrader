@@ -1,5 +1,4 @@
 package macbookpro.cs2340.spacetrader.model.Items;
-
 import macbookpro.cs2340.spacetrader.model.Event;
 import macbookpro.cs2340.spacetrader.model.MarketItem;
 import macbookpro.cs2340.spacetrader.model.Resources;

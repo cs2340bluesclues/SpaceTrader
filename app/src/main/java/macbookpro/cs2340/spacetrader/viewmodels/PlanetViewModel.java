@@ -38,7 +38,7 @@ public class PlanetViewModel extends AndroidViewModel {
         return player.getShip().toString();
     }
 
-    public double getFuelPrice() {
-        return player.getCurrentPlanet().getFuelCost();
-    }
+//    public int getFuelPrice() {
+//        return player.getCurrentPlanet().getFuelCost();
+//    }
 }

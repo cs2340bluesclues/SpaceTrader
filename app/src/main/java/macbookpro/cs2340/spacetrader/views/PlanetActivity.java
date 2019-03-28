@@ -19,7 +19,7 @@ public class PlanetActivity extends AppCompatActivity {
     TextView planetLabel;
     Button cargoButton;
     Button travelButton;
-    TextView credits, playerName, shipName, fuelPrice;
+    TextView credits, playerName, shipName, fuelPrice, maxShipFuel, fuelQuantity;
 
 
     @Override
@@ -43,7 +43,11 @@ public class PlanetActivity extends AppCompatActivity {
         shipName = findViewById(R.id.ship_name);
         shipName.setText(planetViewModel.getShip());
         fuelPrice = findViewById(R.id.fuel_price);
-        fuelPrice.setText(String.valueOf(planetViewModel.getFuelPrice()));
+        //fuelPrice.setText(String.valueOf(planetViewModel.getFuelPrice()));
+
+        maxShipFuel = findViewById(R.id.text_ship_max);
+
+        fuelQuantity = findViewById(R.id.quantity_tracker);
 
         marketButton.setOnClickListener(new View.OnClickListener() {
             @Override
