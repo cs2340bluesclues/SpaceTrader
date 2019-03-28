@@ -40,11 +40,22 @@ public class Planet {
    // }
 
     public int getFuelCost() {
-        int cost = (new Random()).nextInt(7) + 5;
+        int cost = randomGen(7) + 5;
         if (techLevel.ordinal() > 3) {
             cost -= techLevel.ordinal() / 3;
         }
         return cost;
+    }
+
+    /**
+     * Random generator used to return a random number to assign resource and tech level
+     * @param max The largest random number to be produced
+     * @return a random integer
+     */
+    private int randomGen(int max) {
+        Random generator = new Random();
+        int output = generator.nextInt(max);
+        return output;
     }
 
     /**
