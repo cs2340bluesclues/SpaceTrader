@@ -4,24 +4,26 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import macbookpro.cs2340.spacetrader.model.Universe.Coord;
+
 public class Ship {
 
     private String name;
-    private boolean fueled;
+    private int fuelLevel;
     private Map<MarketInfo, Integer> cargo;
 
     private final int MAX_CARGO;
-    private final int MAX_RANGE;
+    private final int MAX_FUEL;
 
     private int remainingCargo;
 
     public Ship(ShipType shipType) {
         this.name = shipType.getShipName();
-        this.fueled = false;
+        this.fuelLevel = getMAX_FUEL();
         this.cargo = new HashMap<>();
 
         this.MAX_CARGO = shipType.getCargoSpace();
-        this.MAX_RANGE = shipType.getRange();
+        this.MAX_FUEL = shipType.getFuel();
         remainingCargo = MAX_CARGO;
     }
 
@@ -29,8 +31,8 @@ public class Ship {
         return name;
     }
 
-    public int getMAX_RANGE() {
-        return MAX_RANGE;
+    public int getMAX_FUEL() {
+        return MAX_FUEL;
     }
 
     public int getRemainingCargo() {
@@ -72,11 +74,11 @@ public class Ship {
     }
 
     public void refuel() {
-        fueled = true;
+        fuelLevel = MAX_FUEL;
     }
 
-    public boolean canTravel() {
-        return fueled;
+    public boolean canTravel(Coord curr, Coord next) {
+        return fuelLevel >= curr.calculateDistance(next);
     }
 
     public boolean removeItem(MarketInfo item, Integer quantityRemoved) {
