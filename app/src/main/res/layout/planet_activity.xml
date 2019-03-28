@@ -6,6 +6,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/player_name_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="25dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Name"/>
+
+    <TextView
+        android:id="@+id/credits_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintRight_toLeftOf="@id/credits"
+        android:text="Credits: "/>
+
+    <TextView
+        android:id="@+id/credits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:paddingRight="25dp"
+        android:text="####"
+        app:layout_constraintRight_toRightOf="parent"/>
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -22,22 +56,33 @@
             android:paddingLeft="16dp"
             android:paddingRight="16dp">
 
+        <TextView
+            android:id="@+id/ship_name_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ship Name: "
+            tools:layout_editor_absoluteX="60dp" />
+
+        <TextView
+            android:id="@+id/ship_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xxxx"
+            android:layout_marginRight="20dp"
+            tools:layout_editor_absoluteX="60dp" />
 
         <Button
             android:id="@+id/market_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Market"
-            tools:layout_editor_absoluteX="32dp"
-            tools:layout_editor_absoluteY="29dp" />
+            android:text="Market" />
 
         <Button
             android:id="@+id/cargo_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cargo"
-            tools:layout_editor_absoluteX="80dp"
-            tools:layout_editor_absoluteY="29dp" />
+            android:text="Cargo"/>
+
     </LinearLayout>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -53,7 +98,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Current Planet: "
-            tools:layout_editor_absoluteX="60dp" />
+            android:layout_marginRight="40dp" />
+
+
+        <Button
+            android:id="@+id/travel_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Travel"/>
 
     </LinearLayout>
 
@@ -64,6 +116,26 @@
             android:orientation="horizontal"
             android:paddingLeft="16dp"
             android:paddingRight="16dp">
+
+            <TextView
+                android:id="@+id/fuel_price_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fuel Price: $"
+                tools:layout_editor_absoluteX="60dp" />
+
+            <TextView
+                android:id="@+id/fuel_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="####" />
+
+            <Button
+                android:id="@+id/refuel_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Refuel"
+                android:layout_marginLeft="40dp" />
 
 
         </LinearLayout>
