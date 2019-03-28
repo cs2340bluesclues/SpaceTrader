@@ -77,6 +77,11 @@ public class Ship {
         fuelLevel = MAX_FUEL;
     }
 
+    public void updateFuel(Coord first, Coord second) {
+        int fuelDecrement = (int) first.calculateDistance(second);
+        fuelLevel -= fuelDecrement;
+    }
+
     public boolean canTravel(Coord curr, Coord next) {
         return fuelLevel >= curr.calculateDistance(next);
     }
