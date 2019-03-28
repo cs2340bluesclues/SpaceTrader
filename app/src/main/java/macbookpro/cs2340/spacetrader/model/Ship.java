@@ -73,8 +73,8 @@ public class Ship {
         return false;
     }
 
-    public void refuel() {
-        fuelLevel = MAX_FUEL;
+    public void refuel(int quantity) {
+        fuelLevel += quantity;
     }
 
     public boolean canTravel(Coord curr, Coord next) {
