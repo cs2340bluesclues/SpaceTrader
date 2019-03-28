@@ -87,9 +87,14 @@ public class Ship {
             //put the original amount minus the removed amount
             cargo.put(item, originalQuantity - quantityRemoved);
             remainingCargo += quantityRemoved;
-            return true;git
+            return true;
         }
         return false;
 
+    }
+
+
+    public String toString() {
+        return name;
     }
 }
