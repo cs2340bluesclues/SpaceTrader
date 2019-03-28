@@ -32,28 +32,20 @@ public class Player {
         currentPlanet = planet;
     }
 
-    public void refuelShip() {
-        if (credits > currentPlanet.getFuelCost()) {
-            credits -= currentPlanet.getFuelCost();
+    public void refuelShip(int quantityToRefuel) {
+        if (quantityToRefuel > ship.getMAX_FUEL())
+        if (credits > currentPlanet.getFuelCost(quantityToRefuel)) {
+            credits -= currentPlanet.getFuelCost(quantityToRefuel);
         }
     }
 
-    private boolean travelInSolarSystem(Planet next) {
-        if (ship.canTravel()) {
-            currentPlanet = next;
-            //next.generateMarket();
-            return true;
-        }
-        return false;
-    }
-
-    public boolean travel(SolarSystem next) {
-        if (currentSolarSystem.equals(next)) {
-            return travelInSolarSystem(?????);
-        } else {
-            return currentSolarSystem.getCoords().calculateDistance(next.getCoords()) <= ship.getMAX_RANGE();
-        }
-    }
+//    public boolean travel(SolarSystem next) {
+//        if (currentSolarSystem.equals(next)) {
+//            return travelInSolarSystem(?????);
+//        } else {
+//            return currentSolarSystem.getCoords().calculateDistance(next.getCoords()) <= ship.getMAX_FUEL();
+//        }
+//    }
 
     public boolean buy(MarketInfo item, int quantityToPurchase) {
         //int count = 0;
