@@ -33,6 +33,7 @@ public class Planet {
         event = Event.values()[ieOrdinal];
 
         market = new Market(techLevel, resources, event);
+        fuelCost = calculateFuelCost();
     }
 
    // public void generateMarket() {
@@ -87,6 +88,14 @@ public class Planet {
      */
     public Resources getResources(){
         return resources;
+    }
+
+    /**
+     * Getter for fuelCost
+     * @return Cost of fuel on the planet
+     */
+    public int getFuelCost() {
+        return fuelCost;
     }
 
     /**

@@ -61,7 +61,8 @@ public class PlanetActivity extends AppCompatActivity {
                 int temp = Integer.parseInt(fuelQuantity.getText().toString());
                 if (temp + 1 <= planetViewModel.getShipFuel()) {
                     fuelQuantity.setText(String.valueOf(++temp));
-                    fuelPrice.setText(String.valueOf(temp*planetViewModel.getFuelPrice()));
+                    //fuelPrice.setText(String.valueOf(temp*planetViewModel.getFuelPrice()));
+                    fuelPrice.setText(String.valueOf(temp*planetViewModel.getPlayer().getCurrentPlanet().getFuelCost()));
                 }
             }
         });
@@ -72,7 +73,8 @@ public class PlanetActivity extends AppCompatActivity {
                 int temp = Integer.parseInt(fuelQuantity.getText().toString());
                 if (temp - 1 > 0) {
                     fuelQuantity.setText(String.valueOf(--temp));
-                    fuelPrice.setText(String.valueOf(temp*planetViewModel.getFuelPrice()));
+                    //fuelPrice.setText(String.valueOf(temp*planetViewModel.getFuelPrice()));
+                    fuelPrice.setText(String.valueOf(temp*planetViewModel.getPlayer().getCurrentPlanet().getFuelCost()));
                 }
             }
         });
