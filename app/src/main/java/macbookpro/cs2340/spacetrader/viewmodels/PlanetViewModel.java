@@ -5,7 +5,6 @@ import android.arch.lifecycle.AndroidViewModel;
 import android.support.annotation.NonNull;
 
 import macbookpro.cs2340.spacetrader.model.Player;
-import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 
 import static macbookpro.cs2340.spacetrader.model.ModelFacade.*;
 
@@ -39,6 +38,6 @@ public class PlanetViewModel extends AndroidViewModel {
     }
 
     public double getFuelPrice() {
-        return player.getCurrentPlanet().getFuelCost();
+        return player.getCurrentPlanet().calculateFuelCost();
     }
 }

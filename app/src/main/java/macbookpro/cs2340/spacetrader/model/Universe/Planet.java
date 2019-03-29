@@ -39,7 +39,7 @@ public class Planet {
        // market.generateMarket(eventOccur());
    // }
 
-    public int getFuelCost() {
+    public int calculateFuelCost() {
         int cost = randomGen(7) + 5;
         if (techLevel.ordinal() > 3) {
             cost -= techLevel.ordinal() / 3;

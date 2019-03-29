@@ -33,8 +33,8 @@ public class Player {
     }
 
     public void refuelShip(int quantityToRefuel) {
-        if (credits > currentPlanet.getFuelCost()) {
-            credits -= currentPlanet.getFuelCost();
+        if (credits > currentPlanet.calculateFuelCost()) {
+            credits -= currentPlanet.calculateFuelCost();
             ship.refuel(quantityToRefuel);
         }
     }
