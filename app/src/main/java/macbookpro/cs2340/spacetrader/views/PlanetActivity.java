@@ -19,6 +19,7 @@ public class PlanetActivity extends AppCompatActivity {
     TextView planetLabel;
     Button cargoButton;
     Button travelButton;
+    Button refuelButton;
     TextView credits, playerName, shipName, fuelPrice;
 
 
@@ -32,6 +33,7 @@ public class PlanetActivity extends AppCompatActivity {
         marketButton = findViewById(R.id.market_button);
         cargoButton = findViewById(R.id.cargo_button);
         travelButton = findViewById(R.id.travel_button);
+        refuelButton = findViewById(R.id.refuel_button);
 
         planetLabel = findViewById(R.id.planet_label);
         planetLabel.setText("Current Planet: " + planetViewModel.getCurrPlanet());
@@ -57,7 +59,18 @@ public class PlanetActivity extends AppCompatActivity {
                 goToCargo();
             }
         });
-
+        travelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToTravel();
+            }
+        });
+//        refuelButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                player.refuel();
+//            }
+//        });
     }
 
     private void goToMarket() {
@@ -67,6 +80,11 @@ public class PlanetActivity extends AppCompatActivity {
 
     private void goToCargo() {
         Intent intent = new Intent(this, CargoActivity.class);
+        startActivity(intent);
+    }
+
+    private void goToTravel() {
+        Intent intent = new Intent(this, TravelActivity.class);
         startActivity(intent);
     }
 }

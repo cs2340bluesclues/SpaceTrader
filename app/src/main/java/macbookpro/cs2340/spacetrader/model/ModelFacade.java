@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import macbookpro.cs2340.spacetrader.model.Universe.Planet;
+import macbookpro.cs2340.spacetrader.model.Universe.SolarSystem;
 
 public class ModelFacade {
     private static ModelFacade instance;
@@ -27,8 +28,8 @@ public class ModelFacade {
     }
 
     public static String createPlayer(String name, int pilot, int fighter, int trader, int engineer) {
-        Planet beginnerPlanet = newGame.getUniverse().retrieveBeginnerPlanet();
-        newPlayer = new Player(name, pilot, fighter, trader, engineer, beginnerPlanet);
+        SolarSystem beginnerSolarSystem = newGame.getUniverse().retrieveBeginnerSolarSystem();
+        newPlayer = new Player(name, pilot, fighter, trader, engineer, beginnerSolarSystem);
         return newPlayer.toString();
     }
 
@@ -39,6 +40,8 @@ public class ModelFacade {
     public static Player getNewPlayer() {
         return newPlayer;
     }
+
+    public static SolarSystem getCurrentSolarSystem() { return newPlayer.getCurrentSolarSystem(); }
 
     public static Planet getCurrentPlanet( ){ return newPlayer.getCurrentPlanet(); }
 
