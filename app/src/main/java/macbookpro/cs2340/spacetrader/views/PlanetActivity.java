@@ -59,7 +59,6 @@ public class PlanetActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int temp = Integer.parseInt(fuelQuantity.getText().toString());
-                int price = Integer.parseInt(fuelPrice.getText().toString());
                 if (temp + 1 <= planetViewModel.getShipFuel()) {
                     fuelQuantity.setText(String.valueOf(++temp));
                     fuelPrice.setText(String.valueOf(temp*planetViewModel.getFuelPrice()));
@@ -71,7 +70,6 @@ public class PlanetActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int temp = Integer.parseInt(fuelQuantity.getText().toString());
-                int price = Integer.parseInt(fuelPrice.getText().toString());
                 if (temp - 1 > 0) {
                     fuelQuantity.setText(String.valueOf(--temp));
                     fuelPrice.setText(String.valueOf(temp*planetViewModel.getFuelPrice()));
