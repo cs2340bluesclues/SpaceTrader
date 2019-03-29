@@ -11,10 +11,13 @@ import static macbookpro.cs2340.spacetrader.model.ModelFacade.*;
 public class PlanetViewModel extends AndroidViewModel {
 
     Player player;
+    int fuelCost;
 
     public PlanetViewModel(@NonNull Application application) {
         super(application);
         player = getNewPlayer();
+        fuelCost = player.getCurrentPlanet().calculateFuelCost();
+
     }
 
     public Player getPlayer() {
@@ -42,7 +45,7 @@ public class PlanetViewModel extends AndroidViewModel {
     }
 
     public int getFuelPrice() {
-        return player.getCurrentPlanet().calculateFuelCost();
+        return fuelCost;
     }
 
 }
