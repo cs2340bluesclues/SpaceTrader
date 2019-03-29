@@ -191,7 +191,7 @@
                 android:id="@+id/fuel_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="####" />
+                android:text="0" />
 
             <Button
                 android:id="@+id/refuel_button"

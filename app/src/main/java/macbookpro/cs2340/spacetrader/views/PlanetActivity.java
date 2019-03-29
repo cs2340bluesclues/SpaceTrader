@@ -20,6 +20,7 @@ public class PlanetActivity extends AppCompatActivity {
     Button cargoButton;
     Button travelButton;
     TextView credits, playerName, shipName, fuelPrice, maxShipFuel, fuelQuantity;
+    Button increase, decrease, refuelButton;
 
 
     @Override
@@ -43,11 +44,41 @@ public class PlanetActivity extends AppCompatActivity {
         shipName = findViewById(R.id.ship_name);
         shipName.setText(planetViewModel.getShip());
         fuelPrice = findViewById(R.id.fuel_price);
-        //fuelPrice.setText(String.valueOf(planetViewModel.getFuelPrice()));
+        fuelPrice.setText(String.valueOf(planetViewModel.getFuelPrice()));
 
         maxShipFuel = findViewById(R.id.text_ship_max);
+        maxShipFuel.setText(String.valueOf(planetViewModel.getShipFuel()));
 
         fuelQuantity = findViewById(R.id.quantity_tracker);
+        fuelQuantity.setText(String.valueOf(1));
+
+        increase = findViewById(R.id.increase_quantity_button);
+        decrease = findViewById(R.id.decrease_quantity_button);
+
+        increase.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int temp = Integer.parseInt(fuelQuantity.getText().toString());
+                int price = Integer.parseInt(fuelPrice.getText().toString());
+//                if (temp + 1 < planetViewModel.getShipFuel()) {
+                    fuelQuantity.setText(String.valueOf(temp++));
+                    fuelPrice.setText(String.valueOf(temp*price));
+                //}
+            }
+        });
+
+        decrease.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int temp = Integer.parseInt(fuelQuantity.getText().toString());
+                int price = Integer.parseInt(fuelPrice.getText().toString());
+                if (temp - 1 > 0) {
+                    fuelQuantity.setText(String.valueOf(temp--));
+                    fuelPrice.setText(String.valueOf(temp*price));
+                }
+            }
+        });
+
 
         marketButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +93,13 @@ public class PlanetActivity extends AppCompatActivity {
             }
         });
 
+        travelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToTravel();
+            }
+        });
+
     }
 
     private void goToMarket() {
@@ -71,6 +109,11 @@ public class PlanetActivity extends AppCompatActivity {
 
     private void goToCargo() {
         Intent intent = new Intent(this, CargoActivity.class);
+        startActivity(intent);
+    }
+
+    private void goToTravel() {
+        Intent intent = new Intent(this, TravelActivity.class);
         startActivity(intent);
     }
 }
