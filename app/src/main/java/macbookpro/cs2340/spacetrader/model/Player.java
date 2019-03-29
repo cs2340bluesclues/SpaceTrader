@@ -19,7 +19,7 @@ public class Player {
     private Planet currentPlanet;
 
 
-    public Player(String name, int pilot, int fighter, int trader, int engineer, Planet planet) {
+    public Player(String name, int pilot, int fighter, int trader, int engineer, SolarSystem solarSystem) {
         this.name = name;
         this.pilot = pilot;
         this.fighter = fighter;
@@ -29,7 +29,8 @@ public class Player {
         lawfulStatus = true;
         credits = 1000;
         ship = new Ship(ShipType.GNAT);
-        currentPlanet = planet;
+        currentSolarSystem = solarSystem;
+        currentPlanet = solarSystem.findBeginnerPlanet();
     }
 
     public void refuelShip(int quantityToRefuel) {

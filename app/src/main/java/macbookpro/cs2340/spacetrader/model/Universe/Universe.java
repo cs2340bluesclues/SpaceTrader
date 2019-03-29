@@ -42,16 +42,20 @@ public class Universe {
         //something that allows to go to new solar system coords
     }
 
-    public Planet retrieveBeginnerPlanet(){
+    public SolarSystem retrieveBeginnerSolarSystem(){
         //SolarSystem randomSolarSystem; //also may be tiny bit messed up
         SolarSystem randomSolarSystem = null;
         for(SolarSystem aSolarSystem: system) {
             randomSolarSystem = aSolarSystem;
         }
         Log.i("StartVM", "find beginner planet is " + randomSolarSystem.findBeginnerPlanet());
-        return randomSolarSystem.findBeginnerPlanet();
+        return randomSolarSystem;
 
         //return randomSolarSystem.findBeginnerPlanet();
+    }
+
+    public Set<SolarSystem> getSystem() {
+        return system;
     }
 
 }
