@@ -32,28 +32,31 @@ public class Player {
         currentPlanet = planet;
     }
 
-    public void refuelShip() {
-        if (credits > currentPlanet.getFuelCost()) {
-            credits -= currentPlanet.getFuelCost();
+    public void refuelShip(int quantityToRefuel) {
+        if (credits > currentPlanet.calculateFuelCost()) {
+            credits -= currentPlanet.calculateFuelCost();
+            ship.refuel(quantityToRefuel);
         }
     }
 
-    private boolean travelInSolarSystem(Planet next) {
-        if (ship.canTravel()) {
-            currentPlanet = next;
-            //next.generateMarket();
+//    private boolean travelInSolarSystem(Planet next) {
+//        if (ship.canTravel()) {
+//            currentPlanet = next;
+//            //next.generateMarket();
+//            return true;
+//        }
+//        return false;
+//    }
+
+    public boolean travel(SolarSystem nextSol, Planet nextPlanet) {
+        if (ship.canTravel(nextSol.getCoords(), currentSolarSystem.getCoords())) {
+            ship.updateFuel(nextSol.getCoords(), currentSolarSystem.getCoords());
+            currentPlanet = nextPlanet;
+            currentSolarSystem = nextSol;
             return true;
         }
         return false;
     }
-
-//    public boolean travel(SolarSystem next) {
-//        if (currentSolarSystem.equals(next)) {
-//           // return travelInSolarSystem(?????);
-//        } else {
-//            return currentSolarSystem.getCoords().calculateDistance(next.getCoords()) <= ship.getMAX_RANGE();
-//        }
-//    }
 
     public boolean buy(MarketInfo item, int quantityToPurchase) {
         //int count = 0;
@@ -63,11 +66,11 @@ public class Player {
 
         //while (count < quantityToPurchase &&
         if (credits > item.getPrice() && currentPlanet.getMarket().buyAsPlayer(item, quantityToPurchase)) {
-                if (ship.addItem(item, quantityToPurchase)) {
-                    credits -= (item.getPrice()*quantityToPurchase);
-                    //count++;
-                    bought = true;
-                }
+            if (ship.addItem(item, quantityToPurchase)) {
+                credits -= (item.getPrice()*quantityToPurchase);
+                //count++;
+                bought = true;
+            }
         }
         return bought;
     }

@@ -5,7 +5,6 @@ import android.arch.lifecycle.AndroidViewModel;
 import android.support.annotation.NonNull;
 
 import macbookpro.cs2340.spacetrader.model.Player;
-import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 
 import static macbookpro.cs2340.spacetrader.model.ModelFacade.*;
 
@@ -38,7 +37,13 @@ public class PlanetViewModel extends AndroidViewModel {
         return player.getShip().toString();
     }
 
+<<<<<<< HEAD
 //    public int getFuelPrice() {
 //        return player.getCurrentPlanet().getFuelCost();
 //    }
+=======
+    public double getFuelPrice() {
+        return player.getCurrentPlanet().calculateFuelCost();
+    }
+>>>>>>> fc3c0ff5a82548a3fb84652fe7bf9c7dbf3495e9
 }

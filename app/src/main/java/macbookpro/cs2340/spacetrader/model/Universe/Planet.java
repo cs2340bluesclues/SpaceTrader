@@ -24,9 +24,9 @@ public class Planet {
      */
     public Planet(String name) {
         this.name = name;
-        int resourceOrdinal = randomGen(12);
-        int techOrdinal = randomGen(7);
-        int ieOrdinal = randomGen(7);
+        int resourceOrdinal = (new Random()).nextInt(12);
+        int techOrdinal = (new Random()).nextInt(7);
+        int ieOrdinal = (new Random()).nextInt(7);
 
         resources = Resources.values()[resourceOrdinal];
         techLevel = TechLevel.values()[techOrdinal];
@@ -39,8 +39,12 @@ public class Planet {
        // market.generateMarket(eventOccur());
    // }
 
-    public int getFuelCost(int quantity) {
-        return 0;
+    public int calculateFuelCost() {
+        int cost = randomGen(7) + 5;
+        if (techLevel.ordinal() > 3) {
+            cost -= techLevel.ordinal() / 3;
+        }
+        return cost;
     }
 
     /**
@@ -97,7 +101,7 @@ public class Planet {
      * Method to reassign a random IncreaseEvent to the planet using the Event enum
      */
     public Event eventOccur() {
-        int ieOrdinal = randomGen(7);
+        int ieOrdinal = (new Random()).nextInt(7);
         return Event.values()[ieOrdinal];
     }
 
