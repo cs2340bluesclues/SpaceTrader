@@ -56,6 +56,15 @@
                 android:id="@+id/planet_button_group">
 
             </RadioGroup>
+
+            <Button
+                android:id="@+id/travel_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:text="Travel here!" />
+
             <TextView
                 android:id="@+id/SS_map_title"
                 android:layout_width="wrap_content"
