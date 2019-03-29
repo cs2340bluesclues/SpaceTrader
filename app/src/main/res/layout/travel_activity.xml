@@ -28,15 +28,6 @@
                 android:text="Planet Map"
                 tools:layout_editor_absoluteX="163dp"
                 tools:layout_editor_absoluteY="16dp" />
-
-
-            <RadioGroup
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:id="@+id/planet_button_group">
-
-            </RadioGroup>
             <TextView
                 android:id="@+id/planet_details"
                 android:layout_width="wrap_content"
@@ -58,6 +49,13 @@
                 tools:layout_editor_absoluteX="163dp"
                 tools:layout_editor_absoluteY="16dp" />
 
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/planet_button_group">
+
+            </RadioGroup>
             <TextView
                 android:id="@+id/SS_map_title"
                 android:layout_width="wrap_content"

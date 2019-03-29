@@ -32,7 +32,7 @@
             android:label="SpaceTrader">
         </activity>
         <activity
-            android:name=".views.TravelActivity"
+            android:name=".views.TravelPlanetActivity"
             android:label="SpaceTrader">
         </activity>
     </application>

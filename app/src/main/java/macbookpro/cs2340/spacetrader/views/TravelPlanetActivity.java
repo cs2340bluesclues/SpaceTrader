@@ -11,11 +11,11 @@ import android.widget.TextView;
 import macbookpro.cs2340.spacetrader.R;
 import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 import macbookpro.cs2340.spacetrader.model.Universe.SolarSystem;
-import macbookpro.cs2340.spacetrader.viewmodels.TravelViewModel;
+import macbookpro.cs2340.spacetrader.viewmodels.TravelPlanetViewModel;
 
-public class TravelActivity extends AppCompatActivity {
+public class TravelPlanetActivity extends AppCompatActivity {
 
-    TravelViewModel travelViewModel;
+    TravelPlanetViewModel travelPlanetViewModel;
 
     private TextView planetMap;
     private TextView solarSystemMap;
@@ -29,47 +29,58 @@ public class TravelActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.travel_activity);
 
-        travelViewModel = ViewModelProviders.of(this).get(TravelViewModel.class);
+        travelPlanetViewModel = ViewModelProviders.of(this).get(TravelPlanetViewModel.class);
+
+        solarSystemMap = findViewById(R.id.SS_map_title);
+        planetMap = findViewById(R.id.planet_map_title);
+
+        planetMap.setText(travelPlanetViewModel.getCurrPlanet().getName());
 
         planetGroup = findViewById(R.id.planet_button_group);
         solarSystemGroup = findViewById(R.id.solar_system_button_group);
 
-        planetMap = findViewById(R.id.planet_map_title);
-        planetMap.setText(travelViewModel.getCurrPlanet().getName());
-        solarSystemMap = findViewById(R.id.SS_map_title);
-        solarSystemMap.setText(travelViewModel.getCurrSolarSystem().getName());
-
         coords = findViewById(R.id.coords);
-        coords.setText(travelViewModel.getCurrSolarSystem().getCoords().toString());
 
-        addPlanetButtons(travelViewModel.getCurrSolarSystem());
+        addPlanetButtons(travelPlanetViewModel.getCurrSolarSystem());
         addSolarSystemButtons();
     }
 
     private void addSolarSystemButtons() {
-        for(SolarSystem s : travelViewModel.getAllSS()) {
-            final SolarSystem selected = s;
-            RadioButton rb = new RadioButton(TravelActivity.this);
-            rb.setText(s.getName());
+        for(SolarSystem s : travelPlanetViewModel.getAllSS()) {
+            final SolarSystem selectedSolarSystem = s;
+            RadioButton rb = new RadioButton(TravelPlanetActivity.this);
+            rb.setText(selectedSolarSystem.getName());
             solarSystemGroup.addView(rb);
+
+            if (s.equals(travelPlanetViewModel.getCurrSolarSystem())) {
+                rb.setChecked(true);
+                coords.setText(selectedSolarSystem.getCoords().toString());
+                solarSystemMap.setText("Travel in " + selectedSolarSystem.getName() + " Solar System");
+            }
 
             rb.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    coords.setText(selected.getCoords().toString());
-                    addPlanetButtons(selected);
+                    coords.setText(selectedSolarSystem.getCoords().toString());
+                    addPlanetButtons(selectedSolarSystem);
+
+                    solarSystemMap.setText("Travel to " + selectedSolarSystem.getName() + " Solar System");
                 }
             });
         }
     }
 
     private void addPlanetButtons(SolarSystem s) {
-        final SolarSystem selected = s;
         planetGroup.removeAllViews();
         for(Planet p : s.getPlanets()) {
-            RadioButton rb = new RadioButton(TravelActivity.this);
-            rb.setText(p.getName());
+            final Planet selectedPlanet = p;
+            RadioButton rb = new RadioButton(TravelPlanetActivity.this);
+            rb.setText(selectedPlanet.getName());
             planetGroup.addView(rb);
+
+            if (selectedPlanet.equals(travelPlanetViewModel.getCurrPlanet())) {
+                rb.setChecked(true);
+            }
 
             rb.setOnClickListener(new View.OnClickListener() {
                 @Override

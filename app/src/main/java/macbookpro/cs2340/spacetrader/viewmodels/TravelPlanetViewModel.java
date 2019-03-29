@@ -15,13 +15,13 @@ import static macbookpro.cs2340.spacetrader.model.ModelFacade.getCurrentSolarSys
 import static macbookpro.cs2340.spacetrader.model.ModelFacade.getNewGame;
 import static macbookpro.cs2340.spacetrader.model.ModelFacade.getNewPlayer;
 
-public class TravelViewModel extends AndroidViewModel {
+public class TravelPlanetViewModel extends AndroidViewModel {
 
     Player player;
     Planet currPlanet;
     SolarSystem currSolarSystem;
 
-    public TravelViewModel(@NonNull Application application) {
+    public TravelPlanetViewModel(@NonNull Application application) {
         super(application);
         player = getNewPlayer();
         currPlanet = getCurrentPlanet();

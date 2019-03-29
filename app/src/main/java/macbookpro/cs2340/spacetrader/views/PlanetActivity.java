@@ -113,7 +113,7 @@ public class PlanetActivity extends AppCompatActivity {
     }
 
     private void goToTravel() {
-        Intent intent = new Intent(this, TravelActivity.class);
+        Intent intent = new Intent(this, TravelPlanetActivity.class);
         startActivity(intent);
     }
 }
