@@ -86,7 +86,9 @@ public class PlanetActivity extends AppCompatActivity {
             public void onClick(View v) {
                 planetViewModel.refuelShip(Integer.parseInt(fuelQuantity.getText().toString()));
                 recreate();
-                Log.i("refueling", "refueled, amt: " + Integer.parseInt(fuelQuantity.getText().toString()) + " price: " + Integer.parseInt(fuelPrice.getText().toString()) );
+                Log.i("refueling", "refueled, amt: "
+                        + Integer.parseInt(fuelQuantity.getText().toString())
+                        + " price: " + Integer.parseInt(fuelPrice.getText().toString()) );
             }
         });
 

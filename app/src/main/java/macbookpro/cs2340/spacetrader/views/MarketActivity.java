@@ -67,7 +67,8 @@ public class MarketActivity extends AppCompatActivity {
 
     }
 
-    //this makes the credits on the planet activity page update when you return from market!!
+    //this makes the credits on the planet activity page update when you return from market
+    //to planetActivity screen using the back button
     @Override
     public void onBackPressed(){
         Intent intent = new Intent(this, PlanetActivity.class);

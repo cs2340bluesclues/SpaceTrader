@@ -20,6 +20,7 @@ public class TravelPlanetActivity extends AppCompatActivity {
     private TextView planetMap;
     private TextView solarSystemMap;
     private TextView coords;
+    private TextView planetDetails;
 
     private RadioGroup planetGroup;
     private RadioGroup solarSystemGroup;
@@ -40,6 +41,7 @@ public class TravelPlanetActivity extends AppCompatActivity {
         solarSystemGroup = findViewById(R.id.solar_system_button_group);
 
         coords = findViewById(R.id.coords);
+        planetDetails = findViewById(R.id.planet_details);
 
         addPlanetButtons(travelPlanetViewModel.getCurrSolarSystem());
         addSolarSystemButtons();
@@ -54,17 +56,21 @@ public class TravelPlanetActivity extends AppCompatActivity {
 
             if (s.equals(travelPlanetViewModel.getCurrSolarSystem())) {
                 rb.setChecked(true);
-                coords.setText(selectedSolarSystem.getCoords().toString());
-                solarSystemMap.setText("Travel in " + selectedSolarSystem.getName() + " Solar System");
+                coords.setText("System Coordinates: " + selectedSolarSystem.getCoords().toString());
+                planetMap.setText("Travel to a planet within the " + selectedSolarSystem.getName() + " Solar System");
+
+
             }
 
             rb.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    coords.setText(selectedSolarSystem.getCoords().toString());
+                    coords.setText("System Coordinates: " + selectedSolarSystem.getCoords().toString());
                     addPlanetButtons(selectedSolarSystem);
+                    planetDetails.setText("Selected Planet Details: ");
 
-                    solarSystemMap.setText("Travel to " + selectedSolarSystem.getName() + " Solar System");
+                    solarSystemMap.setText("Travel to the " + selectedSolarSystem.getName() + " Solar System");
+                    planetMap.setText("Travel to a planet within the " + selectedSolarSystem.getName() + " Solar System");
                 }
             });
         }
@@ -80,12 +86,27 @@ public class TravelPlanetActivity extends AppCompatActivity {
 
             if (selectedPlanet.equals(travelPlanetViewModel.getCurrPlanet())) {
                 rb.setChecked(true);
+
+                planetDetails.setText(
+                        "Selected Planet Details: "
+                                + "\nPlanet Name: " + selectedPlanet.getName()
+                                + "\nTech Level: " + selectedPlanet.getTechLevel()
+                                + "\nCurrent Event: " + selectedPlanet.getEvent()
+                                + "\nFuel Cost: " + selectedPlanet.getFuelCost() + " credits/gallon"
+                                + "\nResources: " + selectedPlanet.getResources());
             }
 
             rb.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     // display whatever information here
+                    planetDetails.setText(
+                            "Selected Planet Details: "
+                            + "\nPlanet Name: " + selectedPlanet.getName()
+                            + "\nTech Level: " + selectedPlanet.getTechLevel()
+                            + "\nCurrent Event: " + selectedPlanet.getEvent()
+                            + "\nFuel Cost: " + selectedPlanet.getFuelCost() + " credits/gallon"
+                            + "\nResources: " + selectedPlanet.getResources());
                 }
             });
         }

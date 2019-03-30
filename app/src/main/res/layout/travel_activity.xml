@@ -26,26 +26,7 @@
 
                 android:layout_gravity="center"
                 android:text="Planet Map"
-                tools:layout_editor_absoluteX="163dp"
-                tools:layout_editor_absoluteY="16dp" />
-            <TextView
-                android:id="@+id/planet_details"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_gravity="center"
-                android:text=""
-
-                tools:layout_editor_absoluteX="163dp"
-                tools:layout_editor_absoluteY="16dp" />
-            <TextView
-                android:id="@+id/coords"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_gravity="center"
-                android:text=""
-
+                android:textStyle="bold"
                 tools:layout_editor_absoluteX="163dp"
                 tools:layout_editor_absoluteY="16dp" />
 
@@ -57,13 +38,28 @@
 
             </RadioGroup>
 
+            <TextView
+                android:id="@+id/planet_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/text_border"
+
+                android:layout_gravity="center"
+                android:text=""
+
+                tools:layout_editor_absoluteX="163dp"
+                tools:layout_editor_absoluteY="16dp" />
+
             <Button
                 android:id="@+id/travel_here_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:padding="5dp"
                 android:layout_weight="1"
                 android:layout_gravity="center"
-                android:text="Travel here!" />
+                android:text="Travel here!"
+                android:background="@color/blue"
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:id="@+id/SS_map_title"
@@ -72,7 +68,19 @@
 
                 android:layout_gravity="center"
                 android:text="Solar System Map"
+                android:textStyle="bold"
                 android:paddingTop="100dp"
+                tools:layout_editor_absoluteX="163dp"
+                tools:layout_editor_absoluteY="16dp" />
+
+            <TextView
+                android:id="@+id/coords"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="center"
+                android:text=""
+
                 tools:layout_editor_absoluteX="163dp"
                 tools:layout_editor_absoluteY="16dp" />
 
