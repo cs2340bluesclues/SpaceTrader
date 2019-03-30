@@ -34,8 +34,8 @@ public class Player {
     }
 
     public void refuelShip(int quantityToRefuel) {
-        if (credits > currentPlanet.calculateFuelCost()) {
-            credits -= currentPlanet.calculateFuelCost();
+        if (credits > currentPlanet.getFuelCost()) {
+            credits -= currentPlanet.getFuelCost() * quantityToRefuel;
             ship.refuel(quantityToRefuel);
         }
     }
@@ -62,10 +62,7 @@ public class Player {
     public boolean buy(MarketInfo item, int quantityToPurchase) {
         //int count = 0;
         boolean bought = false;
-        //ALERT LOOK AT THIS ALERT CHECK THIS LATER
-        //what if you do not have enough money? Then the items will still be removed from the market?????????????? fixed?
 
-        //while (count < quantityToPurchase &&
         if (credits > item.getPrice() && currentPlanet.getMarket().buyAsPlayer(item, quantityToPurchase)) {
             if (ship.addItem(item, quantityToPurchase)) {
                 credits -= (item.getPrice()*quantityToPurchase);

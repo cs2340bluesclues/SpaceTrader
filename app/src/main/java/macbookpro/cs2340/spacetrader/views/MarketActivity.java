@@ -67,5 +67,12 @@ public class MarketActivity extends AppCompatActivity {
 
     }
 
+    //this makes the credits on the planet activity page update when you return from market!!
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(this, PlanetActivity.class);
+        startActivity(intent);
+    }
+
 
 }

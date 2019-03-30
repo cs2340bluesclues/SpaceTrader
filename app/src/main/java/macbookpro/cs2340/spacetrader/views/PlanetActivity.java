@@ -6,6 +6,7 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -54,6 +55,7 @@ public class PlanetActivity extends AppCompatActivity {
 
         increase = findViewById(R.id.increase_quantity_button);
         decrease = findViewById(R.id.decrease_quantity_button);
+        refuelButton = findViewById(R.id.refuel_button);
 
         increase.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,11 +81,20 @@ public class PlanetActivity extends AppCompatActivity {
             }
         });
 
+        refuelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                planetViewModel.refuelShip(Integer.parseInt(fuelQuantity.getText().toString()));
+                recreate();
+                Log.i("refueling", "refueled, amt: " + Integer.parseInt(fuelQuantity.getText().toString()) + " price: " + Integer.parseInt(fuelPrice.getText().toString()) );
+            }
+        });
 
         marketButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 goToMarket();
+                //recreate();
             }
         });
         cargoButton.setOnClickListener(new View.OnClickListener() {
