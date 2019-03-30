@@ -2,6 +2,7 @@ package macbookpro.cs2340.spacetrader.views;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.ClipData;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -42,5 +43,13 @@ public class CargoActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         //Setup the adapter for the view
         recyclerView.setAdapter(adapter);
+    }
+
+    //this makes the credits on the planet activity page update when you return from cargo
+    //to planetActivity screen using the back button
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(this, PlanetActivity.class);
+        startActivity(intent);
     }
 }

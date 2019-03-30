@@ -1,12 +1,15 @@
 package macbookpro.cs2340.spacetrader.views;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import macbookpro.cs2340.spacetrader.R;
 import macbookpro.cs2340.spacetrader.model.Universe.Planet;
@@ -21,6 +24,11 @@ public class TravelPlanetActivity extends AppCompatActivity {
     private TextView solarSystemMap;
     private TextView coords;
     private TextView planetDetails;
+    private Button travelHere;
+
+    private SolarSystem travelToThisSolarSystem;
+    private Planet travelToThisPlanet;
+
 
     private RadioGroup planetGroup;
     private RadioGroup solarSystemGroup;
@@ -43,8 +51,36 @@ public class TravelPlanetActivity extends AppCompatActivity {
         coords = findViewById(R.id.coords);
         planetDetails = findViewById(R.id.planet_details);
 
+        travelHere = findViewById(R.id.travel_here_button);
         addPlanetButtons(travelPlanetViewModel.getCurrSolarSystem());
         addSolarSystemButtons();
+
+        travelHere.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (travelToThisPlanet.equals(travelPlanetViewModel.getCurrPlanet())) {
+                    Toast.makeText(getApplicationContext(), "You are already at this planet", Toast.LENGTH_LONG).show();
+                    return;
+                } else if (!travelPlanetViewModel.travel(travelToThisSolarSystem, travelToThisPlanet)) {
+                    //this is if you are unable to travel, so the travel method returns false
+                    Toast.makeText(getApplicationContext(), "You do not have enough fuel to travel here", Toast.LENGTH_LONG).show();
+                    return;
+
+                } else {
+                    travelPlanetViewModel.travel(travelToThisSolarSystem, travelToThisPlanet);
+                    goToPlanetActivity();
+                }
+
+            }
+        });
+    }
+
+    /**
+     * Returns user to PlanetActivity page of current planet
+     */
+    private void goToPlanetActivity() {
+        Intent intent = new Intent(this, PlanetActivity.class);
+        startActivity(intent);
     }
 
     private void addSolarSystemButtons() {
@@ -59,6 +95,8 @@ public class TravelPlanetActivity extends AppCompatActivity {
                 coords.setText("System Coordinates: " + selectedSolarSystem.getCoords().toString());
                 planetMap.setText("Travel to a planet within the " + selectedSolarSystem.getName() + " Solar System");
 
+                travelToThisSolarSystem = selectedSolarSystem;
+
 
             }
 
@@ -71,6 +109,8 @@ public class TravelPlanetActivity extends AppCompatActivity {
 
                     solarSystemMap.setText("Travel to the " + selectedSolarSystem.getName() + " Solar System");
                     planetMap.setText("Travel to a planet within the " + selectedSolarSystem.getName() + " Solar System");
+
+                    travelToThisSolarSystem = selectedSolarSystem;
                 }
             });
         }
@@ -86,6 +126,7 @@ public class TravelPlanetActivity extends AppCompatActivity {
 
             if (selectedPlanet.equals(travelPlanetViewModel.getCurrPlanet())) {
                 rb.setChecked(true);
+                travelToThisPlanet = selectedPlanet;
 
                 planetDetails.setText(
                         "Selected Planet Details: "
@@ -99,6 +140,7 @@ public class TravelPlanetActivity extends AppCompatActivity {
             rb.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    travelToThisPlanet = selectedPlanet;
                     // display whatever information here
                     planetDetails.setText(
                             "Selected Planet Details: "
