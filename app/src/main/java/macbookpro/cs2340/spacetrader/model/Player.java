@@ -1,7 +1,5 @@
 package macbookpro.cs2340.spacetrader.model;
 
-
-
 import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 import macbookpro.cs2340.spacetrader.model.Universe.SolarSystem;
 
@@ -40,15 +38,6 @@ public class Player {
         }
     }
 
-//    private boolean travelInSolarSystem(Planet next) {
-//        if (ship.canTravel()) {
-//            currentPlanet = next;
-//            //next.generateMarket();
-//            return true;
-//        }
-//        return false;
-//    }
-
     public boolean travel(SolarSystem nextSol, Planet nextPlanet) {
         if (ship.canTravel(nextSol.getCoords(), currentSolarSystem.getCoords())) {
             ship.updateFuel(nextSol.getCoords(), currentSolarSystem.getCoords());
@@ -83,6 +72,10 @@ public class Player {
             sold = true;
         }
         return sold;
+    }
+
+    public int calculateCargoPrice(MarketInfo item) {
+        return item.getPrice();
     }
 
     public String getName() {

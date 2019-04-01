@@ -21,7 +21,7 @@ public class MarketInfo implements Comparable<MarketInfo> {
         return this.getItem().compareTo(o.getItem());
     }
 
-    private int calculatePrice(Event ie, TechLevel techlevel, Resources resources) {
+    public int calculatePrice(Event ie, TechLevel techlevel, Resources resources) {
         int price = item.getBasePrice();
         int IPLIncrease = techlevel.ordinal() * item.getIpl();
         int variability = item.getVar();
