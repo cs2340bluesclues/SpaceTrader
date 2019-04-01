@@ -106,7 +106,7 @@ public class TravelPlanetActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     coords.setText("System Coordinates: " + selectedSolarSystem.getCoords().toString()
-                            + "\nDistance away: " + (new DecimalFormat("#0.00")).format(travelPlanetViewModel.getCurrSolarSystem().getCoords().calculateDistance(selectedSolarSystem.getCoords())));
+                            + "\nDistance away: " + (int) (travelPlanetViewModel.getCurrSolarSystem().getCoords().calculateDistance(selectedSolarSystem.getCoords())));
                     addPlanetButtons(selectedSolarSystem);
                     planetDetails.setText("Selected Planet Details: ");
 
