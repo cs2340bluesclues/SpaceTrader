@@ -9,6 +9,13 @@ public class MarketInfo implements Comparable<MarketInfo> {
     private boolean buyable;
     private boolean sellable;
 
+    /**
+     * constructor
+     * @param item item
+     * @param ie event on planet
+     * @param techLevel tech level of planet
+     * @param resources planet resources
+     */
     public MarketInfo(MarketItem item, Event ie, TechLevel techLevel, Resources resources) {
         this.item = item;
         buyable = techLevel.ordinal() >= item.getMtlp();
@@ -16,11 +23,23 @@ public class MarketInfo implements Comparable<MarketInfo> {
         price =  calculatePrice(ie,  techLevel, resources);
     }
 
+    /**
+     * compare market info
+     * @param o market info to compare
+     * @return if they are the same
+     */
     @Override
     public int compareTo(MarketInfo o) {
         return this.getItem().compareTo(o.getItem());
     }
 
+    /**
+     * calculate price of item based on planet information
+     * @param ie planet events
+     * @param techlevel planet tech level
+     * @param resources planet resources
+     * @return price of the item
+     */
     private int calculatePrice(Event ie, TechLevel techlevel, Resources resources) {
         int price = item.getBasePrice();
         int IPLIncrease = techlevel.ordinal() * item.getIpl();
@@ -65,19 +84,20 @@ public class MarketInfo implements Comparable<MarketInfo> {
         return price;
     }
 
+    /**
+     * getter for item
+     * @return market item
+     */
     public MarketItem getItem() {
         return item;
     }
 
+    /**
+     * getter for price
+     * @return market item price
+     */
     public int getPrice() {
         return price;
     }
 
-    public boolean getSellable() {
-        return sellable;
-    }
-
-    public boolean getBuyable() {
-        return buyable;
-    }
 }

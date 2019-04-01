@@ -23,14 +23,26 @@ public enum ShipType {
         this.fuel = range;
     }
 
+    /**
+     * get ship name
+     * @return name
+     */
     public String getShipName() {
         return shipName;
     }
 
+    /**
+     * get ship cargo space
+     * @return cargo space
+     */
     public int getCargoSpace() {
         return cargoSpace;
     }
 
+    /**
+     * get fuel capcity
+     * @return fuel
+     */
     public int getFuel() {
         return fuel;
     }

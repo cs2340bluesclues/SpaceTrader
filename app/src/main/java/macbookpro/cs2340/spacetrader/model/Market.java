@@ -35,6 +35,10 @@ public class Market {
         generateMarket(ie);
     }
 
+    /**
+     * makes the market
+     * @param ie
+     */
     public void generateMarket(Event ie) {
         event = ie;
         for (int index = 0; index < items.length; index++) {
@@ -46,6 +50,11 @@ public class Market {
         }
     }
 
+    /**
+     * calculates market quantity based on tech level
+     * @param item item in the market
+     * @return number of items in the market
+     */
     private int calculateQuantity(MarketItem item) {
         Random rand = new Random();
         if (item.getMtlp() > techLevel.ordinal()) {
@@ -60,6 +69,12 @@ public class Market {
         return quantity;
     }
 
+    /**
+     * buy items from market
+     * @param item item to buy
+     * @param quantityPurchased how much to buy
+     * @return successful purchase
+     */
     public boolean buyAsPlayer(MarketInfo item, int quantityPurchased) {
         if (map.containsKey(item)) {
             Log.i("wedunnit!", "map " + map + " map get item " + map.get(item));
@@ -72,12 +87,21 @@ public class Market {
         return false;
     }
 
+    /**
+     * sell items to market
+     * @param item item to sell
+     * @return successful sale
+     */
     public boolean sellAsPlayer(MarketInfo item) {
         map.remove(item);
         map.put(item, map.containsKey(item) ? map.get(item) + 1 : 1);
         return true;
     }
 
+    /**
+     * get hashmap of market goods
+     * @return hashmap
+     */
     public Map<MarketInfo, Integer> getMarketGoods() {
         return map;
     }

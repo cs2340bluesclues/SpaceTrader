@@ -27,30 +27,50 @@ public class Ship {
         remainingCargo = MAX_CARGO;
     }
 
+    /**
+     * get ship name
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * get ax fuel capacity
+     * @return max fuel
+     */
     public int getMAX_FUEL() {
         return MAX_FUEL;
     }
 
+    /**
+     * get current fuel levels
+     * @return fuel level
+     */
     public int getCurrFuel() {
         return fuelLevel;
     }
 
+    /**
+     * get remaining carho sapce
+     * @return remaining cargo
+     */
     public int getRemainingCargo() {
         return remainingCargo;
     }
 
     /**
      * Getter for list of cargo items
-     * @return
+     * @return list of cargo items
      */
     public Map<MarketInfo,Integer> getCargo() {
         return cargo;
     }
 
+    /**
+     * check how much of the cargo space is used
+     * @return used cargo space
+     */
     public int usedCargoSpace() {
         Collection<Integer> allValues = cargo.values();
         int count = 0;
@@ -61,6 +81,12 @@ public class Ship {
         return count;
     }
 
+    /**
+     * add item to the cargo space
+     * @param item item to add
+     * @param quantityAdded how many to add
+     * @return successful add
+     */
     public boolean addItem(MarketInfo item, Integer quantityAdded) {
         if (usedCargoSpace() < MAX_CARGO) {
             int originalQuantity = 0;
@@ -77,19 +103,40 @@ public class Ship {
         return false;
     }
 
+    /**
+     * refuel ship
+     * @param quantity how much fuel to add
+     */
     public void refuel(int quantity) {
         fuelLevel += quantity;
     }
 
+    /**
+     * update the fuel based on travel distancce
+     * @param first first coordinates
+     * @param second second coordinates
+     */
     public void updateFuel(Coord first, Coord second) {
         int fuelDecrement = (int) first.calculateDistance(second);
         fuelLevel -= fuelDecrement;
     }
 
+    /**
+     * check if travel is possible based on coordinates
+     * @param curr current coordinates
+     * @param next coordinates for where you want to go
+     * @return if you have enough fuel to travel
+     */
     public boolean canTravel(Coord curr, Coord next) {
         return fuelLevel >= curr.calculateDistance(next);
     }
 
+    /**
+     * remove from cargo when selling
+     * @param item item to remove
+     * @param quantityRemoved how much to remove
+     * @return successful removal
+     */
     public boolean removeItem(MarketInfo item, Integer quantityRemoved) {
         //if item is in your cargo and you are removing an acceptable amount
         if (cargo.containsKey(item) && quantityRemoved <= cargo.get(item)) {
@@ -104,7 +151,10 @@ public class Ship {
 
     }
 
-
+    /**
+     * to string method
+     * @return name of ship
+     */
     public String toString() {
         return name;
     }

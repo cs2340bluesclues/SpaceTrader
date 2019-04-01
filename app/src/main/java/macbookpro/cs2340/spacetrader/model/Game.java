@@ -27,12 +27,16 @@ public class Game {
 
     /**
      * getter for the game difficulty level
-     * @return
+     * @return game difficulty
      */
     public GameDifficulty getDiff() {
         return diff;
     }
 
+    /**
+     * getter for universe
+     * @return universe
+     */
     public Universe getUniverse() {
         return universe;
     }

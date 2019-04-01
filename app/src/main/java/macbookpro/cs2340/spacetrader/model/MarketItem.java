@@ -15,6 +15,7 @@ public abstract class MarketItem implements Comparable<MarketItem> {
 
     private String name;
 
+
     public MarketItem(String name, int mtlp, int mtlu, int ttp, int basePrice, int ipl, int var,
                       Event ie, Resources cr, Resources er) {
         this.name = name;
@@ -43,6 +44,11 @@ public abstract class MarketItem implements Comparable<MarketItem> {
         this.er = er;
     }
 
+    /**
+     * compare market item
+     * @param o other market item
+     * @return if it is the same
+     */
     @Override
     public int compareTo(MarketItem o) {
         if (this.mtlp != o.mtlp) {
@@ -54,52 +60,82 @@ public abstract class MarketItem implements Comparable<MarketItem> {
         }
     }
 
-    private int calculatePrice() {
-        int price = basePrice;
-        return price;
-    }
-
-    private int calculateQuantity() {
-        int price = 0;
-        return price;
-    }
-
+    /**
+     * getter for name
+     * @return name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * getter for mtlp
+     * @return mtlp
+     */
     public int getMtlp() {
         return mtlp;
     }
 
+    /**
+     * getter for mtlu
+     * @return mtlu
+     */
     public int getMtlu() {
         return mtlu;
     }
 
+    /**
+     * getter for ttp
+     * @return ttp
+     */
     public int getTtp() {
         return ttp;
     }
 
+    /**
+     * getter for base price
+     * @return base price
+     */
     public int getBasePrice() {
         return basePrice;
     }
 
+    /**
+     * getter for ipl
+     * @return ipl
+     */
     public int getIpl() {
         return ipl;
     }
 
+    /**
+     * getter for var
+     * @return var
+     */
     public int getVar() {
         return var;
     }
 
+    /**
+     * getter forie
+     * @return ie
+     */
     public Event getIe() {
         return ie;
     }
 
+    /**
+     * getter for cr
+     * @return cr
+     */
     public Resources getCr() {
         return cr;
     }
 
+    /**
+     * getter for er
+     * @return er
+     */
     public Resources getEr() {
         return er;
     }
