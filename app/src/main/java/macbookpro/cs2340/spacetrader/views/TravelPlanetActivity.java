@@ -11,6 +11,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
+
 import macbookpro.cs2340.spacetrader.R;
 import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 import macbookpro.cs2340.spacetrader.model.Universe.SolarSystem;
@@ -103,7 +105,8 @@ public class TravelPlanetActivity extends AppCompatActivity {
             rb.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    coords.setText("System Coordinates: " + selectedSolarSystem.getCoords().toString());
+                    coords.setText("System Coordinates: " + selectedSolarSystem.getCoords().toString()
+                            + "\nDistance away: " + (new DecimalFormat("#0.00")).format(travelPlanetViewModel.getCurrSolarSystem().getCoords().calculateDistance(selectedSolarSystem.getCoords())));
                     addPlanetButtons(selectedSolarSystem);
                     planetDetails.setText("Selected Planet Details: ");
 

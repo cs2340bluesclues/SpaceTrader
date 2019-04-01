@@ -41,7 +41,6 @@ public class CargoViewModel extends AndroidViewModel {
         return cargoMap;
     }
 
-
     public Planet getCurrPlanet() {
         return currPlanet;
     }
