@@ -20,7 +20,7 @@ public class PlanetActivity extends AppCompatActivity {
     TextView planetLabel;
     Button cargoButton;
     Button travelButton;
-    TextView credits, playerName, shipName, fuelPrice, maxShipFuel, fuelQuantity;
+    TextView credits, playerName, shipName, fuelPrice, maxShipFuel, fuelQuantity, currFuel;
     Button increase, decrease, refuelButton;
 
 
@@ -46,12 +46,14 @@ public class PlanetActivity extends AppCompatActivity {
         shipName.setText(planetViewModel.getShip());
         fuelPrice = findViewById(R.id.fuel_price);
         fuelPrice.setText(String.valueOf(planetViewModel.getFuelPrice()));
+        currFuel = findViewById(R.id.current_fuel);
+        currFuel.setText((String.valueOf(planetViewModel.getCurrFuel())));
 
         maxShipFuel = findViewById(R.id.text_ship_max);
-        maxShipFuel.setText(String.valueOf(planetViewModel.getShipFuel()));
+        maxShipFuel.setText(String.valueOf(planetViewModel.getMaxFuel()));
 
         fuelQuantity = findViewById(R.id.quantity_tracker);
-        fuelQuantity.setText(String.valueOf(1));
+        fuelQuantity.setText(String.valueOf(0));
 
         increase = findViewById(R.id.increase_quantity_button);
         decrease = findViewById(R.id.decrease_quantity_button);
@@ -61,9 +63,8 @@ public class PlanetActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int temp = Integer.parseInt(fuelQuantity.getText().toString());
-                if (temp + 1 <= planetViewModel.getShipFuel()) {
+                if (temp + 1 + planetViewModel.getCurrFuel() <= planetViewModel.getMaxFuel()) {
                     fuelQuantity.setText(String.valueOf(++temp));
-                    //fuelPrice.setText(String.valueOf(temp*planetViewModel.getFuelPrice()));
                     fuelPrice.setText(String.valueOf(temp*planetViewModel.getPlayer().getCurrentPlanet().getFuelCost()));
                 }
             }
@@ -75,7 +76,6 @@ public class PlanetActivity extends AppCompatActivity {
                 int temp = Integer.parseInt(fuelQuantity.getText().toString());
                 if (temp - 1 > 0) {
                     fuelQuantity.setText(String.valueOf(--temp));
-                    //fuelPrice.setText(String.valueOf(temp*planetViewModel.getFuelPrice()));
                     fuelPrice.setText(String.valueOf(temp*planetViewModel.getPlayer().getCurrentPlanet().getFuelCost()));
                 }
             }

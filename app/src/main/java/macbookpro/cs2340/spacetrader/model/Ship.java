@@ -35,6 +35,10 @@ public class Ship {
         return MAX_FUEL;
     }
 
+    public int getCurrFuel() {
+        return fuelLevel;
+    }
+
     public int getRemainingCargo() {
         return remainingCargo;
     }
