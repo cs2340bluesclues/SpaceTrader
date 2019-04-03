@@ -10,7 +10,7 @@ import macbookpro.cs2340.spacetrader.model.Player;
 
 import static macbookpro.cs2340.spacetrader.model.ModelFacade.*;
 
-public class ConfigurationViewModel {
+public class ConfigurationViewModel extends AndroidViewModel {
 
     private int totalCount;
 
@@ -22,7 +22,8 @@ public class ConfigurationViewModel {
 
     private int engineerCount;
 
-    public ConfigurationViewModel() {
+    public ConfigurationViewModel(@NonNull Application application) {
+        super(application);
         totalCount = 0;
         pilotCount = 0;
         fighterCount = 0;
