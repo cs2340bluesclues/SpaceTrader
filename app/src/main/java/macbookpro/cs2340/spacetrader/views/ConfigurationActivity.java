@@ -1,5 +1,6 @@
 package macbookpro.cs2340.spacetrader.views;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -74,7 +75,7 @@ public class ConfigurationActivity extends AppCompatActivity {
         difficultySpinner.setAdapter(adapter);
 
         //updates the textview of each skill
-        totalVM = new ConfigurationViewModel();
+        totalVM = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
 
         addPilot.setOnClickListener(new View.OnClickListener() {
             @Override
