@@ -8,7 +8,7 @@ public class Narcotics extends MarketItem {
 
     public Narcotics () {
         super("Narcotics",5, 0, 5, 3500, -125, 150,
-                Event.BOREDOM, Resources.WEIRD_MUSHROOMS, null);
+                Event.BOREDOM, Resources.WEIRD_MUSHROOMS, null, false);
 
     }
 
