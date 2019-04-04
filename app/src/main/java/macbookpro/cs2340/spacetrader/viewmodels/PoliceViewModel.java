@@ -10,7 +10,5 @@ public class PoliceViewModel extends AndroidViewModel {
 
     public PoliceViewModel(@NonNull Application application) {
         super(application);
-        //fuelCost = player.getCurrentPlanet().calculateFuelCost();
-
     }
 }
