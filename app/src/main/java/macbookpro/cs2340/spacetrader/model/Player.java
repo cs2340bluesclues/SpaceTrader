@@ -2,6 +2,7 @@ package macbookpro.cs2340.spacetrader.model;
 
 import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 import macbookpro.cs2340.spacetrader.model.Universe.SolarSystem;
+import java.util.Random;
 
 public class Player {
     private String name;
@@ -15,6 +16,7 @@ public class Player {
     private boolean lawfulStatus;
     private SolarSystem currentSolarSystem;
     private Planet currentPlanet;
+    private Random rand;
 
 
     public Player(String name, int pilot, int fighter, int trader, int engineer, SolarSystem solarSystem) {
@@ -29,6 +31,7 @@ public class Player {
         ship = new Ship(ShipType.GNAT);
         currentSolarSystem = solarSystem;
         currentPlanet = solarSystem.findBeginnerPlanet();
+        rand = new Random();
     }
 
     public void refuelShip(int quantityToRefuel) {
@@ -72,6 +75,18 @@ public class Player {
             sold = true;
         }
         return sold;
+    }
+
+    public boolean governmentEvent() {
+        return false;
+    }
+
+    public boolean policeEvent() {
+        return false;
+    }
+
+    public boolean pirateEvent() {
+        return false;
     }
 
     public int calculateCargoPrice(MarketInfo item) {
@@ -170,7 +185,4 @@ public class Player {
     }
 
     public Market getMarket() { return currentPlanet.getMarket(); }
-
-
-
 }
