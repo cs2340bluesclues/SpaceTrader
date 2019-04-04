@@ -11,7 +11,7 @@ import macbookpro.cs2340.spacetrader.viewmodels.PirateViewModel;
 public class PirateActivity extends AppCompatActivity {
     private PirateViewModel pirateViewModel;
 
-    TextView introMessage;
+    private TextView introMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,5 +19,7 @@ public class PirateActivity extends AppCompatActivity {
         setContentView(R.layout.pirate_activity);
 
         pirateViewModel = ViewModelProviders.of(this).get(PirateViewModel.class);
+
+        introMessage = findViewById(R.id.intro_message_police);
     }
 }
