@@ -87,7 +87,7 @@ public class Player {
     public boolean pirateEvent() {
         double chance = (credits / 5000.00) * 10 - 1;
         int threshold = rand.nextInt(100);
-        return threshold > chance;
+        return threshold < chance;
     }
 
     public int calculateCargoPrice(MarketInfo item) {
