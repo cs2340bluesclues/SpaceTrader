@@ -8,7 +8,7 @@ public class Food extends MarketItem {
     public Food () {
 
         super("Food", 1,0,1,100,5,5,
-                Event.CROP_FAIL, Resources.RICH_SOIL, Resources.POOR_SOIL);
+                Event.CROP_FAIL, Resources.RICH_SOIL, Resources.POOR_SOIL, true);
 
     }
 

@@ -8,7 +8,7 @@ public class Firearms extends MarketItem {
 
     public Firearms () {
         super("Firearms", 3, 1, 5, 1250, -75, 100,
-                Event.WAR, Resources.WARLIKE, null);
+                Event.WAR, Resources.WARLIKE, null, false);
 
     }
 

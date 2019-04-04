@@ -9,15 +9,18 @@ public abstract class MarketItem implements Comparable<MarketItem> {
     protected int ipl;
     protected int var;
 
+
     protected Event ie;
     protected Resources cr;
     protected Resources er;
+
+    protected boolean isLegal;
 
     private String name;
 
 
     public MarketItem(String name, int mtlp, int mtlu, int ttp, int basePrice, int ipl, int var,
-                      Event ie, Resources cr, Resources er) {
+                      Event ie, Resources cr, Resources er, boolean isLegal) {
         this.name = name;
         //Minimum Tech Level to Produce this resource (You can't buy on planets below this level)
         this.mtlp = mtlp;
@@ -42,6 +45,9 @@ public abstract class MarketItem implements Comparable<MarketItem> {
 
         // When this condition is present, the resource is expensive
         this.er = er;
+
+        //if the trading of this good is legal or not
+        this.isLegal = isLegal;
     }
 
     /**
