@@ -9,7 +9,7 @@ public class Medicine extends MarketItem {
     public Medicine () {
 
         super("Medicine",4, 1,6,650, -20, 10,
-                Event.PLAGUE, Resources.LOTS_OF_HERBS, null);
+                Event.PLAGUE, Resources.LOTS_OF_HERBS, null, true);
 
     }
 

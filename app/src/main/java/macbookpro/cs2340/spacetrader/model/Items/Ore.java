@@ -9,7 +9,7 @@ public class Ore extends MarketItem {
     public Ore () {
 
         super("Ore",2,2,3,350,20,10,
-                Event.WAR, Resources.MINERAL_RICH, Resources.MINERAL_POOR);
+                Event.WAR, Resources.MINERAL_RICH, Resources.MINERAL_POOR, true);
 
     }
 

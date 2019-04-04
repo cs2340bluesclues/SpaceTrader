@@ -3,6 +3,7 @@ package macbookpro.cs2340.spacetrader.model;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import macbookpro.cs2340.spacetrader.model.Universe.Coord;
 
@@ -152,6 +153,24 @@ public class Ship {
         }
         return false;
 
+    }
+
+    /**
+     * Removes any illegal goods from the cargo if present.
+     * @return true if there were illegal goods and they were removed. False otherwise.
+     */
+    public boolean removeIllegalGoods() {
+        Set<MarketInfo> keySet = cargo.keySet();
+        boolean removedIllegalGood = false;
+
+        for (MarketInfo s: keySet) {
+            if (!s.getItem().isLegal){ //if the good is not legal
+                cargo.put(s, 0);
+                removedIllegalGood = true;
+            }
+        }
+
+        return removedIllegalGood;
     }
 
     /**
