@@ -17,38 +17,89 @@
             android:orientation="vertical"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:weightSum="2">
 
-            <TextView
-                android:id="@+id/planet_map_title"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-                android:layout_gravity="center"
-                android:text="Planet Map"
-                android:textStyle="bold"
-                tools:layout_editor_absoluteX="163dp"
-                tools:layout_editor_absoluteY="16dp" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-            <RadioGroup
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:id="@+id/planet_button_group">
+                    <TextView
+                        android:id="@+id/planet_map_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Planet Map"
+                        android:textStyle="bold" />
 
-            </RadioGroup>
+                    <RadioGroup
+                        android:id="@+id/planet_button_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
 
-            <TextView
-                android:id="@+id/planet_details"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/text_border"
+                    </RadioGroup>
 
-                android:layout_gravity="center"
-                android:text=""
+                    <TextView
+                        android:id="@+id/planet_details"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/text_border"
 
-                tools:layout_editor_absoluteX="163dp"
-                tools:layout_editor_absoluteY="16dp" />
+                        android:layout_gravity="center"
+                        android:text=""
+
+                        tools:layout_editor_absoluteX="163dp"
+                        tools:layout_editor_absoluteY="16dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+
+
+                    <TextView
+                        android:id="@+id/SS_map_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_gravity="center"
+                        android:text="Solar System Map"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/coords"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_gravity="center"
+                        android:text="current coordinates"
+
+                        tools:layout_editor_absoluteX="163dp"
+                        tools:layout_editor_absoluteY="16dp" />
+
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:id="@+id/solar_system_button_group">
+
+                    </RadioGroup>
+
+                </LinearLayout>
+
+            </LinearLayout>
 
             <Button
                 android:id="@+id/travel_here_button"
@@ -60,37 +111,6 @@
                 android:text="Travel here!"
                 android:background="@color/blue"
                 android:textColor="@android:color/white" />
-
-            <TextView
-                android:id="@+id/SS_map_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_gravity="center"
-                android:text="Solar System Map"
-                android:textStyle="bold"
-                android:paddingTop="100dp"
-                tools:layout_editor_absoluteX="163dp"
-                tools:layout_editor_absoluteY="16dp" />
-
-            <TextView
-                android:id="@+id/coords"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_gravity="center"
-                android:text=""
-
-                tools:layout_editor_absoluteX="163dp"
-                tools:layout_editor_absoluteY="16dp" />
-
-            <RadioGroup
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:id="@+id/solar_system_button_group">
-
-            </RadioGroup>
 
         </LinearLayout>
     </ScrollView>
