@@ -23,7 +23,7 @@ public class MarketActivity extends AppCompatActivity {
     private MarketViewModel marketViewModel;
 
     /** widgets*/
-    TextView playerName, playerCredits;
+    TextView playerName, playerCredits, remainingCargo;
 
 
     /** make an adapter for the list */
@@ -43,6 +43,8 @@ public class MarketActivity extends AppCompatActivity {
         playerName.setText(marketViewModel.getPlayerName());
         playerCredits = findViewById(R.id.credits);
         playerCredits.setText(String.valueOf(marketViewModel.getPlayerCredits()));
+        remainingCargo = findViewById(R.id.remaining_cargo);
+        remainingCargo.setText(String.valueOf("Remaining Cargo: " + marketViewModel.getRemainingCargo()));
 
         adapter = new ItemAdapter(marketViewModel.getMarketInfos(), true, marketViewModel.getPlayer(),
                 marketViewModel.getMarket());
