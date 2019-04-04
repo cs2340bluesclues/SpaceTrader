@@ -77,16 +77,15 @@ public class Player {
         return sold;
     }
 
-    public boolean governmentEvent() {
-        return false;
-    }
-
     public boolean policeEvent() {
-        return false;
+        if (!lawfulStatus) {
+            return rand.nextInt(10) <= 2;
+        }
+        return rand.nextInt(10) == 0;
     }
 
     public boolean pirateEvent() {
-        return false;
+        return rand.nextInt(10) == 0;
     }
 
     public int calculateCargoPrice(MarketInfo item) {
