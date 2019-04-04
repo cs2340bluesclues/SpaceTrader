@@ -69,9 +69,9 @@ public class TravelPlanetActivity extends AppCompatActivity {
                     return;
 
                 } else if (travelPlanetViewModel.policeEvent()) {
-                    //goToPoliceActivity();
+                    goToPoliceActivity();
                 } else if (travelPlanetViewModel.pirateEvent()) {
-                    //goToPirateActivity();
+                    goToPirateActivity();
                 } else  {
                     travelPlanetViewModel.travel(travelToThisSolarSystem, travelToThisPlanet);
                     goToPlanetActivity();
@@ -85,6 +85,16 @@ public class TravelPlanetActivity extends AppCompatActivity {
      */
     private void goToPlanetActivity() {
         Intent intent = new Intent(this, PlanetActivity.class);
+        startActivity(intent);
+    }
+
+    private void goToPoliceActivity() {
+        Intent intent = new Intent(this, PoliceActivity.class);
+        startActivity(intent);
+    }
+
+    private void goToPirateActivity() {
+        Intent intent = new Intent(this, PirateActivity.class);
         startActivity(intent);
     }
 

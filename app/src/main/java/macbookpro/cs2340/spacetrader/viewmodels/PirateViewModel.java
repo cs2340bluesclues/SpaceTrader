@@ -11,5 +11,6 @@ public class PirateViewModel extends AndroidViewModel {
 
     public PirateViewModel(@NonNull Application application) {
         super(application);
+
     }
 }
