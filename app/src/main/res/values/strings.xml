@@ -21,5 +21,18 @@
     <string name="bribe">Bribe</string>
     <string name="flee">Flee!</string>
 
+    <!--for pirate xml-->
+
+    <string name="pirate_warning">\nYOU HAVE BEEN ATTACKED BY PIRATES!
+                                \n Select an option below.</string>
+    <string name="pirate_directions">
+        \nIf you surrender, the pirates will take all of your cargo.
+        \n\nIf you fight, ensure that your fighter points exceed those of the pirates and fight to the death!
+        \n\nIf you flee, ensure that your pilot points exceed those of the pirates and flee for your life!\n
+    </string>
+
+    <string name="surrender">Surrender</string>
+    <string name="fight">Fight!</string>
+
 
 </resources>
