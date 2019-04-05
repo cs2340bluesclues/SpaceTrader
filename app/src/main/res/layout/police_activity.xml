@@ -17,6 +17,13 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="119dp"
+            android:layout_height="130dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/warning_sign" />
+
         <TextView
             android:id="@+id/intro_message_police"
             android:layout_width="match_parent"

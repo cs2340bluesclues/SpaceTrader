@@ -10,7 +10,7 @@
 
     <!--For police xml-->
 
-    <string name="police_warning">\nYOU HAVE BEEN STOPPED BY THE POLICE!
+    <string name="police_warning">YOU HAVE BEEN STOPPED BY THE POLICE!
                                 \n Select an option below.</string>
     <string name="police_directions">
             \nIf you accept a cargo check, you must give up any illegal goods and pay a fine.
@@ -23,7 +23,7 @@
 
     <!--for pirate xml-->
 
-    <string name="pirate_warning">\nYOU HAVE BEEN ATTACKED BY PIRATES!
+    <string name="pirate_warning">YOU HAVE BEEN ATTACKED BY PIRATES!
                                 \n Select an option below.</string>
     <string name="pirate_directions">
         \nIf you surrender, the pirates will take all of your cargo.
