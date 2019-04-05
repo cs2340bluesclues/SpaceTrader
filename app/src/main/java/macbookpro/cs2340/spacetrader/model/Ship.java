@@ -164,9 +164,11 @@ public class Ship {
         boolean removedIllegalGood = false;
 
         for (MarketInfo s: keySet) {
-            if (!s.getItem().isLegal){ //if the good is not legal
-                cargo.put(s, 0);
-                removedIllegalGood = true;
+            if (!s.getItem().isLegal){ //if the good is not legal (ie it is narcotics/firearms)
+                if (cargo.get(s) > 0) { //and cargo contains some amount > 0 of it
+                    cargo.put(s, 0);
+                    removedIllegalGood = true;
+                }
             }
         }
 
