@@ -7,21 +7,58 @@
     android:layout_height="match_parent">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
 
         <TextView
             android:id="@+id/intro_message_pirate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pirate_warning"
+            android:textColor="@android:color/holo_red_dark"
+            android:textStyle="bold"
+            android:gravity="center"
+            />
+        <TextView
+            android:id="@+id/directions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="You have been attacked by pirates!"
-            android:layout_marginRight="20dp"
-            tools:layout_editor_absoluteX="60dp" />
+            android:text="@string/pirate_directions"
+
+            />
+
+        <Button
+            android:id="@+id/surrender_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/surrender"
+            android:background="@android:color/holo_red_dark"
+            android:textColor="@android:color/white"
+            />
+
+        <Button
+            android:id="@+id/fight_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/fight"
+            android:background="@android:color/holo_blue_dark"
+            android:textColor="@android:color/white"
+            />
+
+        <Button
+            android:id="@+id/flee_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/flee"
+            android:background="@android:color/holo_green_dark"
+            android:textColor="@android:color/white"/>
 
     </LinearLayout>
 
