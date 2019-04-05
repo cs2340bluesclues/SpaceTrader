@@ -8,7 +8,7 @@ public class Water extends MarketItem {
 
     public Water () {
         super("Water",0,0,2,30,3,4,
-                Event.DROUGHT, Resources.LOTS_OF_WATER, Resources.DESERT);
+                Event.DROUGHT, Resources.LOTS_OF_WATER, Resources.DESERT, true);
 
     }
 

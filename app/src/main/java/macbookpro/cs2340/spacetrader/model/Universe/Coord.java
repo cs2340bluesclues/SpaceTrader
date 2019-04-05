@@ -32,9 +32,9 @@ public class Coord {
 
     @Override
     public String toString() {
-        return "( " + x +
+        return "(" + x +
                 ", " + y +
-                " )";
+                ")";
     }
 
     public double calculateDistance(Coord c) {

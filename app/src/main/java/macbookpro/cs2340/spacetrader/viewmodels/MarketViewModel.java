@@ -54,5 +54,9 @@ public class MarketViewModel extends AndroidViewModel {
         return market;
     }
 
+    public int getRemainingCargo() {
+        return player.getShip().getRemainingCargo();
+    }
+
 
 }

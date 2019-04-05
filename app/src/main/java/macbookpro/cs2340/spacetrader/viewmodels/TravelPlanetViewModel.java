@@ -46,5 +46,12 @@ public class TravelPlanetViewModel extends AndroidViewModel {
         return player.travel(nextSol, nextPlanet);
     }
 
+    public boolean policeEvent() {
+        return player.policeEvent();
+    }
+
+    public boolean pirateEvent() {
+        return player.pirateEvent();
+    }
 
 }

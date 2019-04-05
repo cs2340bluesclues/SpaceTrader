@@ -18,7 +18,7 @@ public class CargoActivity extends AppCompatActivity {
 
     private CargoViewModel cargoViewModel;
     private ItemAdapter adapter;
-    private TextView playerName, playerCredits;
+    private TextView playerName, playerCredits, remainingCargo;
 
 
     @Override
@@ -33,6 +33,8 @@ public class CargoActivity extends AppCompatActivity {
         playerName.setText(cargoViewModel.getPlayerName());
         playerCredits = findViewById(R.id.credits);
         playerCredits.setText(String.valueOf(cargoViewModel.getPlayerCredits()));
+        remainingCargo = findViewById(R.id.remaining_cargo);
+        remainingCargo.setText(String.valueOf("Remaining Cargo: " + cargoViewModel.getRemainingCargo()));
 
         adapter = new ItemAdapter(cargoViewModel.getCargoMap(), false, cargoViewModel.getPlayer(), cargoViewModel.getMarket());
 

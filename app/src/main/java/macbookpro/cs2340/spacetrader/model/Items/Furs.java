@@ -9,6 +9,6 @@ public class Furs extends MarketItem {
     public Furs () {
 
         super("Furs",0, 0, 0, 250, 10, 10,
-                Event.COLD, Resources.RICHFAUNA, Resources.LIFELESS);
+                Event.COLD, Resources.RICHFAUNA, Resources.LIFELESS, true);
     }
 }

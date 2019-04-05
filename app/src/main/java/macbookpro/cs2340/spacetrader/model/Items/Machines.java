@@ -7,7 +7,7 @@ public class Machines extends MarketItem {
 
     public Machines () {
         super("Machines",4,3,5,900,-30,5,
-                Event.LACK_OF_WORKERS, null, null);
+                Event.LACK_OF_WORKERS, null, null, true);
 
     }
 
