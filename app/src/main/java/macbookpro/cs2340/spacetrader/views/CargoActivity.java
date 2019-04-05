@@ -28,7 +28,6 @@ public class CargoActivity extends AppCompatActivity {
 
         cargoViewModel = ViewModelProviders.of(this).get(CargoViewModel.class);
 
-
         playerName = findViewById(R.id.player_name_label);
         playerName.setText(cargoViewModel.getPlayerName());
         playerCredits = findViewById(R.id.credits);

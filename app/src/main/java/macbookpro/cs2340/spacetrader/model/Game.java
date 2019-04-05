@@ -6,6 +6,7 @@ public class Game {
 
     private GameDifficulty diff;
     private Universe universe;
+    private int travelCount = 10;
 
     /**
      * Game constructor; makes an instance of game, which creates a universe and sets game
@@ -15,6 +16,18 @@ public class Game {
     public Game(GameDifficulty diff) {
         universe = new Universe(10,10);
         this.diff = diff;
+    }
+
+    /**
+     * method to say that travel happens in the game and for the player
+     */
+    public void travel() {
+        if (travelCount == 0) {
+            universe.generateEvents();
+            travelCount = 10;
+        } else {
+            travelCount--;
+        }
     }
 
     /**

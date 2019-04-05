@@ -20,6 +20,6 @@ public class PirateActivity extends AppCompatActivity {
 
         pirateViewModel = ViewModelProviders.of(this).get(PirateViewModel.class);
 
-        introMessage = findViewById(R.id.intro_message_police);
+        //introMessage = findViewById(R.id.intro_message_police);
     }
 }
