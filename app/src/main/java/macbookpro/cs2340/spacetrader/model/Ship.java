@@ -122,6 +122,14 @@ public class Ship {
         fuelLevel -= fuelDecrement;
     }
 
+    public void updateCargoPrices(Event e, TechLevel tl, Resources r) {
+        cargo.forEach( (k, v) -> {
+            int val = cargo.remove(k);
+            k.calculatePrice(e, tl, r);
+            cargo.put(k, val);
+        });
+    }
+
     /**
      * check if travel is possible based on coordinates
      * @param curr current coordinates

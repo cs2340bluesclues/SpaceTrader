@@ -62,7 +62,7 @@ public class SolarSystem {
 
     /**
      * Getter method for SolarSystem name
-     * @return
+     * @return String
      */
     public String getName() {
         return name;
@@ -70,16 +70,24 @@ public class SolarSystem {
 
     /**
      * Getter method for SolarSystem's coordinates
-     * @return
+     * @return Coord the coordinates of the SolarSystem
      */
     public Coord getCoords(){
         return coords;
     }
 
+    /**
+     * Getter method to retrieve all the planets in the SolarSystem
+     * @return Set all the planets in the SolarSystem
+     */
     public Set<Planet> getPlanets() {
         return planets;
     }
 
+    /**
+     * Method that returns the first planet that you start on in the SolarSystem
+     * @return Planet, the first planet
+     */
     public Planet findBeginnerPlanet() { //may be a tiny bit messed up
         Planet beginnerPlanet = null;
         for(Planet p: planets) {
@@ -100,7 +108,6 @@ public class SolarSystem {
         }
     }
 
-    // adds a planet to the HashSet
     private void addPlanet() {
         String planetName = nameList.remove(r.nextInt(nameList.size()));
         planets.add(new Planet(planetName));
