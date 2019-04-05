@@ -69,8 +69,10 @@ public class TravelPlanetActivity extends AppCompatActivity {
                     return;
 
                 } else if (travelPlanetViewModel.policeEvent()) {
+                    travelPlanetViewModel.travel(travelToThisSolarSystem, travelToThisPlanet);
                     goToPoliceActivity();
                 } else if (travelPlanetViewModel.pirateEvent()) {
+                    travelPlanetViewModel.travel(travelToThisSolarSystem, travelToThisPlanet);
                     goToPirateActivity();
                 } else  {
                     travelPlanetViewModel.travel(travelToThisSolarSystem, travelToThisPlanet);
