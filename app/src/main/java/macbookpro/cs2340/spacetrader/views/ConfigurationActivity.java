@@ -14,6 +14,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import macbookpro.cs2340.spacetrader.R;
 import macbookpro.cs2340.spacetrader.model.GameDifficulty;
 import macbookpro.cs2340.spacetrader.model.Player;
@@ -31,6 +34,12 @@ public class ConfigurationActivity extends AppCompatActivity {
     private EditText inputName;
     private Spinner difficultySpinner;
 
+    // firebase ??
+//    private FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
+//    private DatabaseReference playerID = mDatabase.getReference("players");
+    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("players");
+
+
     Button addPilot, subtractPilot, addFighter, subtractFighter, addTrader, subtractTrader,
             addEngineer, subtractEngineer, submit;
     TextView pilotSkill, fighterSkill, traderSkill, engineerSkill;
@@ -42,7 +51,6 @@ public class ConfigurationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.config);
-
 
         /*
          * Grab the dialog widgets so we can get info for later
@@ -169,13 +177,16 @@ public class ConfigurationActivity extends AppCompatActivity {
                 } else if (totalVM.checkNameLength(name)) {
                     Toast.makeText(getApplicationContext(), "Name field cannot be blank", Toast.LENGTH_LONG).show();
                 } else {
-                    String s = totalVM.sendData(name, level);
+//                    String player = totalVM.sendData(name, level);
+//                    playerID.setValue(player);
+
+                    String playerID = mDatabase.push().getKey();
+                    String player = totalVM.sendData(name, level);
+                    mDatabase.child(playerID).setValue(player);
 //                    Intent messageIntent = new Intent(ConfigurationActivity.this, MarketActivity.class);
 //                    messageIntent.putExtra("PRINT_PLAYER_MESSAGE", s);
 //                    startActivity(messageIntent);
                     launchGame();
-//                    Log.i("player info!", s);
-//                    Toast.makeText(getApplicationContext(), "Success!", Toast.LENGTH_LONG).show();
                 }
             }
         });

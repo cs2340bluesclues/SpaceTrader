@@ -4,6 +4,8 @@ import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.support.annotation.NonNull;
 
+import com.google.firebase.database.DatabaseReference;
+
 import macbookpro.cs2340.spacetrader.model.GameDifficulty;
 import macbookpro.cs2340.spacetrader.model.ModelFacade;
 import macbookpro.cs2340.spacetrader.model.Player;
@@ -21,6 +23,8 @@ public class ConfigurationViewModel extends AndroidViewModel {
     private int traderCount;
 
     private int engineerCount;
+
+
 
     public ConfigurationViewModel(@NonNull Application application) {
         super(application);
@@ -93,5 +97,4 @@ public class ConfigurationViewModel extends AndroidViewModel {
         createGame(diff);
         return createPlayer(name, pilotCount, fighterCount, traderCount, engineerCount);
     }
-
 }

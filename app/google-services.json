@@ -1,0 +1,44 @@
+{
+  "project_info": {
+    "project_number": "798503995270",
+    "firebase_url": "https://spacetrader-fafee.firebaseio.com",
+    "project_id": "spacetrader-fafee",
+    "storage_bucket": "spacetrader-fafee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:798503995270:android:b9aa48aa284a4daa",
+        "android_client_info": {
+          "package_name": "macbookpro.cs2340.spacetrader"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "798503995270-s0ctf7la2vp3sqj3252h56utc2lb4dhu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "macbookpro.cs2340.spacetrader",
+            "certificate_hash": "15198c772f7ea97a2ce61804a94e177bbcecbaba"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtqea_jyGDnSo81UHpqdOvRxjgdwzz19g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "798503995270-m0i5n9hjqt3u5t39hmdl8q7e5f9tbptp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
