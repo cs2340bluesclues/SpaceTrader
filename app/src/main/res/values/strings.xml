@@ -8,6 +8,9 @@
     <string name="minus">-</string>
     <string name="submit">Submit</string>
 
+    <!--for planet activity xml-->
+    <string name="fueltanklabel">\nShip Fuel Tank</string>
+
     <!--For police xml-->
 
     <string name="police_warning">YOU HAVE BEEN STOPPED BY THE POLICE!
@@ -15,7 +18,7 @@
     <string name="police_directions">
             \nIf you accept a cargo check, you must give up any illegal goods and pay a fine.
             \n\nIf you bribe, you must fork over 5% of your total credits.
-            \n\nIf you flee, you will be deemed unlawful and will be stopped more often
+            \n\nIf you flee, you will be deemed unlawful and will be stopped more often.
             \n</string>
     <string name="accept">Accept Cargo Check</string>
     <string name="bribe">Bribe</string>
