@@ -46,10 +46,15 @@ public class Player {
             ship.updateFuel(nextSol.getCoords(), currentSolarSystem.getCoords());
             currentPlanet = nextPlanet;
             currentSolarSystem = nextSol;
+//            updateCargoPrices();
             return true;
         }
         return false;
     }
+
+//    private void updateCargoPrices() {
+//        ship.updateCargoPrices(currentPlanet.getEvent(), currentPlanet.getTechLevel(), currentPlanet.getResources());
+//    }
 
     public boolean buy(MarketInfo item, int quantityToPurchase) {
         //int count = 0;

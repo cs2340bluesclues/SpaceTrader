@@ -7,6 +7,7 @@ import android.util.Log;
 
 import java.util.Set;
 
+import macbookpro.cs2340.spacetrader.model.ModelFacade;
 import macbookpro.cs2340.spacetrader.model.Player;
 import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 import macbookpro.cs2340.spacetrader.model.Universe.SolarSystem;
@@ -43,7 +44,7 @@ public class TravelPlanetViewModel extends AndroidViewModel {
 
     public boolean travel(SolarSystem nextSol, Planet nextPlanet) {
         Log.i("travel", "traveling to " + nextSol + " in " + nextPlanet);
-        return player.travel(nextSol, nextPlanet);
+        return ModelFacade.travel(nextSol, nextPlanet);
     }
 
     public boolean policeEvent() {

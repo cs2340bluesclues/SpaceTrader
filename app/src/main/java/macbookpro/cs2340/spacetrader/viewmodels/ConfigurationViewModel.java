@@ -13,22 +13,18 @@ import static macbookpro.cs2340.spacetrader.model.ModelFacade.*;
 public class ConfigurationViewModel extends AndroidViewModel {
 
     private int totalCount;
-
     private int pilotCount;
-
     private int fighterCount;
-
     private int traderCount;
-
     private int engineerCount;
 
     public ConfigurationViewModel(@NonNull Application application) {
         super(application);
-        totalCount = 0;
         pilotCount = 0;
         fighterCount = 0;
         traderCount = 0;
         engineerCount = 0;
+        totalCount = pilotCount + fighterCount + traderCount + engineerCount;
     }
 
     public void setPilotCount(int count) {
