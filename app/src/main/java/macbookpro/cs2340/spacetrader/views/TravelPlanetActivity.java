@@ -31,7 +31,6 @@ public class TravelPlanetActivity extends AppCompatActivity {
     private SolarSystem travelToThisSolarSystem;
     private Planet travelToThisPlanet;
 
-
     private RadioGroup planetGroup;
     private RadioGroup solarSystemGroup;
 

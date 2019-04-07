@@ -1,15 +1,19 @@
 package macbookpro.cs2340.spacetrader.PoliceEscapeMiniGame;
 
 import android.app.Activity;
-import android.app.AlertDialog;
+import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.view.Display;
 
+import macbookpro.cs2340.spacetrader.views.TravelPlanetActivity;
+
+import static macbookpro.cs2340.spacetrader.model.ModelFacade.getNewPlayer;
+
 public class PoliceEscapeActivity extends Activity {
 
     // Declare an instance of SnakeEngine
-    PoliceEscapeEngine snakeEngine;
+    PoliceEscapeEngine policeEscapeEngine;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,23 +27,43 @@ public class PoliceEscapeActivity extends Activity {
         display.getSize(size);
 
         // Create a new instance of the SnakeEngine class
-        snakeEngine = new PoliceEscapeEngine(this, size);
+        policeEscapeEngine = new PoliceEscapeEngine(this, size);
 
-        // Make snakeEngine the view of the Activity
-        setContentView(snakeEngine);
+        // Make policeEscapeEngine the view of the Activity
+        setContentView(policeEscapeEngine);
+
+        policeEscapeEngine.run();
+        endGame();
     }
 
-    // Start the thread in snakeEngine
-    @Override
-    protected void onResume() {
-        super.onResume();
-        snakeEngine.resume();
+    public void endGame() {
+        if (!policeEscapeEngine.isPlaying) {
+            if (!policeEscapeEngine.gameWon) {
+
+                if (getNewPlayer().getCredits() > 200) {
+                    getNewPlayer().setCredits(getNewPlayer().getCredits() - 200);
+                    getNewPlayer().setLawfulStatus(false);
+                } else {
+                    getNewPlayer().setCredits(0);
+                    getNewPlayer().setLawfulStatus(false);
+                }
+            }
+        }
+        Intent intent = new Intent(this, TravelPlanetActivity.class);
+        startActivity(intent);
     }
 
-    // Stop the thread in snakeEngine
-    @Override
-    protected void onPause() {
-        super.onPause();
-        snakeEngine.pause();
-    }
+//    // Start the thread in policeEscapeEngine
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        policeEscapeEngine.resume();
+//    }
+//
+//    // Stop the thread in policeEscapeEngine
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        policeEscapeEngine.pause();
+//    }
 }

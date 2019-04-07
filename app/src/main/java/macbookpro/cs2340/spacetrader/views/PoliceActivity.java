@@ -20,6 +20,6 @@ public class PoliceActivity extends AppCompatActivity {
 
         policeViewModel = ViewModelProviders.of(this).get(PoliceViewModel.class);
 
-        //introMessage = findViewById(R.id.intro_message_police);
+        introMessage = findViewById(R.id.intro_message_police);
     }
 }
