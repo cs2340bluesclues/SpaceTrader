@@ -21,6 +21,14 @@
             "package_name": "macbookpro.cs2340.spacetrader",
             "certificate_hash": "15198c772f7ea97a2ce61804a94e177bbcecbaba"
           }
+        },
+        {
+          "client_id": "798503995270-u0us4d9dv1r2pi8h1db7vkrh1aamehlm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "macbookpro.cs2340.spacetrader",
+            "certificate_hash": "e002bac2c9dab63501d73cd1249a8a39410083cd"
+          }
         }
       ],
       "api_key": [
