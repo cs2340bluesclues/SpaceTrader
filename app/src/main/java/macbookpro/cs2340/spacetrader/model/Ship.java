@@ -53,7 +53,7 @@ public class Ship {
     }
 
     /**
-     * get remaining carho sapce
+     * get remaining cargo space
      * @return remaining cargo
      */
     public int getRemainingCargo() {
@@ -183,6 +183,14 @@ public class Ship {
         }
 
         return removedIllegalGood;
+    }
+
+    /**
+     * Empties out cargo and updates remaining cargo space
+     */
+    public void clearCargo() {
+        this.cargo = new HashMap<>();
+        remainingCargo = MAX_CARGO;
     }
 
     /**
