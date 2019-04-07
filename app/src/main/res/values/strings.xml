@@ -17,7 +17,7 @@
                                 \n Select an option below.</string>
     <string name="police_directions">
             \nIf you accept a cargo check, you must give up any illegal goods and pay a fine.
-            \n\nIf you bribe, you must fork over 5% of your total credits.
+            \n\nIf you bribe, you must fork over 15% of your total credits.
             \n\nIf you flee, you will be deemed unlawful and will be stopped more often.
             \n</string>
     <string name="accept">Accept Cargo Check</string>

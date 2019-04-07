@@ -82,63 +82,134 @@ public class Player {
         return sold;
     }
 
+    /**
+     * Determines the likelihood of being stopped by the police
+     * @return true or false if event should occur
+     */
     public boolean policeEvent() {
         if (!lawfulStatus) {
             return rand.nextInt(10) <= 2;
         }
         return rand.nextInt(10) == 0;
+//        return true;
     }
 
+    /**
+     * Determines the likelihood of being stopped by pirates
+     * @return true or false if event should occur
+     */
     public boolean pirateEvent() {
         double chance = (credits / 5000.00) * 10 - 1;
         int threshold = rand.nextInt(100);
         return threshold < chance;
+//        return true;
+
+    }
+
+    /**
+     * Subtracts 5000 credit fine for carrying illegal goods from credits
+     */
+    public void payFine() {
+        if (credits - 5000 > 0) {
+            credits -= 5000;
+        } else {
+            credits = 0;
+        }
+    }
+
+    public void payBribe() {
+        int bribe = credits * 15 / 100;
+        credits = credits - bribe;
     }
 
     public int calculateCargoPrice(MarketInfo item) {
         return item.getPrice();
     }
 
+    /**
+     * Returns player name
+     * @return player name attribute
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Returns player total skill points
+     * @return player totalSkillPoints attribute
+     */
     public int getTotalSkillPoints() {
         return totalSkillPoints;
     }
 
+    /**
+     * setter for player total skill points
+     * @param totalSkillPoints the new value of skill points
+     */
     public void setTotalSkillPoints(int totalSkillPoints) {
         this.totalSkillPoints = totalSkillPoints;
     }
 
+    /**
+     * Getter for pilot skill points
+     * @return player's pilot skill points
+     */
     public int getPilot() {
         return pilot;
     }
 
+    /**
+     * setter for pilot skill points
+     * @param pilot the new value of skill points
+     */
     public void setPilot(int pilot) {
         this.pilot = pilot;
     }
 
+    /**
+     * Getter for fighter skill points
+     * @return player's fighter skill points
+     */
     public int getFighter() {
         return fighter;
     }
 
+    /**
+     * setter for fighter skill points
+     * @param fighter the new value of skill points
+     */
     public void setFighter(int fighter) {
         this.fighter = fighter;
     }
 
+    /**
+     * Getter for trader skill points
+     * @return player's trader skill points
+     */
     public int getTrader() {
         return trader;
     }
 
+    /**
+     * setter for trader skill points
+     * @param trader the new value of skill points
+     */
     public void setTrader(int trader) {
         this.trader = trader;
     }
 
+    /**
+     * Getter for engineer skill points
+     * @return player's engineer skill points
+     */
     public int getEngineer() {
         return engineer;
     }
 
+    /**
+     * setter for engineer skill points
+     * @param engineer the new value of skill points
+     */
     public void setEngineer(int engineer) {
         this.engineer = engineer;
     }
