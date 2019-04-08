@@ -1,19 +1,19 @@
 package macbookpro.cs2340.spacetrader.model;
 
 public enum Resources {
-    NO_SPECIAL_RESOURCES("no special resources"),
-    MINERAL_RICH("mineral rich"),
-    MINERAL_POOR("mineral poor"),
-    DESERT("desert"),
-    LOTS_OF_WATER("lots of water"),
-    RICH_SOIL("rich soil"),
-    POOR_SOIL("poor soil"),
-    RICHFAUNA("rich fauna"),
-    LIFELESS("lifeless"),
-    WEIRD_MUSHROOMS("weird mushrooms"),
-    LOTS_OF_HERBS("lots of herbs"),
-    ARTISTIC("artistic"),
-    WARLIKE("warlike");
+    NO_SPECIAL_RESOURCES("No special resources"),
+    MINERAL_RICH("Mineral rich"),
+    MINERAL_POOR("Mineral poor"),
+    DESERT("Desert"),
+    LOTS_OF_WATER("Lots of water"),
+    RICH_SOIL("Rich soil"),
+    POOR_SOIL("Poor soil"),
+    RICHFAUNA("Rich fauna"),
+    LIFELESS("Lifeless"),
+    WEIRD_MUSHROOMS("Weird mushrooms"),
+    LOTS_OF_HERBS("Lots of herbs"),
+    ARTISTIC("Artistic"),
+    WARLIKE("Warlike");
 
     private String resourceLevel;
 
@@ -21,11 +21,8 @@ public enum Resources {
         this.resourceLevel = resourceLevel;
     }
 
-    public void setResourceLevel(String resourceLevel) {
-        this.resourceLevel = resourceLevel;
-    }
-
-    public String getResourceLevel() {
+    @Override
+    public String toString(){
         return resourceLevel;
     }
 }

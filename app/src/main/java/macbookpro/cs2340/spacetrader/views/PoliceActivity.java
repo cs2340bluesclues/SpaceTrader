@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import macbookpro.cs2340.spacetrader.PoliceEscapeMiniGame.PoliceEscapeActivity;
 import macbookpro.cs2340.spacetrader.R;
 import macbookpro.cs2340.spacetrader.viewmodels.PoliceViewModel;
 
@@ -58,6 +59,15 @@ public class PoliceActivity extends AppCompatActivity {
 
             }
         });
+
+        fleeButton.setOnClickListener(v -> {
+            Toast.makeText(getApplicationContext(), "You are fleeing the police. " +
+                    "\nMake it to the top of the screen without crashing into blocks and you'll escape. " +
+                    "\nTouch the sides of the screen to change direction.", Toast.LENGTH_SHORT)
+                    .show();
+            Intent intent = new Intent(this, PoliceEscapeActivity.class);
+            startActivity(intent);
+        });
     }
 
     /**
@@ -66,6 +76,7 @@ public class PoliceActivity extends AppCompatActivity {
     private void goToPlanetActivity() {
         Intent intent = new Intent(this, PlanetActivity.class);
         startActivity(intent);
+        finish();
     }
 
     @Override

@@ -46,8 +46,7 @@
         <activity
             android:name=".PoliceEscapeMiniGame.PoliceEscapeActivity"
             android:label="SpaceTrader"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:screenOrientation="landscape">
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
         </activity>
     </application>
 

@@ -1,14 +1,10 @@
 package macbookpro.cs2340.spacetrader.PoliceEscapeMiniGame;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Display;
-
-import macbookpro.cs2340.spacetrader.views.TravelPlanetActivity;
-
-import static macbookpro.cs2340.spacetrader.model.ModelFacade.getNewPlayer;
 
 public class PoliceEscapeActivity extends Activity {
 
@@ -33,37 +29,21 @@ public class PoliceEscapeActivity extends Activity {
         setContentView(policeEscapeEngine);
 
         policeEscapeEngine.run();
-        endGame();
+
     }
 
-    public void endGame() {
-        if (!policeEscapeEngine.isPlaying) {
-            if (!policeEscapeEngine.gameWon) {
-
-                if (getNewPlayer().getCredits() > 200) {
-                    getNewPlayer().setCredits(getNewPlayer().getCredits() - 200);
-                    getNewPlayer().setLawfulStatus(false);
-                } else {
-                    getNewPlayer().setCredits(0);
-                    getNewPlayer().setLawfulStatus(false);
-                }
-            }
-        }
-        Intent intent = new Intent(this, TravelPlanetActivity.class);
-        startActivity(intent);
+    // Start the thread in policeEscapeEngine
+    @Override
+    protected void onResume() {
+        super.onResume();
+        policeEscapeEngine.resume();
     }
 
-//    // Start the thread in policeEscapeEngine
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        policeEscapeEngine.resume();
-//    }
-//
-//    // Stop the thread in policeEscapeEngine
-//    @Override
-//    protected void onPause() {
-//        super.onPause();
-//        policeEscapeEngine.pause();
-//    }
+    // Stop the thread in policeEscapeEngine
+    @Override
+    protected void onPause() {
+        super.onPause();
+        policeEscapeEngine.pause();
+    }
+
 }
