@@ -43,7 +43,16 @@ public class PoliceViewModel extends AndroidViewModel {
         player.payFine();
     }
 
+    /**
+     * Calls  method payBribe in player class
+     */
     public void bribe() {
         player.payBribe();
     }
+
+    /**
+     * Calls flee method in player class
+     * @return Whether or not you successfully flee
+     */
+    public boolean flee() {return player.flee();}
 }

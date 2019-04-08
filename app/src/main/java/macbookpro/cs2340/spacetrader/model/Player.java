@@ -107,6 +107,28 @@ public class Player {
     }
 
     /**
+     * Determines whether or not you can beat the pirates in battle
+     * with a combination of randomness and fighter skill.
+     * @return Whether or not you win the fight
+     */
+
+    public boolean fightPirate() {
+        int pirateFightSkill = rand.nextInt(10);
+        return fighter >= pirateFightSkill;
+    }
+
+    /**
+     * Determines whether or not you can flee from the pirates or police
+     * with a combination of randomness and pilot skill.
+     * @return Whether or not you escape
+     */
+
+    public boolean flee() {
+        int opponentPilotSkill = rand.nextInt(10);
+        return pilot >= opponentPilotSkill;
+    }
+
+    /**
      * Subtracts 5000 credit fine for carrying illegal goods from credits
      */
     public void payFine() {

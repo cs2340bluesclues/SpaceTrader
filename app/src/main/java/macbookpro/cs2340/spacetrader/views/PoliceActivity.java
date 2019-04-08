@@ -58,6 +58,19 @@ public class PoliceActivity extends AppCompatActivity {
 
             }
         });
+
+        fleeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean fled = policeViewModel.flee();
+                if (fled) {
+                    Toast.makeText(getApplicationContext(), "You fled from the police!", Toast.LENGTH_LONG).show();
+                    goToPlanetActivity();
+                } else {
+                    Toast.makeText(getApplicationContext(), "The police shot down your ship.", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 
     /**

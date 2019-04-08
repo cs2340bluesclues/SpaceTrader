@@ -45,4 +45,22 @@ public class PirateViewModel extends AndroidViewModel {
         ship.clearCargo();
     }
 
+    /**
+     * Calls fightPirate method in player class
+     * @return Whether or not you win the fight
+     */
+
+    public boolean fight() {
+        return player.fightPirate();
+    }
+
+    /**
+     * Calls flee method in player class
+     * @return Whether or not you escape
+     */
+
+    public boolean flee() {
+        return player.flee();
+    }
+
 }
