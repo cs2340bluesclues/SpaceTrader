@@ -4,14 +4,11 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.text.DecimalFormat;
 
 import macbookpro.cs2340.spacetrader.R;
 import macbookpro.cs2340.spacetrader.model.Universe.Planet;
@@ -62,7 +59,8 @@ public class TravelPlanetActivity extends AppCompatActivity {
                 } else if (!travelPlanetViewModel.travel(travelToThisSolarSystem, travelToThisPlanet)) {
                     //this is if you are unable to travel, so the travel method returns false
                     Toast.makeText(getApplicationContext(), "You do not have enough fuel to travel here", Toast.LENGTH_LONG).show();
-                } else if (travelPlanetViewModel.policeEvent()) {
+                } else if (true) {
+                        //travelPlanetViewModel.policeEvent()) {
                     travelPlanetViewModel.travel(travelToThisSolarSystem, travelToThisPlanet);
                     goToPoliceActivity();
                 } else if (travelPlanetViewModel.pirateEvent()) {
@@ -81,16 +79,19 @@ public class TravelPlanetActivity extends AppCompatActivity {
     private void goToPlanetActivity() {
         Intent intent = new Intent(this, PlanetActivity.class);
         startActivity(intent);
+        finish();
     }
 
     private void goToPoliceActivity() {
         Intent intent = new Intent(this, PoliceActivity.class);
         startActivity(intent);
+        finish();
     }
 
     private void goToPirateActivity() {
         Intent intent = new Intent(this, PirateActivity.class);
         startActivity(intent);
+        finish();
     }
 
     private void addSolarSystemButtons() {

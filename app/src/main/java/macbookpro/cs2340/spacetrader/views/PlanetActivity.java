@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -157,8 +158,10 @@ public class PlanetActivity extends AppCompatActivity {
                 fuelbarnumber++;
             }
         }
+    }
 
-
-
+    @Override
+    public void onBackPressed(){
+        Toast.makeText(getApplicationContext(), "Travel to another planet", Toast.LENGTH_LONG).show();
     }
 }

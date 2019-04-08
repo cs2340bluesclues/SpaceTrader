@@ -1,7 +1,10 @@
 package macbookpro.cs2340.spacetrader.PoliceEscapeMiniGame;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Point;
+import android.os.Handler;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -9,6 +12,11 @@ import java.util.Random;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.widget.Toast;
+
+import macbookpro.cs2340.spacetrader.views.PlanetActivity;
+
+import static macbookpro.cs2340.spacetrader.model.ModelFacade.getNewPlayer;
 
 
 public class PoliceEscapeEngine extends SurfaceView implements Runnable {
@@ -57,8 +65,8 @@ public class PoliceEscapeEngine extends SurfaceView implements Runnable {
         surfaceHolder = getHolder();
         paint = new Paint();
 
-        snakeX = NUM_BLOCKS_WIDE;
-        snakeY = numBlocksHigh / 2;
+        snakeX = NUM_BLOCKS_WIDE / 2;
+        snakeY = numBlocksHigh - 2;
 
         bobXs = new int[20];
         bobYs = new int[bobXs.length];
@@ -69,6 +77,7 @@ public class PoliceEscapeEngine extends SurfaceView implements Runnable {
 
     @Override
     public void run() {
+
         while (isPlaying) {
             if(updateRequired()) {
                 update();
@@ -170,17 +179,21 @@ public class PoliceEscapeEngine extends SurfaceView implements Runnable {
                 isPlaying = false;
             }
         }
-//        if (!isPlaying) {
-//            AlertDialog dialog = new AlertDialog.Builder(context).create();
-//            if (gameWon) {
-//                dialog.setTitle("You won!");
-//                dialog.setMessage("You escaped the police! Continue to next screen");
-//            } else {
-//                dialog.setTitle("You lost!");
-//                dialog.setMessage("You were arrested by the police");
-//            }
-//            dialog.show();
-//        }
+
+        if (!isPlaying) {
+            if (!gameWon) {
+                getNewPlayer().payFine();
+                getNewPlayer().setLawfulStatus(false);
+                //Toast.makeText(context, "You have been arrested by the police and lost money." , Toast.LENGTH_LONG).show();
+                Log.d("Lost Game:","You have been arrested by the police and lost money.");
+            } else {
+                //Toast.makeText(context, "You have escaped the police.", Toast.LENGTH_LONG).show();
+                Log.d("Won Game:","You have escaped the police.");
+            }
+
+            Intent intent = new Intent(context, PlanetActivity.class);
+            context.startActivity(intent);
+        }
     }
 
     public void draw() {

@@ -36,11 +36,12 @@ public class Market {
     }
 
     /**
-     * makes the market
-     * @param ie
+     * makes the new market after a different event happens to the planet
+     * @param ie the event that happened to the planet
      */
     public void generateMarket(Event ie) {
         event = ie;
+        map.clear();
         for (int index = 0; index < items.length; index++) {
             MarketInfo key = new MarketInfo(items[index], event, techLevel, resources);
             int quantity = calculateQuantity(key.getItem());

@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import macbookpro.cs2340.spacetrader.PoliceEscapeMiniGame.PoliceEscapeActivity;
 import macbookpro.cs2340.spacetrader.R;
 import macbookpro.cs2340.spacetrader.viewmodels.PoliceViewModel;
 
@@ -44,8 +45,6 @@ public class PoliceActivity extends AppCompatActivity {
                      Toast.makeText(getApplicationContext(), "You have been deemed a lawful citizen", Toast.LENGTH_LONG).show();
                  }
 
-
-
             }
         });
 
@@ -59,17 +58,13 @@ public class PoliceActivity extends AppCompatActivity {
             }
         });
 
-        fleeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                boolean fled = policeViewModel.flee();
-                if (fled) {
-                    Toast.makeText(getApplicationContext(), "You fled from the police!", Toast.LENGTH_LONG).show();
-                    goToPlanetActivity();
-                } else {
-                    Toast.makeText(getApplicationContext(), "The police shot down your ship.", Toast.LENGTH_LONG).show();
-                }
-            }
+        fleeButton.setOnClickListener(v -> {
+            Toast.makeText(getApplicationContext(), "You are fleeing the police. " +
+                    "\nMake it to the top of the screen without crashing into blocks and you'll escape. " +
+                    "\nTouch the sides of the screen to change direction.", Toast.LENGTH_SHORT)
+                    .show();
+            Intent intent = new Intent(this, PoliceEscapeActivity.class);
+            startActivity(intent);
         });
     }
 
@@ -79,6 +74,7 @@ public class PoliceActivity extends AppCompatActivity {
     private void goToPlanetActivity() {
         Intent intent = new Intent(this, PlanetActivity.class);
         startActivity(intent);
+        finish();
     }
 
     @Override

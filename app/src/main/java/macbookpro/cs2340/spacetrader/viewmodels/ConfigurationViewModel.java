@@ -20,8 +20,6 @@ public class ConfigurationViewModel extends AndroidViewModel {
     private int traderCount;
     private int engineerCount;
 
-
-
     public ConfigurationViewModel(@NonNull Application application) {
         super(application);
         pilotCount = 0;
