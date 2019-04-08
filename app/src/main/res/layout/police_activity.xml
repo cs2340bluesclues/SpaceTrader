@@ -22,7 +22,8 @@
             android:layout_width="119dp"
             android:layout_height="130dp"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/warning_sign" />
+            app:srcCompat="@drawable/warning_sign"
+            android:contentDescription="warning logo"/>
 
         <TextView
             android:id="@+id/intro_message_police"
