@@ -60,6 +60,9 @@ public class SolarSystem {
         }
     }
 
+    public SolarSystem() {
+
+    }
     /**
      * Getter method for SolarSystem name
      * @return

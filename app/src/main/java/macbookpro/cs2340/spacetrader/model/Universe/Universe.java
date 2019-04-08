@@ -35,6 +35,9 @@ public class Universe {
         }
     }
 
+    public Universe() {
+
+    }
     /**
      * method to change what SolarSystem the player will interact with
      */

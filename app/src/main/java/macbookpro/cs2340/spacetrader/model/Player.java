@@ -18,6 +18,8 @@ public class Player {
     private Planet currentPlanet;
     private Random rand;
 
+    public Player() {
+    }
 
     public Player(String name, int pilot, int fighter, int trader, int engineer, SolarSystem solarSystem) {
         this.name = name;
@@ -182,7 +184,9 @@ public class Player {
         return "name: " + this.getName() + "\n pilot: " + this.getPilot() + "\n fighter: "
                 + this.getFighter() + "\n trader:" + this.getTrader() + "\n engineer: "
                 + this.getEngineer() + "\n total skill points: " + this.getTotalSkillPoints()
-                + "\n credits: " + this.getCredits() + "\n ship: " + this.getShip().getName();
+                + "\n credits: " + this.getCredits() + "\n ship: " + this.getShip().getName()
+                + "\ncurrent planet: " + this.getCurrentPlanet();
+
     }
 
     public Market getMarket() { return currentPlanet.getMarket(); }

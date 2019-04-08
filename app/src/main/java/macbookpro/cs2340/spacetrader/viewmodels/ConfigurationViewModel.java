@@ -93,7 +93,7 @@ public class ConfigurationViewModel extends AndroidViewModel {
         return name.length() == 0;
     }
 
-    public String sendData(String name, GameDifficulty diff) {
+    public Player sendData(String name, GameDifficulty diff) {
         createGame(diff);
         return createPlayer(name, pilotCount, fighterCount, traderCount, engineerCount);
     }

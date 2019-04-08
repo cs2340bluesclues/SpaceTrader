@@ -43,6 +43,9 @@
             android:name=".views.PoliceActivity"
             android:label="SpaceTrader">
         </activity>
+        <activity android:name=".views.StartActivity"
+            android:label="SpaceTrader">
+        </activity>
     </application>
 
 </manifest>

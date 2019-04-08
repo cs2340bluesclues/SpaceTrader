@@ -36,6 +36,9 @@ public class Planet {
         fuelCost = calculateFuelCost();
     }
 
+    public Planet() {
+
+    }
    // public void generateMarket() {
        // market.generateMarket(eventOccur());
    // }
