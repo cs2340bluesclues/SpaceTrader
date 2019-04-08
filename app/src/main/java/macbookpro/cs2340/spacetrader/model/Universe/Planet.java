@@ -19,36 +19,41 @@ public class Planet {
 
     /**
      * Planet constructor. Assigns name from parameter, and randomly sets the planet resource,
-     * increase event, and tech level using the Resources, Event, & TechLevel enums
+     * increase event, and tech level using ordinals in the Resources, Event, & TechLevel enums
      * @param name
      */
     public Planet(String name) {
         this.name = name;
-        int resourceOrdinal = (new Random()).nextInt(12);
-        int techOrdinal = (new Random()).nextInt(7);
-        int ieOrdinal = (new Random()).nextInt(7);
-
-        resources = Resources.values()[resourceOrdinal];
-        techLevel = TechLevel.values()[techOrdinal];
-        event = Event.values()[ieOrdinal];
+        resources = Resources.values()[randomGen(12)];
+        techLevel = TechLevel.values()[randomGen(7)];
+        event = Event.values()[randomGen(7)];
 
         market = new Market(techLevel, resources, event);
-        fuelCost = calculateFuelCost();
+        calculateFuelCost();
     }
 
-    public Planet() {
-
-    }
-   // public void generateMarket() {
-       // market.generateMarket(eventOccur());
-   // }
-
-    public int calculateFuelCost() {
-        int cost = randomGen(7) + 5;
+    /**
+     * Calculates how much a gallon of fuel will cost on the planet
+     * @return int price of fuel on the planet
+     */
+    private void calculateFuelCost() {
+        fuelCost = randomGen(7) + 5;
         if (techLevel.ordinal() > 3) {
-            cost -= techLevel.ordinal() / 3;
+            fuelCost -= techLevel.ordinal() / 3;
         }
-        return cost;
+    }
+
+    /**
+     * Method to reassign a random IncreaseEvent to the planet using a random ordinal in
+     * the Event enum
+     */
+    public void eventOccur() {
+        event = Event.values()[randomGen(7)];
+    }
+
+    public void regeneratePlanet() {
+        calculateFuelCost();
+        eventOccur();
     }
 
     /**
@@ -58,7 +63,7 @@ public class Planet {
      */
     private int randomGen(int max) {
         Random generator = new Random();
-        int output = generator.nextInt(max);
+        int output = generator.nextInt(max + 1);
         return output;
     }
 
@@ -107,14 +112,6 @@ public class Planet {
      */
     public Event getEvent() {
         return event;
-    }
-
-    /**
-     * Method to reassign a random IncreaseEvent to the planet using the Event enum
-     */
-    public Event eventOccur() {
-        int ieOrdinal = (new Random()).nextInt(7);
-        return Event.values()[ieOrdinal];
     }
 
     /**

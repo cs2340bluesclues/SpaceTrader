@@ -8,7 +8,9 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/linearLayout"
@@ -17,8 +19,8 @@
             android:orientation="vertical"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            app:layout_constraintTop_toTopOf="parent"
-            android:weightSum="2">
+            android:weightSum="2"
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -51,9 +53,9 @@
                         android:id="@+id/planet_details"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/text_border"
-
                         android:layout_gravity="center"
+
+                        android:background="@drawable/text_border"
                         android:text=""
 
                         tools:layout_editor_absoluteX="163dp"
@@ -66,7 +68,6 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical">
-
 
 
                     <TextView
@@ -90,10 +91,10 @@
                         tools:layout_editor_absoluteY="16dp" />
 
                     <RadioGroup
+                        android:id="@+id/solar_system_button_group"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:id="@+id/solar_system_button_group">
+                        android:layout_gravity="center">
 
                     </RadioGroup>
 
@@ -105,12 +106,13 @@
                 android:id="@+id/travel_here_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:layout_weight="1"
                 android:layout_gravity="center"
-                android:text="Travel here!"
+                android:layout_weight="1"
                 android:background="@color/blue"
+                android:padding="5dp"
+                android:text="Travel here!"
                 android:textColor="@android:color/white" />
+
 
         </LinearLayout>
     </ScrollView>

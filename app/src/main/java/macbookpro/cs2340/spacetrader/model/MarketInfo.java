@@ -20,7 +20,7 @@ public class MarketInfo implements Comparable<MarketInfo> {
         this.item = item;
         buyable = techLevel.ordinal() >= item.getMtlp();
         sellable = techLevel.ordinal() >= item.getMtlu();
-        price =  calculatePrice(ie,  techLevel, resources);
+        price = calculatePrice(ie,  techLevel, resources);
     }
 
     /**
@@ -40,7 +40,7 @@ public class MarketInfo implements Comparable<MarketInfo> {
      * @param resources planet resources
      * @return price of the item
      */
-    private int calculatePrice(Event ie, TechLevel techlevel, Resources resources) {
+    public int calculatePrice(Event ie, TechLevel techlevel, Resources resources) {
         int price = item.getBasePrice();
         int IPLIncrease = techlevel.ordinal() * item.getIpl();
         int variability = item.getVar();

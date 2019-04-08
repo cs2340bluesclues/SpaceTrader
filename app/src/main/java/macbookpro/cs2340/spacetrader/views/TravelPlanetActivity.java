@@ -31,7 +31,6 @@ public class TravelPlanetActivity extends AppCompatActivity {
     private SolarSystem travelToThisSolarSystem;
     private Planet travelToThisPlanet;
 
-
     private RadioGroup planetGroup;
     private RadioGroup solarSystemGroup;
 
@@ -42,6 +41,7 @@ public class TravelPlanetActivity extends AppCompatActivity {
 
         travelPlanetViewModel = ViewModelProviders.of(this).get(TravelPlanetViewModel.class);
 
+        planetDetails = findViewById(R.id.planet_details);
         solarSystemMap = findViewById(R.id.SS_map_title);
         planetMap = findViewById(R.id.planet_map_title);
 
@@ -51,23 +51,17 @@ public class TravelPlanetActivity extends AppCompatActivity {
         solarSystemGroup = findViewById(R.id.solar_system_button_group);
 
         coords = findViewById(R.id.coords);
-        planetDetails = findViewById(R.id.planet_details);
 
         travelHere = findViewById(R.id.travel_here_button);
         addPlanetButtons(travelPlanetViewModel.getCurrSolarSystem());
         addSolarSystemButtons();
 
-        travelHere.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        travelHere.setOnClickListener( v -> {
                 if (travelToThisPlanet.equals(travelPlanetViewModel.getCurrPlanet())) {
                     Toast.makeText(getApplicationContext(), "You are already at this planet", Toast.LENGTH_LONG).show();
-                    return;
                 } else if (!travelPlanetViewModel.travel(travelToThisSolarSystem, travelToThisPlanet)) {
                     //this is if you are unable to travel, so the travel method returns false
                     Toast.makeText(getApplicationContext(), "You do not have enough fuel to travel here", Toast.LENGTH_LONG).show();
-                    return;
-
                 } else if (travelPlanetViewModel.policeEvent()) {
                     travelPlanetViewModel.travel(travelToThisSolarSystem, travelToThisPlanet);
                     goToPoliceActivity();
@@ -78,7 +72,6 @@ public class TravelPlanetActivity extends AppCompatActivity {
                     travelPlanetViewModel.travel(travelToThisSolarSystem, travelToThisPlanet);
                     goToPlanetActivity();
                 }
-            }
         });
     }
 
@@ -117,9 +110,7 @@ public class TravelPlanetActivity extends AppCompatActivity {
 
             }
 
-            rb.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+            rb.setOnClickListener( v -> {
                     coords.setText("System Coordinates: " + selectedSolarSystem.getCoords().toString()
                             + "\nDistance away: " + (int) (travelPlanetViewModel.getCurrSolarSystem().getCoords().calculateDistance(selectedSolarSystem.getCoords())));
                     addPlanetButtons(selectedSolarSystem);
@@ -129,7 +120,6 @@ public class TravelPlanetActivity extends AppCompatActivity {
                     planetMap.setText("Travel to a planet within the " + selectedSolarSystem.getName() + " Solar System");
 
                     travelToThisSolarSystem = selectedSolarSystem;
-                }
             });
         }
     }
@@ -155,9 +145,7 @@ public class TravelPlanetActivity extends AppCompatActivity {
                                 + "\nResources: " + selectedPlanet.getResources());
             }
 
-            rb.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+            rb.setOnClickListener( v-> {
                     travelToThisPlanet = selectedPlanet;
                     // display whatever information here
                     planetDetails.setText(
@@ -167,7 +155,6 @@ public class TravelPlanetActivity extends AppCompatActivity {
                             + "\nCurrent Event: " + selectedPlanet.getEvent()
                             + "\nFuel Cost: " + selectedPlanet.getFuelCost() + " credits/gallon"
                             + "\nResources: " + selectedPlanet.getResources());
-                }
             });
         }
     }

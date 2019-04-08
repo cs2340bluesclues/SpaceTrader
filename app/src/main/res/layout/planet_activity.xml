@@ -109,6 +109,8 @@
 
     </LinearLayout>
 
+        <!--travel stuff ends here-->
+
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -194,11 +196,43 @@
                 android:layout_height="wrap_content"
                 android:text="0" />
 
+
+            <Button
+                android:id="@+id/refuel_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Refuel"
+                android:layout_marginLeft="16dp"
+                />
+
+        </LinearLayout>
+
+        <!--Fuel tank visual starts here-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            >
+
+
+            <TextView
+                android:id="@+id/fueltanklabel"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/fueltanklabel"
+                android:gravity="center_horizontal"
+                android:textStyle="bold"
+                android:textColor="#03a464"
+                android:textSize="18dp"
+                />
+
             <TextView
                 android:id="@+id/current_fuel_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:gravity="center_horizontal"
                 android:text="Current Fuel: "
                 tools:layout_editor_absoluteX="60dp" />
 
@@ -207,18 +241,69 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0" />
-
-            <Button
-                android:id="@+id/refuel_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Refuel"
-                android:layout_marginLeft="20dp" />
-
-
         </LinearLayout>
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:background="@drawable/text_border"
+                >
+
+                <ImageView
+                    android:id="@+id/fuelbar1"
+                    android:layout_width="40dp"
+                    android:layout_height="95dp"
+                    app:srcCompat="@drawable/rectangle"
+                    android:visibility="invisible"
+                    />
+                <ImageView
+                    android:id="@+id/fuelbar2"
+                    android:layout_width="40dp"
+                    android:layout_height="95dp"
+                    app:srcCompat="@drawable/rectangle"
+                    android:visibility="invisible"
+                    />
+                <ImageView
+                    android:id="@+id/fuelbar3"
+                    android:layout_width="40dp"
+                    android:layout_height="95dp"
+                    app:srcCompat="@drawable/rectangle"
+                    android:visibility="invisible"
+                    />
+                <ImageView
+                    android:id="@+id/fuelbar4"
+                    android:layout_width="40dp"
+                    android:layout_height="95dp"
+                    app:srcCompat="@drawable/rectangle"
+                    android:visibility="invisible"
+                    />
+                <ImageView
+                    android:id="@+id/fuelbar5"
+                    android:layout_width="40dp"
+                    android:layout_height="95dp"
+                    app:srcCompat="@drawable/rectangle"
+                    android:visibility="invisible"
+                    />
+                <ImageView
+                    android:id="@+id/fuelbar6"
+                    android:layout_width="40dp"
+                    android:layout_height="95dp"
+                    app:srcCompat="@drawable/rectangle"
+                    android:visibility="invisible"
+                    />
+                <ImageView
+                    android:id="@+id/fuelbar7"
+                    android:layout_width="40dp"
+                    android:layout_height="95dp"
+                    app:srcCompat="@drawable/rectangle"
+                    android:visibility="invisible"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
 
 </android.support.constraint.ConstraintLayout>

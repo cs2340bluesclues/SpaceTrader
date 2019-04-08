@@ -9,7 +9,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import macbookpro.cs2340.spacetrader.viewmodels.PlanetViewModel;
 
@@ -22,6 +27,8 @@ public class PlanetActivity extends AppCompatActivity {
     Button travelButton;
     TextView credits, playerName, shipName, fuelPrice, maxShipFuel, fuelQuantity, currFuel;
     Button increase, decrease, refuelButton;
+    ImageView fuelbar1, fuelbar2, fuelbar3, fuelbar4, fuelbar5, fuelbar6, fuelbar7;
+    ImageView[] fuelbarsArray;
 
 
     @Override
@@ -46,8 +53,18 @@ public class PlanetActivity extends AppCompatActivity {
         shipName.setText(planetViewModel.getShip());
         fuelPrice = findViewById(R.id.fuel_price);
         fuelPrice.setText(String.valueOf(planetViewModel.getFuelPrice()));
+
         currFuel = findViewById(R.id.current_fuel);
-        currFuel.setText((String.valueOf(planetViewModel.getCurrFuel())));
+        currFuel.setText((String.valueOf(planetViewModel.getCurrFuel())) + " gallon(s)");
+        fuelbar1 = findViewById(R.id.fuelbar1);
+        fuelbar2 = findViewById(R.id.fuelbar2);
+        fuelbar3 = findViewById(R.id.fuelbar3);
+        fuelbar4 = findViewById(R.id.fuelbar4);
+        fuelbar5 = findViewById(R.id.fuelbar5);
+        fuelbar6 = findViewById(R.id.fuelbar6);
+        fuelbar7 = findViewById(R.id.fuelbar7);
+        fuelbarsArray = new ImageView[]{fuelbar1, fuelbar2, fuelbar3, fuelbar4, fuelbar5, fuelbar6, fuelbar7};
+        displayFuelBars();
 
         maxShipFuel = findViewById(R.id.text_ship_max);
         maxShipFuel.setText(String.valueOf(planetViewModel.getMaxFuel()));
@@ -128,5 +145,20 @@ public class PlanetActivity extends AppCompatActivity {
     private void goToTravel() {
         Intent intent = new Intent(this, TravelPlanetActivity.class);
         startActivity(intent);
+    }
+
+    private void displayFuelBars() {
+        int currentFuel = planetViewModel.getCurrFuel();
+
+        int fuelbarnumber = 0;
+        for (int i = currentFuel; i > -2; i-=2) {
+            if (i - 2 > -2) {
+                fuelbarsArray[fuelbarnumber].setVisibility(View.VISIBLE);
+                fuelbarnumber++;
+            }
+        }
+
+
+
     }
 }

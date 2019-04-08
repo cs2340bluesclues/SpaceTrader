@@ -43,8 +43,11 @@
             android:name=".views.PoliceActivity"
             android:label="SpaceTrader">
         </activity>
-        <activity android:name=".views.StartActivity"
-            android:label="SpaceTrader">
+        <activity
+            android:name=".PoliceEscapeMiniGame.PoliceEscapeActivity"
+            android:label="SpaceTrader"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="landscape">
         </activity>
     </application>
 

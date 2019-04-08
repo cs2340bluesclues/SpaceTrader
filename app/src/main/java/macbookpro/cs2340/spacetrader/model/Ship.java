@@ -53,7 +53,7 @@ public class Ship {
     }
 
     /**
-     * get remaining carho sapce
+     * get remaining cargo space
      * @return remaining cargo
      */
     public int getRemainingCargo() {
@@ -122,6 +122,14 @@ public class Ship {
         fuelLevel -= fuelDecrement;
     }
 
+    public void updateCargoPrices(Event e, TechLevel tl, Resources r) {
+        cargo.forEach( (k, v) -> {
+            int val = cargo.remove(k);
+            k.calculatePrice(e, tl, r);
+            cargo.put(k, val);
+        });
+    }
+
     /**
      * check if travel is possible based on coordinates
      * @param curr current coordinates
@@ -164,13 +172,25 @@ public class Ship {
         boolean removedIllegalGood = false;
 
         for (MarketInfo s: keySet) {
-            if (!s.getItem().isLegal){ //if the good is not legal
-                cargo.put(s, 0);
-                removedIllegalGood = true;
+            if (!s.getItem().isLegal){ //if the good is not legal (ie it is narcotics/firearms)
+                if (cargo.get(s) > 0) { //and cargo contains some amount > 0 of it
+                    int removedQuantity = cargo.get(s);
+                    cargo.put(s, 0);
+                    remainingCargo += removedQuantity;
+                    removedIllegalGood = true;
+                }
             }
         }
 
         return removedIllegalGood;
+    }
+
+    /**
+     * Empties out cargo and updates remaining cargo space
+     */
+    public void clearCargo() {
+        this.cargo = new HashMap<>();
+        remainingCargo = MAX_CARGO;
     }
 
     /**

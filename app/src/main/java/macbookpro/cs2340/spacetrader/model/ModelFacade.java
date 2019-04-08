@@ -1,9 +1,5 @@
 package macbookpro.cs2340.spacetrader.model;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 import macbookpro.cs2340.spacetrader.model.Universe.SolarSystem;
 
@@ -11,10 +7,6 @@ public class ModelFacade {
     private static ModelFacade instance;
     private static Game newGame;
     private static Player newPlayer;
-
-    private ModelFacade() {
-
-    }
 
     public static ModelFacade getInstance() {
         if(instance == null){
@@ -35,6 +27,11 @@ public class ModelFacade {
 
     public static Game getNewGame() {
         return newGame;
+    }
+
+    public static boolean travel(SolarSystem system, Planet planet) {
+        newGame.travel();
+        return newPlayer.travel(system, planet);
     }
 
     public static Player getNewPlayer() {

@@ -39,24 +39,34 @@ public class Universe {
 
     }
     /**
-     * method to change what SolarSystem the player will interact with
+     * Method that makes the events on every planet in the universe change
      */
-    public void travel() {
-        //something that allows to go to new solar system coords
+    public void generateEvents() {
+        for (SolarSystem s : system) {
+            for (Planet p : s.getPlanets()) {
+                p.regeneratePlanet();
+            }
+        }
     }
 
+    /**
+     * Method that returns the first SolarSystem that you start on
+     * @return SolarSystem that you first land in
+     */
     public SolarSystem retrieveBeginnerSolarSystem(){
-        //SolarSystem randomSolarSystem; //also may be tiny bit messed up
         SolarSystem randomSolarSystem = null;
         for(SolarSystem aSolarSystem: system) {
             randomSolarSystem = aSolarSystem;
         }
         Log.i("StartVM", "find beginner planet is " + randomSolarSystem.findBeginnerPlanet());
         return randomSolarSystem;
-
-        //return randomSolarSystem.findBeginnerPlanet();
     }
 
+
+    /**
+     * Getter method to retrieve all the SolarSystems in the Universe
+     * @return Set all the SolarSystems
+     */
     public Set<SolarSystem> getSystem() {
         return system;
     }
