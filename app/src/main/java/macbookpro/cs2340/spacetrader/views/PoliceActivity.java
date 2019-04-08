@@ -45,8 +45,6 @@ public class PoliceActivity extends AppCompatActivity {
                      Toast.makeText(getApplicationContext(), "You have been deemed a lawful citizen", Toast.LENGTH_LONG).show();
                  }
 
-
-
             }
         });
 
