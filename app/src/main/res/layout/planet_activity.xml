@@ -205,6 +205,14 @@
                 android:layout_marginLeft="16dp"
                 />
 
+            <Button
+                android:id="@+id/save_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                android:layout_marginLeft="16dp"
+                />
+
         </LinearLayout>
 
         <!--Fuel tank visual starts here-->

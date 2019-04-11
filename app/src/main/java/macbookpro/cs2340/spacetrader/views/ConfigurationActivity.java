@@ -180,9 +180,10 @@ public class ConfigurationActivity extends AppCompatActivity {
 //                    String player = totalVM.sendData(name, level);
 //                    playerID.setValue(player);
 
-                    String playerID = mDatabase.push().getKey();
+//                    String playerID = mDatabase.push().getKey();
                     String player = totalVM.sendData(name, level);
-                    mDatabase.child(playerID).setValue(player);
+//                    mDatabase.child(playerID).setValue(player);
+
 //                    Intent messageIntent = new Intent(ConfigurationActivity.this, MarketActivity.class);
 //                    messageIntent.putExtra("PRINT_PLAYER_MESSAGE", s);
 //                    startActivity(messageIntent);
