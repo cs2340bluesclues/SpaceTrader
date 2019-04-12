@@ -12,10 +12,23 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
+import macbookpro.cs2340.spacetrader.model.Player;
 import macbookpro.cs2340.spacetrader.viewmodels.PlanetViewModel;
 
 public class PlanetActivity extends AppCompatActivity {
@@ -26,9 +39,12 @@ public class PlanetActivity extends AppCompatActivity {
     Button cargoButton;
     Button travelButton;
     TextView credits, playerName, shipName, fuelPrice, maxShipFuel, fuelQuantity, currFuel;
-    Button increase, decrease, refuelButton;
+    Button increase, decrease, refuelButton, save;
     ImageView fuelbar1, fuelbar2, fuelbar3, fuelbar4, fuelbar5, fuelbar6, fuelbar7;
     ImageView[] fuelbarsArray;
+
+    final FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference mDatabase = database.getReference("players");
 
 
     @Override
@@ -75,6 +91,8 @@ public class PlanetActivity extends AppCompatActivity {
         increase = findViewById(R.id.increase_quantity_button);
         decrease = findViewById(R.id.decrease_quantity_button);
         refuelButton = findViewById(R.id.refuel_button);
+        
+        save = findViewById(R.id.save_button);
 
         increase.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,6 +148,32 @@ public class PlanetActivity extends AppCompatActivity {
             }
         });
 
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseReference playersRef = mDatabase.child("player");
+
+//                List<Player> player = new ArrayList<>();
+//                player.add(planetViewModel.getPlayer());
+//                playersRef.setValue(Arrays.asList(player));
+
+
+//                List<Player> player = new List<>();
+//                player.add(planetViewModel.getPlayer());
+//                playersRef.setValue(player);
+
+
+
+
+//                Map<String, Player> player = new HashMap<>();
+//                player.put(planetViewModel.getPlayerName(), planetViewModel.getPlayer());
+//                playersRef.setValue(player);
+
+                //String playerID = mDatabase.push().getKey();
+    //           playersRef.child(playerID).setValue(planetViewModel.getPlayer());
+            }
+        });
+
     }
 
     private void goToMarket() {
@@ -157,8 +201,10 @@ public class PlanetActivity extends AppCompatActivity {
                 fuelbarnumber++;
             }
         }
+    }
 
-
-
+    @Override
+    public void onBackPressed(){
+        Toast.makeText(getApplicationContext(), "Travel to another planet", Toast.LENGTH_LONG).show();
     }
 }

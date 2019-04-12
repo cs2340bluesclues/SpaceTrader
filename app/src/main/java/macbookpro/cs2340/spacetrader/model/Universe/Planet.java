@@ -49,6 +49,7 @@ public class Planet {
      */
     public void eventOccur() {
         event = Event.values()[randomGen(7)];
+        //market.generateMarket(event);
     }
 
     public void regeneratePlanet() {

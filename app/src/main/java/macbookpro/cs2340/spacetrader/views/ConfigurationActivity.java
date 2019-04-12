@@ -181,8 +181,9 @@ public class ConfigurationActivity extends AppCompatActivity {
 //                    playerID.setValue(player);
 
 //                    String playerID = mDatabase.push().getKey();
-                    Player player = totalVM.sendData(name, level);
-                    mDatabase.child(name).setValue(player);
+                    String player = totalVM.sendData(name, level);
+//                    mDatabase.child(playerID).setValue(player);
+
 //                    Intent messageIntent = new Intent(ConfigurationActivity.this, MarketActivity.class);
 //                    messageIntent.putExtra("PRINT_PLAYER_MESSAGE", s);
 //                    startActivity(messageIntent);
@@ -195,6 +196,7 @@ public class ConfigurationActivity extends AppCompatActivity {
     private void launchGame() {
         Intent intent = new Intent(this, PlanetActivity.class);
         startActivity(intent);
+        finish();
     }
 
 }
