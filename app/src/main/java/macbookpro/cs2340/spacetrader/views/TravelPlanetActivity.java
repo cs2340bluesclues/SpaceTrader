@@ -15,6 +15,7 @@ import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 import macbookpro.cs2340.spacetrader.model.Universe.SolarSystem;
 import macbookpro.cs2340.spacetrader.viewmodels.TravelPlanetViewModel;
 
+@SuppressWarnings("FeatureEnvy")
 public class TravelPlanetActivity extends AppCompatActivity {
 
     private TravelPlanetViewModel travelPlanetViewModel;
@@ -31,6 +32,7 @@ public class TravelPlanetActivity extends AppCompatActivity {
     private RadioGroup planetGroup;
     private RadioGroup solarSystemGroup;
 
+    @SuppressWarnings("FeatureEnvy")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
