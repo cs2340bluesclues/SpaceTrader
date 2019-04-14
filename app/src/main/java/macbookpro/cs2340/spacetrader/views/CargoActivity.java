@@ -19,7 +19,7 @@ public class CargoActivity extends AppCompatActivity {
     private CargoViewModel cargoViewModel;
     private ItemAdapter adapter;
     private TextView playerName;
-    private TextView playerCredits
+    private TextView playerCredits;
     private TextView remainingCargo;
 
 
