@@ -5,7 +5,7 @@ import macbookpro.cs2340.spacetrader.model.Universe.Universe;
 public class Game {
 
     private GameDifficulty diff;
-    private Universe universe;
+    private final Universe universe;
     private int travelCount = 10;
 
     /**

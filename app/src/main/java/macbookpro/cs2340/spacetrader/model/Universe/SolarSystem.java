@@ -11,7 +11,7 @@ import java.util.Set;
 
 public class SolarSystem {
 
-    private static List<String> nameList = new ArrayList<>(Arrays.asList(new String[]{"Aldea",
+    private static final List<String> nameList = new ArrayList<>(Arrays.asList("Aldea",
             "Andevian", "Baratas", "Brax", "Calondia", "Capelle",
             "Carzon", "Cestus", "Cheron", "Damast", "Draylon", "Drema", "Endor", "Esmee",
             "Exo", "Ferris", "Fourmi", "Frolix", "Gemulon", "Helena", "Iralius", "Janus",
@@ -20,13 +20,13 @@ public class SolarSystem {
             "Mordan", "Myrthe", "Nelvana", "Nix", "Nile", "Parade", "Picard", "Quator",
             "Rakhar", "Rhymus", "Rochani", "Rubicum", "Sarpeidon", "Sefalla", "Sol", "Stakoron",
             "Styris", "Tantalos", "Tarchannen", "Thera", "Titan", "Triacus", "Tyrus", "Vandor",
-            "Ventax", "Xenon", "Xerxes", "Yojimbo", "Zalkon", "Zuul"}));
-    private static Set<Coord> coordsSet = new HashSet<>();
-    private Set<Planet> planets = new HashSet<>();
+            "Ventax", "Xenon", "Xerxes", "Yojimbo", "Zalkon", "Zuul"));
+    private static final Set<Coord> coordsSet = new HashSet<>();
+    private final Set<Planet> planets = new HashSet<>();
     private String name;
-    private Coord coords;
-    private int numPlanets;
-    private Random r;
+    private final Coord coords;
+    private final int numPlanets;
+    private final Random r;
 
     /**
      * SolarSystem constructor that takes in a Random object and randomly generates a unique name
@@ -77,6 +77,10 @@ public class SolarSystem {
      */
     public Coord getCoords(){
         return coords;
+    }
+
+    public void setCoords(int x, int y) {
+        coords = new Coord(x, y);
     }
 
     /**

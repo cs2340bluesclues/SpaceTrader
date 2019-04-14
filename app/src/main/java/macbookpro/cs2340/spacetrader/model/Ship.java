@@ -9,7 +9,7 @@ import macbookpro.cs2340.spacetrader.model.Universe.Coord;
 
 public class Ship {
 
-    private String name;
+    private final String name;
     private int fuelLevel;
     private Map<MarketInfo, Integer> cargo;
 
@@ -118,7 +118,7 @@ public class Ship {
      * @param second second coordinates
      */
     public void updateFuel(Coord first, Coord second) {
-        int fuelDecrement = (int) first.calculateDistance(second);
+        int fuelDecrement = first.calculateDistance(second);
         fuelLevel -= fuelDecrement;
     }
 
@@ -199,5 +199,9 @@ public class Ship {
      */
     public String toString() {
         return name;
+    }
+
+    public void setFuelLevel(int fuel) {
+        fuelLevel = fuel;
     }
 }

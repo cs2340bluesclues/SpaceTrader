@@ -8,9 +8,9 @@ import java.util.Set;
 
 public class Universe {
 
-    private Set<SolarSystem> system;
-    private Random r;
-    private int numSolarSystems;
+    private final Set<SolarSystem> system;
+    private final Random r;
+    private final int numSolarSystems;
 
     /**
      * Universe constructor instantiates the HashSet of SolarSystems, creates random SolarSystems

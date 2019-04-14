@@ -28,12 +28,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     /** a holder for the market data */
 
     private Map<MarketInfo, Integer> mapData;
-    private MarketInfo[] mapKeys;
+    private final MarketInfo[] mapKeys;
     Player player;
     Ship ship;
     Market market;
-    private Integer[] mapValues;
-    private boolean buying;
+    private final Integer[] mapValues;
+    private final boolean buying;
 
     public ItemAdapter(Map<MarketInfo, Integer> data, boolean buy, Player p, Market m){
         mapData  = data;
@@ -56,6 +56,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         return new ItemViewHolder(itemView);
     }
 
+    @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         holder.name.setText(mapKeys[position].getItem().getName());
         holder.price.setText(String.valueOf(mapKeys[position].getPrice()));
@@ -88,12 +89,16 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     class ItemViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView name;
-        private TextView quantity;
-        private TextView price;
+        private final TextView name;
+        private final TextView quantity;
+        private final TextView price;
 
-        private TextView buyQuantityLabel, buyQuantity, totalPrice;
-        private Button transaction, decreaseQ, increaseQ;
+        private final TextView buyQuantityLabel;
+        private final TextView buyQuantity;
+        private final TextView totalPrice;
+        private final Button transaction;
+        private final Button decreaseQ;
+        private final Button increaseQ;
         private int quantityToTrade, totalTradePrice;
 
 
@@ -133,13 +138,13 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                            Log.i("wedunnit!", "remaining cargo: " + ship.getRemainingCargo()+ " ");
                             quantityToTrade++;
                             totalTradePrice = quantityToTrade * mapKeys[position].getPrice();
-                            buyQuantity.setText("" + quantityToTrade);
-                            totalPrice.setText("" + totalTradePrice);
+                            buyQuantity.setText(quantityToTrade);
+                            totalPrice.setText(totalTradePrice);
                        } else if (!buying) {
                            quantityToTrade++;
                            totalTradePrice = quantityToTrade * mapKeys[position].getPrice();
-                           buyQuantity.setText("" + quantityToTrade);
-                           totalPrice.setText("" + totalTradePrice);
+                           buyQuantity.setText(quantityToTrade);
+                           totalPrice.setText(totalTradePrice);
                        }
                     }
                 }
@@ -152,8 +157,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                     if (quantityToTrade  > 0) {
                         quantityToTrade--;
                         totalTradePrice = quantityToTrade * mapKeys[position].getPrice();
-                        buyQuantity.setText("" + quantityToTrade);
-                        totalPrice.setText("" + totalTradePrice);
+                        buyQuantity.setText(quantityToTrade);
+                        totalPrice.setText(totalTradePrice);
                     }
                 }
             });
@@ -166,23 +171,23 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
                     if (buying && ship.getRemainingCargo() >= quantityToTrade) {
                         transaction(player, market, position, quantityToTrade);
-                        quantity.setText("" + mapData.get(mapKeys[position]));
+                        quantity.setText(mapData.get(mapKeys[position]));
 
                         quantityToTrade = 0;
                         totalTradePrice = 0;
 
-                        buyQuantity.setText("" + quantityToTrade);
-                        totalPrice.setText("" + totalTradePrice);
+                        buyQuantity.setText(quantityToTrade);
+                        totalPrice.setText(totalTradePrice);
 
                     } else {
                         transaction(player, market, position, quantityToTrade);
-                        quantity.setText("" + mapData.get(mapKeys[position]));
+                        quantity.setText(mapData.get(mapKeys[position]));
 
                         quantityToTrade = 0;
                         totalTradePrice = 0;
 
-                        buyQuantity.setText("" + quantityToTrade);
-                        totalPrice.setText("" + totalTradePrice);
+                        buyQuantity.setText(quantityToTrade);
+                        totalPrice.setText(totalTradePrice);
                     }
 
 

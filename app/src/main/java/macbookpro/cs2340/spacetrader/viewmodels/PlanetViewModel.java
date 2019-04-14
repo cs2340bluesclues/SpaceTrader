@@ -11,7 +11,7 @@ import static macbookpro.cs2340.spacetrader.model.ModelFacade.*;
 
 public class PlanetViewModel extends AndroidViewModel {
 
-    private Player player;
+    private final Player player;
     private ModelFacade modelFacade; //is this right? not sure
     //int fuelCost;
 

@@ -59,7 +59,8 @@ public class TravelPlanetActivity extends AppCompatActivity {
                 } else if (!travelPlanetViewModel.travel(travelToThisSolarSystem, travelToThisPlanet)) {
                     //this is if you are unable to travel, so the travel method returns false
                     Toast.makeText(getApplicationContext(), "You do not have enough fuel to travel here", Toast.LENGTH_LONG).show();
-                } else if (travelPlanetViewModel.policeEvent()) {
+                } else if (true) {
+                        //travelPlanetViewModel.policeEvent()) {
                     travelPlanetViewModel.travel(travelToThisSolarSystem, travelToThisPlanet);
                     goToPoliceActivity();
                 } else if (travelPlanetViewModel.pirateEvent()) {
@@ -102,8 +103,10 @@ public class TravelPlanetActivity extends AppCompatActivity {
 
             if (s.equals(travelPlanetViewModel.getCurrSolarSystem())) {
                 rb.setChecked(true);
-                coords.setText("System Coordinates: " + selectedSolarSystem.getCoords().toString());
-                planetMap.setText("Travel to a planet within the " + selectedSolarSystem.getName() + " Solar System");
+                String s1 = "System Coordinates: " + selectedSolarSystem.getCoords().toString()
+                coords.setText(s1);
+                String s2 = "Travel to a planet within the " + selectedSolarSystem.getName() + " Solar System";
+                planetMap.setText(s2);
 
                 travelToThisSolarSystem = selectedSolarSystem;
 
@@ -111,13 +114,16 @@ public class TravelPlanetActivity extends AppCompatActivity {
             }
 
             rb.setOnClickListener( v -> {
-                    coords.setText("System Coordinates: " + selectedSolarSystem.getCoords().toString()
-                            + "\nDistance away: " + (int) (travelPlanetViewModel.getCurrSolarSystem().getCoords().calculateDistance(selectedSolarSystem.getCoords())));
+                    String s1 = "System Coordinates: " + selectedSolarSystem.getCoords().toString()
+                        + "\nDistance away: " + travelPlanetViewModel.getCurrSolarSystem().getCoords().calculateDistance(selectedSolarSystem.getCoords());
+                    coords.setText(s1);
                     addPlanetButtons(selectedSolarSystem);
-                    planetDetails.setText("Selected Planet Details: ");
-
-                    solarSystemMap.setText("Travel to the " + selectedSolarSystem.getName() + " Solar System");
-                    planetMap.setText("Travel to a planet within the " + selectedSolarSystem.getName() + " Solar System");
+                    String s2 = "Selected Planet Details: ";
+                    planetDetails.setText(s2);
+                    String s3 = "Travel to the " + selectedSolarSystem.getName() + " Solar System";
+                    solarSystemMap.setText(s3);
+                    String s4 = "Travel to a planet within the " + selectedSolarSystem.getName() + " Solar System";
+                    planetMap.setText(s4);
 
                     travelToThisSolarSystem = selectedSolarSystem;
             });
@@ -136,25 +142,26 @@ public class TravelPlanetActivity extends AppCompatActivity {
                 rb.setChecked(true);
                 travelToThisPlanet = selectedPlanet;
 
-                planetDetails.setText(
-                        "Selected Planet Details: "
-                                + "\nPlanet Name: " + selectedPlanet.getName()
-                                + "\nTech Level: " + selectedPlanet.getTechLevel()
-                                + "\nCurrent Event: " + selectedPlanet.getEvent()
-                                + "\nFuel Cost: " + selectedPlanet.getFuelCost() + " credits/gallon"
-                                + "\nResources: " + selectedPlanet.getResources());
+                String s5 = "Selected Planet Details: "
+                        + "\nPlanet Name: " + selectedPlanet.getName()
+                        + "\nTech Level: " + selectedPlanet.getTechLevel()
+                        + "\nCurrent Event: " + selectedPlanet.getEvent()
+                        + "\nFuel Cost: " + selectedPlanet.getFuelCost() + " credits/gallon"
+                        + "\nResources: " + selectedPlanet.getResources();
+
+                planetDetails.setText(s5);                        ;
             }
 
             rb.setOnClickListener( v-> {
                     travelToThisPlanet = selectedPlanet;
                     // display whatever information here
-                    planetDetails.setText(
-                            "Selected Planet Details: "
+                    String s6 = "Selected Planet Details: "
                             + "\nPlanet Name: " + selectedPlanet.getName()
                             + "\nTech Level: " + selectedPlanet.getTechLevel()
                             + "\nCurrent Event: " + selectedPlanet.getEvent()
                             + "\nFuel Cost: " + selectedPlanet.getFuelCost() + " credits/gallon"
-                            + "\nResources: " + selectedPlanet.getResources());
+                            + "\nResources: " + selectedPlanet.getResources()
+                    planetDetails.setText(s6);
             });
         }
     }

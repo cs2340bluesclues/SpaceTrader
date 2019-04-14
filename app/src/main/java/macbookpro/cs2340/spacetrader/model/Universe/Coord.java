@@ -2,8 +2,8 @@ package macbookpro.cs2340.spacetrader.model.Universe;
 
 public class Coord {
 
-    private int x;
-    private int y;
+    private final int x;
+    private final int y;
 
     /**
      * Constructor for Coord object. Sets x and y coordinates
@@ -37,8 +37,8 @@ public class Coord {
                 ")";
     }
 
-    public double calculateDistance(Coord c) {
-        return Math.sqrt(Math.pow(this.getX() - c.getX(), 2) + Math.pow(this.getY() - c.getY(), 2));
+    public int calculateDistance(Coord c) {
+        return (int) Math.sqrt(Math.pow(this.getX() - c.getX(), 2) + Math.pow(this.getY() - c.getY(), 2));
     }
 
     /**

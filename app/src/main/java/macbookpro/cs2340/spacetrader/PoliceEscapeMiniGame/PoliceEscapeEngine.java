@@ -17,22 +17,22 @@ import macbookpro.cs2340.spacetrader.views.PlanetActivity;
 import static macbookpro.cs2340.spacetrader.model.ModelFacade.getNewPlayer;
 
 public class PoliceEscapeEngine extends SurfaceView implements Runnable {
-    private Thread thread = null;
+    private Thread thread;
 
-    private Context context;
+    private final Context context;
 
     public enum Heading {UP, RIGHT, DOWN, LEFT}
     private Heading heading = Heading.LEFT;
 
-    private int screenX;
-    private int screenY;
+    private final int screenX;
+    private final int screenY;
 
-    private int[] bobXs;
-    private int[] bobYs;
+    private final int[] bobXs;
+    private final int[] bobYs;
 
-    private int blockSize;
+    private final int blockSize;
     private final int NUM_BLOCKS_WIDE = 40;
-    private int numBlocksHigh;
+    private final int numBlocksHigh;
 
     private long nextFrameTime;
     private final long FPS = 10;
@@ -41,11 +41,11 @@ public class PoliceEscapeEngine extends SurfaceView implements Runnable {
     private int snakeY;
 
     volatile boolean isPlaying;
-    boolean gameWon = false;
+    boolean gameWon;
 
     private Canvas canvas;
-    private SurfaceHolder surfaceHolder;
-    private Paint paint;
+    private final SurfaceHolder surfaceHolder;
+    private final Paint paint;
 
     public PoliceEscapeEngine(Context context, Point size) {
         super(context);

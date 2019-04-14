@@ -13,9 +13,9 @@ public enum ShipType {
     TERMITE("Termite", 70, 13),
     WASP("Wasp", 35, 14);
 
-    private String shipName;
-    private int cargoSpace;
-    private int fuel;
+    private final String shipName;
+    private final int cargoSpace;
+    private final int fuel;
 
     ShipType (String shipName, int cargoSpace, int range) {
         this.shipName = shipName;

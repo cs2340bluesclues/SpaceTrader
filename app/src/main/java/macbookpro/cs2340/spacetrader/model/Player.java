@@ -16,7 +16,7 @@ import java.util.Random;
 
 
 public class Player {
-    private String name;
+    private final String name;
     private int pilot;
     private int fighter;
     private int trader;
@@ -27,7 +27,7 @@ public class Player {
     private boolean lawfulStatus;
     private SolarSystem currentSolarSystem;
     private Planet currentPlanet;
-    private Random rand;
+    private final Random rand;
 
     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("players");
 
@@ -47,7 +47,7 @@ public class Player {
         currentPlanet = solarSystem.findBeginnerPlanet();
         rand = new Random();
 
-        //saveToDatabase();
+        saveToDatabase();
     }
 
     public void saveToDatabase(){
