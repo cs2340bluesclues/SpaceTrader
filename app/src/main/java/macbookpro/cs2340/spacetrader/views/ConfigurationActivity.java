@@ -4,11 +4,11 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+//import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.util.Log;
+//import android.util.Log;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -40,20 +40,21 @@ public class ConfigurationActivity extends AppCompatActivity {
     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("players");
 
 
-    Button addPilot;
-    Button subtractPilot;
-    Button addFighter;
-    Button subtractFighter;
-    Button addTrader;
-    Button subtractTrader;
-    Button addEngineer;
-    Button subtractEngineer;
-    Button submit;
-    TextView pilotSkill;
-    TextView fighterSkill;
-    TextView traderSkill;
-    TextView engineerSkill;
-    ConfigurationViewModel totalVM;
+
+    private Button addPilot;
+    private Button subtractPilot;
+    private Button addFighter;
+    private Button subtractFighter;
+    private Button addTrader;
+    private Button subtractTrader;
+    private Button addEngineer;
+    private Button subtractEngineer;
+    private Button submit;
+    private TextView pilotSkill;
+    private TextView fighterSkill;
+    private TextView traderSkill;
+    private TextView engineerSkill;
+    private ConfigurationViewModel totalVM;
 
     private Player player;
 
@@ -101,7 +102,7 @@ public class ConfigurationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (totalVM.checkCountGreater16()) {
                     totalVM.setPilotCount(totalVM.getPilotCount() + 1);
-                    pilotSkill.setText(totalVM.getPilotCount());
+                    pilotSkill.setText(Integer.toString(totalVM.getPilotCount()));
                 }
             }
         });
@@ -111,7 +112,7 @@ public class ConfigurationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (totalVM.getPilotCount() > 0) {
                     totalVM.setPilotCount(totalVM.getPilotCount() - 1);
-                    pilotSkill.setText(totalVM.getPilotCount());
+                    pilotSkill.setText(Integer.toString(totalVM.getPilotCount()));
                 }
             }
         });
@@ -121,7 +122,7 @@ public class ConfigurationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (totalVM.checkCountGreater16()) {
                     totalVM.setFighterCount(totalVM.getFighterCount() + 1);
-                    fighterSkill.setText(totalVM.getFighterCount());
+                    fighterSkill.setText(Integer.toString(totalVM.getFighterCount()));
                 }
             }
         });
@@ -131,7 +132,7 @@ public class ConfigurationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (totalVM.getFighterCount() > 0) {
                     totalVM.setFighterCount(totalVM.getFighterCount() - 1);
-                    fighterSkill.setText(totalVM.getFighterCount());
+                    fighterSkill.setText(Integer.toString(totalVM.getFighterCount()));
                 }
             }
         });
@@ -141,7 +142,7 @@ public class ConfigurationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (totalVM.checkCountGreater16()) {
                     totalVM.setTraderCount(totalVM.getTraderCount() + 1);
-                    traderSkill.setText(totalVM.getTraderCount());
+                    traderSkill.setText(Integer.toString(totalVM.getTraderCount()));
                 }
             }
         });
@@ -151,7 +152,7 @@ public class ConfigurationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (totalVM.getTraderCount() > 0) {
                     totalVM.setTraderCount(totalVM.getTraderCount() - 1);
-                    traderSkill.setText(totalVM.getTraderCount());
+                    traderSkill.setText(Integer.toString(totalVM.getTraderCount()));
                 }
             }
         });
@@ -161,7 +162,7 @@ public class ConfigurationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (totalVM.checkCountGreater16()) {
                     totalVM.setEngineerCount(totalVM.getEngineerCount() + 1);
-                    engineerSkill.setText(totalVM.getEngineerCount());
+                    engineerSkill.setText(Integer.toString(totalVM.getEngineerCount()));
                 }
             }
         });
@@ -171,7 +172,7 @@ public class ConfigurationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (totalVM.getEngineerCount() > 0) {
                     totalVM.setEngineerCount(totalVM.getEngineerCount() - 1);
-                    engineerSkill.setText(totalVM.getEngineerCount());
+                    engineerSkill.setText(Integer.toString(totalVM.getEngineerCount()));
                 }
             }
         });
@@ -198,7 +199,8 @@ public class ConfigurationActivity extends AppCompatActivity {
 //                    playerID.setValue(player);
 
 //                    String playerID = mDatabase.push().getKey();
-                    String player = totalVM.sendData(name, level);
+//                    String player = totalVM.sendData(name, level);
+
 //                    mDatabase.child(playerID).setValue(player);
 
 //                    Intent messageIntent = new Intent(ConfigurationActivity.this,

@@ -4,10 +4,10 @@ import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.support.annotation.NonNull;
 
-import com.google.firebase.database.DatabaseReference;
+//import com.google.firebase.database.DatabaseReference;
 
 import macbookpro.cs2340.spacetrader.model.GameDifficulty;
-import macbookpro.cs2340.spacetrader.model.ModelFacade;
+//import macbookpro.cs2340.spacetrader.model.ModelFacade;
 import macbookpro.cs2340.spacetrader.model.Player;
 
 import static macbookpro.cs2340.spacetrader.model.ModelFacade.*;

@@ -1,10 +1,10 @@
 package macbookpro.cs2340.spacetrader.model;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+//import com.google.firebase.database.DataSnapshot;
+//import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+//import com.google.firebase.database.ValueEventListener;
 
 import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 import macbookpro.cs2340.spacetrader.model.Universe.SolarSystem;
@@ -50,7 +50,7 @@ public class Player {
         currentMarket = currentPlanet.getMarket();
         rand = new Random();
 
-        saveToDatabase();
+        //saveToDatabase();
     }
 
     private void saveToDatabase(){

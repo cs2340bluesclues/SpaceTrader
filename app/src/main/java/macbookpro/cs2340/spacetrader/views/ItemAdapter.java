@@ -1,6 +1,6 @@
 package macbookpro.cs2340.spacetrader.views;
 
-import android.content.Intent;
+//import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -9,12 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
+//import android.widget.Toast;
 
 import java.util.Map;
 
 import macbookpro.cs2340.spacetrader.R;
-import macbookpro.cs2340.spacetrader.model.GameDifficulty;
+//import macbookpro.cs2340.spacetrader.model.GameDifficulty;
 import macbookpro.cs2340.spacetrader.model.Market;
 import macbookpro.cs2340.spacetrader.model.MarketInfo;
 import macbookpro.cs2340.spacetrader.model.Player;
@@ -29,9 +29,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     private Map<MarketInfo, Integer> mapData;
     private final MarketInfo[] mapKeys;
-    private Player player;
-    private Ship ship;
-    private Market market;
+    private final Player player;
+    private final Ship ship;
+    private final Market market;
     private final Integer[] mapValues;
     private final boolean buying;
 
@@ -103,7 +103,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         private int totalTradePrice;
 
 
-        public ItemViewHolder(@NonNull View itemView) {
+        ItemViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.text_market_item_name);
             quantity = itemView.findViewById(R.id.text_quantity);
