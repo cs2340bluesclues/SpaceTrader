@@ -1,25 +1,25 @@
 package macbookpro.cs2340.spacetrader.views;
 
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.ClipData;
+//import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
+//import android.view.View;
 import android.widget.TextView;
 
 import macbookpro.cs2340.spacetrader.R;
 import macbookpro.cs2340.spacetrader.viewmodels.CargoViewModel;
-import macbookpro.cs2340.spacetrader.viewmodels.CargoViewModel;
+//import macbookpro.cs2340.spacetrader.viewmodels.CargoViewModel;
 
 public class CargoActivity extends AppCompatActivity {
 
     private CargoViewModel cargoViewModel;
     private ItemAdapter adapter;
     private TextView playerName;
-    private TextView playerCredits
+    private TextView playerCredits;
     private TextView remainingCargo;
 
 

@@ -3,7 +3,7 @@ package macbookpro.cs2340.spacetrader.PoliceEscapeMiniGame;
 import android.app.Activity;
 import android.graphics.Point;
 import android.os.Bundle;
-import android.os.Handler;
+//import android.os.Handler;
 import android.view.Display;
 
 public class PoliceEscapeActivity extends Activity {
