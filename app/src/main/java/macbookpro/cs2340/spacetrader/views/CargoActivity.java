@@ -14,6 +14,9 @@ import macbookpro.cs2340.spacetrader.R;
 import macbookpro.cs2340.spacetrader.viewmodels.CargoViewModel;
 //import macbookpro.cs2340.spacetrader.viewmodels.CargoViewModel;
 
+/**
+ * Activity class for the cargo screen
+ */
 public class CargoActivity extends AppCompatActivity {
 
     private CargoViewModel cargoViewModel;
