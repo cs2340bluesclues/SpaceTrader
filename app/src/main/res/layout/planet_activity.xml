@@ -295,8 +295,9 @@
                     android:layout_height="95dp"
                     app:srcCompat="@drawable/rectangle"
                     android:visibility="invisible"
-                    ndroid:contentDescription="fuel bar"
-                    android:contentDescription="TODO" />
+                    android:contentDescription="fuel bar" />
+                    nadroid:contentDescription="fuel bar"
+
                 <ImageView
                     android:id="@+id/fuelbar6"
                     android:layout_width="40dp"

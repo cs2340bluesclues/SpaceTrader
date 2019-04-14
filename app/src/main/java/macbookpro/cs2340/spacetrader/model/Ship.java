@@ -72,7 +72,7 @@ public class Ship {
      * check how much of the cargo space is used
      * @return used cargo space
      */
-    public int usedCargoSpace() {
+    private int usedCargoSpace() {
         Collection<Integer> allValues = cargo.values();
         int count = 0;
         for (int i: allValues) {

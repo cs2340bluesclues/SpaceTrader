@@ -27,9 +27,10 @@ public class Player {
     private boolean lawfulStatus;
     private SolarSystem currentSolarSystem;
     private Planet currentPlanet;
+    private Market currentMarket;
     private final Random rand;
 
-    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("players");
+    private final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("players");
 
 
 
@@ -46,12 +47,13 @@ public class Player {
         ship = new Ship(ShipType.GNAT);
         currentSolarSystem = solarSystem;
         currentPlanet = solarSystem.findBeginnerPlanet();
+        currentMarket = currentPlanet.getMarket();
         rand = new Random();
 
         saveToDatabase();
     }
 
-    public void saveToDatabase(){
+    private void saveToDatabase(){
 //        // Get a reference to our posts
 //        final FirebaseDatabase database = FirebaseDatabase.getInstance();
 //        DatabaseReference ref = database.getReference();
@@ -114,8 +116,7 @@ public class Player {
         //int count = 0;
         boolean bought = false;
 
-        if (credits > item.getPrice()
-                && currentPlanet.getMarket().buyAsPlayer(item, quantityToPurchase)) {
+        if (credits > item.getPrice() && currentMarket.buyAsPlayer(item, quantityToPurchase)) {
             if (ship.addItem(item, quantityToPurchase)) {
                 credits -= (item.getPrice()*quantityToPurchase);
                 //count++;
@@ -130,7 +131,7 @@ public class Player {
         boolean sold = false;
         while (count < quantity && ship.removeItem(item, quantity)) {
             credits += (item.getPrice()*quantity);
-            currentPlanet.getMarket().sellAsPlayer(item);
+            currentMarket.sellAsPlayer(item);
             count++;
             sold = true;
         }
@@ -215,7 +216,7 @@ public class Player {
      * Returns player total skill points
      * @return player totalSkillPoints attribute
      */
-    public int getTotalSkillPoints() {
+    private int getTotalSkillPoints() {
         return totalSkillPoints;
     }
 
@@ -231,7 +232,7 @@ public class Player {
      * Getter for pilot skill points
      * @return player's pilot skill points
      */
-    public int getPilot() {
+    private int getPilot() {
         return pilot;
     }
 
@@ -247,7 +248,7 @@ public class Player {
      * Getter for fighter skill points
      * @return player's fighter skill points
      */
-    public int getFighter() {
+    private int getFighter() {
         return fighter;
     }
 
@@ -263,7 +264,7 @@ public class Player {
      * Getter for trader skill points
      * @return player's trader skill points
      */
-    public int getTrader() {
+    private int getTrader() {
         return trader;
     }
 
@@ -279,7 +280,7 @@ public class Player {
      * Getter for engineer skill points
      * @return player's engineer skill points
      */
-    public int getEngineer() {
+    private int getEngineer() {
         return engineer;
     }
 
@@ -303,9 +304,11 @@ public class Player {
         return ship;
     }
 
+
     public void setShip(Ship ship) {
         this.ship = ship;
     }
+
 
     public boolean isLawfulStatus() {
         return lawfulStatus;

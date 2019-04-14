@@ -11,9 +11,9 @@ import static org.junit.Assert.assertNotEquals;
 
 public class CoordTest {
 
-    Coord a = new Coord(10, 15);
-    Coord b = new Coord(10, 15);
-    Coord c = new Coord(15, 10);
+    private Coord a = new Coord(10, 15);
+    private Coord b = new Coord(10, 15);
+    private Coord c = new Coord(15, 10);
 
     @Test
     public void equalsHashCodeTest() {

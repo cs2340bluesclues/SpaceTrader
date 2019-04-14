@@ -84,7 +84,7 @@ public class ConfigurationViewModel extends AndroidViewModel {
 
     //if its true, show toast
     public boolean checkNameLength(String name) {
-        return name.length() == 0;
+        return name.isEmpty();
     }
 
     public String sendData(String name, GameDifficulty diff) {
