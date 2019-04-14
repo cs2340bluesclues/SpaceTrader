@@ -8,7 +8,7 @@ import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 
 public class MarketTest {
 
-    Market m1 = new Market(TechLevel.PRE_AGRICULTURE, );
+    //Market m1 = new Market(TechLevel.PRE_AGRICULTURE, );
 
     @Test
     public void generateMarketTest() {
