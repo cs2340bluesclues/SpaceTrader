@@ -40,10 +40,21 @@ public class ConfigurationActivity extends AppCompatActivity {
     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("players");
 
 
-    private Button addPilot, subtractPilot, addFighter, subtractFighter, addTrader, subtractTrader,
-            addEngineer, subtractEngineer, submit;
-    TextView pilotSkill, fighterSkill, traderSkill, engineerSkill;
-    ConfigurationViewModel totalVM;
+
+    private Button addPilot;
+    private Button subtractPilot;
+    private Button addFighter;
+    private Button subtractFighter;
+    private Button addTrader;
+    private Button subtractTrader;
+    private Button addEngineer;
+    private Button subtractEngineer;
+    private Button submit;
+    private TextView pilotSkill;
+    private TextView fighterSkill;
+    private TextView traderSkill;
+    private TextView engineerSkill;
+    private ConfigurationViewModel totalVM;
 
     private Player player;
 
@@ -188,7 +199,8 @@ public class ConfigurationActivity extends AppCompatActivity {
 //                    playerID.setValue(player);
 
 //                    String playerID = mDatabase.push().getKey();
-                    String player = totalVM.sendData(name, level);
+//                    String player = totalVM.sendData(name, level);
+
 //                    mDatabase.child(playerID).setValue(player);
 
 //                    Intent messageIntent = new Intent(ConfigurationActivity.this,

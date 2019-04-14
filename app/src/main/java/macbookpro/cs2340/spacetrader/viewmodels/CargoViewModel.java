@@ -21,11 +21,11 @@ import static macbookpro.cs2340.spacetrader.model.ModelFacade.*;
 
 public class CargoViewModel extends AndroidViewModel {
 
-    private Map<MarketInfo, Integer> cargoMap;
-    private Ship currShip;
-    private Player player;
-    private Market market;
-    private Planet currPlanet;
+    private final Map<MarketInfo, Integer> cargoMap;
+    private final Ship currShip;
+    private final Player player;
+    private final Market market;
+    private final Planet currPlanet;
 
 
     public CargoViewModel(@NonNull Application application) {
@@ -62,6 +62,8 @@ public class CargoViewModel extends AndroidViewModel {
     }
 
     public int getRemainingCargo() {
-        return player.getShip().getRemainingCargo();
+        return currShip.getRemainingCargo();
     }
+
+
 }
