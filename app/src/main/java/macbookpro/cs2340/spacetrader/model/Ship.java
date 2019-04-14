@@ -200,4 +200,8 @@ public class Ship {
     public String toString() {
         return name;
     }
+
+    public void setFuelLevel(int fuel) {
+        fuelLevel = fuel;
+    }
 }

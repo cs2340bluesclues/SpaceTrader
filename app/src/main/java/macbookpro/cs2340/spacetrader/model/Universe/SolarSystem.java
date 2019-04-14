@@ -76,6 +76,10 @@ public class SolarSystem {
         return coords;
     }
 
+    public void setCoords(int x, int y) {
+        coords = new Coord(x, y);
+    }
+
     /**
      * Getter method to retrieve all the planets in the SolarSystem
      * @return Set all the planets in the SolarSystem
