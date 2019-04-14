@@ -1,5 +1,9 @@
 package macbookpro.cs2340.spacetrader.model;
 
+/**
+ * The marketItem superclass, goods that the player can buy
+ * and sell
+ */
 public abstract class MarketItem implements Comparable<MarketItem> {
 
     private final int mtlp;

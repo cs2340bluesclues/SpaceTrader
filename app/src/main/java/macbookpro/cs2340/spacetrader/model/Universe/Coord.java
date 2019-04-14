@@ -1,5 +1,8 @@
 package macbookpro.cs2340.spacetrader.model.Universe;
 
+/**
+ * Coordinate class for the location of solar systems
+ */
 public class Coord {
 
     private final int x;
@@ -37,6 +40,11 @@ public class Coord {
                 ")";
     }
 
+    /**
+     * Calculates the distance between this coord and another
+     * @param c The coord to compare this one to
+     * @return The distance between the coords as an int
+     */
     public int calculateDistance(Coord c) {
         return (int) Math.sqrt(Math.pow(this.getX() - c.getX(), 2)
                 + Math.pow(this.getY() - c.getY(), 2));

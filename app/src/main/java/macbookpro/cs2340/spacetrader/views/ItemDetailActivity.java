@@ -10,6 +10,9 @@ import android.widget.EditText;
 import macbookpro.cs2340.spacetrader.R;
 import macbookpro.cs2340.spacetrader.model.MarketInfo;
 
+/**
+ * Activity class for Item details within cargo and market
+ */
 public class ItemDetailActivity extends AppCompatActivity {
 
     private String name;

@@ -17,6 +17,9 @@ import macbookpro.cs2340.spacetrader.R;
 import macbookpro.cs2340.spacetrader.model.MarketInfo;
 import macbookpro.cs2340.spacetrader.viewmodels.MarketViewModel;
 
+/**
+ * Activity class for the market screen
+ */
 public class MarketActivity extends AppCompatActivity {
 
     /** a reference to our view model */
