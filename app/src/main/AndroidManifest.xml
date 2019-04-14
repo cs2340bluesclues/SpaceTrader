@@ -44,6 +44,18 @@
             android:label="SpaceTrader">
         </activity>
         <activity
+            android:name=".views.ItemDetailActivity"
+            android:label="SpaceTrader" >
+        </activity>
+        <activity
+            android:name=".views.MainActivity"
+            android:label="SpaceTrader">
+        </activity>
+        <activity
+            android:name=".views.TabViewActivity"
+            android:label="SpaceTrader" >
+        </activity>
+        <activity
             android:name=".PoliceEscapeMiniGame.PoliceEscapeActivity"
             android:label="SpaceTrader"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">

@@ -40,8 +40,8 @@ public class PoliceEscapeEngine extends SurfaceView implements Runnable {
     private int snakeX;
     private int snakeY;
 
-    volatile boolean isPlaying;
-    boolean gameWon;
+    private volatile boolean isPlaying;
+    private boolean gameWon;
 
     private Canvas canvas;
     private final SurfaceHolder surfaceHolder;
@@ -99,13 +99,13 @@ public class PoliceEscapeEngine extends SurfaceView implements Runnable {
         thread.start();
     }
 
-    public void newGame() {
+    private void newGame() {
         spawnBob();
 
         nextFrameTime = System.currentTimeMillis();
     }
 
-    public void spawnBob() {
+    private void spawnBob() {
         Random random = new Random();
         int xpos = 0;
         int ypos = 0;
@@ -165,7 +165,7 @@ public class PoliceEscapeEngine extends SurfaceView implements Runnable {
         }
     }
 
-    public void update() {
+    private void update() {
         if (win()) {
             isPlaying = false;
         } else if (crash()) {
@@ -181,7 +181,9 @@ public class PoliceEscapeEngine extends SurfaceView implements Runnable {
             if (!gameWon) {
                 getNewPlayer().payFine();
                 getNewPlayer().setLawfulStatus(false);
-                //Toast.makeText(context, "You have been arrested by the police and lost money." , Toast.LENGTH_LONG).show();
+                // Toast.makeText(context,
+                // "You have been arrested by the police and lost money." ,
+                // Toast.LENGTH_LONG).show();
                 Log.d("Lost Game:","You have been arrested by the police and lost money.");
             } else {
                 //Toast.makeText(context, "You have escaped the police.", Toast.LENGTH_LONG).show();
@@ -193,7 +195,7 @@ public class PoliceEscapeEngine extends SurfaceView implements Runnable {
         }
     }
 
-    public void draw() {
+    private void draw() {
         // Get a lock on the canvas
         if (surfaceHolder.getSurface().isValid()) {
             canvas = surfaceHolder.lockCanvas();
@@ -225,7 +227,7 @@ public class PoliceEscapeEngine extends SurfaceView implements Runnable {
         }
     }
 
-    public boolean updateRequired() {
+    private boolean updateRequired() {
 
         // Are we due to update the frame
         if(nextFrameTime <= System.currentTimeMillis()){
@@ -246,9 +248,13 @@ public class PoliceEscapeEngine extends SurfaceView implements Runnable {
 
         switch (motionEvent.getAction() & MotionEvent.ACTION_MASK) {
             case MotionEvent.ACTION_UP:
-                if (motionEvent.getX() >= screenX / 2 && (motionEvent.getY() > screenY / 4 && motionEvent.getY() < screenY * 3 / 4)) {
+                if (motionEvent.getX() >= screenX / 2
+                        && (motionEvent.getY() > screenY / 4
+                        && motionEvent.getY() < screenY * 3 / 4)) {
                     heading = Heading.RIGHT;
-                } else if (motionEvent.getX() < screenX / 2 && (motionEvent.getY() > screenY / 4 && motionEvent.getY() < screenY * 3 / 4)) {
+                } else if (motionEvent.getX() < screenX / 2
+                        && (motionEvent.getY() > screenY / 4
+                        && motionEvent.getY() < screenY * 3 / 4)) {
                     heading = Heading.LEFT;
                 } else if (motionEvent.getY() <= screenY / 4) {
                     heading = Heading.UP;

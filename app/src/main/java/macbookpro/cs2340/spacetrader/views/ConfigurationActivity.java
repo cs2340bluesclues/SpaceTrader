@@ -88,7 +88,8 @@ public class ConfigurationActivity extends AppCompatActivity {
         submit = findViewById(R.id.submit_player_info_button);
 
         //makes difficulties visible in the spinner
-        ArrayAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, GameDifficulty.values());
+        ArrayAdapter adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, GameDifficulty.values());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         difficultySpinner.setAdapter(adapter);
 
@@ -181,11 +182,17 @@ public class ConfigurationActivity extends AppCompatActivity {
                 String name = inputName.getText().toString();
                 GameDifficulty level = (GameDifficulty) difficultySpinner.getSelectedItem();
                 if (totalVM.checkCount16() && totalVM.checkNameLength(name)) {
-                    Toast.makeText(getApplicationContext(), "Name field cannot be blank and total skill count must be 16", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),
+                            "Name field cannot be blank and total skill count must be 16",
+                            Toast.LENGTH_LONG).show();
                 } else if (totalVM.checkCount16()) {
-                    Toast.makeText(getApplicationContext(), "Total skill count must be 16", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),
+                            "Total skill count must be 16",
+                            Toast.LENGTH_LONG).show();
                 } else if (totalVM.checkNameLength(name)) {
-                    Toast.makeText(getApplicationContext(), "Name field cannot be blank", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),
+                            "Name field cannot be blank",
+                            Toast.LENGTH_LONG).show();
                 } else {
 //                    String player = totalVM.sendData(name, level);
 //                    playerID.setValue(player);
@@ -194,7 +201,8 @@ public class ConfigurationActivity extends AppCompatActivity {
                     String player = totalVM.sendData(name, level);
 //                    mDatabase.child(playerID).setValue(player);
 
-//                    Intent messageIntent = new Intent(ConfigurationActivity.this, MarketActivity.class);
+//                    Intent messageIntent = new Intent(ConfigurationActivity.this,
+//                                                  MarketActivity.class);
 //                    messageIntent.putExtra("PRINT_PLAYER_MESSAGE", s);
 //                    startActivity(messageIntent);
                     launchGame();

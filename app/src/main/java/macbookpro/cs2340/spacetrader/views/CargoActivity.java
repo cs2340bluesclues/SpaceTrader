@@ -35,9 +35,11 @@ public class CargoActivity extends AppCompatActivity {
         playerCredits = findViewById(R.id.credits);
         playerCredits.setText(String.valueOf(cargoViewModel.getPlayerCredits()));
         remainingCargo = findViewById(R.id.remaining_cargo);
-        remainingCargo.setText(String.valueOf("Remaining Cargo: " + cargoViewModel.getRemainingCargo()));
+        remainingCargo.setText(String.valueOf("Remaining Cargo: "
+                + cargoViewModel.getRemainingCargo()));
 
-        adapter = new ItemAdapter(cargoViewModel.getCargoMap(), false, cargoViewModel.getPlayer(), cargoViewModel.getMarket());
+        adapter = new ItemAdapter(cargoViewModel.getCargoMap(), false,
+                cargoViewModel.getPlayer(), cargoViewModel.getMarket());
 
         //first grab a reference to the widget
         RecyclerView recyclerView = findViewById(R.id.cargoRecycler);

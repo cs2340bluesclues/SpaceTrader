@@ -9,7 +9,7 @@ import android.view.Display;
 public class PoliceEscapeActivity extends Activity {
 
     // Declare an instance of SnakeEngine
-    PoliceEscapeEngine policeEscapeEngine;
+    private PoliceEscapeEngine policeEscapeEngine;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

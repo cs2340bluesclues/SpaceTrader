@@ -17,7 +17,7 @@ import macbookpro.cs2340.spacetrader.viewmodels.TravelPlanetViewModel;
 
 public class TravelPlanetActivity extends AppCompatActivity {
 
-    TravelPlanetViewModel travelPlanetViewModel;
+    private TravelPlanetViewModel travelPlanetViewModel;
 
     private TextView planetMap;
     private TextView solarSystemMap;
@@ -55,10 +55,15 @@ public class TravelPlanetActivity extends AppCompatActivity {
 
         travelHere.setOnClickListener( v -> {
                 if (travelToThisPlanet.equals(travelPlanetViewModel.getCurrPlanet())) {
-                    Toast.makeText(getApplicationContext(), "You are already at this planet", Toast.LENGTH_LONG).show();
-                } else if (!travelPlanetViewModel.travel(travelToThisSolarSystem, travelToThisPlanet)) {
+                    Toast.makeText(getApplicationContext(),
+                            "You are already at this planet",
+                            Toast.LENGTH_LONG).show();
+                } else if (!travelPlanetViewModel.travel(travelToThisSolarSystem,
+                        travelToThisPlanet)) {
                     //this is if you are unable to travel, so the travel method returns false
-                    Toast.makeText(getApplicationContext(), "You do not have enough fuel to travel here", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),
+                            "You do not have enough fuel to travel here",
+                            Toast.LENGTH_LONG).show();
                 } else if (true) {
                         //travelPlanetViewModel.policeEvent()) {
                     travelPlanetViewModel.travel(travelToThisSolarSystem, travelToThisPlanet);
@@ -107,6 +112,9 @@ public class TravelPlanetActivity extends AppCompatActivity {
                 coords.setText(s1);
                 String s2 = "Travel to a planet within the " + selectedSolarSystem.getName() + " Solar System";
                 planetMap.setText(s2);
+                coords.setText("System Coordinates: " + selectedSolarSystem.getCoords().toString());
+                planetMap.setText("Travel to a planet within the " + selectedSolarSystem.getName()
+                        + " Solar System");
 
                 travelToThisSolarSystem = selectedSolarSystem;
 
@@ -124,6 +132,17 @@ public class TravelPlanetActivity extends AppCompatActivity {
                     solarSystemMap.setText(s3);
                     String s4 = "Travel to a planet within the " + selectedSolarSystem.getName() + " Solar System";
                     planetMap.setText(s4);
+                    coords.setText("System Coordinates: "
+                            + selectedSolarSystem.getCoords().toString()
+                            + "\nDistance away: " + travelPlanetViewModel.getCurrSolarSystem()
+                            .getCoords().calculateDistance(selectedSolarSystem.getCoords()));
+                    addPlanetButtons(selectedSolarSystem);
+                    planetDetails.setText("Selected Planet Details: ");
+
+                    solarSystemMap.setText("Travel to the " + selectedSolarSystem.getName()
+                            + " Solar System");
+                    planetMap.setText("Travel to a planet within the "
+                            + selectedSolarSystem.getName() + " Solar System");
 
                     travelToThisSolarSystem = selectedSolarSystem;
             });

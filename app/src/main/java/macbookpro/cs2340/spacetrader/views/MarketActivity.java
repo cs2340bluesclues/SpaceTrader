@@ -46,9 +46,11 @@ public class MarketActivity extends AppCompatActivity {
         playerCredits = findViewById(R.id.credits);
         playerCredits.setText(String.valueOf(marketViewModel.getPlayerCredits()));
         remainingCargo = findViewById(R.id.remaining_cargo);
-        remainingCargo.setText(String.valueOf("Remaining Cargo: " + marketViewModel.getRemainingCargo()));
+        remainingCargo.setText(String.valueOf("Remaining Cargo: "
+                + marketViewModel.getRemainingCargo()));
 
-        adapter = new ItemAdapter(marketViewModel.getMarketInfos(), true, marketViewModel.getPlayer(),
+        adapter = new ItemAdapter(marketViewModel.getMarketInfos(),
+                true, marketViewModel.getPlayer(),
                 marketViewModel.getMarket());
 
         //first grab a reference to the widget

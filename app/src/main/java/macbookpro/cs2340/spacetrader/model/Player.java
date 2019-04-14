@@ -30,11 +30,12 @@ public class Player {
     private Market currentMarket;
     private final Random rand;
 
-    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("players");
+    private final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("players");
 
 
 
-    public Player(String name, int pilot, int fighter, int trader, int engineer, SolarSystem solarSystem) {
+    public Player(String name, int pilot, int fighter, int trader, int engineer,
+                  SolarSystem solarSystem) {
         this.name = name;
         this.pilot = pilot;
         this.fighter = fighter;
@@ -52,7 +53,7 @@ public class Player {
         saveToDatabase();
     }
 
-    public void saveToDatabase(){
+    private void saveToDatabase(){
 //        // Get a reference to our posts
 //        final FirebaseDatabase database = FirebaseDatabase.getInstance();
 //        DatabaseReference ref = database.getReference();
@@ -107,7 +108,8 @@ public class Player {
     }
 
 //    private void updateCargoPrices() {
-//        ship.updateCargoPrices(currentPlanet.getEvent(), currentPlanet.getTechLevel(), currentPlanet.getResources());
+//        ship.updateCargoPrices(currentPlanet.getEvent(), currentPlanet.getTechLevel(),
+//        currentPlanet.getResources());
 //    }
 
     public boolean buy(MarketInfo item, int quantityToPurchase) {
@@ -214,7 +216,7 @@ public class Player {
      * Returns player total skill points
      * @return player totalSkillPoints attribute
      */
-    public int getTotalSkillPoints() {
+    private int getTotalSkillPoints() {
         return totalSkillPoints;
     }
 
@@ -230,7 +232,7 @@ public class Player {
      * Getter for pilot skill points
      * @return player's pilot skill points
      */
-    public int getPilot() {
+    private int getPilot() {
         return pilot;
     }
 
@@ -246,7 +248,7 @@ public class Player {
      * Getter for fighter skill points
      * @return player's fighter skill points
      */
-    public int getFighter() {
+    private int getFighter() {
         return fighter;
     }
 
@@ -262,7 +264,7 @@ public class Player {
      * Getter for trader skill points
      * @return player's trader skill points
      */
-    public int getTrader() {
+    private int getTrader() {
         return trader;
     }
 
@@ -278,7 +280,7 @@ public class Player {
      * Getter for engineer skill points
      * @return player's engineer skill points
      */
-    public int getEngineer() {
+    private int getEngineer() {
         return engineer;
     }
 
