@@ -181,7 +181,9 @@ public class PoliceEscapeEngine extends SurfaceView implements Runnable {
             if (!gameWon) {
                 getNewPlayer().payFine();
                 getNewPlayer().setLawfulStatus(false);
-                //Toast.makeText(context, "You have been arrested by the police and lost money." , Toast.LENGTH_LONG).show();
+                // Toast.makeText(context,
+                // "You have been arrested by the police and lost money." ,
+                // Toast.LENGTH_LONG).show();
                 Log.d("Lost Game:","You have been arrested by the police and lost money.");
             } else {
                 //Toast.makeText(context, "You have escaped the police.", Toast.LENGTH_LONG).show();
@@ -246,9 +248,13 @@ public class PoliceEscapeEngine extends SurfaceView implements Runnable {
 
         switch (motionEvent.getAction() & MotionEvent.ACTION_MASK) {
             case MotionEvent.ACTION_UP:
-                if (motionEvent.getX() >= screenX / 2 && (motionEvent.getY() > screenY / 4 && motionEvent.getY() < screenY * 3 / 4)) {
+                if (motionEvent.getX() >= screenX / 2
+                        && (motionEvent.getY() > screenY / 4
+                        && motionEvent.getY() < screenY * 3 / 4)) {
                     heading = Heading.RIGHT;
-                } else if (motionEvent.getX() < screenX / 2 && (motionEvent.getY() > screenY / 4 && motionEvent.getY() < screenY * 3 / 4)) {
+                } else if (motionEvent.getX() < screenX / 2
+                        && (motionEvent.getY() > screenY / 4
+                        && motionEvent.getY() < screenY * 3 / 4)) {
                     heading = Heading.LEFT;
                 } else if (motionEvent.getY() <= screenY / 4) {
                     heading = Heading.UP;

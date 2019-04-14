@@ -134,7 +134,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                 public void onClick(View v) {
                     int position = getAdapterPosition();
                     if (quantityToTrade < mapValues[position]) {
-                       if (buying && player.getCredits() >= (quantityToTrade + 1) * mapKeys[position].getPrice() && ship.getRemainingCargo() > quantityToTrade) {
+                       if (buying && player.getCredits() >=
+                               (quantityToTrade + 1) * mapKeys[position].getPrice()
+                               && ship.getRemainingCargo() > quantityToTrade) {
                            Log.i("wedunnit!", "remaining cargo: " + ship.getRemainingCargo()+ " ");
                             quantityToTrade++;
                             totalTradePrice = quantityToTrade * mapKeys[position].getPrice();

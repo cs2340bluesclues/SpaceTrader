@@ -26,7 +26,8 @@ public class ModelFacade {
         newGame = new Game(difficulty);
     }
 
-    public static String createPlayer(String name, int pilot, int fighter, int trader, int engineer) {
+    public static String createPlayer(String name,
+                                      int pilot, int fighter, int trader, int engineer) {
         SolarSystem beginnerSolarSystem = newGame.getUniverse().retrieveBeginnerSolarSystem();
         newPlayer = new Player(name, pilot, fighter, trader, engineer, beginnerSolarSystem);
 //        saveToDatabase();
