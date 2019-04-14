@@ -59,7 +59,8 @@ public class TravelPlanetActivity extends AppCompatActivity {
                 } else if (!travelPlanetViewModel.travel(travelToThisSolarSystem, travelToThisPlanet)) {
                     //this is if you are unable to travel, so the travel method returns false
                     Toast.makeText(getApplicationContext(), "You do not have enough fuel to travel here", Toast.LENGTH_LONG).show();
-                } else if (travelPlanetViewModel.policeEvent()) {
+                } else if (true) {
+                        //travelPlanetViewModel.policeEvent()) {
                     travelPlanetViewModel.travel(travelToThisSolarSystem, travelToThisPlanet);
                     goToPoliceActivity();
                 } else if (travelPlanetViewModel.pirateEvent()) {
@@ -112,7 +113,7 @@ public class TravelPlanetActivity extends AppCompatActivity {
 
             rb.setOnClickListener( v -> {
                     coords.setText("System Coordinates: " + selectedSolarSystem.getCoords().toString()
-                            + "\nDistance away: " + (int) (travelPlanetViewModel.getCurrSolarSystem().getCoords().calculateDistance(selectedSolarSystem.getCoords())));
+                            + "\nDistance away: " + travelPlanetViewModel.getCurrSolarSystem().getCoords().calculateDistance(selectedSolarSystem.getCoords()));
                     addPlanetButtons(selectedSolarSystem);
                     planetDetails.setText("Selected Planet Details: ");
 

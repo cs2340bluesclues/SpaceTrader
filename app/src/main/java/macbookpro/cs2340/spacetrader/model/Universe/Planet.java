@@ -55,6 +55,7 @@ public class Planet {
     public void regeneratePlanet() {
         calculateFuelCost();
         eventOccur();
+        market.generateMarket(event);
     }
 
     /**
