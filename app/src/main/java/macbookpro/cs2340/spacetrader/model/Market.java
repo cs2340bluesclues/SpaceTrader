@@ -20,7 +20,7 @@ import macbookpro.cs2340.spacetrader.model.Items.Water;
 public class Market {
 
 
-    static MarketItem[] items = {new Water(), new Furs(), new Food(), new Ore(), new Games(),
+    private static MarketItem[] items = {new Water(), new Furs(), new Food(), new Ore(), new Games(),
             new Firearms(), new Medicine(), new Machines(), new Narcotics(), new Robots()};
 
     private final Map<MarketInfo, Integer> map = new HashMap<>();

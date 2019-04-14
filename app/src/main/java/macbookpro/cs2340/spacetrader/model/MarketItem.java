@@ -2,19 +2,19 @@ package macbookpro.cs2340.spacetrader.model;
 
 public abstract class MarketItem implements Comparable<MarketItem> {
 
-    protected int mtlp;
-    protected int mtlu;
-    protected int ttp;
-    protected int basePrice;
-    protected int ipl;
-    protected int var;
+    private final int mtlp;
+    private final int mtlu;
+    private final int ttp;
+    private final int basePrice;
+    private final int ipl;
+    private final int var;
 
 
-    protected Event ie;
-    protected Resources cr;
-    protected Resources er;
+    private final Event ie;
+    private final Resources cr;
+    private final Resources er;
 
-    protected boolean isLegal;
+    boolean isLegal;
 
     private final String name;
 
