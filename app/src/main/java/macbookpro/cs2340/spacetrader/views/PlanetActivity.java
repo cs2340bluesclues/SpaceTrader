@@ -43,8 +43,8 @@ public class PlanetActivity extends AppCompatActivity {
     private ImageView fuelbar1, fuelbar2, fuelbar3, fuelbar4, fuelbar5, fuelbar6, fuelbar7;
     private ImageView[] fuelbarsArray;
 
-    final FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference mDatabase = database.getReference("players");
+    private final FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private final DatabaseReference mDatabase = database.getReference("players");
 
 
     @Override

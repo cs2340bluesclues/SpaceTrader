@@ -42,8 +42,8 @@ public class ConfigurationActivity extends AppCompatActivity {
 
     private Button addPilot, subtractPilot, addFighter, subtractFighter, addTrader, subtractTrader,
             addEngineer, subtractEngineer, submit;
-    TextView pilotSkill, fighterSkill, traderSkill, engineerSkill;
-    ConfigurationViewModel totalVM;
+    private TextView pilotSkill, fighterSkill, traderSkill, engineerSkill;
+    private ConfigurationViewModel totalVM;
 
     private Player player;
 

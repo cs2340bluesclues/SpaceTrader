@@ -6,7 +6,7 @@ import macbookpro.cs2340.spacetrader.model.Market;
 import macbookpro.cs2340.spacetrader.model.TechLevel;
 import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 
-public class MarketTest {
+class MarketTest {
 
     //Market m1 = new Market(TechLevel.PRE_AGRICULTURE, );
 

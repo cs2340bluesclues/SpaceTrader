@@ -47,7 +47,7 @@ public class Planet {
      * Method to reassign a random IncreaseEvent to the planet using a random ordinal in
      * the Event enum
      */
-    public void eventOccur() {
+    private void eventOccur() {
         event = Event.values()[randomGen(7)];
         //market.generateMarket(event);
     }
