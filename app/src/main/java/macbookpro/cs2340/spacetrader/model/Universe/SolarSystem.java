@@ -24,7 +24,7 @@ public class SolarSystem {
     private static final Set<Coord> coordsSet = new HashSet<>();
     private final Set<Planet> planets = new HashSet<>();
     private String name;
-    private final Coord coords;
+    private Coord coords;
     private final int numPlanets;
     private final Random r;
 
