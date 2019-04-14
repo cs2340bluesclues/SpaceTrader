@@ -29,9 +29,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     private Map<MarketInfo, Integer> mapData;
     private final MarketInfo[] mapKeys;
-    private Player player;
-    private Ship ship;
-    private Market market;
+    private final Player player;
+    private final Ship ship;
+    private final Market market;
     private final Integer[] mapValues;
     private final boolean buying;
 
@@ -103,7 +103,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         private int totalTradePrice;
 
 
-        public ItemViewHolder(@NonNull View itemView) {
+        ItemViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.text_market_item_name);
             quantity = itemView.findViewById(R.id.text_quantity);

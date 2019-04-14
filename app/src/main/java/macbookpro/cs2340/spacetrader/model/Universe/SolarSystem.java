@@ -24,9 +24,9 @@ public class SolarSystem {
     private static final Set<Coord> coordsSet = new HashSet<>();
     private final Set<Planet> planets = new HashSet<>();
     private String name;
-    private final Coord coords;
-    private final int numPlanets;
-    private final Random r;
+    private  Coord coords;
+    private  int numPlanets;
+    private  Random r;
 
     /**
      * SolarSystem constructor that takes in a Random object and randomly generates a unique name
