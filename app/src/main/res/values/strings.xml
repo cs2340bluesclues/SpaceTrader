@@ -36,6 +36,13 @@
 
     <string name="surrender">Surrender</string>
     <string name="fight">Fight!</string>
+    <string name="go">Go</string>
+    <string name="total_price">Total Price:</string>
+    <string name="quantity_to_buy">Quantity to buy</string>
+    <string name="price">Price</string>
+    <string name="add">+</string>
+    <string name="quantity">Quantity</string>
+    <string name="market_item">Market Item</string>
 
 
 </resources>
