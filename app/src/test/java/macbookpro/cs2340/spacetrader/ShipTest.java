@@ -43,8 +43,10 @@ public class ShipTest {
         Water water = new Water();
         Food food = new Food();
 
-        narcInfo = new MarketInfo(narcotics, Event.DROUGHT, TechLevel.HI_TECH,Resources.NO_SPECIAL_RESOURCES);
-        fireInfo = new MarketInfo(firearms, Event.BOREDOM, TechLevel.POST_INDUSTRIAL, Resources.LOTS_OF_HERBS);
+        narcInfo = new MarketInfo(narcotics, Event.DROUGHT, TechLevel.HI_TECH,
+                Resources.NO_SPECIAL_RESOURCES);
+        fireInfo = new MarketInfo(firearms, Event.BOREDOM, TechLevel.POST_INDUSTRIAL,
+                Resources.LOTS_OF_HERBS);
         waterInfo = new MarketInfo(water, Event.COLD, TechLevel.AGRICULTURE, Resources.ARTISTIC);
         foodInfo = new MarketInfo(food, Event.WAR, TechLevel.MEDIEVAL, Resources.MINERAL_RICH);
     }

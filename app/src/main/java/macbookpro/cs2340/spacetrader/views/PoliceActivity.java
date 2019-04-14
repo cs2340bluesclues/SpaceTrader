@@ -38,11 +38,15 @@ public class PoliceActivity extends AppCompatActivity {
                      policeViewModel.setLawfulnessStatus(false);
                      policeViewModel.payFine();
                      goToPlanetActivity();
-                     Toast.makeText(getApplicationContext(), "You have now been flagged by the police", Toast.LENGTH_LONG).show();
+                     Toast.makeText(getApplicationContext(),
+                             "You have now been flagged by the police",
+                             Toast.LENGTH_LONG).show();
                  } else {
                      policeViewModel.setLawfulnessStatus(true);
                      goToPlanetActivity();
-                     Toast.makeText(getApplicationContext(), "You have been deemed a lawful citizen", Toast.LENGTH_LONG).show();
+                     Toast.makeText(getApplicationContext(),
+                             "You have been deemed a lawful citizen",
+                             Toast.LENGTH_LONG).show();
                  }
 
             }
@@ -53,16 +57,20 @@ public class PoliceActivity extends AppCompatActivity {
             public void onClick(View v) {
                 policeViewModel.bribe();
                 goToPlanetActivity();
-                Toast.makeText(getApplicationContext(), "Your credits have decreased by 15%", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),
+                        "Your credits have decreased by 15%",
+                        Toast.LENGTH_LONG).show();
 
             }
         });
 
         fleeButton.setOnClickListener(v -> {
-            Toast.makeText(getApplicationContext(), "You are fleeing the police. " +
-                    "\nMake it to the top of the screen without crashing into blocks and you'll escape. " +
-                    "\nTouch the sides of the screen to change direction.", Toast.LENGTH_SHORT)
-                    .show();
+            Toast.makeText(getApplicationContext(),
+                    "You are fleeing the police. "
+                            + "\nMake it to the top of the screen without crashing into blocks"
+                            + "and you'll escape. "
+                            + "\nTouch the sides of the screen to change direction.",
+                    Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, PoliceEscapeActivity.class);
             startActivity(intent);
         });
@@ -79,6 +87,7 @@ public class PoliceActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed(){
-        Toast.makeText(getApplicationContext(), "Please select an option", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "Please select an option",
+                Toast.LENGTH_LONG).show();
     }
 }
