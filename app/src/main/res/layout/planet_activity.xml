@@ -233,7 +233,7 @@
                 android:gravity="center_horizontal"
                 android:textStyle="bold"
                 android:textColor="#03a464"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 />
 
             <TextView
@@ -295,6 +295,7 @@
                     android:layout_height="95dp"
                     app:srcCompat="@drawable/rectangle"
                     android:visibility="invisible"
+                    ndroid:contentDescription="fuel bar"
                     />
                 <ImageView
                     android:id="@+id/fuelbar6"

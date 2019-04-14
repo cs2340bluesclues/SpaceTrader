@@ -23,11 +23,11 @@ public class Market {
     static MarketItem[] items = {new Water(), new Furs(), new Food(), new Ore(), new Games(),
             new Firearms(), new Medicine(), new Machines(), new Narcotics(), new Robots()};
 
-    private Map<MarketInfo, Integer> map = new HashMap<>();
+    private final Map<MarketInfo, Integer> map = new HashMap<>();
 
     private Event event;
-    private TechLevel techLevel;
-    private Resources resources;
+    private final TechLevel techLevel;
+    private final Resources resources;
 
     public Market(TechLevel planetTechLevel, Resources planetResources, Event ie) {
         techLevel = planetTechLevel;

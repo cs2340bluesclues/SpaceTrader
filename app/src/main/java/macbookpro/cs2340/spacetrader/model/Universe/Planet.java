@@ -10,11 +10,11 @@ import macbookpro.cs2340.spacetrader.model.TechLevel;
 
 public class Planet {
 
-    private String name;
-    private Resources resources;
-    private TechLevel techLevel;
+    private final String name;
+    private final Resources resources;
+    private final TechLevel techLevel;
     private Event event;
-    private Market market;
+    private final Market market;
     private int fuelCost;
 
     /**

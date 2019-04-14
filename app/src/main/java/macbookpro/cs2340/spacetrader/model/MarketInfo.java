@@ -4,10 +4,10 @@ import java.util.Random;
 
 public class MarketInfo implements Comparable<MarketInfo> {
 
-    private MarketItem item;
-    private int price;
-    private boolean buyable;
-    private boolean sellable;
+    private final MarketItem item;
+    private final int price;
+    private final boolean buyable;
+    private final boolean sellable;
 
     /**
      * constructor
