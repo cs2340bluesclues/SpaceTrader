@@ -118,7 +118,7 @@ public class Ship {
      * @param second second coordinates
      */
     public void updateFuel(Coord first, Coord second) {
-        int fuelDecrement = (int) first.calculateDistance(second);
+        int fuelDecrement = first.calculateDistance(second);
         fuelLevel -= fuelDecrement;
     }
 
