@@ -17,7 +17,9 @@ import macbookpro.cs2340.spacetrader.viewmodels.PoliceViewModel;
 public class PoliceActivity extends AppCompatActivity {
     private PoliceViewModel policeViewModel;
 
-    private Button acceptButton, bribeButton, fleeButton;
+    private Button acceptButton;
+    private Button bribeButton;
+    private Button fleeButton;
 
 
     @Override

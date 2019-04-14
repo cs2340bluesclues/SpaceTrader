@@ -99,7 +99,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         private final Button transaction;
         private final Button decreaseQ;
         private final Button increaseQ;
-        private int quantityToTrade, totalTradePrice;
+        private int quantityToTrade;
+        private int totalTradePrice;
 
 
         public ItemViewHolder(@NonNull View itemView) {

@@ -27,6 +27,7 @@ public class Player {
     private boolean lawfulStatus;
     private SolarSystem currentSolarSystem;
     private Planet currentPlanet;
+    private Market currentMarket;
     private final Random rand;
 
     private final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("players");
@@ -46,6 +47,7 @@ public class Player {
         ship = new Ship(ShipType.GNAT);
         currentSolarSystem = solarSystem;
         currentPlanet = solarSystem.findBeginnerPlanet();
+        currentMarket = currentPlanet.getMarket();
         rand = new Random();
 
         saveToDatabase();
@@ -114,8 +116,7 @@ public class Player {
         //int count = 0;
         boolean bought = false;
 
-        if (credits > item.getPrice()
-                && currentPlanet.getMarket().buyAsPlayer(item, quantityToPurchase)) {
+        if (credits > item.getPrice() && currentMarket.buyAsPlayer(item, quantityToPurchase)) {
             if (ship.addItem(item, quantityToPurchase)) {
                 credits -= (item.getPrice()*quantityToPurchase);
                 //count++;
@@ -130,7 +131,7 @@ public class Player {
         boolean sold = false;
         while (count < quantity && ship.removeItem(item, quantity)) {
             credits += (item.getPrice()*quantity);
-            currentPlanet.getMarket().sellAsPlayer(item);
+            currentMarket.sellAsPlayer(item);
             count++;
             sold = true;
         }
@@ -303,9 +304,11 @@ public class Player {
         return ship;
     }
 
+
     public void setShip(Ship ship) {
         this.ship = ship;
     }
+
 
     public boolean isLawfulStatus() {
         return lawfulStatus;

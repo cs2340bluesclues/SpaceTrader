@@ -15,7 +15,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Name"/>
+        android:text="@string/player_name"/>
 
     <TextView
         android:id="@+id/credits_label"
@@ -26,7 +26,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintRight_toLeftOf="@id/credits"
-        android:text="Credits: "/>
+        android:text="@string/credits_label"/>
 
     <TextView
         android:id="@+id/credits"
@@ -60,7 +60,7 @@
             android:id="@+id/ship_name_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ship Name: "
+            android:text="@string/ship_name_label"
             tools:layout_editor_absoluteX="60dp" />
 
         <TextView
@@ -97,7 +97,7 @@
             android:id="@+id/planet_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Current Planet: "
+            android:text="@string/current_planet"
             android:layout_marginRight="40dp" />
 
 
@@ -132,7 +132,7 @@
                 android:id="@+id/increase_quantity_button"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:text="+"
+                android:text="string/plus"
                 app:layout_constraintTop_toTopOf="@id/text_quantity_desired"
                 app:layout_constraintLeft_toRightOf="@id/text_quantity_desired" />
 
@@ -187,7 +187,7 @@
                 android:id="@+id/fuel_price_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Total Price: $"
+                android:text="@string/total_price"
                 tools:layout_editor_absoluteX="60dp" />
 
             <TextView
@@ -295,8 +295,9 @@
                     android:layout_height="95dp"
                     app:srcCompat="@drawable/rectangle"
                     android:visibility="invisible"
-                    android:contentDescription="fuel bar"
-                    />
+                    android:contentDescription="fuel bar" />
+                    nadroid:contentDescription="fuel bar"
+
                 <ImageView
                     android:id="@+id/fuelbar6"
                     android:layout_width="40dp"
