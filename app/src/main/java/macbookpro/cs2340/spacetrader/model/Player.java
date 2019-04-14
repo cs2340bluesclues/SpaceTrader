@@ -33,7 +33,8 @@ public class Player {
 
 
 
-    public Player(String name, int pilot, int fighter, int trader, int engineer, SolarSystem solarSystem) {
+    public Player(String name, int pilot, int fighter, int trader, int engineer,
+                  SolarSystem solarSystem) {
         this.name = name;
         this.pilot = pilot;
         this.fighter = fighter;
@@ -105,14 +106,16 @@ public class Player {
     }
 
 //    private void updateCargoPrices() {
-//        ship.updateCargoPrices(currentPlanet.getEvent(), currentPlanet.getTechLevel(), currentPlanet.getResources());
+//        ship.updateCargoPrices(currentPlanet.getEvent(), currentPlanet.getTechLevel(),
+//        currentPlanet.getResources());
 //    }
 
     public boolean buy(MarketInfo item, int quantityToPurchase) {
         //int count = 0;
         boolean bought = false;
 
-        if (credits > item.getPrice() && currentPlanet.getMarket().buyAsPlayer(item, quantityToPurchase)) {
+        if (credits > item.getPrice()
+                && currentPlanet.getMarket().buyAsPlayer(item, quantityToPurchase)) {
             if (ship.addItem(item, quantityToPurchase)) {
                 credits -= (item.getPrice()*quantityToPurchase);
                 //count++;
