@@ -30,7 +30,8 @@ public class MarketInfo implements Comparable<MarketInfo> {
      */
     @Override
     public int compareTo(MarketInfo o) {
-        return this.getItem().compareTo(o.getItem());
+        MarketItem item = this.getItem();
+        return item.compareTo(o.getItem());
     }
 
     /**

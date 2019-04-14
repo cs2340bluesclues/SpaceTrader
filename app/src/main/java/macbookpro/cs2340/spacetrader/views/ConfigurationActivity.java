@@ -40,9 +40,19 @@ public class ConfigurationActivity extends AppCompatActivity {
     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("players");
 
 
-    Button addPilot, subtractPilot, addFighter, subtractFighter, addTrader, subtractTrader,
-            addEngineer, subtractEngineer, submit;
-    TextView pilotSkill, fighterSkill, traderSkill, engineerSkill;
+    Button addPilot;
+    Button subtractPilot;
+    Button addFighter;
+    Button subtractFighter;
+    Button addTrader;
+    Button subtractTrader;
+    Button addEngineer;
+    Button subtractEngineer;
+    Button submit;
+    TextView pilotSkill;
+    TextView fighterSkill;
+    TextView traderSkill;
+    TextView engineerSkill;
     ConfigurationViewModel totalVM;
 
     private Player player;

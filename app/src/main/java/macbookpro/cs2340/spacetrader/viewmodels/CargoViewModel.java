@@ -62,6 +62,8 @@ public class CargoViewModel extends AndroidViewModel {
     }
 
     public int getRemainingCargo() {
-        return player.getShip().getRemainingCargo();
+        return currShip.getRemainingCargo();
     }
+
+
 }

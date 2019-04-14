@@ -17,7 +17,9 @@ public class PirateActivity extends AppCompatActivity {
 
     //private TextView introMessage, directions;
 
-    private Button surrenderButton, fightButton, fleeButton;
+    private Button surrenderButton;
+    private Button fightButton;
+    private Button fleeButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

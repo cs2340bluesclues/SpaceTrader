@@ -38,7 +38,13 @@ public class PlanetActivity extends AppCompatActivity {
     TextView planetLabel;
     Button cargoButton;
     Button travelButton;
-    TextView credits, playerName, shipName, fuelPrice, maxShipFuel, fuelQuantity, currFuel;
+    TextView credits;
+    TextView playerName;
+    TextView shipName;
+    TextView fuelPrice;
+    TextView maxShipFuel;
+    TextView fuelQuantity;
+    TextView currFuel;
     Button increase, decrease, refuelButton, save;
     ImageView fuelbar1, fuelbar2, fuelbar3, fuelbar4, fuelbar5, fuelbar6, fuelbar7;
     ImageView[] fuelbarsArray;
