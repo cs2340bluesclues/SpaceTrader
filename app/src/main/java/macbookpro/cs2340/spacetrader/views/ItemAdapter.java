@@ -141,13 +141,13 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                            Log.i("wedunnit!", "remaining cargo: " + ship.getRemainingCargo()+ " ");
                             quantityToTrade++;
                             totalTradePrice = quantityToTrade * mapKeys[position].getPrice();
-                            buyQuantity.setText(quantityToTrade);
-                            totalPrice.setText(totalTradePrice);
+                            buyQuantity.setText(Integer.toString (quantityToTrade));
+                            totalPrice.setText(Integer.toString(totalTradePrice));
                        } else if (!buying) {
                            quantityToTrade++;
                            totalTradePrice = quantityToTrade * mapKeys[position].getPrice();
-                           buyQuantity.setText(quantityToTrade);
-                           totalPrice.setText(totalTradePrice);
+                           buyQuantity.setText(Integer.toString(quantityToTrade));
+                           totalPrice.setText(Integer.toString(totalTradePrice));
                        }
                     }
                 }
@@ -160,8 +160,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                     if (quantityToTrade  > 0) {
                         quantityToTrade--;
                         totalTradePrice = quantityToTrade * mapKeys[position].getPrice();
-                        buyQuantity.setText(quantityToTrade);
-                        totalPrice.setText(totalTradePrice);
+                        buyQuantity.setText(Integer.toString(quantityToTrade));
+                        totalPrice.setText(Integer.toString(totalTradePrice));
                     }
                 }
             });
@@ -174,13 +174,13 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
                     if (buying && ship.getRemainingCargo() >= quantityToTrade) {
                         transaction(player, market, position, quantityToTrade);
-                        quantity.setText(mapData.get(mapKeys[position]));
+                        quantity.setText(Integer.toString(mapData.get(mapKeys[position])));
 
                         quantityToTrade = 0;
                         totalTradePrice = 0;
 
-                        buyQuantity.setText(quantityToTrade);
-                        totalPrice.setText(totalTradePrice);
+                        buyQuantity.setText(Integer.toString(quantityToTrade));
+                        totalPrice.setText(Integer.toString(totalTradePrice));
 
                     } else {
                         transaction(player, market, position, quantityToTrade);
@@ -189,8 +189,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                         quantityToTrade = 0;
                         totalTradePrice = 0;
 
-                        buyQuantity.setText(quantityToTrade);
-                        totalPrice.setText(totalTradePrice);
+                        buyQuantity.setText(Integer.toString(quantityToTrade));
+                        totalPrice.setText(Integer.toString(totalTradePrice));
                     }
 
 

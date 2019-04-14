@@ -14,11 +14,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+//import com.google.firebase.database.DatabaseReference;
+//import com.google.firebase.database.FirebaseDatabase;
+
+import java.io.File;
 
 import macbookpro.cs2340.spacetrader.R;
 import macbookpro.cs2340.spacetrader.model.GameDifficulty;
+import macbookpro.cs2340.spacetrader.model.ModelFacade;
 import macbookpro.cs2340.spacetrader.model.Player;
 import macbookpro.cs2340.spacetrader.viewmodels.ConfigurationViewModel;
 
@@ -26,6 +29,7 @@ public class ConfigurationActivity extends AppCompatActivity {
 
     /** reference to our view model */
     private ConfigurationViewModel viewModel;
+    private ModelFacade mf = ModelFacade.getInstance();
 
     /* ************************
         Widgets we will need for binding and getting information
@@ -37,7 +41,7 @@ public class ConfigurationActivity extends AppCompatActivity {
     // firebase ??
 //    private FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
 //    private DatabaseReference playerID = mDatabase.getReference("players");
-    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("players");
+//    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("players");
 
 
 
@@ -199,7 +203,7 @@ public class ConfigurationActivity extends AppCompatActivity {
 //                    playerID.setValue(player);
 
 //                    String playerID = mDatabase.push().getKey();
-//                    String player = totalVM.sendData(name, level);
+
 
 //                    mDatabase.child(playerID).setValue(player);
 
@@ -207,6 +211,9 @@ public class ConfigurationActivity extends AppCompatActivity {
 //                                                  MarketActivity.class);
 //                    messageIntent.putExtra("PRINT_PLAYER_MESSAGE", s);
 //                    startActivity(messageIntent);
+                    totalVM.sendData(name, level);
+                    File file = new File(C:\Users\atlgwc24\cs2340\SpaceTrader\app\src\main\java\macbookpro\cs2340\spacetrader\views, mf.DEFAULT_JSON_FILE_NAME);
+                    mf.saveJson(file);
                     launchGame();
                 }
             }

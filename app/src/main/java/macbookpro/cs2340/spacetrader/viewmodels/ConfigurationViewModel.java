@@ -87,8 +87,8 @@ public class ConfigurationViewModel extends AndroidViewModel {
         return name.isEmpty();
     }
 
-    public String sendData(String name, GameDifficulty diff) {
-        createGame(diff);
-        return createPlayer(name, pilotCount, fighterCount, traderCount, engineerCount);
+    public void sendData(String name, GameDifficulty diff) { //made void from string
+//        createGame(diff);
+        createGame(diff, name, pilotCount, fighterCount, traderCount, engineerCount);
     }
 }

@@ -1,11 +1,13 @@
 package macbookpro.cs2340.spacetrader.model;
 
+import macbookpro.cs2340.spacetrader.model.Universe.SolarSystem;
 import macbookpro.cs2340.spacetrader.model.Universe.Universe;
 
 public class Game {
 
     private GameDifficulty diff;
     private final Universe universe;
+    private Player player;
     private int travelCount = 10;
 
     /**
@@ -13,9 +15,19 @@ public class Game {
      * difficulty
      * @param diff player-selected difficulty of game
      */
-    public Game(GameDifficulty diff) {
+    public Game(GameDifficulty diff, String name,
+                int pilot, int fighter, int trader, int engineer) {
         universe = new Universe(10,10);
         this.diff = diff;
+        createPlayer(name, pilot, fighter, trader, engineer);
+    }
+
+    public String createPlayer(String name,
+                                      int pilot, int fighter, int trader, int engineer) {
+        SolarSystem beginnerSolarSystem = this.getUniverse().retrieveBeginnerSolarSystem();
+        player = new Player(name, pilot, fighter, trader, engineer, beginnerSolarSystem);
+//        saveToDatabase();
+        return player.toString();
     }
 
     /**
@@ -52,5 +64,9 @@ public class Game {
      */
     public Universe getUniverse() {
         return universe;
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 }
