@@ -79,7 +79,8 @@ public class PlanetActivity extends AppCompatActivity {
         fuelbar5 = findViewById(R.id.fuelbar5);
         fuelbar6 = findViewById(R.id.fuelbar6);
         fuelbar7 = findViewById(R.id.fuelbar7);
-        fuelbarsArray = new ImageView[]{fuelbar1, fuelbar2, fuelbar3, fuelbar4, fuelbar5, fuelbar6, fuelbar7};
+        fuelbarsArray = new ImageView[]{fuelbar1, fuelbar2, fuelbar3, fuelbar4, fuelbar5,
+                fuelbar6, fuelbar7};
         displayFuelBars();
 
         maxShipFuel = findViewById(R.id.text_ship_max);
@@ -100,7 +101,8 @@ public class PlanetActivity extends AppCompatActivity {
                 int temp = Integer.parseInt(fuelQuantity.getText().toString());
                 if (temp + 1 + planetViewModel.getCurrFuel() <= planetViewModel.getMaxFuel()) {
                     fuelQuantity.setText(String.valueOf(++temp));
-                    fuelPrice.setText(String.valueOf(temp*planetViewModel.getPlayer().getCurrentPlanet().getFuelCost()));
+                    fuelPrice.setText(String.valueOf(temp *
+                            planetViewModel.getPlayer().getCurrentPlanet().getFuelCost()));
                 }
             }
         });
@@ -111,7 +113,8 @@ public class PlanetActivity extends AppCompatActivity {
                 int temp = Integer.parseInt(fuelQuantity.getText().toString());
                 if (temp - 1 > 0) {
                     fuelQuantity.setText(String.valueOf(--temp));
-                    fuelPrice.setText(String.valueOf(temp*planetViewModel.getPlayer().getCurrentPlanet().getFuelCost()));
+                    fuelPrice.setText(String.valueOf(temp *
+                            planetViewModel.getPlayer().getCurrentPlanet().getFuelCost()));
                 }
             }
         });
@@ -205,6 +208,8 @@ public class PlanetActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed(){
-        Toast.makeText(getApplicationContext(), "Travel to another planet", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),
+                "Travel to another planet",
+                Toast.LENGTH_LONG).show();
     }
 }

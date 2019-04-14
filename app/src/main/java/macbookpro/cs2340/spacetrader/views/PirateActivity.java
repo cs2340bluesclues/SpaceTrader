@@ -37,7 +37,9 @@ public class PirateActivity extends AppCompatActivity {
             public void onClick(View v) {
                 pirateViewModel.clearCargo();
                 goToPlanetActivity();
-                Toast.makeText(getApplicationContext(), "Your cargo has been emptied!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),
+                        "Your cargo has been emptied!",
+                        Toast.LENGTH_LONG).show();
 
             }
         });
@@ -49,10 +51,14 @@ public class PirateActivity extends AppCompatActivity {
                 //also should consider the fighter points
                 boolean defeatedPirates = pirateViewModel.fight();
                 if (defeatedPirates) {
-                    Toast.makeText(getApplicationContext(), "You fought off the pirates!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),
+                            "You fought off the pirates!",
+                            Toast.LENGTH_LONG).show();
                     goToPlanetActivity();
                 } else {
-                    Toast.makeText(getApplicationContext(), "The pirates defeated you in battle.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),
+                            "The pirates defeated you in battle.",
+                            Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -64,10 +70,14 @@ public class PirateActivity extends AppCompatActivity {
                 //also should consider the pilot points
                 boolean fled = pirateViewModel.flee();
                 if (fled) {
-                    Toast.makeText(getApplicationContext(), "You escaped the pirates in your ship!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),
+                            "You escaped the pirates in your ship!",
+                            Toast.LENGTH_LONG).show();
                     goToPlanetActivity();
                 } else {
-                    Toast.makeText(getApplicationContext(), "You did not escape the pirates.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),
+                            "You did not escape the pirates.",
+                            Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -83,6 +93,8 @@ public class PirateActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed(){
-        Toast.makeText(getApplicationContext(), "Please select an option", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),
+                "Please select an option",
+                Toast.LENGTH_LONG).show();
     }
 }

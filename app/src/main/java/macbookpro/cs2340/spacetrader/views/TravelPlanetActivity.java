@@ -55,10 +55,15 @@ public class TravelPlanetActivity extends AppCompatActivity {
 
         travelHere.setOnClickListener( v -> {
                 if (travelToThisPlanet.equals(travelPlanetViewModel.getCurrPlanet())) {
-                    Toast.makeText(getApplicationContext(), "You are already at this planet", Toast.LENGTH_LONG).show();
-                } else if (!travelPlanetViewModel.travel(travelToThisSolarSystem, travelToThisPlanet)) {
+                    Toast.makeText(getApplicationContext(),
+                            "You are already at this planet",
+                            Toast.LENGTH_LONG).show();
+                } else if (!travelPlanetViewModel.travel(travelToThisSolarSystem,
+                        travelToThisPlanet)) {
                     //this is if you are unable to travel, so the travel method returns false
-                    Toast.makeText(getApplicationContext(), "You do not have enough fuel to travel here", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),
+                            "You do not have enough fuel to travel here",
+                            Toast.LENGTH_LONG).show();
                 } else if (true) {
                         //travelPlanetViewModel.policeEvent()) {
                     travelPlanetViewModel.travel(travelToThisSolarSystem, travelToThisPlanet);
@@ -104,7 +109,8 @@ public class TravelPlanetActivity extends AppCompatActivity {
             if (s.equals(travelPlanetViewModel.getCurrSolarSystem())) {
                 rb.setChecked(true);
                 coords.setText("System Coordinates: " + selectedSolarSystem.getCoords().toString());
-                planetMap.setText("Travel to a planet within the " + selectedSolarSystem.getName() + " Solar System");
+                planetMap.setText("Travel to a planet within the " + selectedSolarSystem.getName()
+                        + " Solar System");
 
                 travelToThisSolarSystem = selectedSolarSystem;
 
@@ -112,13 +118,17 @@ public class TravelPlanetActivity extends AppCompatActivity {
             }
 
             rb.setOnClickListener( v -> {
-                    coords.setText("System Coordinates: " + selectedSolarSystem.getCoords().toString()
-                            + "\nDistance away: " + travelPlanetViewModel.getCurrSolarSystem().getCoords().calculateDistance(selectedSolarSystem.getCoords()));
+                    coords.setText("System Coordinates: "
+                            + selectedSolarSystem.getCoords().toString()
+                            + "\nDistance away: " + travelPlanetViewModel.getCurrSolarSystem()
+                            .getCoords().calculateDistance(selectedSolarSystem.getCoords()));
                     addPlanetButtons(selectedSolarSystem);
                     planetDetails.setText("Selected Planet Details: ");
 
-                    solarSystemMap.setText("Travel to the " + selectedSolarSystem.getName() + " Solar System");
-                    planetMap.setText("Travel to a planet within the " + selectedSolarSystem.getName() + " Solar System");
+                    solarSystemMap.setText("Travel to the " + selectedSolarSystem.getName()
+                            + " Solar System");
+                    planetMap.setText("Travel to a planet within the "
+                            + selectedSolarSystem.getName() + " Solar System");
 
                     travelToThisSolarSystem = selectedSolarSystem;
             });

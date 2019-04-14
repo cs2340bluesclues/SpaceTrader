@@ -38,7 +38,8 @@ public class Coord {
     }
 
     public int calculateDistance(Coord c) {
-        return (int) Math.sqrt(Math.pow(this.getX() - c.getX(), 2) + Math.pow(this.getY() - c.getY(), 2));
+        return (int) Math.sqrt(Math.pow(this.getX() - c.getX(), 2)
+                + Math.pow(this.getY() - c.getY(), 2));
     }
 
     /**
