@@ -19,9 +19,9 @@ import static macbookpro.cs2340.spacetrader.model.ModelFacade.getNewPlayer;
 
 public class TravelPlanetViewModel extends AndroidViewModel {
 
-    Player player;
-    Planet currPlanet;
-    SolarSystem currSolarSystem;
+    private Player player;
+    private Planet currPlanet;
+    private SolarSystem currSolarSystem;
 
     public TravelPlanetViewModel(@NonNull Application application) {
         super(application);

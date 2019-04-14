@@ -29,13 +29,13 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     private Map<MarketInfo, Integer> mapData;
     private final MarketInfo[] mapKeys;
-    Player player;
-    Ship ship;
-    Market market;
+    private Player player;
+    private Ship ship;
+    private Market market;
     private final Integer[] mapValues;
     private final boolean buying;
 
-    public ItemAdapter(Map<MarketInfo, Integer> data, boolean buy, Player p, Market m){
+    ItemAdapter(Map<MarketInfo, Integer> data, boolean buy, Player p, Market m){
         mapData  = data;
         mapKeys = mapData.keySet().toArray(new MarketInfo[data.size()]);
         mapValues = mapData.values().toArray(new Integer[data.size()]);

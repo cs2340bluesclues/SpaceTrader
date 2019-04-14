@@ -34,14 +34,14 @@ import macbookpro.cs2340.spacetrader.viewmodels.PlanetViewModel;
 public class PlanetActivity extends AppCompatActivity {
     private PlanetViewModel planetViewModel;
 
-    Button marketButton;
-    TextView planetLabel;
-    Button cargoButton;
-    Button travelButton;
-    TextView credits, playerName, shipName, fuelPrice, maxShipFuel, fuelQuantity, currFuel;
-    Button increase, decrease, refuelButton, save;
-    ImageView fuelbar1, fuelbar2, fuelbar3, fuelbar4, fuelbar5, fuelbar6, fuelbar7;
-    ImageView[] fuelbarsArray;
+    private Button marketButton;
+    private TextView planetLabel;
+    private Button cargoButton;
+    private Button travelButton;
+    private TextView credits, playerName, shipName, fuelPrice, maxShipFuel, fuelQuantity, currFuel;
+    private Button increase, decrease, refuelButton, save;
+    private ImageView fuelbar1, fuelbar2, fuelbar3, fuelbar4, fuelbar5, fuelbar6, fuelbar7;
+    private ImageView[] fuelbarsArray;
 
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference mDatabase = database.getReference("players");

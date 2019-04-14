@@ -17,7 +17,7 @@ import macbookpro.cs2340.spacetrader.viewmodels.TravelPlanetViewModel;
 
 public class TravelPlanetActivity extends AppCompatActivity {
 
-    TravelPlanetViewModel travelPlanetViewModel;
+    private TravelPlanetViewModel travelPlanetViewModel;
 
     private TextView planetMap;
     private TextView solarSystemMap;

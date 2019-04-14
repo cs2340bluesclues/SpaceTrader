@@ -23,7 +23,7 @@ public class MarketActivity extends AppCompatActivity {
     private MarketViewModel marketViewModel;
 
     /** widgets*/
-    TextView playerName, playerCredits, remainingCargo;
+    private TextView playerName, playerCredits, remainingCargo;
 
 
     /** make an adapter for the list */
