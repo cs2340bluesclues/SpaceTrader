@@ -10,8 +10,8 @@ public class MarketTest {
 
     //Market m1 = new Market(TechLevel.PRE_AGRICULTURE, );
 
-    @Test
-    public void generateMarketTest() {
-
-    }
+//    @Test
+//    public void generateMarketTest() {
+//
+//    }
 }
