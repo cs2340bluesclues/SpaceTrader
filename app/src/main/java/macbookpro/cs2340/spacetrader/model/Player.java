@@ -1,10 +1,10 @@
 package macbookpro.cs2340.spacetrader.model;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+//import com.google.firebase.database.DataSnapshot;
+//import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+//import com.google.firebase.database.ValueEventListener;
 
 import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 import macbookpro.cs2340.spacetrader.model.Universe.SolarSystem;
@@ -27,6 +27,7 @@ public class Player {
     private boolean lawfulStatus;
     private SolarSystem currentSolarSystem;
     private Planet currentPlanet;
+    private Market currentMarket;
     private final Random rand;
 
     private final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("players");
@@ -46,6 +47,7 @@ public class Player {
         ship = new Ship(ShipType.GNAT);
         currentSolarSystem = solarSystem;
         currentPlanet = solarSystem.findBeginnerPlanet();
+        currentMarket = currentPlanet.getMarket();
         rand = new Random();
 
         //saveToDatabase();
@@ -114,8 +116,7 @@ public class Player {
         //int count = 0;
         boolean bought = false;
 
-        if (credits > item.getPrice()
-                && currentPlanet.getMarket().buyAsPlayer(item, quantityToPurchase)) {
+        if (credits > item.getPrice() && currentMarket.buyAsPlayer(item, quantityToPurchase)) {
             if (ship.addItem(item, quantityToPurchase)) {
                 credits -= (item.getPrice()*quantityToPurchase);
                 //count++;
@@ -130,7 +131,7 @@ public class Player {
         boolean sold = false;
         while (count < quantity && ship.removeItem(item, quantity)) {
             credits += (item.getPrice()*quantity);
-            currentPlanet.getMarket().sellAsPlayer(item);
+            currentMarket.sellAsPlayer(item);
             count++;
             sold = true;
         }
@@ -291,46 +292,90 @@ public class Player {
         this.engineer = engineer;
     }
 
+    /**
+     * getter for credits
+     * @return player's credits
+     */
     public int getCredits() {
         return credits;
     }
 
+    /**
+     * setter for credits
+     * @param credits the new value of credits
+     */
     public void setCredits(int credits) {
         this.credits = credits;
     }
 
+    /**
+     * getter for ship
+     * @return player's ship
+     */
     public Ship getShip() {
         return ship;
     }
 
+    /**
+     * setter for ship
+     * @param ship player's new ship
+     */
     public void setShip(Ship ship) {
         this.ship = ship;
     }
 
+    /**
+     * checks player's lawful status
+     * @return boolean checking whether player is lawful or not
+     */
     public boolean isLawfulStatus() {
         return lawfulStatus;
     }
 
+    /**
+     * setter for player's lawful status
+     * @param lawfulStatus boolean stating player's lawful status
+     */
     public void setLawfulStatus(boolean lawfulStatus) {
         this.lawfulStatus = lawfulStatus;
     }
 
+    /**
+     * getter for current solar system
+     * @return current solar system
+     */
     public SolarSystem getCurrentSolarSystem() {
         return currentSolarSystem;
     }
 
+    /**
+     * setter for current solar system
+     * @param currentSolarSystem new current solar system
+     */
     public void setCurrentSolarSystem(SolarSystem currentSolarSystem) {
         this.currentSolarSystem = currentSolarSystem;
     }
 
+    /**
+     * getter for current planet
+     * @return player's current planet
+     */
     public Planet getCurrentPlanet() {
         return currentPlanet;
     }
 
+    /**
+     * setter for current planet
+     * @param currentPlanet new current planet
+     */
     public void setCurrentPlanet(Planet currentPlanet) {
         this.currentPlanet = currentPlanet;
     }
 
+    /**
+     * to string method
+     * @return player as a string
+     */
     public String toString() {
         return "name: " + this.getName() + "\n pilot: " + this.getPilot() + "\n fighter: "
                 + this.getFighter() + "\n trader:" + this.getTrader() + "\n engineer: "
@@ -338,5 +383,9 @@ public class Player {
                 + "\n credits: " + this.getCredits() + "\n ship: " + this.getShip().getName();
     }
 
+    /**
+     * getter for the current planet's market
+     * @return current planet's market
+     */
     public Market getMarket() { return currentPlanet.getMarket(); }
 }

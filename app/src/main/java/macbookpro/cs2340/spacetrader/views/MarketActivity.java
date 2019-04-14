@@ -3,17 +3,17 @@ package macbookpro.cs2340.spacetrader.views;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+//import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
-import android.widget.Button;
+//import android.support.v7.widget.helper.ItemTouchHelper;
+//import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
+//import android.widget.Toast;
 
 import macbookpro.cs2340.spacetrader.R;
-import macbookpro.cs2340.spacetrader.model.Market;
+//import macbookpro.cs2340.spacetrader.model.Market;
 import macbookpro.cs2340.spacetrader.model.MarketInfo;
 import macbookpro.cs2340.spacetrader.viewmodels.MarketViewModel;
 
@@ -23,7 +23,9 @@ public class MarketActivity extends AppCompatActivity {
     private MarketViewModel marketViewModel;
 
     /** widgets*/
-    private TextView playerName, playerCredits, remainingCargo;
+    TextView playerName;
+    TextView playerCredits;
+    TextView remainingCargo;
 
 
     /** make an adapter for the list */

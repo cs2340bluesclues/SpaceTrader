@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+//import android.widget.TextView;
 import android.widget.Toast;
 
 import macbookpro.cs2340.spacetrader.R;
@@ -17,7 +17,9 @@ public class PirateActivity extends AppCompatActivity {
 
     //private TextView introMessage, directions;
 
-    private Button surrenderButton, fightButton, fleeButton;
+    private Button surrenderButton;
+    private Button fightButton;
+    private Button fleeButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

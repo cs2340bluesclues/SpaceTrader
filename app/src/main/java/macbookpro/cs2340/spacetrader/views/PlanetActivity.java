@@ -10,41 +10,47 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
+//import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+//import com.google.firebase.database.DataSnapshot;
+//import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+//import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+//import java.util.ArrayList;
+//import java.util.Arrays;
+//import java.util.HashMap;
+//import java.util.LinkedList;
+//import java.util.List;
+//import java.util.Map;
 
-import macbookpro.cs2340.spacetrader.model.Player;
+//import macbookpro.cs2340.spacetrader.model.Player;
 import macbookpro.cs2340.spacetrader.viewmodels.PlanetViewModel;
 
 public class PlanetActivity extends AppCompatActivity {
     private PlanetViewModel planetViewModel;
 
-    private Button marketButton;
-    private TextView planetLabel;
-    private Button cargoButton;
-    private Button travelButton;
-    private TextView credits, playerName, shipName, fuelPrice, maxShipFuel, fuelQuantity, currFuel;
-    private Button increase, decrease, refuelButton, save;
-    private ImageView fuelbar1, fuelbar2, fuelbar3, fuelbar4, fuelbar5, fuelbar6, fuelbar7;
-    private ImageView[] fuelbarsArray;
+    Button marketButton;
+    TextView planetLabel;
+    Button cargoButton;
+    Button travelButton;
+    TextView credits;
+    TextView playerName;
+    TextView shipName;
+    TextView fuelPrice;
+    TextView maxShipFuel;
+    TextView fuelQuantity;
+    TextView currFuel;
+    Button increase, decrease, refuelButton, save;
+    ImageView fuelbar1, fuelbar2, fuelbar3, fuelbar4, fuelbar5, fuelbar6, fuelbar7;
+    ImageView[] fuelbarsArray;
 
-    final FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference mDatabase = database.getReference("players");
+    private final FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private final DatabaseReference mDatabase = database.getReference("players");
 
 
     @Override

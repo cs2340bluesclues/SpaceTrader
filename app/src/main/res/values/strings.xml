@@ -40,9 +40,11 @@
     <string name="total_price">Total Price:</string>
     <string name="quantity_to_buy">Quantity to buy</string>
     <string name="price">Price</string>
-    <string name="add">+</string>
     <string name="quantity">Quantity</string>
     <string name="market_item">Market Item</string>
+    <string name="current_planet">Current Planet:</string>
+    <string name="credits_label">Credits:</string>
+    <string name="ship_name_label">Ship Name:</string>
 
 
 </resources>

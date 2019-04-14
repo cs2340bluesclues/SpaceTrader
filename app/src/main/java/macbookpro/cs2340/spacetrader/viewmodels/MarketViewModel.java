@@ -16,10 +16,10 @@ import static macbookpro.cs2340.spacetrader.model.ModelFacade.*;
 
 public class MarketViewModel extends AndroidViewModel {
 
-    private Map<MarketInfo, Integer> marketInfoMap;
-    private Planet currPlanet;
-    private Player player;
-    private Market market;
+    private final Map<MarketInfo, Integer> marketInfoMap;
+    private final Planet currPlanet;
+    private final Player player;
+    private final Market market;
 
     public MarketViewModel(@NonNull Application application) {
         super(application);

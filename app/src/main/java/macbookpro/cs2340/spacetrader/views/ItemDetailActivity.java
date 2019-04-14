@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+//import android.widget.TextView;
 
 import macbookpro.cs2340.spacetrader.R;
 import macbookpro.cs2340.spacetrader.model.MarketInfo;

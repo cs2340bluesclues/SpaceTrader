@@ -4,10 +4,10 @@ import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.support.annotation.NonNull;
 
-import com.google.firebase.database.DatabaseReference;
+//import com.google.firebase.database.DatabaseReference;
 
 import macbookpro.cs2340.spacetrader.model.GameDifficulty;
-import macbookpro.cs2340.spacetrader.model.ModelFacade;
+//import macbookpro.cs2340.spacetrader.model.ModelFacade;
 import macbookpro.cs2340.spacetrader.model.Player;
 
 import static macbookpro.cs2340.spacetrader.model.ModelFacade.*;
@@ -84,7 +84,7 @@ public class ConfigurationViewModel extends AndroidViewModel {
 
     //if its true, show toast
     public boolean checkNameLength(String name) {
-        return name.length() == 0;
+        return name.isEmpty();
     }
 
     public String sendData(String name, GameDifficulty diff) {
