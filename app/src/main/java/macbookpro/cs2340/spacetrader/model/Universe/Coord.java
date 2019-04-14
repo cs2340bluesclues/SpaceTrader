@@ -2,8 +2,8 @@ package macbookpro.cs2340.spacetrader.model.Universe;
 
 public class Coord {
 
-    private int x;
-    private int y;
+    private final int x;
+    private final int y;
 
     /**
      * Constructor for Coord object. Sets x and y coordinates

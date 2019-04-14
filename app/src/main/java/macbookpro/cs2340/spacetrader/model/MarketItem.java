@@ -16,7 +16,7 @@ public abstract class MarketItem implements Comparable<MarketItem> {
 
     protected boolean isLegal;
 
-    private String name;
+    private final String name;
 
 
     public MarketItem(String name, int mtlp, int mtlu, int ttp, int basePrice, int ipl, int var,

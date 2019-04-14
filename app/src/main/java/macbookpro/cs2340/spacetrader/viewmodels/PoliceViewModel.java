@@ -11,8 +11,8 @@ import static macbookpro.cs2340.spacetrader.model.ModelFacade.getNewPlayer;
 
 public class PoliceViewModel extends AndroidViewModel {
 
-    private Player player;
-    private Ship ship;
+    private final Player player;
+    private final Ship ship;
 
     public PoliceViewModel(@NonNull Application application) {
         super(application);

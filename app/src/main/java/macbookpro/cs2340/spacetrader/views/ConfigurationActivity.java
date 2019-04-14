@@ -90,7 +90,7 @@ public class ConfigurationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (totalVM.checkCountGreater16()) {
                     totalVM.setPilotCount(totalVM.getPilotCount() + 1);
-                    pilotSkill.setText("" + totalVM.getPilotCount());
+                    pilotSkill.setText(totalVM.getPilotCount());
                 }
             }
         });
@@ -100,7 +100,7 @@ public class ConfigurationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (totalVM.getPilotCount() > 0) {
                     totalVM.setPilotCount(totalVM.getPilotCount() - 1);
-                    pilotSkill.setText("" + totalVM.getPilotCount());
+                    pilotSkill.setText(totalVM.getPilotCount());
                 }
             }
         });
@@ -110,7 +110,7 @@ public class ConfigurationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (totalVM.checkCountGreater16()) {
                     totalVM.setFighterCount(totalVM.getFighterCount() + 1);
-                    fighterSkill.setText("" + totalVM.getFighterCount());
+                    fighterSkill.setText(totalVM.getFighterCount());
                 }
             }
         });
@@ -120,7 +120,7 @@ public class ConfigurationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (totalVM.getFighterCount() > 0) {
                     totalVM.setFighterCount(totalVM.getFighterCount() - 1);
-                    fighterSkill.setText("" + totalVM.getFighterCount());
+                    fighterSkill.setText(totalVM.getFighterCount());
                 }
             }
         });
@@ -130,7 +130,7 @@ public class ConfigurationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (totalVM.checkCountGreater16()) {
                     totalVM.setTraderCount(totalVM.getTraderCount() + 1);
-                    traderSkill.setText("" + totalVM.getTraderCount());
+                    traderSkill.setText(totalVM.getTraderCount());
                 }
             }
         });
@@ -140,7 +140,7 @@ public class ConfigurationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (totalVM.getTraderCount() > 0) {
                     totalVM.setTraderCount(totalVM.getTraderCount() - 1);
-                    traderSkill.setText("" + totalVM.getTraderCount());
+                    traderSkill.setText(totalVM.getTraderCount());
                 }
             }
         });
@@ -150,7 +150,7 @@ public class ConfigurationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (totalVM.checkCountGreater16()) {
                     totalVM.setEngineerCount(totalVM.getEngineerCount() + 1);
-                    engineerSkill.setText("" + totalVM.getEngineerCount());
+                    engineerSkill.setText(totalVM.getEngineerCount());
                 }
             }
         });
@@ -160,7 +160,7 @@ public class ConfigurationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (totalVM.getEngineerCount() > 0) {
                     totalVM.setEngineerCount(totalVM.getEngineerCount() - 1);
-                    engineerSkill.setText("" + totalVM.getEngineerCount());
+                    engineerSkill.setText(totalVM.getEngineerCount());
                 }
             }
         });

@@ -18,7 +18,7 @@ public class TabViewActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tab_view_activity);
 
-        TabHost host = (TabHost)findViewById(R.id.tabHost);
+        TabHost host = findViewById(R.id.tabHost);
         host.setup();
 
         //Tab 1

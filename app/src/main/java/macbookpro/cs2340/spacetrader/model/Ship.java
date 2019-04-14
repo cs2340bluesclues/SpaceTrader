@@ -9,7 +9,7 @@ import macbookpro.cs2340.spacetrader.model.Universe.Coord;
 
 public class Ship {
 
-    private String name;
+    private final String name;
     private int fuelLevel;
     private Map<MarketInfo, Integer> cargo;
 

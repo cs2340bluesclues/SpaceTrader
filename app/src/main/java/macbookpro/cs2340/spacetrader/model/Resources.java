@@ -15,7 +15,7 @@ public enum Resources {
     ARTISTIC("Artistic"),
     WARLIKE("Warlike");
 
-    private String resourceLevel;
+    private final String resourceLevel;
 
     Resources(String resourceLevel) {
         this.resourceLevel = resourceLevel;

@@ -11,8 +11,8 @@ import macbookpro.cs2340.spacetrader.model.Ship;
 import static macbookpro.cs2340.spacetrader.model.ModelFacade.getNewPlayer;
 
 public class PirateViewModel extends AndroidViewModel {
-    private Player player;
-    private Ship ship;
+    private final Player player;
+    private final Ship ship;
 
     public PirateViewModel(@NonNull Application application) {
         super(application);

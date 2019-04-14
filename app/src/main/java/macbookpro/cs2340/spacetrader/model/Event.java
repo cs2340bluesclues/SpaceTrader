@@ -8,5 +8,5 @@ public enum Event {
     WAR,
     BOREDOM,
     PLAGUE,
-    LACK_OF_WORKERS;
+    LACK_OF_WORKERS
 }
