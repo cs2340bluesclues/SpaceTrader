@@ -103,7 +103,7 @@ public class TravelPlanetActivity extends AppCompatActivity {
 
             if (s.equals(travelPlanetViewModel.getCurrSolarSystem())) {
                 rb.setChecked(true);
-                String s1 = "System Coordinates: " + selectedSolarSystem.getCoords().toString()
+                String s1 = "System Coordinates: " + selectedSolarSystem.getCoords().toString();
                 coords.setText(s1);
                 String s2 = "Travel to a planet within the " + selectedSolarSystem.getName() + " Solar System";
                 planetMap.setText(s2);
@@ -160,7 +160,7 @@ public class TravelPlanetActivity extends AppCompatActivity {
                             + "\nTech Level: " + selectedPlanet.getTechLevel()
                             + "\nCurrent Event: " + selectedPlanet.getEvent()
                             + "\nFuel Cost: " + selectedPlanet.getFuelCost() + " credits/gallon"
-                            + "\nResources: " + selectedPlanet.getResources()
+                            + "\nResources: " + selectedPlanet.getResources();
                     planetDetails.setText(s6);
             });
         }

@@ -59,7 +59,7 @@ public class PlanetActivity extends AppCompatActivity {
         travelButton = findViewById(R.id.travel_button);
 
         planetLabel = findViewById(R.id.planet_label);
-        String s = "Current Planet: " + planetViewModel.getCurrPlanet()
+        String s = "Current Planet: " + planetViewModel.getCurrPlanet();
         planetLabel.setText(s);
 
         playerName = findViewById(R.id.player_name_label);
@@ -72,7 +72,7 @@ public class PlanetActivity extends AppCompatActivity {
         fuelPrice.setText(String.valueOf(planetViewModel.getFuelPrice()));
 
         currFuel = findViewById(R.id.current_fuel);
-        String s1 = String.valueOf(planetViewModel.getCurrFuel()) + " gallon(s)"
+        String s1 = String.valueOf(planetViewModel.getCurrFuel()) + " gallon(s)";
         currFuel.setText(s1);
         fuelbar1 = findViewById(R.id.fuelbar1);
         fuelbar2 = findViewById(R.id.fuelbar2);
