@@ -47,7 +47,7 @@ public class Player {
         currentPlanet = solarSystem.findBeginnerPlanet();
         rand = new Random();
 
-        //saveToDatabase();
+        saveToDatabase();
     }
 
     public void saveToDatabase(){
