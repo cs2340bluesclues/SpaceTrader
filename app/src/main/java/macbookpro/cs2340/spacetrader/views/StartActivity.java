@@ -24,9 +24,9 @@ import macbookpro.cs2340.spacetrader.R;
 @SuppressLint("Registered")
 public class StartActivity extends AppCompatActivity {
 
-    Button newGame;
-    Button loadGame;
-    EditText nameInput;
+    private Button newGame;
+    private Button loadGame;
+    private EditText nameInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

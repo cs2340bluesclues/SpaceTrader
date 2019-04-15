@@ -71,8 +71,7 @@ public class TravelPlanetActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),
                             "You do not have enough fuel to travel here",
                             Toast.LENGTH_LONG).show();
-                } else if (true) {
-                        //travelPlanetViewModel.policeEvent()) {
+                } else if (travelPlanetViewModel.policeEvent()) {
                     travelPlanetViewModel.travel(travelToThisSolarSystem, travelToThisPlanet);
                     goToPoliceActivity();
                 } else if (travelPlanetViewModel.pirateEvent()) {

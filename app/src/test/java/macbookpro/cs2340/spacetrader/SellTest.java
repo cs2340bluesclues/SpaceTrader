@@ -46,13 +46,11 @@ public class SellTest {
         Games games = new Games();
         gamesInfo = new MarketInfo(games, Event.COLD, TechLevel.AGRICULTURE, Resources.ARTISTIC);
 //        currMarket.buyAsPlayer(waterInfo, 5);
-        System.out.println("space1 " + ship.getRemainingCargo());
+//        System.out.println("space1 " + ship.getRemainingCargo());
         ship.addItem(waterInfo, 5);
-        System.out.println("space2 " + ship.getRemainingCargo());
-        System.out.println("cargo" + ship.getCargo());
-        //currMarket = new Market(TechLevel.HI_TECH, Resources.NO_SPECIAL_RESOURCES, Event.NONE);
-//        Water water = new Water();
-//        waterInfo = new MarketInfo(water, Event.COLD, TechLevel.AGRICULTURE, Resources.ARTISTIC);
+//        System.out.println("space2 " + ship.getRemainingCargo());
+//        System.out.println("cargo" + ship.getCargo());
+
         notAvailable = null;
     }
 
@@ -64,7 +62,7 @@ public class SellTest {
         //checks if it buys when doesn't exist in cargo
         assertFalse(player.sell(gamesInfo, 3));
         //checks if cargo is still the same
-        System.out.println("space after can't sell " + ship.getRemainingCargo());
+//        System.out.println("space after can't sell " + ship.getRemainingCargo());
         assertEquals(remainingCargo, ship.getRemainingCargo());
         assertEquals(credits, player.getCredits());
     }
@@ -75,16 +73,16 @@ public class SellTest {
         int credits = player.getCredits();
         int price = waterInfo.getPrice();
         int remainingCargo = ship.getRemainingCargo();
+//        System.out.println(remainingCargo);
         //checks if player can sell item in cargo and sells an item
         player.sell(waterInfo, 1);
-        System.out.println("space after sell 1 " + ship.getRemainingCargo());
         assertEquals(12, ship.getRemainingCargo());
         //checks if credits match after selling
-        assertEquals(credits, player.getCredits());
+        assertEquals(credits + price, player.getCredits());
     }
     @Test(timeout = TIMEOUT)
     public void sellUntilGone() {
-        player.sell(waterInfo, 4);
+        player.sell(waterInfo, 5);
         assertEquals(15, ship.getRemainingCargo());
     }
 }
