@@ -126,7 +126,7 @@ public class PoliceEscapeEngine extends SurfaceView implements Runnable {
         for (int i = 0; i < bobXs.length; i++) {
             xpos = random.nextInt(NUM_BLOCKS_WIDE - 10) + 1;
             ypos = random.nextInt(numBlocksHigh - 1) + 1;
-            if (xpos != snakeX && ypos != snakeY) {
+            if ((xpos != snakeX) && (ypos != snakeY)) {
                 bobXs[i] = xpos;
                 bobYs[i] = ypos;
             }
@@ -135,7 +135,7 @@ public class PoliceEscapeEngine extends SurfaceView implements Runnable {
 
     private boolean crash(){
         for (int i = 0; i < bobXs.length; i++) {
-            if (snakeX == bobXs[i] && snakeY == bobYs[i]) {
+            if ((snakeX == bobXs[i]) && (snakeY == bobYs[i])) {
                 return true;
             }
         }
@@ -145,9 +145,9 @@ public class PoliceEscapeEngine extends SurfaceView implements Runnable {
     private boolean detectDeath(){
         boolean dead = false;
 
-        if (snakeX == -1) dead = true;
-        if (snakeX >= NUM_BLOCKS_WIDE) dead = true;
-        if (snakeY == numBlocksHigh) dead = true;
+        if (snakeX == -1) { dead = true; }
+        if (snakeX >= NUM_BLOCKS_WIDE) { dead = true; }
+        if (snakeY == numBlocksHigh) { dead = true; }
 
         return dead;
     }
@@ -248,7 +248,7 @@ public class PoliceEscapeEngine extends SurfaceView implements Runnable {
             // Tenth of a second has passed
 
             // Setup when the next update will be triggered
-            nextFrameTime =System.currentTimeMillis() + MILLIS_PER_SECOND / FPS;
+            nextFrameTime = System.currentTimeMillis() + (MILLIS_PER_SECOND / FPS);
 
             // Return true so that the update and draw
             // functions are executed
@@ -262,15 +262,15 @@ public class PoliceEscapeEngine extends SurfaceView implements Runnable {
 
         switch (motionEvent.getAction() & MotionEvent.ACTION_MASK) {
             case MotionEvent.ACTION_UP:
-                if (motionEvent.getX() >= screenX / 2
-                        && (motionEvent.getY() > screenY / 4
-                        && motionEvent.getY() < screenY * 3 / 4)) {
+                if ((motionEvent.getX() >= (screenX / 2))
+                        && ((motionEvent.getY() > (screenY / 4))
+                        && (motionEvent.getY() < ((screenY * 3) / 4)))) {
                     heading = Heading.RIGHT;
-                } else if (motionEvent.getX() < screenX / 2
-                        && (motionEvent.getY() > screenY / 4
-                        && motionEvent.getY() < screenY * 3 / 4)) {
+                } else if ((motionEvent.getX() < (screenX / 2))
+                        && ((motionEvent.getY() > (screenY / 4))
+                        && (motionEvent.getY() < ((screenY * 3) / 4)))) {
                     heading = Heading.LEFT;
-                } else if (motionEvent.getY() <= screenY / 4) {
+                } else if (motionEvent.getY() <= (screenY / 4)) {
                     heading = Heading.UP;
                 } else {
                     heading = Heading.DOWN;

@@ -74,7 +74,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     @Override
     public int getItemCount() {
-        if (mapData == null) return 0;
+        if (mapData == null) { return 0;}
         return mapData.size();
     }
 
@@ -124,7 +124,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                 public void onClick(View view) {
                     int position = getAdapterPosition();
 
-                    if (listener != null && position != RecyclerView.NO_POSITION) {
+                    if ((listener != null) && (position != RecyclerView.NO_POSITION)) {
                         listener.onMarketInfoClicked(mapKeys[position]);
                     }
                 }
@@ -135,9 +135,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                 public void onClick(View v) {
                     int position = getAdapterPosition();
                     if (quantityToTrade < mapValues[position]) {
-                       if (buying && player.getCredits() >=
-                               (quantityToTrade + 1) * mapKeys[position].getPrice()
-                               && ship.getRemainingCargo() > quantityToTrade) {
+                       if (buying && (player.getCredits() >=
+                               ((quantityToTrade + 1) * mapKeys[position].getPrice()))
+                               && (ship.getRemainingCargo() > quantityToTrade)) {
                            Log.i("wedunnit!", "remaining cargo: " + ship.getRemainingCargo()+ " ");
                             quantityToTrade++;
                             totalTradePrice = quantityToTrade * mapKeys[position].getPrice();
@@ -172,7 +172,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                 public void onClick(View v) {
                     int position = getAdapterPosition();
 
-                    if (buying && ship.getRemainingCargo() >= quantityToTrade) {
+                    if (buying && (ship.getRemainingCargo() >= quantityToTrade)) {
                         transaction(player, market, position, quantityToTrade);
                         quantity.setText(mapData.get(mapKeys[position]));
 

@@ -161,7 +161,7 @@ public class Ship {
      */
     public boolean removeItem(MarketInfo item, Integer quantityRemoved) {
         //if item is in your cargo and you are removing an acceptable amount
-        if (cargo.containsKey(item) && quantityRemoved <= cargo.get(item)) {
+        if (cargo.containsKey(item) && (quantityRemoved <= cargo.get(item))) {
             //get original amount of that item
             int originalQuantity = cargo.get(item);
             //put the original amount minus the removed amount

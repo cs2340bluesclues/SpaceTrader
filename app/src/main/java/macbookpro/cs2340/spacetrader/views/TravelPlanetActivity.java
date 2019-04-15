@@ -173,7 +173,7 @@ public class TravelPlanetActivity extends AppCompatActivity {
                         + "\nFuel Cost: " + selectedPlanet.getFuelCost() + " credits/gallon"
                         + "\nResources: " + selectedPlanet.getResources();
 
-                planetDetails.setText(s5);                        ;
+                planetDetails.setText(s5);
             }
 
             rb.setOnClickListener( v-> {

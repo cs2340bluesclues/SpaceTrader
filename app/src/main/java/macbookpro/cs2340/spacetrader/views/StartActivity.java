@@ -22,7 +22,8 @@ import macbookpro.cs2340.spacetrader.R;
  */
 public class StartActivity extends AppCompatActivity {
 
-    Button newGame, loadGame;
+    Button newGame;
+    Button loadGame;
     EditText nameInput;
 
     @Override

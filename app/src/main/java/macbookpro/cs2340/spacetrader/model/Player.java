@@ -142,7 +142,7 @@ public class Player {
         //int count = 0;
         boolean bought = false;
 
-        if (credits > item.getPrice() && currentMarket.buyAsPlayer(item, quantityToPurchase)) {
+        if ((credits > item.getPrice()) && currentMarket.buyAsPlayer(item, quantityToPurchase)) {
             if (ship.addItem(item, quantityToPurchase)) {
                 credits -= (item.getPrice()*quantityToPurchase);
                 //count++;
@@ -161,7 +161,7 @@ public class Player {
     public boolean sell(MarketInfo item, int quantity) {
         int count = 0;
         boolean sold = false;
-        while (count < quantity && ship.removeItem(item, quantity)) {
+        while ((count < quantity) && ship.removeItem(item, quantity)) {
             credits += (item.getPrice()*quantity);
             currentMarket.sellAsPlayer(item);
             count++;
@@ -187,7 +187,7 @@ public class Player {
      * @return true or false if event should occur
      */
     public boolean pirateEvent() {
-        double chance = (credits / 5000.00) * 10 - 1;
+        double chance = ((credits / 5000.00) * 10) - 1;
         int threshold = rand.nextInt(100);
         return threshold < chance;
 //        return true;
@@ -220,7 +220,7 @@ public class Player {
      * Subtracts 5000 credit fine for carrying illegal goods from credits
      */
     public void payFine() {
-        if (credits - 5000 > 0) {
+        if ((credits - 5000) > 0) {
             credits -= 5000;
         } else {
             credits = 0;
@@ -231,7 +231,7 @@ public class Player {
      * Pays the police a bribe to not be searched
      */
     public void payBribe() {
-        int bribe = credits * 15 / 100;
+        int bribe = (credits * 15) / 100;
         credits = credits - bribe;
     }
 

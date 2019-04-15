@@ -48,8 +48,17 @@ public class PlanetActivity extends AppCompatActivity {
     TextView maxShipFuel;
     TextView fuelQuantity;
     TextView currFuel;
-    Button increase, decrease, refuelButton, save;
-    ImageView fuelbar1, fuelbar2, fuelbar3, fuelbar4, fuelbar5, fuelbar6, fuelbar7;
+    Button increase;
+    Button decrease;
+    Button refuelButton;
+    Button save;
+    ImageView fuelbar1;
+    ImageView fuelbar2;
+    ImageView fuelbar3;
+    ImageView fuelbar4;
+    ImageView fuelbar5;
+    ImageView fuelbar6;
+    ImageView fuelbar7;
     ImageView[] fuelbarsArray;
 
     private final FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -110,7 +119,7 @@ public class PlanetActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int temp = Integer.parseInt(fuelQuantity.getText().toString());
-                if (temp + 1 + planetViewModel.getCurrFuel() <= planetViewModel.getMaxFuel()) {
+                if ((temp + 1 + planetViewModel.getCurrFuel()) <= planetViewModel.getMaxFuel()) {
                     fuelQuantity.setText(String.valueOf(++temp));
                     fuelPrice.setText(String.valueOf(temp *
                             planetViewModel.getPlayer().getCurrentPlanet().getFuelCost()));
@@ -122,7 +131,7 @@ public class PlanetActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int temp = Integer.parseInt(fuelQuantity.getText().toString());
-                if (temp - 1 > 0) {
+                if ((temp - 1) > 0) {
                     fuelQuantity.setText(String.valueOf(--temp));
                     fuelPrice.setText(String.valueOf(temp *
                             planetViewModel.getPlayer().getCurrentPlanet().getFuelCost()));
@@ -210,7 +219,7 @@ public class PlanetActivity extends AppCompatActivity {
 
         int fuelbarnumber = 0;
         for (int i = currentFuel; i > -2; i-=2) {
-            if (i - 2 > -2) {
+            if ((i - 2) > -2) {
                 fuelbarsArray[fuelbarnumber].setVisibility(View.VISIBLE);
                 fuelbarnumber++;
             }
