@@ -185,11 +185,21 @@
             xmlns:android="http://schemas.android.com/apk/res/android">
 
             <Button
-                android:id="@+id/submit_player_info_button"
+                android:id="@+id/save_button"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_above="@+id/load_button"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="145dp"
+                android:layout_marginBottom="25dp"
+                android:text="@string/save" />
+            <Button
+                android:id="@+id/load_button"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_centerInParent="true"
-                android:text="@string/submit"/>
+                android:text="@string/load"/>
+
         </RelativeLayout>
     </LinearLayout>
 

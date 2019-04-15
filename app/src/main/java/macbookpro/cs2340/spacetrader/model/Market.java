@@ -2,6 +2,12 @@ package macbookpro.cs2340.spacetrader.model;
 
 import android.util.Log;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.Serializable;
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -107,4 +113,12 @@ public class Market {
         return map;
     }
 
+    @Override
+    public String toString() {
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.enableComplexMapKeySerialization().setPrettyPrinting().create();
+        Type type = new TypeToken<HashMap<MarketInfo, Integer>>(){}.getType();
+        String json = gson.toJson(map, type);
+        return json;
+    }
 }

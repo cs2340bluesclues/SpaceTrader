@@ -1,7 +1,5 @@
 package macbookpro.cs2340.spacetrader.model;
 
-//import com.google.firebase.database.DataSnapshot;
-//import com.google.firebase.database.DatabaseError;
 import android.util.Log;
 
 import com.google.firebase.database.DatabaseReference;
@@ -39,14 +37,6 @@ public class ModelFacade {
         newPlayer = newGame.getPlayer();
     }
 
-//    public static String createPlayer(String name,
-//                                      int pilot, int fighter, int trader, int engineer) {
-//        SolarSystem beginnerSolarSystem = newGame.getUniverse().retrieveBeginnerSolarSystem();
-//        newPlayer = new Player(name, pilot, fighter, trader, engineer, beginnerSolarSystem);
-////        saveToDatabase();
-//        return newPlayer.toString();
-//    }
-
     public static Game getNewGame() {
         return newGame;
     }
@@ -71,15 +61,22 @@ public class ModelFacade {
         } catch (IOException e) {
             Log.e("ModelFacade", "Failed to open/read the buffered reader for json");
             return false;
+        } catch (IllegalStateException e) {
+            Log.e("ModelFacade", "JSON starts with string and not curly brace");
+            return false;
         }
 
         return true;
 
     }
 
-    public boolean saveJson(File file ) {
+    public boolean saveJson(File file) {
         try {
+
+            Log.d("Infinite recursion??", "was method properly called?");
             PrintWriter writer = new PrintWriter(file);
+            Log.d("Infinite recursion??", "was file writer  properly called?");
+
             /*
                 We are using the Google Gson library to make things easy.  You will need to add the
                 following line to your gradle file so the proper dependencies are set up:
@@ -99,30 +96,11 @@ public class ModelFacade {
         } catch (FileNotFoundException e) {
             Log.e("UserManagementFacade", "Failed to open json file for output");
             return false;
+        } catch (StackOverflowError e) {
+            Log.e("ModelFacade", "Is there infinite recursion?");
+            return false;
         }
         return true;
-    }
-    public static void saveToDatabase(){
-//        // Get a reference to our posts
-//        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-//        DatabaseReference ref = database.getReference();
-//
-//        // Attach a listener to read the data at our posts reference
-//        ref.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                String post = dataSnapshot.getValue(String.class);
-//                System.out.println(post);
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//                System.out.println("The read failed: " + databaseError.getCode());
-//            }
-//        });
-
-//        String playerID = mDatabase.push().getKey();
-//        mDatabase.child(playerID).setValue(newPlayer);
     }
 
 

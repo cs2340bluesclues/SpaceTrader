@@ -6,7 +6,8 @@
     <string name="difficulty_label">Set Difficulty</string>
     <string name="plus">+</string>
     <string name="minus">-</string>
-    <string name="submit">Submit</string>
+    <string name="save">Save</string>
+    <string name="load">Load</string>
 
     <!--for planet activity xml-->
     <string name="fueltanklabel">\nShip Fuel Tank</string>

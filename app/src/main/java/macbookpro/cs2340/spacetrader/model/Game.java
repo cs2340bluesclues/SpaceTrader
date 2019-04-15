@@ -1,12 +1,28 @@
 package macbookpro.cs2340.spacetrader.model;
 
+import android.util.Log;
+
+import java.io.Serializable;
+
 import macbookpro.cs2340.spacetrader.model.Universe.SolarSystem;
 import macbookpro.cs2340.spacetrader.model.Universe.Universe;
 
-public class Game {
+public class Game implements Serializable {
 
+    /**
+     * the difficulty level to create the game
+     * @serial
+     */
     private GameDifficulty diff;
+    /**
+     * the universe in which the player can travel
+     * @serial
+     */
     private final Universe universe;
+    /**
+     * the player
+     * @serial
+     */
     private Player player;
     private int travelCount = 10;
 
@@ -19,16 +35,17 @@ public class Game {
                 int pilot, int fighter, int trader, int engineer) {
         universe = new Universe(10,10);
         this.diff = diff;
-        createPlayer(name, pilot, fighter, trader, engineer);
+        SolarSystem beg = universe.retrieveBeginnerSolarSystem();
+        player = new Player(name, pilot, fighter, trader, engineer, beg);
     }
 
-    public String createPlayer(String name,
-                                      int pilot, int fighter, int trader, int engineer) {
-        SolarSystem beginnerSolarSystem = this.getUniverse().retrieveBeginnerSolarSystem();
-        player = new Player(name, pilot, fighter, trader, engineer, beginnerSolarSystem);
-//        saveToDatabase();
-        return player.toString();
-    }
+//    public String createPlayer(String name,
+//                                      int pilot, int fighter, int trader, int engineer) {
+//        SolarSystem beginnerSolarSystem = this.getUniverse().retrieveBeginnerSolarSystem();
+//        player = new Player(name, pilot, fighter, trader, engineer, beginnerSolarSystem);
+////        saveToDatabase();
+//        return player.toString();
+//    }
 
     /**
      * method to say that travel happens in the game and for the player

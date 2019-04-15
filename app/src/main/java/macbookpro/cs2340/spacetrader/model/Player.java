@@ -1,21 +1,13 @@
 package macbookpro.cs2340.spacetrader.model;
 
-//import com.google.firebase.database.DataSnapshot;
-//import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-//import com.google.firebase.database.ValueEventListener;
-
 import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 import macbookpro.cs2340.spacetrader.model.Universe.SolarSystem;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;
 import java.util.Random;
 
+public class Player implements Serializable {
 
-
-public class Player {
     private final String name;
     private int pilot;
     private int fighter;
@@ -29,10 +21,6 @@ public class Player {
     private Planet currentPlanet;
     private Market currentMarket;
     private final Random rand;
-
-    private final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("players");
-
-
 
     public Player(String name, int pilot, int fighter, int trader, int engineer,
                   SolarSystem solarSystem) {
@@ -51,42 +39,6 @@ public class Player {
         rand = new Random();
 
         //saveToDatabase();
-    }
-
-    private void saveToDatabase(){
-//        // Get a reference to our posts
-//        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-//        DatabaseReference ref = database.getReference();
-//
-//        // Attach a listener to read the data at our posts reference
-//        ref.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                String post = dataSnapshot.getValue(String.class);
-//                System.out.println(post);
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//                System.out.println("The read failed: " + databaseError.getCode());
-//            }
-//        });
-        List<Object> list = new ArrayList<>();
-        list.add(name);
-
-        list.add(pilot);
-        list.add(fighter);
-        list.add(trader);
-        list.add(engineer);
-        list.add(lawfulStatus);list.add(credits);
-        list.add(ship);
-        list.add(currentSolarSystem);
-        list.add(currentPlanet);
-        list.add(rand);
-
-
-        String playerID = mDatabase.push().getKey();
-        mDatabase.child(playerID).setValue(list);
     }
 
     public void refuelShip(int quantityToRefuel) {

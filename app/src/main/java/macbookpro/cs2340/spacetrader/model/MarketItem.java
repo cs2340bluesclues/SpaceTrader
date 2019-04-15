@@ -1,6 +1,10 @@
 package macbookpro.cs2340.spacetrader.model;
 
-public abstract class MarketItem implements Comparable<MarketItem> {
+import org.json.JSONObject;
+
+import java.io.Serializable;
+
+public abstract class MarketItem implements Comparable<MarketItem>, Serializable {
 
     private final int mtlp;
     private final int mtlu;
@@ -144,5 +148,26 @@ public abstract class MarketItem implements Comparable<MarketItem> {
      */
     public Resources getEr() {
         return er;
+    }
+
+//    public JSONObject getJsonObject() {
+//
+//        JSONObject jo = new JSONObject();
+//        jo.put("mtlp", mtlp);
+//        jo.put("mtlu", mtlu);
+//        jo.put("ttp", ttp);
+//        jo.put("basePrice", basePrice);
+//    }
+
+    @Override
+    public String toString() {
+        return "{\"mtlp\":\"" + mtlp + "\"," + "\"mtlu\":\"" + mtlu + "\"," + "\"ttp\":\"" + ttp
+                + "\"," + "\"basePrice\":\"" + basePrice + "\"," + "\"ipl\":\"" + ipl + "\","
+                + "\"var\":\"" + var + "\"," + "\"ie\":\"" + ie + "\"," + "\"cr\":\"" + cr + "\","
+                + "\"er\":\"" + er + "\"," + "\"isLegal\":\"" + isLegal + "\"," + "\"name\":"
+                + name + "\"}";
+//
+//                + mtlu + " " + ttp + " " + basePrice + " " + ipl + " " + var + " "
+//                + ie + " " + cr + " " + er + " " + isLegal + " " + name;
     }
 }

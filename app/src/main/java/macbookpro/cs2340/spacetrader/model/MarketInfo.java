@@ -1,8 +1,16 @@
 package macbookpro.cs2340.spacetrader.model;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
+import org.json.JSONObject;
+
+import java.io.Serializable;
+import java.util.HashMap;
 import java.util.Random;
 
-public class MarketInfo implements Comparable<MarketInfo> {
+public class MarketInfo implements Comparable<MarketInfo>, Serializable {
 
     private final MarketItem item;
     private final int price;
@@ -99,6 +107,22 @@ public class MarketInfo implements Comparable<MarketInfo> {
      */
     public int getPrice() {
         return price;
+    }
+
+//    public JSONObject getJsonObject() {
+//        JSONObject jo = new JSONObject();
+//        jo.put("item", item.getJsonObject());
+//        jo.put("price", price);
+//        jo.put("buyable", buyable);
+//        jo.put("sellable", sellable);
+//        return jo;
+//    }
+
+    @Override
+    public String toString() {
+        return "";
+//                "\"item\":\"" + item + "\"," + "\"price\":\"" + price + "\"," + "\"buyable\":\""
+//                + buyable + "\"," + "\"sellable\":\"" + sellable + "\"";
     }
 
 }

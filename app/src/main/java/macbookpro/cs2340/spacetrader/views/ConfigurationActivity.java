@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 //import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -13,9 +14,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
-//import com.google.firebase.database.DatabaseReference;
-//import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.File;
 
@@ -38,13 +36,6 @@ public class ConfigurationActivity extends AppCompatActivity {
     private EditText inputName;
     private Spinner difficultySpinner;
 
-    // firebase ??
-//    private FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
-//    private DatabaseReference playerID = mDatabase.getReference("players");
-//    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("players");
-
-
-
     private Button addPilot;
     private Button subtractPilot;
     private Button addFighter;
@@ -54,6 +45,7 @@ public class ConfigurationActivity extends AppCompatActivity {
     private Button addEngineer;
     private Button subtractEngineer;
     private Button submit;
+    private Button load;
     private TextView pilotSkill;
     private TextView fighterSkill;
     private TextView traderSkill;
@@ -90,7 +82,8 @@ public class ConfigurationActivity extends AppCompatActivity {
         subtractEngineer = findViewById(R.id.subtract_engineer_skill_button);
         engineerSkill = findViewById(R.id.engineer_skill_tracker);
 
-        submit = findViewById(R.id.submit_player_info_button);
+        submit = findViewById(R.id.save_button);
+        load = findViewById(R.id.load_button);
 
         //makes difficulties visible in the spinner
         ArrayAdapter adapter = new ArrayAdapter<>(this,
@@ -101,89 +94,63 @@ public class ConfigurationActivity extends AppCompatActivity {
         //updates the textview of each skill
         totalVM = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
 
-        addPilot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        addPilot.setOnClickListener( v -> {
                 if (totalVM.checkCountGreater16()) {
                     totalVM.setPilotCount(totalVM.getPilotCount() + 1);
                     pilotSkill.setText(Integer.toString(totalVM.getPilotCount()));
                 }
-            }
         });
 
-        subtractPilot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        subtractPilot.setOnClickListener( v -> {
                 if (totalVM.getPilotCount() > 0) {
                     totalVM.setPilotCount(totalVM.getPilotCount() - 1);
                     pilotSkill.setText(Integer.toString(totalVM.getPilotCount()));
                 }
-            }
         });
 
-        addFighter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        addFighter.setOnClickListener( v -> {
                 if (totalVM.checkCountGreater16()) {
                     totalVM.setFighterCount(totalVM.getFighterCount() + 1);
                     fighterSkill.setText(Integer.toString(totalVM.getFighterCount()));
                 }
-            }
         });
 
-        subtractFighter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        subtractFighter.setOnClickListener(v -> {
                 if (totalVM.getFighterCount() > 0) {
                     totalVM.setFighterCount(totalVM.getFighterCount() - 1);
                     fighterSkill.setText(Integer.toString(totalVM.getFighterCount()));
                 }
-            }
         });
 
-        addTrader.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        addTrader.setOnClickListener( v -> {
                 if (totalVM.checkCountGreater16()) {
                     totalVM.setTraderCount(totalVM.getTraderCount() + 1);
                     traderSkill.setText(Integer.toString(totalVM.getTraderCount()));
                 }
-            }
         });
 
-        subtractTrader.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        subtractTrader.setOnClickListener( v -> {
                 if (totalVM.getTraderCount() > 0) {
                     totalVM.setTraderCount(totalVM.getTraderCount() - 1);
                     traderSkill.setText(Integer.toString(totalVM.getTraderCount()));
                 }
-            }
         });
 
-        addEngineer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        addEngineer.setOnClickListener( v -> {
                 if (totalVM.checkCountGreater16()) {
                     totalVM.setEngineerCount(totalVM.getEngineerCount() + 1);
                     engineerSkill.setText(Integer.toString(totalVM.getEngineerCount()));
                 }
-            }
         });
 
-        subtractEngineer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        subtractEngineer.setOnClickListener( v -> {
                 if (totalVM.getEngineerCount() > 0) {
                     totalVM.setEngineerCount(totalVM.getEngineerCount() - 1);
                     engineerSkill.setText(Integer.toString(totalVM.getEngineerCount()));
                 }
-            }
         });
 
-    submit.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
+        submit.setOnClickListener( v -> {
                 String name = inputName.getText().toString();
                 GameDifficulty level = (GameDifficulty) difficultySpinner.getSelectedItem();
                 if (totalVM.checkCount16() && totalVM.checkNameLength(name)) {
@@ -199,24 +166,19 @@ public class ConfigurationActivity extends AppCompatActivity {
                             "Name field cannot be blank",
                             Toast.LENGTH_LONG).show();
                 } else {
-//                    String player = totalVM.sendData(name, level);
-//                    playerID.setValue(player);
-
-//                    String playerID = mDatabase.push().getKey();
-
-
-//                    mDatabase.child(playerID).setValue(player);
-
-//                    Intent messageIntent = new Intent(ConfigurationActivity.this,
-//                                                  MarketActivity.class);
-//                    messageIntent.putExtra("PRINT_PLAYER_MESSAGE", s);
-//                    startActivity(messageIntent);
                     totalVM.sendData(name, level);
-                    File file = new File(C:\Users\atlgwc24\cs2340\SpaceTrader\app\src\main\java\macbookpro\cs2340\spacetrader\views, mf.DEFAULT_JSON_FILE_NAME);
+                    Log.d("Infinite recursion??", "was game created?");
+                    File file = new File(getApplicationContext().getFilesDir(), mf.DEFAULT_JSON_FILE_NAME);
+                    Log.d("Infinite recursion??", "was file found and made?");
                     mf.saveJson(file);
                     launchGame();
                 }
-            }
+        });
+
+        load.setOnClickListener( v -> {
+            File file = new File(this.getFilesDir(), mf.DEFAULT_JSON_FILE_NAME);
+            mf.loadJson(file);
+            launchGame();
         });
     }
 
