@@ -10,6 +10,7 @@ import java.util.Map;
 import macbookpro.cs2340.spacetrader.model.MarketInfo;
 import macbookpro.cs2340.spacetrader.model.Market;
 import macbookpro.cs2340.spacetrader.model.Player;
+import macbookpro.cs2340.spacetrader.model.Ship;
 import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 
 import static macbookpro.cs2340.spacetrader.model.ModelFacade.*;
@@ -33,7 +34,8 @@ public class MarketViewModel extends AndroidViewModel {
         player = getNewPlayer();
         currPlanet = getCurrentPlanet();
         market = getCurrentMarket();
-        marketInfoMap = currPlanet.getMarket().getMarketGoods();
+        Market m = currPlanet.getMarket();
+        marketInfoMap = m.getMarketGoods();
         Log.i("StartVM", "got till line 27 in STARTVM. Curr planet is " + currPlanet);
     }
 
@@ -90,7 +92,8 @@ public class MarketViewModel extends AndroidViewModel {
      * @return remainingCargo instance data in ship
      */
     public int getRemainingCargo() {
-        return player.getShip().getRemainingCargo();
+        Ship s player. getShip();
+        return s.getRemainingCargo();
     }
 
 

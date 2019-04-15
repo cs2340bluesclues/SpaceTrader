@@ -11,6 +11,7 @@ import macbookpro.cs2340.spacetrader.model.ModelFacade;
 import macbookpro.cs2340.spacetrader.model.Player;
 import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 import macbookpro.cs2340.spacetrader.model.Universe.SolarSystem;
+import macbookpro.cs2340.spacetrader.model.Universe.Coord;
 
 import static macbookpro.cs2340.spacetrader.model.ModelFacade.getCurrentPlanet;
 import static macbookpro.cs2340.spacetrader.model.ModelFacade.getCurrentSolarSystem;
@@ -25,6 +26,7 @@ public class TravelPlanetViewModel extends AndroidViewModel {
     private final Player player;
     private final Planet currPlanet;
     private final SolarSystem currSolarSystem;
+    private final Coord coords;
 
     /**
      * Constructor for the view model
@@ -35,6 +37,7 @@ public class TravelPlanetViewModel extends AndroidViewModel {
         player = getNewPlayer();
         currPlanet = getCurrentPlanet();
         currSolarSystem = getCurrentSolarSystem();
+        coords = currSolarSystem.getCoords();
     }
 
     /**
@@ -46,12 +49,41 @@ public class TravelPlanetViewModel extends AndroidViewModel {
     }
 
     /**
+     *
+     * @return name
+     */
+    public String getCurrPlanetName() {
+        return currPlanet.getName();
+    }
+
+    /**
+     *
+     * @return name
+     */
+    public String coordToString() {
+        return coords.toString();
+    }
+
+    /**
      * Getter for the currSolarSystem instance data
      * @return the currSolarSystem instance data
      */
     public SolarSystem getCurrSolarSystem() {
         return currSolarSystem;
     }
+
+
+    /**
+     *
+     * @param selectedSolarSystem
+     * @return
+     */
+    public int calculateDistance(SolarSystem selectedSolarSystem) {
+        return coords.calculateDistance(selectedSolarSystem.getCoords());
+    }
+
+
+
 
     /**
      * Getter for the set of Solar systems instance data

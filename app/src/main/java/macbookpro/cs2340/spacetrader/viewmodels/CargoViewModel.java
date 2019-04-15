@@ -1,5 +1,6 @@
 package macbookpro.cs2340.spacetrader.viewmodels;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.support.annotation.NonNull;
@@ -19,14 +20,7 @@ import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 
 import static macbookpro.cs2340.spacetrader.model.ModelFacade.*;
 
-/**
-<<<<<<< HEAD
- * manages the data between the view and model of the player's cargo
-=======
- * ViewModel for the cargo screen, maintaining data such as player, ship,
- * planet, market, and cargo
->>>>>>> Matt
- */
+
 public class CargoViewModel extends AndroidViewModel {
 
     private final Map<MarketInfo, Integer> cargoMap;

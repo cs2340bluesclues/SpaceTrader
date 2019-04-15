@@ -6,6 +6,8 @@ import android.support.annotation.NonNull;
 
 import macbookpro.cs2340.spacetrader.model.ModelFacade;
 import macbookpro.cs2340.spacetrader.model.Player;
+import macbookpro.cs2340.spacetrader.model.Ship;
+import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 
 import static macbookpro.cs2340.spacetrader.model.ModelFacade.*;
 
@@ -15,6 +17,8 @@ import static macbookpro.cs2340.spacetrader.model.ModelFacade.*;
 public class PlanetViewModel extends AndroidViewModel {
 
     private final Player player;
+    private final Ship ship;
+    private final Planet currPlanet;
     private ModelFacade modelFacade; //is this right? not sure
     //int fuelCost;
 
@@ -25,6 +29,8 @@ public class PlanetViewModel extends AndroidViewModel {
     public PlanetViewModel(@NonNull Application application) {
         super(application);
         player = getNewPlayer();
+        ship = player.getShip();
+        currPlanet = player.getCurrentPlanet();
         //fuelCost = player.getCurrentPlanet().calculateFuelCost();
 
     }
@@ -50,7 +56,7 @@ public class PlanetViewModel extends AndroidViewModel {
      * @return currPlanet instance data as a string
      */
     public String getCurrPlanet() {
-        return "" + player.getCurrentPlanet().toString();
+        return currPlanet.toString();
     }
 
     /**
@@ -74,7 +80,7 @@ public class PlanetViewModel extends AndroidViewModel {
      * @return ship instance data as a string
      */
     public String getShip() {
-        return player.getShip().toString();
+        return ship.toString();
     }
 
     /**
@@ -82,7 +88,7 @@ public class PlanetViewModel extends AndroidViewModel {
      * @return maxFuel instance data
      */
     public int getMaxFuel() {
-        return player.getShip().getMAX_FUEL();
+        return ship.getMAX_FUEL();
     }
 
     /**
@@ -90,12 +96,12 @@ public class PlanetViewModel extends AndroidViewModel {
      * @return fuelPrice instance data
      */
     public int getFuelPrice() {
-        return player.getCurrentPlanet().getFuelCost();
+        return currPlanet.getFuelCost();
     }
 
     /**
      * Getter for currFuel instance data
      * @return currFuel instance data
      */
-    public int getCurrFuel() {return player.getShip().getCurrFuel(); }
+    public int getCurrFuel() {return ship.getCurrFuel(); }
 }

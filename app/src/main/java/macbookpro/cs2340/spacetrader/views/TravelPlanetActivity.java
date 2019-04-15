@@ -18,7 +18,7 @@ import macbookpro.cs2340.spacetrader.viewmodels.TravelPlanetViewModel;
 /**
  * Activity class for the Travel Screen
  */
-@SuppressWarnings("FeatureEnvy")
+
 public class TravelPlanetActivity extends AppCompatActivity {
 
     private TravelPlanetViewModel travelPlanetViewModel;
@@ -35,7 +35,7 @@ public class TravelPlanetActivity extends AppCompatActivity {
     private RadioGroup planetGroup;
     private RadioGroup solarSystemGroup;
 
-    @SuppressWarnings("FeatureEnvy")
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +48,8 @@ public class TravelPlanetActivity extends AppCompatActivity {
         solarSystemMap = findViewById(R.id.SS_map_title);
         planetMap = findViewById(R.id.planet_map_title);
 
-        planetMap.setText(travelPlanetViewModel.getCurrPlanet().getName());
+
+        planetMap.setText(travelPlanetViewModel.getCurrPlanetName();
 
         planetGroup = findViewById(R.id.planet_button_group);
         solarSystemGroup = findViewById(R.id.solar_system_button_group);
@@ -70,8 +71,7 @@ public class TravelPlanetActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),
                             "You do not have enough fuel to travel here",
                             Toast.LENGTH_LONG).show();
-                } else if (true) {
-                        //travelPlanetViewModel.policeEvent()) {
+                } else if (travelPlanetViewModel.policeEvent()) {
                     travelPlanetViewModel.travel(travelToThisSolarSystem, travelToThisPlanet);
                     goToPoliceActivity();
                 } else if (travelPlanetViewModel.pirateEvent()) {
@@ -114,12 +114,12 @@ public class TravelPlanetActivity extends AppCompatActivity {
 
             if (s.equals(travelPlanetViewModel.getCurrSolarSystem())) {
                 rb.setChecked(true);
-                String s1 = "System Coordinates: " + selectedSolarSystem.getCoords().toString();
+                String s1 = "System Coordinates: " + selectedSolarSystem.coordsToString();
                 coords.setText(s1);
                 String s2 = "Travel to a planet within the " + selectedSolarSystem.getName() +
                         " Solar System";
                 planetMap.setText(s2);
-                coords.setText("System Coordinates: " + selectedSolarSystem.getCoords().toString());
+                coords.setText("System Coordinates: " + selectedSolarSystem.coordsToString());
                 planetMap.setText("Travel to a planet within the " + selectedSolarSystem.getName()
                         + " Solar System");
 
@@ -129,9 +129,8 @@ public class TravelPlanetActivity extends AppCompatActivity {
             }
 
             rb.setOnClickListener( v -> {
-                    String s1 = "System Coordinates: " + selectedSolarSystem.getCoords().toString()
-                        + "\nDistance away: " + travelPlanetViewModel.getCurrSolarSystem().
-                            getCoords().calculateDistance(selectedSolarSystem.getCoords());
+                    String s1 = "System Coordinates: " + selectedSolarSystem.coordsToString()
+                        + "\nDistance away: " + travelPlanetViewModel.calculateDistance(selectedSolarSystem);
                     coords.setText(s1);
                     addPlanetButtons(selectedSolarSystem);
                     String s2 = "Selected Planet Details: ";
@@ -142,9 +141,8 @@ public class TravelPlanetActivity extends AppCompatActivity {
                             " Solar System";
                     planetMap.setText(s4);
                     coords.setText("System Coordinates: "
-                            + selectedSolarSystem.getCoords().toString()
-                            + "\nDistance away: " + travelPlanetViewModel.getCurrSolarSystem()
-                            .getCoords().calculateDistance(selectedSolarSystem.getCoords()));
+                            + selectedSolarSystem.coordsToString()
+                            + "\nDistance away: " + travelPlanetViewModel.calculateDistance(selectedSolarSystem));
                     addPlanetButtons(selectedSolarSystem);
                     planetDetails.setText("Selected Planet Details: ");
 

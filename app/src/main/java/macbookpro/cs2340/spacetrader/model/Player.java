@@ -10,6 +10,7 @@ import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 import macbookpro.cs2340.spacetrader.model.Universe.SolarSystem;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Random;
 
@@ -82,7 +83,7 @@ public class Player {
 //                System.out.println("The read failed: " + databaseError.getCode());
 //            }
 //        });
-        List<Object> list = new ArrayList<>();
+        Collection<Object> list = new ArrayList<>();
         list.add(name);
 
         list.add(pilot);
@@ -422,7 +423,7 @@ public class Player {
         return "name: " + this.getName() + "\n pilot: " + this.getPilot() + "\n fighter: "
                 + this.getFighter() + "\n trader:" + this.getTrader() + "\n engineer: "
                 + this.getEngineer() + "\n total skill points: " + this.getTotalSkillPoints()
-                + "\n credits: " + this.getCredits() + "\n ship: " + this.getShip().getName();
+                + "\n credits: " + this.getCredits() + "\n ship: " + ship.getName();
     }
 
     /**

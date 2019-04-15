@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 import macbookpro.cs2340.spacetrader.R;
 //import macbookpro.cs2340.spacetrader.model.Market;
+import macbookpro.cs2340.spacetrader.model.MarketInfo;
+import macbookpro.cs2340.spacetrader.model.MarketItem;
 //import macbookpro.cs2340.spacetrader.model.MarketInfo;
 import macbookpro.cs2340.spacetrader.viewmodels.MarketViewModel;
 
@@ -66,7 +68,8 @@ public class MarketActivity extends AppCompatActivity {
 
         adapter.setOnMarketInfoClickListener(marketInfo -> {
             Intent intent = new Intent(MarketActivity.this, ItemDetailActivity.class);
-            intent.putExtra("Market Item", marketInfo.getItem().getName());
+            MarketItem item = marketInfo.getItem();
+            intent.putExtra("Market Item", item.getName());
             startActivity(intent);
         });
 

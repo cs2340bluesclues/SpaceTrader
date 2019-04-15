@@ -120,7 +120,7 @@ public class PlanetActivity extends AppCompatActivity {
             if ((temp + 1 + planetViewModel.getCurrFuel()) <= planetViewModel.getMaxFuel()) {
                 fuelQuantity.setText(String.valueOf(++temp));
                 fuelPrice.setText(String.valueOf(temp *
-                        planetViewModel.getPlayer().getCurrentPlanet().getFuelCost()));
+                        planetViewModel.getFuelPrice()));
             }
         });
 
@@ -129,7 +129,7 @@ public class PlanetActivity extends AppCompatActivity {
             if ((temp - 1) > 0) {
                 fuelQuantity.setText(String.valueOf(--temp));
                 fuelPrice.setText(String.valueOf(temp *
-                        planetViewModel.getPlayer().getCurrentPlanet().getFuelCost()));
+                        planetViewModel.getFuelPrice()));
             }
         });
 
