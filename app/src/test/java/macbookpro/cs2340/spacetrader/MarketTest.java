@@ -1,10 +1,10 @@
 package macbookpro.cs2340.spacetrader;
-
-import org.junit.Test;
-
-import macbookpro.cs2340.spacetrader.model.Market;
-import macbookpro.cs2340.spacetrader.model.TechLevel;
-import macbookpro.cs2340.spacetrader.model.Universe.Planet;
+//
+//import org.junit.Test;
+//
+//import macbookpro.cs2340.spacetrader.model.Market;
+//import macbookpro.cs2340.spacetrader.model.TechLevel;
+//import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 
 class MarketTest {
 

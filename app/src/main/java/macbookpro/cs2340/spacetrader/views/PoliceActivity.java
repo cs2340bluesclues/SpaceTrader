@@ -37,37 +37,31 @@ public class PoliceActivity extends AppCompatActivity {
         bribeButton = findViewById(R.id.bribe_button);
         fleeButton = findViewById(R.id.flee_button);
 
-        acceptButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                 if (policeViewModel.checkCargoAndRemoveItems()) {
-                     policeViewModel.setLawfulnessStatus(false);
-                     policeViewModel.payFine();
-                     goToPlanetActivity();
-                     Toast.makeText(getApplicationContext(),
-                             "You have now been flagged by the police",
-                             Toast.LENGTH_LONG).show();
-                 } else {
-                     policeViewModel.setLawfulnessStatus(true);
-                     goToPlanetActivity();
-                     Toast.makeText(getApplicationContext(),
-                             "You have been deemed a lawful citizen",
-                             Toast.LENGTH_LONG).show();
-                 }
+        acceptButton.setOnClickListener(v -> {
+             if (policeViewModel.checkCargoAndRemoveItems()) {
+                 policeViewModel.setLawfulnessStatus(false);
+                 policeViewModel.payFine();
+                 goToPlanetActivity();
+                 Toast.makeText(getApplicationContext(),
+                         "You have now been flagged by the police",
+                         Toast.LENGTH_LONG).show();
+             } else {
+                 policeViewModel.setLawfulnessStatus(true);
+                 goToPlanetActivity();
+                 Toast.makeText(getApplicationContext(),
+                         "You have been deemed a lawful citizen",
+                         Toast.LENGTH_LONG).show();
+             }
 
-            }
         });
 
-        bribeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                policeViewModel.bribe();
-                goToPlanetActivity();
-                Toast.makeText(getApplicationContext(),
-                        "Your credits have decreased by 15%",
-                        Toast.LENGTH_LONG).show();
+        bribeButton.setOnClickListener(v -> {
+            policeViewModel.bribe();
+            goToPlanetActivity();
+            Toast.makeText(getApplicationContext(),
+                    "Your credits have decreased by 15%",
+                    Toast.LENGTH_LONG).show();
 
-            }
         });
 
         fleeButton.setOnClickListener(v -> {

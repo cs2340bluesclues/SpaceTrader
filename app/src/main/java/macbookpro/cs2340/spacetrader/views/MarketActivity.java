@@ -64,13 +64,10 @@ public class MarketActivity extends AppCompatActivity {
         //Setup the adapter for the view
         recyclerView.setAdapter(adapter);
 
-        adapter.setOnMarketInfoClickListener(new ItemAdapter.OnMarketInfoClickListener() {
-            @Override
-            public void onMarketInfoClicked(MarketInfo marketInfo) {
-                Intent intent = new Intent(MarketActivity.this, ItemDetailActivity.class);
-                intent.putExtra("Market Item", marketInfo.getItem().getName());
-                startActivity(intent);
-            }
+        adapter.setOnMarketInfoClickListener(marketInfo -> {
+            Intent intent = new Intent(MarketActivity.this, ItemDetailActivity.class);
+            intent.putExtra("Market Item", marketInfo.getItem().getName());
+            startActivity(intent);
         });
 
 

@@ -17,7 +17,7 @@ import macbookpro.cs2340.spacetrader.model.Ship;
 import macbookpro.cs2340.spacetrader.model.TechLevel;
 import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 import macbookpro.cs2340.spacetrader.model.Universe.SolarSystem;
-import macbookpro.cs2340.spacetrader.model.Universe.Universe;
+//import macbookpro.cs2340.spacetrader.model.Universe.Universe;
 
 import static org.junit.Assert.*;
 
@@ -45,7 +45,11 @@ public class SellTest {
         waterInfo = new MarketInfo(water, Event.COLD, TechLevel.AGRICULTURE, Resources.ARTISTIC);
         Games games = new Games();
         gamesInfo = new MarketInfo(games, Event.COLD, TechLevel.AGRICULTURE, Resources.ARTISTIC);
-        currMarket.buyAsPlayer(waterInfo, 5);
+//        currMarket.buyAsPlayer(waterInfo, 5);
+        System.out.println("space1 " + ship.getRemainingCargo());
+        ship.addItem(waterInfo, 5);
+        System.out.println("space2 " + ship.getRemainingCargo());
+        System.out.println("cargo" + ship.getCargo());
         //currMarket = new Market(TechLevel.HI_TECH, Resources.NO_SPECIAL_RESOURCES, Event.NONE);
 //        Water water = new Water();
 //        waterInfo = new MarketInfo(water, Event.COLD, TechLevel.AGRICULTURE, Resources.ARTISTIC);
@@ -60,6 +64,7 @@ public class SellTest {
         //checks if it buys when doesn't exist in cargo
         assertFalse(player.sell(gamesInfo, 3));
         //checks if cargo is still the same
+        System.out.println("space after can't sell " + ship.getRemainingCargo());
         assertEquals(remainingCargo, ship.getRemainingCargo());
         assertEquals(credits, player.getCredits());
     }
@@ -69,16 +74,17 @@ public class SellTest {
         Map<MarketInfo, Integer> cargo = ship.getCargo();
         int credits = player.getCredits();
         int price = waterInfo.getPrice();
-        System.out.println(price);
-        System.out.println(player.getCredits());
         int remainingCargo = ship.getRemainingCargo();
-        //checks if player can sell item in cargo
-//        currMarket.sellAsPlayer(waterInfo);
+        //checks if player can sell item in cargo and sells an item
         player.sell(waterInfo, 1);
-        System.out.println(player.getCredits());
-        assertEquals(remainingCargo, ship.getRemainingCargo());
-//        assertTrue("gg", remainingCargo == 4);
+        System.out.println("space after sell 1 " + ship.getRemainingCargo());
+        assertEquals(12, ship.getRemainingCargo());
         //checks if credits match after selling
-        assertEquals(credits - price, player.getCredits());
+        assertEquals(credits, player.getCredits());
+    }
+    @Test(timeout = TIMEOUT)
+    public void sellUntilGone() {
+        player.sell(waterInfo, 4);
+        assertEquals(15, ship.getRemainingCargo());
     }
 }

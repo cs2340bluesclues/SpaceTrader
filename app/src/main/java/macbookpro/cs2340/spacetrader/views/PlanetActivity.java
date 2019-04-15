@@ -115,66 +115,42 @@ public class PlanetActivity extends AppCompatActivity {
         
         save = findViewById(R.id.save_button);
 
-        increase.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int temp = Integer.parseInt(fuelQuantity.getText().toString());
-                if ((temp + 1 + planetViewModel.getCurrFuel()) <= planetViewModel.getMaxFuel()) {
-                    fuelQuantity.setText(String.valueOf(++temp));
-                    fuelPrice.setText(String.valueOf(temp *
-                            planetViewModel.getPlayer().getCurrentPlanet().getFuelCost()));
-                }
+        increase.setOnClickListener(v -> {
+            int temp = Integer.parseInt(fuelQuantity.getText().toString());
+            if ((temp + 1 + planetViewModel.getCurrFuel()) <= planetViewModel.getMaxFuel()) {
+                fuelQuantity.setText(String.valueOf(++temp));
+                fuelPrice.setText(String.valueOf(temp *
+                        planetViewModel.getPlayer().getCurrentPlanet().getFuelCost()));
             }
         });
 
-        decrease.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int temp = Integer.parseInt(fuelQuantity.getText().toString());
-                if ((temp - 1) > 0) {
-                    fuelQuantity.setText(String.valueOf(--temp));
-                    fuelPrice.setText(String.valueOf(temp *
-                            planetViewModel.getPlayer().getCurrentPlanet().getFuelCost()));
-                }
+        decrease.setOnClickListener(v -> {
+            int temp = Integer.parseInt(fuelQuantity.getText().toString());
+            if ((temp - 1) > 0) {
+                fuelQuantity.setText(String.valueOf(--temp));
+                fuelPrice.setText(String.valueOf(temp *
+                        planetViewModel.getPlayer().getCurrentPlanet().getFuelCost()));
             }
         });
 
-        refuelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                planetViewModel.refuelShip(Integer.parseInt(fuelQuantity.getText().toString()));
-                recreate();
-                Log.i("refueling", "refueled, amt: "
-                        + Integer.parseInt(fuelQuantity.getText().toString())
-                        + " price: " + Integer.parseInt(fuelPrice.getText().toString()) );
-            }
+        refuelButton.setOnClickListener(v -> {
+            planetViewModel.refuelShip(Integer.parseInt(fuelQuantity.getText().toString()));
+            recreate();
+            Log.i("refueling", "refueled, amt: "
+                    + Integer.parseInt(fuelQuantity.getText().toString())
+                    + " price: " + Integer.parseInt(fuelPrice.getText().toString()) );
         });
 
-        marketButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToMarket();
-                //recreate();
-            }
+        marketButton.setOnClickListener(v -> {
+            goToMarket();
+            //recreate();
         });
-        cargoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToCargo();
-            }
-        });
+        cargoButton.setOnClickListener(v -> goToCargo());
 
-        travelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToTravel();
-            }
-        });
+        travelButton.setOnClickListener(v -> goToTravel());
 
-        save.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DatabaseReference playersRef = mDatabase.child("player");
+        save.setOnClickListener(v -> {
+            DatabaseReference playersRef = mDatabase.child("player");
 
 //                List<Player> player = new ArrayList<>();
 //                player.add(planetViewModel.getPlayer());
@@ -192,9 +168,8 @@ public class PlanetActivity extends AppCompatActivity {
 //                player.put(planetViewModel.getPlayerName(), planetViewModel.getPlayer());
 //                playersRef.setValue(player);
 
-                //String playerID = mDatabase.push().getKey();
-    //           playersRef.child(playerID).setValue(planetViewModel.getPlayer());
-            }
+            //String playerID = mDatabase.push().getKey();
+//           playersRef.child(playerID).setValue(planetViewModel.getPlayer());
         });
 
     }

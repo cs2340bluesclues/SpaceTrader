@@ -38,53 +38,44 @@ public class PirateActivity extends AppCompatActivity {
 
         //introMessage = findViewById(R.id.intro_message_police);
 
-        surrenderButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                pirateViewModel.clearCargo();
-                goToPlanetActivity();
+        surrenderButton.setOnClickListener(v -> {
+            pirateViewModel.clearCargo();
+            goToPlanetActivity();
+            Toast.makeText(getApplicationContext(),
+                    "Your cargo has been emptied!",
+                    Toast.LENGTH_LONG).show();
+
+        });
+
+        fightButton.setOnClickListener(v -> {
+            //maybe reroute to the mini game here
+            //also should consider the fighter points
+            boolean defeatedPirates = pirateViewModel.fight();
+            if (defeatedPirates) {
                 Toast.makeText(getApplicationContext(),
-                        "Your cargo has been emptied!",
+                        "You fought off the pirates!",
                         Toast.LENGTH_LONG).show();
-
+                goToPlanetActivity();
+            } else {
+                Toast.makeText(getApplicationContext(),
+                        "The pirates defeated you in battle.",
+                        Toast.LENGTH_LONG).show();
             }
         });
 
-        fightButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //maybe reroute to the mini game here
-                //also should consider the fighter points
-                boolean defeatedPirates = pirateViewModel.fight();
-                if (defeatedPirates) {
-                    Toast.makeText(getApplicationContext(),
-                            "You fought off the pirates!",
-                            Toast.LENGTH_LONG).show();
-                    goToPlanetActivity();
-                } else {
-                    Toast.makeText(getApplicationContext(),
-                            "The pirates defeated you in battle.",
-                            Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-
-        fleeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //maybe reroute to the mini game here
-                //also should consider the pilot points
-                boolean fled = pirateViewModel.flee();
-                if (fled) {
-                    Toast.makeText(getApplicationContext(),
-                            "You escaped the pirates in your ship!",
-                            Toast.LENGTH_LONG).show();
-                    goToPlanetActivity();
-                } else {
-                    Toast.makeText(getApplicationContext(),
-                            "You did not escape the pirates.",
-                            Toast.LENGTH_LONG).show();
-                }
+        fleeButton.setOnClickListener(v -> {
+            //maybe reroute to the mini game here
+            //also should consider the pilot points
+            boolean fled = pirateViewModel.flee();
+            if (fled) {
+                Toast.makeText(getApplicationContext(),
+                        "You escaped the pirates in your ship!",
+                        Toast.LENGTH_LONG).show();
+                goToPlanetActivity();
+            } else {
+                Toast.makeText(getApplicationContext(),
+                        "You did not escape the pirates.",
+                        Toast.LENGTH_LONG).show();
             }
         });
     }

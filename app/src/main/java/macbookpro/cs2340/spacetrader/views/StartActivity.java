@@ -36,13 +36,10 @@ public class StartActivity extends AppCompatActivity {
         loadGame = findViewById(R.id.load_button);
         nameInput = findViewById(R.id.input_name);
 
-        newGame.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        newGame.setOnClickListener(v -> {
 
-                Intent intent = new Intent(StartActivity.this, ConfigurationActivity.class);
-                startActivity(intent);
-            }
+            Intent intent = new Intent(StartActivity.this, ConfigurationActivity.class);
+            startActivity(intent);
         });
         loadGame.setOnClickListener(new View.OnClickListener() {
             String name = nameInput.getText().toString();

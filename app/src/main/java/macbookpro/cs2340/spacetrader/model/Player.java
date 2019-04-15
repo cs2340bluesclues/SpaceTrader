@@ -2,8 +2,8 @@ package macbookpro.cs2340.spacetrader.model;
 
 //import com.google.firebase.database.DataSnapshot;
 //import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+//import com.google.firebase.database.DatabaseReference;
+//import com.google.firebase.database.FirebaseDatabase;
 //import com.google.firebase.database.ValueEventListener;
 
 import macbookpro.cs2340.spacetrader.model.Universe.Planet;
@@ -163,8 +163,9 @@ public class Player {
         int count = 0;
         boolean sold = false;
         while ((count < quantity) && ship.removeItem(item, quantity)) {
-            credits += (item.getPrice()*quantity);
+            credits += (item.getPrice() * quantity);
             currentMarket.sellAsPlayer(item);
+            ship.removeItem(item, quantity);
             count++;
             sold = true;
         }

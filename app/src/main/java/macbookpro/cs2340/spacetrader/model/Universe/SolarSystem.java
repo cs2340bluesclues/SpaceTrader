@@ -12,6 +12,7 @@ import java.util.Set;
 /**
  * Class for the SolarSystems within the universe
  */
+@SuppressWarnings("ALL")
 public class SolarSystem {
 
     private static final List<String> nameList = new ArrayList<>(Arrays.asList("Aldea",
