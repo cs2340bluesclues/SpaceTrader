@@ -48,8 +48,20 @@ public class TravelPlanetViewModel extends AndroidViewModel {
         return currPlanet;
     }
 
+    /**
+     *
+     * @return name
+     */
     public String getCurrPlanetName() {
         return currPlanet.getName();
+    }
+
+    /**
+     *
+     * @return name
+     */
+    public String coordToString() {
+        return coords.toString();
     }
 
     /**
@@ -60,6 +72,15 @@ public class TravelPlanetViewModel extends AndroidViewModel {
         return currSolarSystem;
     }
 
+
+    /**
+     *
+     * @param selectedSolarSystem
+     * @return
+     */
+    public int calculateDistance(SolarSystem selectedSolarSystem) {
+        return coords.calculateDistance(selectedSolarSystem.getCoords());
+    }
 
 
 

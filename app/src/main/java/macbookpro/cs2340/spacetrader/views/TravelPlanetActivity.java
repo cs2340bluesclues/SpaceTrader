@@ -130,8 +130,7 @@ public class TravelPlanetActivity extends AppCompatActivity {
 
             rb.setOnClickListener( v -> {
                     String s1 = "System Coordinates: " + selectedSolarSystem.coordsToString()
-                        + "\nDistance away: " + travelPlanetViewModel.getCurrSolarSystem().
-                            getCoords().calculateDistance(selectedSolarSystem.getCoords());
+                        + "\nDistance away: " + travelPlanetViewModel.calculateDistance(selectedSolarSystem);
                     coords.setText(s1);
                     addPlanetButtons(selectedSolarSystem);
                     String s2 = "Selected Planet Details: ";
@@ -142,9 +141,8 @@ public class TravelPlanetActivity extends AppCompatActivity {
                             " Solar System";
                     planetMap.setText(s4);
                     coords.setText("System Coordinates: "
-                            + selectedSolarSystem.getCoords().toString()
-                            + "\nDistance away: " + travelPlanetViewModel.getCurrSolarSystem()
-                            .getCoords().calculateDistance(selectedSolarSystem.getCoords()));
+                            + selectedSolarSystem.coordsToString()
+                            + "\nDistance away: " + travelPlanetViewModel.calculateDistance(selectedSolarSystem));
                     addPlanetButtons(selectedSolarSystem);
                     planetDetails.setText("Selected Planet Details: ");
 
