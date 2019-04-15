@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import macbookpro.cs2340.spacetrader.R;
 //import macbookpro.cs2340.spacetrader.model.Market;
-import macbookpro.cs2340.spacetrader.model.MarketInfo;
+//import macbookpro.cs2340.spacetrader.model.MarketInfo;
 import macbookpro.cs2340.spacetrader.viewmodels.MarketViewModel;
 
 /**
@@ -26,9 +26,9 @@ public class MarketActivity extends AppCompatActivity {
     private MarketViewModel marketViewModel;
 
     /** widgets*/
-    TextView playerName;
-    TextView playerCredits;
-    TextView remainingCargo;
+    private TextView playerName;
+    private TextView playerCredits;
+    private TextView remainingCargo;
 
 
     /** make an adapter for the list */
