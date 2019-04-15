@@ -17,10 +17,13 @@ import macbookpro.cs2340.spacetrader.model.Ship;
 import macbookpro.cs2340.spacetrader.model.TechLevel;
 import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 import macbookpro.cs2340.spacetrader.model.Universe.SolarSystem;
-//import macbookpro.cs2340.spacetrader.model.Universe.Universe;
 
 import static org.junit.Assert.*;
 
+/**
+ * Sell unit test
+ * Hannah Kim
+ */
 public class SellTest {
     private static final int TIMEOUT = 200;
     private Player player;
@@ -31,7 +34,6 @@ public class SellTest {
     private Random rand;
     private MarketInfo waterInfo;
     private MarketInfo gamesInfo;
-    private MarketInfo notAvailable;
 
     @Before
     public void setUp() {
@@ -46,7 +48,6 @@ public class SellTest {
         Games games = new Games();
         gamesInfo = new MarketInfo(games, Event.COLD, TechLevel.AGRICULTURE, Resources.ARTISTIC);
         ship.addItem(waterInfo, 5);
-        notAvailable = null;
     }
 
     @Test(timeout = TIMEOUT)

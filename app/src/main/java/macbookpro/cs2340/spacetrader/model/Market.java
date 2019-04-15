@@ -22,6 +22,10 @@ import macbookpro.cs2340.spacetrader.model.Items.Water;
  */
 public class Market {
 
+    /**
+     * getter for market items
+     * @return items
+     */
     public static MarketItem[] getItems() {
         return items;
     }
@@ -122,18 +126,34 @@ public class Market {
         return map;
     }
 
+    /**
+     * getter for events
+     * @return event
+     */
     public Event getEvent() {
         return event;
     }
 
+    /**
+     * setter for events
+     * @param event event to be set
+     */
     public void setEvent(Event event) {
         this.event = event;
     }
 
+    /**
+     * getter for tech level
+     * @return tech level
+     */
     public TechLevel getTechLevel() {
         return techLevel;
     }
 
+    /**
+     * getter for resources
+     * @return resources
+     */
     public Resources getResources() {
         return resources;
     }

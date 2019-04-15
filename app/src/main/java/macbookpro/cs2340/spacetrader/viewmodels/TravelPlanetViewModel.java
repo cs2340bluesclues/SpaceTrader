@@ -74,9 +74,9 @@ public class TravelPlanetViewModel extends AndroidViewModel {
 
 
     /**
-     *
-     * @param selectedSolarSystem
-     * @return
+     * calculates the distance between current solar system and the selected one
+     * @param selectedSolarSystem player chosen solar system
+     * @return distance between the two
      */
     public int calculateDistance(SolarSystem selectedSolarSystem) {
         return coords.calculateDistance(selectedSolarSystem.getCoords());
