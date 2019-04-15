@@ -31,6 +31,9 @@ import com.google.firebase.database.FirebaseDatabase;
 //import macbookpro.cs2340.spacetrader.model.Player;
 import macbookpro.cs2340.spacetrader.viewmodels.PlanetViewModel;
 
+/**
+ * Activity class for the planet screen
+ */
 public class PlanetActivity extends AppCompatActivity {
     private PlanetViewModel planetViewModel;
 
@@ -45,8 +48,17 @@ public class PlanetActivity extends AppCompatActivity {
     TextView maxShipFuel;
     TextView fuelQuantity;
     TextView currFuel;
-    Button increase, decrease, refuelButton, save;
-    ImageView fuelbar1, fuelbar2, fuelbar3, fuelbar4, fuelbar5, fuelbar6, fuelbar7;
+    Button increase;
+    Button decrease;
+    Button refuelButton;
+    Button save;
+    ImageView fuelbar1;
+    ImageView fuelbar2;
+    ImageView fuelbar3;
+    ImageView fuelbar4;
+    ImageView fuelbar5;
+    ImageView fuelbar6;
+    ImageView fuelbar7;
     ImageView[] fuelbarsArray;
 
     private final FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -103,66 +115,42 @@ public class PlanetActivity extends AppCompatActivity {
         
         save = findViewById(R.id.save_button);
 
-        increase.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int temp = Integer.parseInt(fuelQuantity.getText().toString());
-                if (temp + 1 + planetViewModel.getCurrFuel() <= planetViewModel.getMaxFuel()) {
-                    fuelQuantity.setText(String.valueOf(++temp));
-                    fuelPrice.setText(String.valueOf(temp *
-                            planetViewModel.getPlayer().getCurrentPlanet().getFuelCost()));
-                }
+        increase.setOnClickListener(v -> {
+            int temp = Integer.parseInt(fuelQuantity.getText().toString());
+            if ((temp + 1 + planetViewModel.getCurrFuel()) <= planetViewModel.getMaxFuel()) {
+                fuelQuantity.setText(String.valueOf(++temp));
+                fuelPrice.setText(String.valueOf(temp *
+                        planetViewModel.getPlayer().getCurrentPlanet().getFuelCost()));
             }
         });
 
-        decrease.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int temp = Integer.parseInt(fuelQuantity.getText().toString());
-                if (temp - 1 > 0) {
-                    fuelQuantity.setText(String.valueOf(--temp));
-                    fuelPrice.setText(String.valueOf(temp *
-                            planetViewModel.getPlayer().getCurrentPlanet().getFuelCost()));
-                }
+        decrease.setOnClickListener(v -> {
+            int temp = Integer.parseInt(fuelQuantity.getText().toString());
+            if ((temp - 1) > 0) {
+                fuelQuantity.setText(String.valueOf(--temp));
+                fuelPrice.setText(String.valueOf(temp *
+                        planetViewModel.getPlayer().getCurrentPlanet().getFuelCost()));
             }
         });
 
-        refuelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                planetViewModel.refuelShip(Integer.parseInt(fuelQuantity.getText().toString()));
-                recreate();
-                Log.i("refueling", "refueled, amt: "
-                        + Integer.parseInt(fuelQuantity.getText().toString())
-                        + " price: " + Integer.parseInt(fuelPrice.getText().toString()) );
-            }
+        refuelButton.setOnClickListener(v -> {
+            planetViewModel.refuelShip(Integer.parseInt(fuelQuantity.getText().toString()));
+            recreate();
+            Log.i("refueling", "refueled, amt: "
+                    + Integer.parseInt(fuelQuantity.getText().toString())
+                    + " price: " + Integer.parseInt(fuelPrice.getText().toString()) );
         });
 
-        marketButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToMarket();
-                //recreate();
-            }
+        marketButton.setOnClickListener(v -> {
+            goToMarket();
+            //recreate();
         });
-        cargoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToCargo();
-            }
-        });
+        cargoButton.setOnClickListener(v -> goToCargo());
 
-        travelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToTravel();
-            }
-        });
+        travelButton.setOnClickListener(v -> goToTravel());
 
-        save.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DatabaseReference playersRef = mDatabase.child("player");
+        save.setOnClickListener(v -> {
+            DatabaseReference playersRef = mDatabase.child("player");
 
 //                List<Player> player = new ArrayList<>();
 //                player.add(planetViewModel.getPlayer());
@@ -180,9 +168,8 @@ public class PlanetActivity extends AppCompatActivity {
 //                player.put(planetViewModel.getPlayerName(), planetViewModel.getPlayer());
 //                playersRef.setValue(player);
 
-                //String playerID = mDatabase.push().getKey();
-    //           playersRef.child(playerID).setValue(planetViewModel.getPlayer());
-            }
+            //String playerID = mDatabase.push().getKey();
+//           playersRef.child(playerID).setValue(planetViewModel.getPlayer());
         });
 
     }
@@ -207,7 +194,7 @@ public class PlanetActivity extends AppCompatActivity {
 
         int fuelbarnumber = 0;
         for (int i = currentFuel; i > -2; i-=2) {
-            if (i - 2 > -2) {
+            if ((i - 2) > -2) {
                 fuelbarsArray[fuelbarnumber].setVisibility(View.VISIBLE);
                 fuelbarnumber++;
             }

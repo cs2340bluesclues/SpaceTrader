@@ -1,8 +1,8 @@
 package macbookpro.cs2340.spacetrader;
 
-import android.media.Image;
+//import android.media.Image;
 
-import org.junit.After;
+//import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -21,7 +21,7 @@ import macbookpro.cs2340.spacetrader.model.TechLevel;
 import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 import macbookpro.cs2340.spacetrader.model.Universe.SolarSystem;
 
-import static macbookpro.cs2340.spacetrader.model.Event.NONE;
+//import static macbookpro.cs2340.spacetrader.model.Event.NONE;
 import static org.junit.Assert.*;
 
 
@@ -41,7 +41,7 @@ public class BuyTest {
     private Random rand;
     private MarketInfo waterInfo;
     private MarketInfo notAvailable;
-    private int buyQuanitity;
+//    private int buyQuanitity;
 
     @Before
     public void setUp() {

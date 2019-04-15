@@ -1,6 +1,6 @@
 package macbookpro.cs2340.spacetrader;
 
-import org.junit.After;
+//import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -134,11 +134,11 @@ public class TravelTest {
     public void travelDiagonalDecimals() {
         player.getShip().setFuelLevel(10);
         currSS.setCoords(0, 0);
-        nextSS.setCoords(7, 4);
-        assertTrue(player.travel(currSS, nextPlanet));
+        nextSS.setCoords(3, 5);
+        assertTrue(player.travel(nextSS, nextPlanet));
         int postFuel = player.getShip().getCurrFuel();
-        assertEquals(currSS, player.getCurrentSolarSystem());
+        assertEquals(nextSS, player.getCurrentSolarSystem());
         assertEquals(nextPlanet, player.getCurrentPlanet());
-        assertEquals(2, postFuel);
+        assertEquals(5, postFuel);
     }
 }

@@ -22,6 +22,9 @@ import macbookpro.cs2340.spacetrader.model.GameDifficulty;
 import macbookpro.cs2340.spacetrader.model.Player;
 import macbookpro.cs2340.spacetrader.viewmodels.ConfigurationViewModel;
 
+/**
+ * Activity class for initial configuration screen
+ */
 public class ConfigurationActivity extends AppCompatActivity {
 
     /** reference to our view model */
@@ -30,39 +33,40 @@ public class ConfigurationActivity extends AppCompatActivity {
     /* ************************
         Widgets we will need for binding and getting information
      */
-    private TextView playerNameLabel;
     private EditText inputName;
     private Spinner difficultySpinner;
 
     // firebase ??
 //    private FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
 //    private DatabaseReference playerID = mDatabase.getReference("players");
-    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("players");
+//    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("players");
 
 
 
-    private Button addPilot;
-    private Button subtractPilot;
-    private Button addFighter;
-    private Button subtractFighter;
-    private Button addTrader;
-    private Button subtractTrader;
-    private Button addEngineer;
-    private Button subtractEngineer;
-    private Button submit;
+
     private TextView pilotSkill;
     private TextView fighterSkill;
     private TextView traderSkill;
     private TextView engineerSkill;
     private ConfigurationViewModel totalVM;
 
-    private Player player;
+//    private Player player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.config);
 
+        TextView playerNameLabel;
+        Button addPilot;
+        Button subtractPilot;
+        Button addFighter;
+        Button subtractFighter;
+        Button addTrader;
+        Button subtractTrader;
+        Button addEngineer;
+        Button subtractEngineer;
+        Button submit;
         /*
          * Grab the dialog widgets so we can get info for later
          */
@@ -97,109 +101,83 @@ public class ConfigurationActivity extends AppCompatActivity {
         //updates the textview of each skill
         totalVM = ViewModelProviders.of(this).get(ConfigurationViewModel.class);
 
-        addPilot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (totalVM.checkCountGreater16()) {
-                    totalVM.setPilotCount(totalVM.getPilotCount() + 1);
-                    pilotSkill.setText(Integer.toString(totalVM.getPilotCount()));
-                }
+        addPilot.setOnClickListener(v -> {
+            if (totalVM.checkCountGreater16()) {
+                totalVM.setPilotCount(totalVM.getPilotCount() + 1);
+                pilotSkill.setText(Integer.toString(totalVM.getPilotCount()));
             }
         });
 
-        subtractPilot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (totalVM.getPilotCount() > 0) {
-                    totalVM.setPilotCount(totalVM.getPilotCount() - 1);
-                    pilotSkill.setText(Integer.toString(totalVM.getPilotCount()));
-                }
+        subtractPilot.setOnClickListener(v -> {
+            if (totalVM.getPilotCount() > 0) {
+                totalVM.setPilotCount(totalVM.getPilotCount() - 1);
+                pilotSkill.setText(Integer.toString(totalVM.getPilotCount()));
             }
         });
 
-        addFighter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (totalVM.checkCountGreater16()) {
-                    totalVM.setFighterCount(totalVM.getFighterCount() + 1);
-                    fighterSkill.setText(Integer.toString(totalVM.getFighterCount()));
-                }
+        addFighter.setOnClickListener(v -> {
+            if (totalVM.checkCountGreater16()) {
+                totalVM.setFighterCount(totalVM.getFighterCount() + 1);
+                fighterSkill.setText(Integer.toString(totalVM.getFighterCount()));
             }
         });
 
-        subtractFighter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (totalVM.getFighterCount() > 0) {
-                    totalVM.setFighterCount(totalVM.getFighterCount() - 1);
-                    fighterSkill.setText(Integer.toString(totalVM.getFighterCount()));
-                }
+        subtractFighter.setOnClickListener(v -> {
+            if (totalVM.getFighterCount() > 0) {
+                totalVM.setFighterCount(totalVM.getFighterCount() - 1);
+                fighterSkill.setText(Integer.toString(totalVM.getFighterCount()));
             }
         });
 
-        addTrader.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (totalVM.checkCountGreater16()) {
-                    totalVM.setTraderCount(totalVM.getTraderCount() + 1);
-                    traderSkill.setText(Integer.toString(totalVM.getTraderCount()));
-                }
+        addTrader.setOnClickListener(v -> {
+            if (totalVM.checkCountGreater16()) {
+                totalVM.setTraderCount(totalVM.getTraderCount() + 1);
+                traderSkill.setText(Integer.toString(totalVM.getTraderCount()));
             }
         });
 
-        subtractTrader.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (totalVM.getTraderCount() > 0) {
-                    totalVM.setTraderCount(totalVM.getTraderCount() - 1);
-                    traderSkill.setText(Integer.toString(totalVM.getTraderCount()));
-                }
+        subtractTrader.setOnClickListener(v -> {
+            if (totalVM.getTraderCount() > 0) {
+                totalVM.setTraderCount(totalVM.getTraderCount() - 1);
+                traderSkill.setText(Integer.toString(totalVM.getTraderCount()));
             }
         });
 
-        addEngineer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (totalVM.checkCountGreater16()) {
-                    totalVM.setEngineerCount(totalVM.getEngineerCount() + 1);
-                    engineerSkill.setText(Integer.toString(totalVM.getEngineerCount()));
-                }
+        addEngineer.setOnClickListener(v -> {
+            if (totalVM.checkCountGreater16()) {
+                totalVM.setEngineerCount(totalVM.getEngineerCount() + 1);
+                engineerSkill.setText(Integer.toString(totalVM.getEngineerCount()));
             }
         });
 
-        subtractEngineer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (totalVM.getEngineerCount() > 0) {
-                    totalVM.setEngineerCount(totalVM.getEngineerCount() - 1);
-                    engineerSkill.setText(Integer.toString(totalVM.getEngineerCount()));
-                }
+        subtractEngineer.setOnClickListener(v -> {
+            if (totalVM.getEngineerCount() > 0) {
+                totalVM.setEngineerCount(totalVM.getEngineerCount() - 1);
+                engineerSkill.setText(Integer.toString(totalVM.getEngineerCount()));
             }
         });
 
-    submit.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-                String name = inputName.getText().toString();
-                GameDifficulty level = (GameDifficulty) difficultySpinner.getSelectedItem();
-                if (totalVM.checkCount16() && totalVM.checkNameLength(name)) {
-                    Toast.makeText(getApplicationContext(),
-                            "Name field cannot be blank and total skill count must be 16",
-                            Toast.LENGTH_LONG).show();
-                } else if (totalVM.checkCount16()) {
-                    Toast.makeText(getApplicationContext(),
-                            "Total skill count must be 16",
-                            Toast.LENGTH_LONG).show();
-                } else if (totalVM.checkNameLength(name)) {
-                    Toast.makeText(getApplicationContext(),
-                            "Name field cannot be blank",
-                            Toast.LENGTH_LONG).show();
-                } else {
+    submit.setOnClickListener(v -> {
+            String name = inputName.getText().toString();
+            GameDifficulty level = (GameDifficulty) difficultySpinner.getSelectedItem();
+            if (totalVM.checkCount16() && totalVM.checkNameLength(name)) {
+                Toast.makeText(getApplicationContext(),
+                        "Name field cannot be blank and total skill count must be 16",
+                        Toast.LENGTH_LONG).show();
+            } else if (totalVM.checkCount16()) {
+                Toast.makeText(getApplicationContext(),
+                        "Total skill count must be 16",
+                        Toast.LENGTH_LONG).show();
+            } else if (totalVM.checkNameLength(name)) {
+                Toast.makeText(getApplicationContext(),
+                        "Name field cannot be blank",
+                        Toast.LENGTH_LONG).show();
+            } else {
 //                    String player = totalVM.sendData(name, level);
 //                    playerID.setValue(player);
 
 //                    String playerID = mDatabase.push().getKey();
-//                    String player = totalVM.sendData(name, level);
+                String player = totalVM.sendData(name, level);
 
 //                    mDatabase.child(playerID).setValue(player);
 
@@ -207,8 +185,7 @@ public class ConfigurationActivity extends AppCompatActivity {
 //                                                  MarketActivity.class);
 //                    messageIntent.putExtra("PRINT_PLAYER_MESSAGE", s);
 //                    startActivity(messageIntent);
-                    launchGame();
-                }
+                launchGame();
             }
         });
     }

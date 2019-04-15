@@ -11,7 +11,7 @@ import macbookpro.cs2340.spacetrader.model.Items.Firearms;
 import macbookpro.cs2340.spacetrader.model.Items.Food;
 import macbookpro.cs2340.spacetrader.model.Items.Narcotics;
 import macbookpro.cs2340.spacetrader.model.Items.Water;
-import macbookpro.cs2340.spacetrader.model.Market;
+//import macbookpro.cs2340.spacetrader.model.Market;
 import macbookpro.cs2340.spacetrader.model.MarketInfo;
 import macbookpro.cs2340.spacetrader.model.Resources;
 import macbookpro.cs2340.spacetrader.model.Ship;

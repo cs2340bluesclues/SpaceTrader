@@ -9,6 +9,10 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
+/**
+ * Class for the SolarSystems within the universe
+ */
+@SuppressWarnings("ALL")
 public class SolarSystem {
 
     private static final List<String> nameList = new ArrayList<>(Arrays.asList("Aldea",
@@ -24,9 +28,9 @@ public class SolarSystem {
     private static final Set<Coord> coordsSet = new HashSet<>();
     private final Set<Planet> planets = new HashSet<>();
     private String name;
-    private  Coord coords;
-    private  int numPlanets;
-    private  Random r;
+    private Coord coords;
+
+    private Random r;
 
     /**
      * SolarSystem constructor that takes in a Random object and randomly generates a unique name
@@ -36,7 +40,7 @@ public class SolarSystem {
      */
     public SolarSystem(Random random) {
         r = random;
-
+        int numPlanets;
         // catches exception if the list of names is size of 0
         try {
             this.name = nameList.remove(r.nextInt(nameList.size()));
@@ -60,9 +64,6 @@ public class SolarSystem {
         }
     }
 
-    public SolarSystem() {
-
-    }
     /**
      * Getter method for SolarSystem name
      * @return String
@@ -79,6 +80,11 @@ public class SolarSystem {
         return coords;
     }
 
+    /**
+     * Setter for the SolarSystem's coordinates. Used for testing
+     * @param x New x coordinate
+     * @param y New y coordinate
+     */
     public void setCoords(int x, int y) {
         coords = new Coord(x, y);
     }

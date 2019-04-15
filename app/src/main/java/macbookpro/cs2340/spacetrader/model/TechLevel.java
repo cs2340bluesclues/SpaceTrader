@@ -1,5 +1,8 @@
 package macbookpro.cs2340.spacetrader.model;
 
+/**
+ * Enumeration for the Tech Level of a planet
+ */
 public enum TechLevel {
     PRE_AGRICULTURE("Pre-agriculture"),
     AGRICULTURE("Agriculture"),

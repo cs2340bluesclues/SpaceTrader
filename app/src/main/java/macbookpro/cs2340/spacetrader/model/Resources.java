@@ -1,5 +1,8 @@
 package macbookpro.cs2340.spacetrader.model;
 
+/**
+ * Enumeration type for planet resources
+ */
 public enum Resources {
     NO_SPECIAL_RESOURCES("No special resources"),
     MINERAL_RICH("Mineral rich"),

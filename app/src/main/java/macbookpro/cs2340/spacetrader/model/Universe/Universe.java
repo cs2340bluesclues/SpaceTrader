@@ -6,11 +6,13 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+/**
+ * Class for the game's universe containing all locations
+ */
 public class Universe {
 
     private Set<SolarSystem> system;
-    private Random r;
-    private int numSolarSystems;
+
 
     /**
      * Universe constructor instantiates the HashSet of SolarSystems, creates random SolarSystems
@@ -20,6 +22,8 @@ public class Universe {
      * @param seed value for the random generator
      */
     public Universe(int n, int seed) {
+        Random r;
+        int numSolarSystems;
         system = new HashSet<>();
         r = new Random(seed);
         numSolarSystems = n;
@@ -35,9 +39,7 @@ public class Universe {
         }
     }
 
-    public Universe() {
 
-    }
     /**
      * Method that makes the events on every planet in the universe change
      */

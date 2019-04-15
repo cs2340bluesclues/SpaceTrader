@@ -20,7 +20,9 @@ import macbookpro.cs2340.spacetrader.model.MarketInfo;
 import macbookpro.cs2340.spacetrader.model.Player;
 import macbookpro.cs2340.spacetrader.model.Ship;
 
-
+/**
+ * Creates ItemAdapter View for the market screen
+ */
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder>{
 
     private OnMarketInfoClickListener listener;
@@ -74,15 +76,24 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     @Override
     public int getItemCount() {
-        if (mapData == null) return 0;
+        if (mapData == null) { return 0;}
         return mapData.size();
     }
 
+    /**
+     * setter for the market when items are added or removed
+     * @param m key for the value in the map that was changed
+     */
     public void setMarketList(Map<MarketInfo, Integer> m) {
         mapData = m;
         notifyDataSetChanged();
     }
 
+    /**
+     * getter for marketinfo item
+     * @param position index in the array at which marketinfo item is stored
+     * @return the marketinfo item
+     */
     public MarketInfo getMarketInfoAt (int position) {
         return mapKeys[position];
     }
@@ -119,83 +130,71 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
             quantityToTrade = 0;
             totalTradePrice = 0;
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    int position = getAdapterPosition();
+            itemView.setOnClickListener(view -> {
+                int position = getAdapterPosition();
 
-                    if (listener != null && position != RecyclerView.NO_POSITION) {
-                        listener.onMarketInfoClicked(mapKeys[position]);
-                    }
+                if ((listener != null) && (position != RecyclerView.NO_POSITION)) {
+                    listener.onMarketInfoClicked(mapKeys[position]);
                 }
             });
 
-            increaseQ.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int position = getAdapterPosition();
-                    if (quantityToTrade < mapValues[position]) {
-                       if (buying && player.getCredits() >=
-                               (quantityToTrade + 1) * mapKeys[position].getPrice()
-                               && ship.getRemainingCargo() > quantityToTrade) {
-                           Log.i("wedunnit!", "remaining cargo: " + ship.getRemainingCargo()+ " ");
-                            quantityToTrade++;
-                            totalTradePrice = quantityToTrade * mapKeys[position].getPrice();
-                            buyQuantity.setText(quantityToTrade);
-                            totalPrice.setText(totalTradePrice);
-                       } else if (!buying) {
-                           quantityToTrade++;
-                           totalTradePrice = quantityToTrade * mapKeys[position].getPrice();
-                           buyQuantity.setText(quantityToTrade);
-                           totalPrice.setText(totalTradePrice);
-                       }
-                    }
-                }
-            });
-
-            decreaseQ.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int position = getAdapterPosition();
-                    if (quantityToTrade  > 0) {
-                        quantityToTrade--;
+            increaseQ.setOnClickListener(v -> {
+                int position = getAdapterPosition();
+                if (quantityToTrade < mapValues[position]) {
+                   if (buying && (player.getCredits() >=
+                           ((quantityToTrade + 1) * mapKeys[position].getPrice()))
+                           && (ship.getRemainingCargo() > quantityToTrade)) {
+                       Log.i("wedunnit!", "remaining cargo: " + ship.getRemainingCargo()+ " ");
+                        quantityToTrade++;
                         totalTradePrice = quantityToTrade * mapKeys[position].getPrice();
                         buyQuantity.setText(quantityToTrade);
                         totalPrice.setText(totalTradePrice);
-                    }
+                   } else if (!buying) {
+                       quantityToTrade++;
+                       totalTradePrice = quantityToTrade * mapKeys[position].getPrice();
+                       buyQuantity.setText(quantityToTrade);
+                       totalPrice.setText(totalTradePrice);
+                   }
+                }
+            });
+
+            decreaseQ.setOnClickListener(v -> {
+                int position = getAdapterPosition();
+                if (quantityToTrade  > 0) {
+                    quantityToTrade--;
+                    totalTradePrice = quantityToTrade * mapKeys[position].getPrice();
+                    buyQuantity.setText(quantityToTrade);
+                    totalPrice.setText(totalTradePrice);
                 }
             });
 
 
-            transaction.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int position = getAdapterPosition();
+            transaction.setOnClickListener(v -> {
+                int position = getAdapterPosition();
 
-                    if (buying && ship.getRemainingCargo() >= quantityToTrade) {
-                        transaction(player, market, position, quantityToTrade);
-                        quantity.setText(mapData.get(mapKeys[position]));
+                if (buying && (ship.getRemainingCargo() >= quantityToTrade)) {
+                    transaction(player, market, position, quantityToTrade);
+                    quantity.setText(mapData.get(mapKeys[position]));
 
-                        quantityToTrade = 0;
-                        totalTradePrice = 0;
+                    quantityToTrade = 0;
+                    totalTradePrice = 0;
 
-                        buyQuantity.setText(quantityToTrade);
-                        totalPrice.setText(totalTradePrice);
+                    buyQuantity.setText(quantityToTrade);
+                    totalPrice.setText(totalTradePrice);
 
-                    } else {
-                        transaction(player, market, position, quantityToTrade);
-                        quantity.setText(mapData.get(mapKeys[position]));
+                } else {
+                    transaction(player, market, position, quantityToTrade);
+                    quantity.setText(mapData.get(mapKeys[position]));
 
-                        quantityToTrade = 0;
-                        totalTradePrice = 0;
+                    quantityToTrade = 0;
+                    totalTradePrice = 0;
 
-                        buyQuantity.setText(quantityToTrade);
-                        totalPrice.setText(totalTradePrice);
-                    }
-
-
-
+                    buyQuantity.setText(quantityToTrade);
+                    totalPrice.setText(totalTradePrice);
                 }
+
+
+
             });
 
         }
@@ -211,10 +210,20 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
             //m.sellAsPlayer(mapKeys[position]);
         }
     }
+
+
     public interface OnMarketInfoClickListener {
+        /**
+         * listens for when an item is clicked
+         * @param marketInfo The MarketInfo item
+         */
         void onMarketInfoClicked(MarketInfo marketInfo);
     }
 
+    /**
+     * sets the listener
+     * @param listener listener for the market
+     */
     public void setOnMarketInfoClickListener(OnMarketInfoClickListener listener) {
         this.listener = listener;
     }

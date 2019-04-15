@@ -2,6 +2,11 @@ package macbookpro.cs2340.spacetrader.model;
 
 import java.util.Random;
 
+/**
+ * Class for MarketInfos, which hold market items and
+ * information about them
+ * Note: this class has a natural ordering that is inconsistent with equals.
+ */
 public class MarketInfo implements Comparable<MarketInfo> {
 
     private final MarketItem item;

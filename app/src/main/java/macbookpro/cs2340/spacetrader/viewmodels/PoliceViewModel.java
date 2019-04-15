@@ -9,11 +9,18 @@ import macbookpro.cs2340.spacetrader.model.Ship;
 
 import static macbookpro.cs2340.spacetrader.model.ModelFacade.getNewPlayer;
 
+/**
+ * ViewModel class for the police encounter screen
+ */
 public class PoliceViewModel extends AndroidViewModel {
 
     private final Player player;
     private final Ship ship;
 
+    /**
+     * Constructor for the police view model
+     * @param application The application
+     */
     public PoliceViewModel(@NonNull Application application) {
         super(application);
         player = getNewPlayer();
