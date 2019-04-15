@@ -24,6 +24,7 @@ public class MarketViewModel extends AndroidViewModel {
     private final Planet currPlanet;
     private final Player player;
     private final Market market;
+    private final Ship ship;
 
     /**
      * Constructor for the Market View Model
@@ -36,6 +37,7 @@ public class MarketViewModel extends AndroidViewModel {
         market = getCurrentMarket();
         Market m = currPlanet.getMarket();
         marketInfoMap = m.getMarketGoods();
+        ship = player.getShip();
         Log.i("StartVM", "got till line 27 in STARTVM. Curr planet is " + currPlanet);
     }
 
@@ -92,8 +94,7 @@ public class MarketViewModel extends AndroidViewModel {
      * @return remainingCargo instance data in ship
      */
     public int getRemainingCargo() {
-        Ship s player. getShip();
-        return s.getRemainingCargo();
+        return ship.getRemainingCargo();
     }
 
 
