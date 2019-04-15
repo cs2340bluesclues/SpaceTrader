@@ -70,8 +70,7 @@ public class Planet {
      */
     private int randomGen(int max) {
         Random generator = new Random();
-        int output = generator.nextInt(max + 1);
-        return output;
+        return generator.nextInt(max + 1);
     }
 
     /**

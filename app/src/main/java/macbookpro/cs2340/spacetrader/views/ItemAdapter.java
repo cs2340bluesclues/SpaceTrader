@@ -215,6 +215,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     public interface OnMarketInfoClickListener {
         /**
          * listens for when an item is clicked
+         * @param marketInfo The MarketInfo item
          */
         void onMarketInfoClicked(MarketInfo marketInfo);
     }
