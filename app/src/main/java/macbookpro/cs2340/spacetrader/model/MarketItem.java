@@ -1,5 +1,10 @@
 package macbookpro.cs2340.spacetrader.model;
 
+/**
+ * The marketItem superclass, goods that the player can buy
+ * and sell
+ * Note: this class has a natural ordering that is inconsistent with equals.
+ */
 public abstract class MarketItem implements Comparable<MarketItem> {
 
     private final int mtlp;

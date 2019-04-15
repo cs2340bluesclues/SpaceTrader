@@ -19,6 +19,14 @@ import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 
 import static macbookpro.cs2340.spacetrader.model.ModelFacade.*;
 
+/**
+<<<<<<< HEAD
+ * manages the data between the view and model of the player's cargo
+=======
+ * ViewModel for the cargo screen, maintaining data such as player, ship,
+ * planet, market, and cargo
+>>>>>>> Matt
+ */
 public class CargoViewModel extends AndroidViewModel {
 
     private final Map<MarketInfo, Integer> cargoMap;
@@ -27,6 +35,10 @@ public class CargoViewModel extends AndroidViewModel {
     private final Market market;
     private final Planet currPlanet;
 
+    /**
+     * Constructor for the CargoViewModel class, initializes data
+     * @param application The application object
+     */
 
     public CargoViewModel(@NonNull Application application) {
         super(application);
@@ -37,30 +49,58 @@ public class CargoViewModel extends AndroidViewModel {
         currPlanet = getCurrentPlanet();
     }
 
+    /**
+     * Getter for cargo map
+     * @return The cargo mep instance variable
+     */
     public Map<MarketInfo, Integer> getCargoMap() {
         return cargoMap;
     }
 
+    /**
+     * Getter for currPlanet
+     * @return currPlanet instance data
+     */
     public Planet getCurrPlanet() {
         return currPlanet;
     }
 
+    /**
+     * Getter for player instance data
+     * @return player instance variable
+     */
     public Player getPlayer() {
         return player;
     }
 
+    /**
+     * Getter for player name
+     * @return the player's name
+     */
     public String getPlayerName() {
         return player.getName();
     }
 
+    /**
+     * Getter for player's credits
+     * @return The player's credit amount
+     */
     public int getPlayerCredits() {
         return player.getCredits();
     }
 
+    /**
+     * Getter method for market instance variable
+     * @return The market instance variable
+     */
     public Market getMarket() {
         return market;
     }
 
+    /**
+     * Getter method for remaining Cargo
+     * @return remainingCargo data from currShip
+     */
     public int getRemainingCargo() {
         return currShip.getRemainingCargo();
     }

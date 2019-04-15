@@ -6,6 +6,9 @@ import android.os.Bundle;
 //import android.os.Handler;
 import android.view.Display;
 
+/**
+ * Activity class for the police escape mini game screen
+ */
 public class PoliceEscapeActivity extends Activity {
 
     // Declare an instance of SnakeEngine

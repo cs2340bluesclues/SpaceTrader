@@ -1,5 +1,8 @@
 package macbookpro.cs2340.spacetrader.model;
 
+/**
+ * Enumeration for the planet events
+ */
 public enum Event {
     NONE,
     DROUGHT,

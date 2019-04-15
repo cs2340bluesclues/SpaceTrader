@@ -15,6 +15,10 @@ import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 import macbookpro.cs2340.spacetrader.model.Universe.SolarSystem;
 import macbookpro.cs2340.spacetrader.viewmodels.TravelPlanetViewModel;
 
+/**
+ * Activity class for the Travel Screen
+ */
+@SuppressWarnings("FeatureEnvy")
 public class TravelPlanetActivity extends AppCompatActivity {
 
     private TravelPlanetViewModel travelPlanetViewModel;
@@ -23,7 +27,7 @@ public class TravelPlanetActivity extends AppCompatActivity {
     private TextView solarSystemMap;
     private TextView coords;
     private TextView planetDetails;
-    private Button travelHere;
+
 
     private SolarSystem travelToThisSolarSystem;
     private Planet travelToThisPlanet;
@@ -31,11 +35,13 @@ public class TravelPlanetActivity extends AppCompatActivity {
     private RadioGroup planetGroup;
     private RadioGroup solarSystemGroup;
 
+    @SuppressWarnings("FeatureEnvy")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.travel_activity);
 
+        Button travelHere;
         travelPlanetViewModel = ViewModelProviders.of(this).get(TravelPlanetViewModel.class);
 
         planetDetails = findViewById(R.id.planet_details);
@@ -64,8 +70,7 @@ public class TravelPlanetActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),
                             "You do not have enough fuel to travel here",
                             Toast.LENGTH_LONG).show();
-                } else if (true) {
-                        //travelPlanetViewModel.policeEvent()) {
+                } else if (travelPlanetViewModel.policeEvent()) {
                     travelPlanetViewModel.travel(travelToThisSolarSystem, travelToThisPlanet);
                     goToPoliceActivity();
                 } else if (travelPlanetViewModel.pirateEvent()) {
@@ -110,7 +115,8 @@ public class TravelPlanetActivity extends AppCompatActivity {
                 rb.setChecked(true);
                 String s1 = "System Coordinates: " + selectedSolarSystem.getCoords().toString();
                 coords.setText(s1);
-                String s2 = "Travel to a planet within the " + selectedSolarSystem.getName() + " Solar System";
+                String s2 = "Travel to a planet within the " + selectedSolarSystem.getName() +
+                        " Solar System";
                 planetMap.setText(s2);
                 coords.setText("System Coordinates: " + selectedSolarSystem.getCoords().toString());
                 planetMap.setText("Travel to a planet within the " + selectedSolarSystem.getName()
@@ -123,14 +129,16 @@ public class TravelPlanetActivity extends AppCompatActivity {
 
             rb.setOnClickListener( v -> {
                     String s1 = "System Coordinates: " + selectedSolarSystem.getCoords().toString()
-                        + "\nDistance away: " + travelPlanetViewModel.getCurrSolarSystem().getCoords().calculateDistance(selectedSolarSystem.getCoords());
+                        + "\nDistance away: " + travelPlanetViewModel.getCurrSolarSystem().
+                            getCoords().calculateDistance(selectedSolarSystem.getCoords());
                     coords.setText(s1);
                     addPlanetButtons(selectedSolarSystem);
                     String s2 = "Selected Planet Details: ";
                     planetDetails.setText(s2);
                     String s3 = "Travel to the " + selectedSolarSystem.getName() + " Solar System";
                     solarSystemMap.setText(s3);
-                    String s4 = "Travel to a planet within the " + selectedSolarSystem.getName() + " Solar System";
+                    String s4 = "Travel to a planet within the " + selectedSolarSystem.getName() +
+                            " Solar System";
                     planetMap.setText(s4);
                     coords.setText("System Coordinates: "
                             + selectedSolarSystem.getCoords().toString()
@@ -168,7 +176,7 @@ public class TravelPlanetActivity extends AppCompatActivity {
                         + "\nFuel Cost: " + selectedPlanet.getFuelCost() + " credits/gallon"
                         + "\nResources: " + selectedPlanet.getResources();
 
-                planetDetails.setText(s5);                        ;
+                planetDetails.setText(s5);
             }
 
             rb.setOnClickListener( v-> {
