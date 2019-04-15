@@ -6,6 +6,9 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+/**
+ * Class for the game's universe containing all locations
+ */
 public class Universe {
 
     private Set<SolarSystem> system;
@@ -35,9 +38,7 @@ public class Universe {
         }
     }
 
-    public Universe() {
 
-    }
     /**
      * Method that makes the events on every planet in the universe change
      */

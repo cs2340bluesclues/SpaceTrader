@@ -16,6 +16,9 @@ import macbookpro.cs2340.spacetrader.views.PlanetActivity;
 
 import static macbookpro.cs2340.spacetrader.model.ModelFacade.getNewPlayer;
 
+/**
+ * Engine for the police escape mini game, containing all game function
+ */
 public class PoliceEscapeEngine extends SurfaceView implements Runnable {
     private Thread thread;
 
@@ -47,6 +50,11 @@ public class PoliceEscapeEngine extends SurfaceView implements Runnable {
     private final SurfaceHolder surfaceHolder;
     private final Paint paint;
 
+    /**
+     * Constructor for police escape engine
+     * @param context The context of the app
+     * @param size The size of the screen
+     */
     public PoliceEscapeEngine(Context context, Point size) {
         super(context);
 
@@ -84,6 +92,9 @@ public class PoliceEscapeEngine extends SurfaceView implements Runnable {
         }
     }
 
+    /**
+     * Pauses the screen
+     */
     public void pause() {
         isPlaying = false;
         try {
@@ -93,6 +104,9 @@ public class PoliceEscapeEngine extends SurfaceView implements Runnable {
         }
     }
 
+    /**
+     * Resumes the game
+     */
     public void resume() {
         isPlaying = true;
         thread = new Thread(this);

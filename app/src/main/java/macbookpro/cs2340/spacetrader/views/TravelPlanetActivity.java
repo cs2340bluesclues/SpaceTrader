@@ -15,6 +15,9 @@ import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 import macbookpro.cs2340.spacetrader.model.Universe.SolarSystem;
 import macbookpro.cs2340.spacetrader.viewmodels.TravelPlanetViewModel;
 
+/**
+ * Activity class for the Travel Screen
+ */
 @SuppressWarnings("FeatureEnvy")
 public class TravelPlanetActivity extends AppCompatActivity {
 

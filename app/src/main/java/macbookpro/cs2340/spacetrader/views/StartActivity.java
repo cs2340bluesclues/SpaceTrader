@@ -17,6 +17,9 @@ import android.widget.EditText;
 import macbookpro.cs2340.spacetrader.R;
 //import macbookpro.cs2340.spacetrader.model.Player;
 
+/**
+ * Activity class for the start screen
+ */
 public class StartActivity extends AppCompatActivity {
 
     Button newGame, loadGame;

@@ -14,7 +14,9 @@ import java.util.List;
 import java.util.Random;
 
 
-
+/**
+ * Class for the player of the game
+ */
 public class Player {
     private final String name;
     private int pilot;
@@ -33,7 +35,15 @@ public class Player {
     //private final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("players");
 
 
-
+    /**
+     * Constructor for player class, initializing all of its instance data
+     * @param name The player's name
+     * @param pilot Player's pilot skill points
+     * @param fighter Player's fighter skill points
+     * @param trader Player's trader skill points
+     * @param engineer Player's engineer skill points
+     * @param solarSystem The player's current solar system
+     */
     public Player(String name, int pilot, int fighter, int trader, int engineer,
                   SolarSystem solarSystem) {
         this.name = name;
@@ -89,6 +99,10 @@ public class Player {
         //mDatabase.child(playerID).setValue(list);
     }
 
+    /**
+     * Refuels the player's ship
+     * @param quantityToRefuel The amount to increase the fuel by
+     */
     public void refuelShip(int quantityToRefuel) {
         if (credits > currentPlanet.getFuelCost()) {
             credits -= currentPlanet.getFuelCost() * quantityToRefuel;
@@ -96,6 +110,12 @@ public class Player {
         }
     }
 
+    /**
+     * Makes the player travel if able to
+     * @param nextSol The next solar system to travel to
+     * @param nextPlanet The next planet to travel to
+     * @return If the travel was successful
+     */
     public boolean travel(SolarSystem nextSol, Planet nextPlanet) {
         if (ship.canTravel(nextSol.getCoords(), currentSolarSystem.getCoords())) {
             ship.updateFuel(nextSol.getCoords(), currentSolarSystem.getCoords());
@@ -112,6 +132,12 @@ public class Player {
 //        currentPlanet.getResources());
 //    }
 
+    /**
+     * Buys items from the market
+     * @param item Which item is being bought
+     * @param quantityToPurchase The amount of the item to buy
+     * @return Whether or not the purchase was successful
+     */
     public boolean buy(MarketInfo item, int quantityToPurchase) {
         //int count = 0;
         boolean bought = false;
@@ -126,6 +152,12 @@ public class Player {
         return bought;
     }
 
+    /**
+     * Sells items from player's cargo to the market
+     * @param item The item to sell
+     * @param quantity The quantity of the item to sell
+     * @return Whether or not the selling was successful
+     */
     public boolean sell(MarketInfo item, int quantity) {
         int count = 0;
         boolean sold = false;
@@ -195,11 +227,19 @@ public class Player {
         }
     }
 
+    /**
+     * Pays the police a bribe to not be searched
+     */
     public void payBribe() {
         int bribe = credits * 15 / 100;
         credits = credits - bribe;
     }
 
+    /**
+     * Calculates the price of a piece of cargo
+     * @param item The item in question
+     * @return The price
+     */
     public int calculateCargoPrice(MarketInfo item) {
         return item.getPrice();
     }

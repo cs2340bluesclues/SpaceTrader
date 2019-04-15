@@ -7,6 +7,9 @@ import java.util.Set;
 
 import macbookpro.cs2340.spacetrader.model.Universe.Coord;
 
+/**
+ * The class for ships that the player uses
+ */
 public class Ship {
 
     private final String name;
@@ -18,6 +21,10 @@ public class Ship {
 
     private int remainingCargo;
 
+    /**
+     * Constructor for the ship class
+     * @param shipType The type of ship
+     */
     public Ship(ShipType shipType) {
         this.name = shipType.getShipName();
         this.fuelLevel = getMAX_FUEL();
@@ -30,7 +37,7 @@ public class Ship {
 
     /**
      * get ship name
-     * @return
+     * @return the name
      */
     public String getName() {
         return name;
@@ -122,6 +129,12 @@ public class Ship {
         fuelLevel -= fuelDecrement;
     }
 
+    /**
+     * Updates prices of cargo on the ship
+     * @param e New planet's events
+     * @param tl New planet's tech level
+     * @param r New planet's resources
+     */
     public void updateCargoPrices(Event e, TechLevel tl, Resources r) {
         cargo.forEach( (k, v) -> {
             int val = cargo.remove(k);
@@ -201,6 +214,10 @@ public class Ship {
         return name;
     }
 
+    /**
+     * Setter for the fuel level. Used for testing
+     * @param fuel The new fuel level
+     */
     public void setFuelLevel(int fuel) {
         fuelLevel = fuel;
     }
