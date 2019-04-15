@@ -11,6 +11,9 @@ import android.view.MenuItem;
 
 import macbookpro.cs2340.spacetrader.R;
 
+/**
+ * Activity class for the Main Screen
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override

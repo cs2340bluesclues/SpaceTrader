@@ -22,6 +22,9 @@ import macbookpro.cs2340.spacetrader.model.GameDifficulty;
 import macbookpro.cs2340.spacetrader.model.Player;
 import macbookpro.cs2340.spacetrader.viewmodels.ConfigurationViewModel;
 
+/**
+ * Activity class for initial configuration screen
+ */
 public class ConfigurationActivity extends AppCompatActivity {
 
     /** reference to our view model */

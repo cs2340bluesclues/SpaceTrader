@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.Set;
 
 /**
- * universe class, creates solar systems, retrieves beginning solar system
+ * Class for the game's universe containing all locations
  */
 public class Universe {
 
@@ -38,12 +38,7 @@ public class Universe {
         }
     }
 
-    /**
-     * no-args constructor for universe
-     */
-    public Universe() {
 
-    }
     /**
      * Method that makes the events on every planet in the universe change
      */

@@ -14,6 +14,9 @@ import macbookpro.cs2340.spacetrader.PoliceEscapeMiniGame.PoliceEscapeActivity;
 import macbookpro.cs2340.spacetrader.R;
 import macbookpro.cs2340.spacetrader.viewmodels.PoliceViewModel;
 
+/**
+ * Activity class for the police encounter screen
+ */
 public class PoliceActivity extends AppCompatActivity {
     private PoliceViewModel policeViewModel;
 

@@ -1,5 +1,8 @@
 package macbookpro.cs2340.spacetrader.model;
 
+/**
+ * Enumeration for ship types
+ */
 public enum ShipType {
 
     FLEA("Flea", 5, 20),

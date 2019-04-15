@@ -8,6 +8,9 @@ import macbookpro.cs2340.spacetrader.model.Market;
 import macbookpro.cs2340.spacetrader.model.Resources;
 import macbookpro.cs2340.spacetrader.model.TechLevel;
 
+/**
+ * Class for the planets within the universe
+ */
 public class Planet {
 
     private final String name;
@@ -20,7 +23,7 @@ public class Planet {
     /**
      * Planet constructor. Assigns name from parameter, and randomly sets the planet resource,
      * increase event, and tech level using ordinals in the Resources, Event, & TechLevel enums
-     * @param name
+     * @param name The name of the planet
      */
     public Planet(String name) {
         this.name = name;
@@ -34,7 +37,6 @@ public class Planet {
 
     /**
      * Calculates how much a gallon of fuel will cost on the planet
-     * @return int price of fuel on the planet
      */
     private void calculateFuelCost() {
         fuelCost = randomGen(7) + 5;
@@ -52,6 +54,9 @@ public class Planet {
         //market.generateMarket(event);
     }
 
+    /**
+     * Regenerates the planet's markets and events
+     */
     public void regeneratePlanet() {
         calculateFuelCost();
         eventOccur();

@@ -12,6 +12,9 @@ import android.widget.Toast;
 import macbookpro.cs2340.spacetrader.R;
 import macbookpro.cs2340.spacetrader.viewmodels.PirateViewModel;
 
+/**
+ * Activity class for the pirate encounter screen
+ */
 public class PirateActivity extends AppCompatActivity {
     private PirateViewModel pirateViewModel;
 

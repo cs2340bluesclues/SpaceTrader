@@ -15,6 +15,10 @@ import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 import macbookpro.cs2340.spacetrader.model.Universe.SolarSystem;
 import macbookpro.cs2340.spacetrader.viewmodels.TravelPlanetViewModel;
 
+/**
+ * Activity class for the Travel Screen
+ */
+@SuppressWarnings("FeatureEnvy")
 public class TravelPlanetActivity extends AppCompatActivity {
 
     private TravelPlanetViewModel travelPlanetViewModel;
@@ -31,6 +35,7 @@ public class TravelPlanetActivity extends AppCompatActivity {
     private RadioGroup planetGroup;
     private RadioGroup solarSystemGroup;
 
+    @SuppressWarnings("FeatureEnvy")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -168,7 +173,7 @@ public class TravelPlanetActivity extends AppCompatActivity {
                         + "\nFuel Cost: " + selectedPlanet.getFuelCost() + " credits/gallon"
                         + "\nResources: " + selectedPlanet.getResources();
 
-                planetDetails.setText(s5);                        ;
+                planetDetails.setText(s5);
             }
 
             rb.setOnClickListener( v-> {

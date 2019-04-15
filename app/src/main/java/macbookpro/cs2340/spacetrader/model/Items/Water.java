@@ -5,12 +5,12 @@ import macbookpro.cs2340.spacetrader.model.MarketItem;
 import macbookpro.cs2340.spacetrader.model.Resources;
 
 /**
- * water market item
+ * MarketItem class for water
  */
 public class Water extends MarketItem {
 
     /**
-     * constructor for water market item
+     * Constructor for water class
      */
     public Water () {
         super("Water",0,0,2,30,3,4,

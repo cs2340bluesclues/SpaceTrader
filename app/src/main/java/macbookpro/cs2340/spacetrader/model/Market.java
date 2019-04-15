@@ -17,6 +17,9 @@ import macbookpro.cs2340.spacetrader.model.Items.Ore;
 import macbookpro.cs2340.spacetrader.model.Items.Robots;
 import macbookpro.cs2340.spacetrader.model.Items.Water;
 
+/**
+ * Class for the market that sells objects to the player
+ */
 public class Market {
 
 
@@ -29,6 +32,12 @@ public class Market {
     private final TechLevel techLevel;
     private final Resources resources;
 
+    /**
+     * Constructor for the market class, initializing data
+     * @param planetTechLevel The plaet's tech level
+     * @param planetResources The planet's resources
+     * @param ie The planet's ie
+     */
     public Market(TechLevel planetTechLevel, Resources planetResources, Event ie) {
         techLevel = planetTechLevel;
         resources = planetResources;
@@ -62,7 +71,7 @@ public class Market {
             return 0;
         }
         int quantity = rand.nextInt(20);
-        if (map.containsKey(item) && map.get(item) < 40) {
+        if (map.containsKey(item) && (map.get(item) < 40)) {
             if (item.getTtp() == techLevel.ordinal()) {
                 quantity += rand.nextInt(20);
             }
@@ -95,7 +104,7 @@ public class Market {
      */
     public boolean sellAsPlayer(MarketInfo item) {
         map.remove(item);
-        map.put(item, map.containsKey(item) ? map.get(item) + 1 : 1);
+        map.put(item, map.containsKey(item) ? (map.get(item) + 1) : 1);
         return true;
     }
 
