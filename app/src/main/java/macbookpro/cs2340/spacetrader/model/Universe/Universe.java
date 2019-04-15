@@ -6,6 +6,9 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+/**
+ * universe class, creates solar systems, retrieves beginning solar system
+ */
 public class Universe {
 
     private Set<SolarSystem> system;
@@ -35,6 +38,9 @@ public class Universe {
         }
     }
 
+    /**
+     * no-args constructor for universe
+     */
     public Universe() {
 
     }

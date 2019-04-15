@@ -17,12 +17,19 @@ import static macbookpro.cs2340.spacetrader.model.ModelFacade.getCurrentSolarSys
 import static macbookpro.cs2340.spacetrader.model.ModelFacade.getNewGame;
 import static macbookpro.cs2340.spacetrader.model.ModelFacade.getNewPlayer;
 
+/**
+ * manages data between model and view for travelling
+ */
 public class TravelPlanetViewModel extends AndroidViewModel {
 
     private final Player player;
     private final Planet currPlanet;
     private final SolarSystem currSolarSystem;
 
+    /**
+     * constructor,
+     * @param application instance of this application?
+     */
     public TravelPlanetViewModel(@NonNull Application application) {
         super(application);
         player = getNewPlayer();
@@ -30,18 +37,36 @@ public class TravelPlanetViewModel extends AndroidViewModel {
         currSolarSystem = getCurrentSolarSystem();
     }
 
+    /**
+     * getter for current planet
+     * @return player's current planet
+     */
     public Planet getCurrPlanet() {
         return currPlanet;
     }
 
+    /**
+     * getter for current solar system
+     * @return player's current solar system
+     */
     public SolarSystem getCurrSolarSystem() {
         return currSolarSystem;
     }
 
+    /**
+     * getter for all solar systems
+     * @return set of all solar systems
+     */
     public Set<SolarSystem> getAllSS() {
         return getNewGame().getUniverse().getSystem();
     }
 
+    /**
+     * travel method
+     * @param nextSol player chosen next solar system to travel to
+     * @param nextPlanet player chosen next planet to travel to
+     * @return boolean
+     */
     public boolean travel(SolarSystem nextSol, Planet nextPlanet) {
         Log.i("travel", "traveling to " + nextSol + " in " + nextPlanet);
         return ModelFacade.travel(nextSol, nextPlanet);
