@@ -32,7 +32,8 @@ public class Player {
     private Market currentMarket;
     private final Random rand;
 
-    //private final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("players");
+    //private final DatabaseReference mDatabase =
+    // FirebaseDatabase.getInstance().getReference("players");
 
 
     /**

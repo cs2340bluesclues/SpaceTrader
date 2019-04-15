@@ -17,7 +17,7 @@ public class ItemDetailActivity extends AppCompatActivity {
 
     private String name;
     private int quantity;
-    private MarketInfo marketInfo;
+
 
     private EditText nameField;
     private EditText quantityField;
@@ -28,6 +28,7 @@ public class ItemDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.market_item);
 
+        MarketInfo marketInfo;
         nameField.findViewById(R.id.text_market_item_name);
         quantityField.findViewById(R.id.text_quantity);
         priceField.findViewById(R.id.text_price);

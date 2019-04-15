@@ -23,12 +23,13 @@ import macbookpro.cs2340.spacetrader.model.Items.Water;
 public class Market {
 
 
-    private static final MarketItem[] items = {new Water(), new Furs(), new Food(), new Ore(), new Games(),
-            new Firearms(), new Medicine(), new Machines(), new Narcotics(), new Robots()};
+    private static final MarketItem[] items = {new Water(), new Furs(), new Food(),
+            new Ore(), new Games(), new Firearms(), new Medicine(), new Machines(),
+            new Narcotics(), new Robots()};
 
     private final Map<MarketInfo, Integer> map = new HashMap<>();
 
-    private Event event;
+
     private final TechLevel techLevel;
     private final Resources resources;
 
@@ -49,6 +50,7 @@ public class Market {
      * @param ie the event that happened to the planet
      */
     public void generateMarket(Event ie) {
+        Event event;
         event = ie;
         map.clear();
         for (int index = 0; index < items.length; index++) {

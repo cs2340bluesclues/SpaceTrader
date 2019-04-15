@@ -20,9 +20,7 @@ import macbookpro.cs2340.spacetrader.viewmodels.PoliceViewModel;
 public class PoliceActivity extends AppCompatActivity {
     private PoliceViewModel policeViewModel;
 
-    private Button acceptButton;
-    private Button bribeButton;
-    private Button fleeButton;
+
 
 
     @Override
@@ -30,6 +28,9 @@ public class PoliceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.police_activity);
 
+        Button acceptButton;
+        Button bribeButton;
+        Button fleeButton;
         policeViewModel = ViewModelProviders.of(this).get(PoliceViewModel.class);
 
         acceptButton = findViewById(R.id.accept_check_button);

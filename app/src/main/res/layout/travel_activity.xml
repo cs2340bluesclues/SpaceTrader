@@ -104,14 +104,14 @@
             <Button
                 android:id="@+id/travel_here_button"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:background="@color/blue"
                 android:padding="5dp"
                 android:text="Travel here!"
                 android:textColor="@android:color/white" />
-
+<!--android:layout_height="wrap_content"-->
 
         </LinearLayout>
     </ScrollView>

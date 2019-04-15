@@ -33,7 +33,6 @@ public class ConfigurationActivity extends AppCompatActivity {
     /* ************************
         Widgets we will need for binding and getting information
      */
-    private TextView playerNameLabel;
     private EditText inputName;
     private Spinner difficultySpinner;
 
@@ -44,15 +43,7 @@ public class ConfigurationActivity extends AppCompatActivity {
 
 
 
-    private Button addPilot;
-    private Button subtractPilot;
-    private Button addFighter;
-    private Button subtractFighter;
-    private Button addTrader;
-    private Button subtractTrader;
-    private Button addEngineer;
-    private Button subtractEngineer;
-    private Button submit;
+
     private TextView pilotSkill;
     private TextView fighterSkill;
     private TextView traderSkill;
@@ -66,6 +57,16 @@ public class ConfigurationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.config);
 
+        TextView playerNameLabel;
+        Button addPilot;
+        Button subtractPilot;
+        Button addFighter;
+        Button subtractFighter;
+        Button addTrader;
+        Button subtractTrader;
+        Button addEngineer;
+        Button subtractEngineer;
+        Button submit;
         /*
          * Grab the dialog widgets so we can get info for later
          */

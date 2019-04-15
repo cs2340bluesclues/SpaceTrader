@@ -53,7 +53,8 @@ public class StartActivity extends AppCompatActivity {
 //                DatabaseReference playerNameRef = ref.child("players");
 //                Query queries = playerNameRef.orderByChild("name").equalTo(name);
 //
-//                ValueEventListener eventListener = ref.addValueEventListener(new ValueEventListener() {
+//                ValueEventListener eventListener =
+//                  ref.addValueEventListener(new ValueEventListener() {
 //                    @Override
 //                    public void onDataChange(DataSnapshot dataSnapshot) {
 //                        Player player = dataSnapshot.getValue(Player.class);

@@ -19,17 +19,19 @@ import macbookpro.cs2340.spacetrader.viewmodels.CargoViewModel;
  */
 public class CargoActivity extends AppCompatActivity {
 
-    private CargoViewModel cargoViewModel;
-    private ItemAdapter adapter;
-    private TextView playerName;
-    private TextView playerCredits;
-    private TextView remainingCargo;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cargo_activity);
+
+        CargoViewModel cargoViewModel;
+        ItemAdapter adapter;
+        TextView playerName;
+        TextView playerCredits;
+        TextView remainingCargo;
 
         cargoViewModel = ViewModelProviders.of(this).get(CargoViewModel.class);
 

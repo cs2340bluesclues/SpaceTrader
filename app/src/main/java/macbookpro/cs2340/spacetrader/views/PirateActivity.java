@@ -20,15 +20,16 @@ public class PirateActivity extends AppCompatActivity {
 
     //private TextView introMessage, directions;
 
-    private Button surrenderButton;
-    private Button fightButton;
-    private Button fleeButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pirate_activity);
 
+        Button surrenderButton;
+        Button fightButton;
+        Button fleeButton;
         pirateViewModel = ViewModelProviders.of(this).get(PirateViewModel.class);
 
         surrenderButton = findViewById(R.id.surrender_button);

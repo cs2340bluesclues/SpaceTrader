@@ -12,8 +12,7 @@ import java.util.Set;
 public class Universe {
 
     private Set<SolarSystem> system;
-    private Random r;
-    private int numSolarSystems;
+
 
     /**
      * Universe constructor instantiates the HashSet of SolarSystems, creates random SolarSystems
@@ -23,6 +22,8 @@ public class Universe {
      * @param seed value for the random generator
      */
     public Universe(int n, int seed) {
+        Random r;
+        int numSolarSystems;
         system = new HashSet<>();
         r = new Random(seed);
         numSolarSystems = n;
