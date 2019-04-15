@@ -11,12 +11,15 @@ import android.widget.Button;
 import android.widget.TextView;
 //import android.widget.Toast;
 
+import java.util.Collection;
 import java.util.Map;
+import java.util.Set;
 
 import macbookpro.cs2340.spacetrader.R;
 //import macbookpro.cs2340.spacetrader.model.GameDifficulty;
 import macbookpro.cs2340.spacetrader.model.Market;
 import macbookpro.cs2340.spacetrader.model.MarketInfo;
+import macbookpro.cs2340.spacetrader.model.MarketItem;
 import macbookpro.cs2340.spacetrader.model.Player;
 import macbookpro.cs2340.spacetrader.model.Ship;
 
@@ -39,8 +42,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     ItemAdapter(Map<MarketInfo, Integer> data, boolean buy, Player p, Market m){
         mapData  = data;
-        mapKeys = mapData.keySet().toArray(new MarketInfo[data.size()]);
-        mapValues = mapData.values().toArray(new Integer[data.size()]);
+        Set<MarketInfo> keys = mapData.keySet();
+        mapKeys = keys.toArray(new MarketInfo[data.size()]);
+        Collection<Integer> values = mapData.values();
+        mapValues = values.toArray(new Integer[data.size()]);
         buying = buy;
         player = p;
         ship = p.getShip();
@@ -60,7 +65,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
-        holder.name.setText(mapKeys[position].getItem().getName());
+        MarketItem item = mapKeys[position].getItem();
+        holder.name.setText(item.getName());
         holder.price.setText(String.valueOf(mapKeys[position].getPrice()));
         holder.quantity.setText(String.valueOf(mapValues[position]));
         if (buying) {

@@ -1,5 +1,6 @@
 package macbookpro.cs2340.spacetrader.PoliceEscapeMiniGame;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Point;
@@ -19,6 +20,7 @@ import static macbookpro.cs2340.spacetrader.model.ModelFacade.getNewPlayer;
 /**
  * Engine for the police escape mini game, containing all game function
  */
+@SuppressLint("ViewConstructor")
 public class PoliceEscapeEngine extends SurfaceView implements Runnable {
     private Thread thread;
 
@@ -257,6 +259,7 @@ public class PoliceEscapeEngine extends SurfaceView implements Runnable {
         return false;
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent motionEvent) {
 

@@ -12,7 +12,7 @@ import java.util.Set;
 /**
  * Class for the SolarSystems within the universe
  */
-@SuppressWarnings("ALL")
+
 public class SolarSystem {
 
     private static final List<String> nameList = new ArrayList<>(Arrays.asList("Aldea",
@@ -80,6 +80,11 @@ public class SolarSystem {
         return coords;
     }
 
+    public String coordsToString() {
+        return coords.toString();
+    }
+
+
     /**
      * Setter for the SolarSystem's coordinates. Used for testing
      * @param x New x coordinate
@@ -114,8 +119,8 @@ public class SolarSystem {
      * prints the SolarSystem and its corresponding planet information to the logcat
      */
     public void printSolarSystem() {
-        Log.i("Universe" , "a Solar System made: " + getName() + ". Coordinates: ("
-                + getCoords().getX() + " , " + getCoords().getY() + ")");
+//        Log.i("Universe" , "a Solar System made: " + getName() + ". Coordinates: ("
+//                + getCoords().getX() + " , " + getCoords().getY() + ")");
         for (Planet p : planets) {
             p.printPlanet();
         }
@@ -131,7 +136,8 @@ public class SolarSystem {
         if (this == o) { return true; }
         if (!(o instanceof SolarSystem)) { return false; }
         SolarSystem s = (SolarSystem) o;
-        return this.getCoords().equals(((SolarSystem) o).getCoords());
+        Coord c = this.getCoords();
+        return c.equals(((SolarSystem) o).getCoords());
     }
 
 }

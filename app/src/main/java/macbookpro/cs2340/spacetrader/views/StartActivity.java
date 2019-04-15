@@ -1,5 +1,6 @@
 package macbookpro.cs2340.spacetrader.views;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +21,7 @@ import macbookpro.cs2340.spacetrader.R;
 /**
  * Activity class for the start screen
  */
+@SuppressLint("Registered")
 public class StartActivity extends AppCompatActivity {
 
     Button newGame;
