@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import macbookpro.cs2340.spacetrader.PoliceEscapeMiniGame.PoliceEscapeActivity;
-import macbookpro.cs2340.spacetrader.R;
 import macbookpro.cs2340.spacetrader.viewmodels.PoliceViewModel;
 
 /**

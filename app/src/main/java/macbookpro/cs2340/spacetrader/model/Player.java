@@ -11,7 +11,6 @@ import macbookpro.cs2340.spacetrader.model.Universe.SolarSystem;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.Random;
 
 

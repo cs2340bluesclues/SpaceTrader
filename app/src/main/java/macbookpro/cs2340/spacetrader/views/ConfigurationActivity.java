@@ -17,7 +17,6 @@ import android.widget.Toast;
 //import com.google.firebase.database.DatabaseReference;
 //import com.google.firebase.database.FirebaseDatabase;
 
-import macbookpro.cs2340.spacetrader.R;
 import macbookpro.cs2340.spacetrader.model.GameDifficulty;
 //import macbookpro.cs2340.spacetrader.model.Player;
 import macbookpro.cs2340.spacetrader.viewmodels.ConfigurationViewModel;

@@ -10,7 +10,6 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import macbookpro.cs2340.spacetrader.R;
 import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 import macbookpro.cs2340.spacetrader.model.Universe.SolarSystem;
 import macbookpro.cs2340.spacetrader.viewmodels.TravelPlanetViewModel;
@@ -49,7 +48,7 @@ public class TravelPlanetActivity extends AppCompatActivity {
         planetMap = findViewById(R.id.planet_map_title);
 
 
-        planetMap.setText(travelPlanetViewModel.getCurrPlanetName();
+        planetMap.setText(travelPlanetViewModel.getCurrPlanetName());
 
         planetGroup = findViewById(R.id.planet_button_group);
         solarSystemGroup = findViewById(R.id.solar_system_button_group);

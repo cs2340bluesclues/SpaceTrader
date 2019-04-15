@@ -10,7 +10,6 @@ import android.support.v7.widget.RecyclerView;
 //import android.view.View;
 import android.widget.TextView;
 
-import macbookpro.cs2340.spacetrader.R;
 import macbookpro.cs2340.spacetrader.viewmodels.CargoViewModel;
 //import macbookpro.cs2340.spacetrader.viewmodels.CargoViewModel;
 

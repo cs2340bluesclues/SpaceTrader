@@ -15,7 +15,6 @@ import android.widget.EditText;
 //import com.google.firebase.database.Query;
 //import com.google.firebase.database.ValueEventListener;
 
-import macbookpro.cs2340.spacetrader.R;
 //import macbookpro.cs2340.spacetrader.model.Player;
 
 /**

@@ -7,8 +7,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TabHost;
 
-import macbookpro.cs2340.spacetrader.R;
-
 
 /**
  * Activity class for the Tab View

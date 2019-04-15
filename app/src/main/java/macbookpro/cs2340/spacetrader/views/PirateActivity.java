@@ -9,7 +9,6 @@ import android.widget.Button;
 //import android.widget.TextView;
 import android.widget.Toast;
 
-import macbookpro.cs2340.spacetrader.R;
 import macbookpro.cs2340.spacetrader.viewmodels.PirateViewModel;
 
 /**

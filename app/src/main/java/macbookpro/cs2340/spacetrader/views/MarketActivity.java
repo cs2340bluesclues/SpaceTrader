@@ -12,9 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 //import android.widget.Toast;
 
-import macbookpro.cs2340.spacetrader.R;
 //import macbookpro.cs2340.spacetrader.model.Market;
-import macbookpro.cs2340.spacetrader.model.MarketInfo;
 import macbookpro.cs2340.spacetrader.model.MarketItem;
 //import macbookpro.cs2340.spacetrader.model.MarketInfo;
 import macbookpro.cs2340.spacetrader.viewmodels.MarketViewModel;

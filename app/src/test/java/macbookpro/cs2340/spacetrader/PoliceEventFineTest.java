@@ -1,8 +1,5 @@
 package macbookpro.cs2340.spacetrader;
 
-import android.media.Image;
-
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 

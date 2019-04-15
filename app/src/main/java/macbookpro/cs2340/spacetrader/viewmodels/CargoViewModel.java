@@ -1,6 +1,5 @@
 package macbookpro.cs2340.spacetrader.viewmodels;
 
-import android.annotation.SuppressLint;
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.support.annotation.NonNull;

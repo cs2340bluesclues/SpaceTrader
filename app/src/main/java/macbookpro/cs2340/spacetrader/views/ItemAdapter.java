@@ -15,7 +15,6 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
 
-import macbookpro.cs2340.spacetrader.R;
 //import macbookpro.cs2340.spacetrader.model.GameDifficulty;
 import macbookpro.cs2340.spacetrader.model.Market;
 import macbookpro.cs2340.spacetrader.model.MarketInfo;

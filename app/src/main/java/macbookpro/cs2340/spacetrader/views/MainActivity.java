@@ -9,8 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import macbookpro.cs2340.spacetrader.R;
-
 /**
  * Activity class for the Main Screen
  */
