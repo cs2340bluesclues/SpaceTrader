@@ -20,6 +20,9 @@ import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 import static macbookpro.cs2340.spacetrader.model.ModelFacade.*;
 
 
+/**
+ * Manages the data between the view and the data for the ship cargo
+ */
 public class CargoViewModel extends AndroidViewModel {
 
     private final Map<MarketInfo, Integer> cargoMap;

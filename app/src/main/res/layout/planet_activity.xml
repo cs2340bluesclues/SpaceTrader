@@ -15,7 +15,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/player_name"/>
+        android:text="@string/player_name"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/credits_label"
@@ -26,7 +27,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintRight_toLeftOf="@id/credits"
-        android:text="@string/credits_label"/>
+        android:text="@string/credits_label"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/credits"
@@ -38,7 +40,8 @@
         android:layout_marginBottom="8dp"
         android:paddingRight="25dp"
         android:text="####"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"

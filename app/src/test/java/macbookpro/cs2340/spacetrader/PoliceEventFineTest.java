@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 
 
 /**
- * Buy method unit test
+ * Police event fine method unit test
  * Saachi Wadhwani
  * GT username: swadhwani6
  */

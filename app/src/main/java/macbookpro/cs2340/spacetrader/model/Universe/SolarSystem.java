@@ -78,6 +78,10 @@ public class SolarSystem {
         return coords;
     }
 
+    /**
+     * to string method
+     * @return coords as a string
+     */
     public String coordsToString() {
         return coords.toString();
     }
