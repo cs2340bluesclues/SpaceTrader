@@ -80,11 +80,11 @@ public class SellTest {
         System.out.println("space after sell 1 " + ship.getRemainingCargo());
         assertEquals(12, ship.getRemainingCargo());
         //checks if credits match after selling
-        assertEquals(credits, player.getCredits());
+        assertEquals(credits + price, player.getCredits());
     }
     @Test(timeout = TIMEOUT)
     public void sellUntilGone() {
-        player.sell(waterInfo, 4);
+        player.sell(waterInfo, 5);
         assertEquals(15, ship.getRemainingCargo());
     }
 }
