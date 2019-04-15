@@ -31,6 +31,9 @@ import com.google.firebase.database.FirebaseDatabase;
 //import macbookpro.cs2340.spacetrader.model.Player;
 import macbookpro.cs2340.spacetrader.viewmodels.PlanetViewModel;
 
+/**
+ * Activity class for the planet screen
+ */
 public class PlanetActivity extends AppCompatActivity {
     private PlanetViewModel planetViewModel;
 
