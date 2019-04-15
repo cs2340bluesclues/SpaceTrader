@@ -57,35 +57,53 @@ public class BuyTest {
         notAvailable = null;
     }
 
+//    @Test (timeout = TIMEOUT)
+//    public void notEnoughCredits() {
+//        Map<MarketInfo, Integer> cargo = ship.getCargo();
+//        int remainingCargo = ship.getRemainingCargo();
+//        player.setCredits(0);
+//        //make sure it didn't actually buy
+//        assertFalse(player.buy(waterInfo, 1));
+//        //make sure quantity of cargo didn't change
+//        assertEquals(remainingCargo, ship.getRemainingCargo());
+//        //make sure items in cargo didn't change
+//        assertEquals(cargo, ship.getCargo());
+//    }
+//
+//
+//    @Test (timeout = TIMEOUT)
+//    public void buyItem() {
+//        int cost = waterInfo.getPrice();
+//        int currCredits = player.getCredits();
+//        int quant = 1;
+//
+//        Map<MarketInfo, Integer> cargo = ship.getCargo();
+//        cargo.put(waterInfo, quant);
+//        int remainingCargo = ship.getRemainingCargo();
+//
+//        assertTrue(player.buy(waterInfo, quant));
+//        assertEquals(currCredits - cost, player.getCredits());
+//        assertEquals(cargo, ship.getCargo());
+//        assertEquals(remainingCargo, ship.getRemainingCargo());
+//
+//    }
+
+
     @Test (timeout = TIMEOUT)
-    public void notEnoughCredits() {
-        Map<MarketInfo, Integer> cargo = ship.getCargo();
-        int remainingCargo = ship.getRemainingCargo();
-        player.setCredits(0);
-        //make sure it didn't actually buy
-        assertFalse(player.buy(waterInfo, 1));
-        //make sure quantity of cargo didn't change
-        assertEquals(remainingCargo, ship.getRemainingCargo());
-        //make sure items in cargo didn't change
-        assertEquals(cargo, ship.getCargo());
+    public void policeEventHappens() {
+        //player should not have lawful status
+        player.setLawfulStatus(false);
+
+        assertEquals(true, player.policeEvent());
+
     }
 
 
     @Test (timeout = TIMEOUT)
-    public void buyItem() {
-        int cost = waterInfo.getPrice();
-        int currCredits = player.getCredits();
-        int quant = 1;
+    public void noPoliceEventHappens() {
+        //player should have lawful status
+        player.setLawfulStatus(true);
 
-        Map<MarketInfo, Integer> cargo = ship.getCargo();
-        cargo.put(waterInfo, quant);
-        int remainingCargo = ship.getRemainingCargo();
-
-        assertTrue(player.buy(waterInfo, quant));
-        assertEquals(currCredits - cost, player.getCredits());
-        assertEquals(cargo, ship.getCargo());
-        assertEquals(remainingCargo, ship.getRemainingCargo());
-
+        assertEquals(false, player.policeEvent());
     }
-
 }
