@@ -20,12 +20,17 @@ import macbookpro.cs2340.spacetrader.model.Items.Water;
 public class Market {
 
 
+    public static MarketItem[] getItems() {
+        return items;
+    }
+
     private static final MarketItem[] items = {new Water(), new Furs(), new Food(), new Ore(), new Games(),
             new Firearms(), new Medicine(), new Machines(), new Narcotics(), new Robots()};
 
     private final Map<MarketInfo, Integer> map = new HashMap<>();
 
     private Event event;
+
     private final TechLevel techLevel;
     private final Resources resources;
 
@@ -56,15 +61,15 @@ public class Market {
      * @param item item in the market
      * @return number of items in the market
      */
-    private int calculateQuantity(MarketItem item) {
+    public int calculateQuantity(MarketItem item) {
         Random rand = new Random();
         if (item.getMtlp() > techLevel.ordinal()) {
             return 0;
         }
-        int quantity = rand.nextInt(20);
+        int quantity = rand.nextInt(15) + 1;
         if (map.containsKey(item) && map.get(item) < 40) {
             if (item.getTtp() == techLevel.ordinal()) {
-                quantity += rand.nextInt(20);
+                quantity += rand.nextInt(5) + 15;
             }
         }
         return quantity;
@@ -105,6 +110,22 @@ public class Market {
      */
     public Map<MarketInfo, Integer> getMarketGoods() {
         return map;
+    }
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
+    }
+
+    public TechLevel getTechLevel() {
+        return techLevel;
+    }
+
+    public Resources getResources() {
+        return resources;
     }
 
 }
