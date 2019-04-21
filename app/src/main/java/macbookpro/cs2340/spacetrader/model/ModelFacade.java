@@ -19,6 +19,9 @@ import java.io.PrintWriter;
 import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 import macbookpro.cs2340.spacetrader.model.Universe.SolarSystem;
 
+/**
+ * handles all of the game data between the model and view
+ */
 public class ModelFacade {
     private static ModelFacade instance;
     private static Game newGame;
@@ -26,6 +29,10 @@ public class ModelFacade {
     public static final String DEFAULT_JSON_FILE_NAME = "data.json";
     //DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("players");
 
+    /**
+     * getter current instance of this class
+     * @return instance of ModelFacade
+     */
     public static ModelFacade getInstance() {
         if(instance == null){
             instance = new ModelFacade();
@@ -39,23 +46,26 @@ public class ModelFacade {
         newPlayer = newGame.getPlayer();
     }
 
-//    public static String createPlayer(String name,
-//                                      int pilot, int fighter, int trader, int engineer) {
-//        SolarSystem beginnerSolarSystem = newGame.getUniverse().retrieveBeginnerSolarSystem();
-//        newPlayer = new Player(name, pilot, fighter, trader, engineer, beginnerSolarSystem);
-////        saveToDatabase();
-//        return newPlayer.toString();
-//    }
-
+    /**
+     * getter for the game
+     * @return instance of game
+     */
     public static Game getNewGame() {
         return newGame;
     }
 
+    /**
+     * travel method
+     * @param system solar system to travel to
+     * @param planet planet to travel to
+     * @return boolean whether this is travel is possible or not
+     */
     public static boolean travel(SolarSystem system, Planet planet) {
         newGame.travel();
         return newPlayer.travel(system, planet);
     }
 
+//    public static void saveToDatabase(){
     public boolean loadJson(File file) {
         try {
             BufferedReader input = new BufferedReader(new FileReader(file));
@@ -123,21 +133,44 @@ public class ModelFacade {
 
 //        String playerID = mDatabase.push().getKey();
 //        mDatabase.child(playerID).setValue(newPlayer);
-    }
+//    }
 
-
+    /**
+     * getter for the player
+     * @return player
+     */
     public static Player getNewPlayer() {
         return newPlayer;
     }
 
+    /**
+     * getter for current solar system
+     * @return current solar system
+     */
     public static SolarSystem getCurrentSolarSystem() { return newPlayer.getCurrentSolarSystem(); }
 
+    /**
+     * getter for current planet
+     * @return current planet
+     */
     public static Planet getCurrentPlanet( ){ return newPlayer.getCurrentPlanet(); }
 
+    /**
+     * getter for current market
+     * @return current market
+     */
     public static Market getCurrentMarket() {return newPlayer.getMarket(); }
 
+    /**
+     * getter for current ship
+     * @return current ship
+     */
     public static Ship getCurrentShip() {return newPlayer.getShip();}
 
+    /**
+     * getter for current credits
+     * @return current number of credits
+     */
     public static int getCurrentCredits() {return newPlayer.getCredits();}
 
 

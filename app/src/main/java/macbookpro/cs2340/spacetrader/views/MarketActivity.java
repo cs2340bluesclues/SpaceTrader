@@ -12,20 +12,23 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 //import android.widget.Toast;
 
-import macbookpro.cs2340.spacetrader.R;
 //import macbookpro.cs2340.spacetrader.model.Market;
-import macbookpro.cs2340.spacetrader.model.MarketInfo;
+import macbookpro.cs2340.spacetrader.model.MarketItem;
+//import macbookpro.cs2340.spacetrader.model.MarketInfo;
 import macbookpro.cs2340.spacetrader.viewmodels.MarketViewModel;
 
+/**
+ * Activity class for the market screen
+ */
 public class MarketActivity extends AppCompatActivity {
 
     /** a reference to our view model */
     private MarketViewModel marketViewModel;
 
     /** widgets*/
-    TextView playerName;
-    TextView playerCredits;
-    TextView remainingCargo;
+    private TextView playerName;
+    private TextView playerCredits;
+    private TextView remainingCargo;
 
 
     /** make an adapter for the list */
@@ -61,13 +64,11 @@ public class MarketActivity extends AppCompatActivity {
         //Setup the adapter for the view
         recyclerView.setAdapter(adapter);
 
-        adapter.setOnMarketInfoClickListener(new ItemAdapter.OnMarketInfoClickListener() {
-            @Override
-            public void onMarketInfoClicked(MarketInfo marketInfo) {
-                Intent intent = new Intent(MarketActivity.this, ItemDetailActivity.class);
-                intent.putExtra("Market Item", marketInfo.getItem().getName());
-                startActivity(intent);
-            }
+        adapter.setOnMarketInfoClickListener(marketInfo -> {
+            Intent intent = new Intent(MarketActivity.this, ItemDetailActivity.class);
+            MarketItem item = marketInfo.getItem();
+            intent.putExtra("Market Item", item.getName());
+            startActivity(intent);
         });
 
 

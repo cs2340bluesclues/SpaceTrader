@@ -1,16 +1,13 @@
 package macbookpro.cs2340.spacetrader;
 
-import android.media.Image;
-
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Map;
 import java.util.Random;
 
-
 import macbookpro.cs2340.spacetrader.model.Event;
+import macbookpro.cs2340.spacetrader.model.Items.Games;
 import macbookpro.cs2340.spacetrader.model.Items.Water;
 import macbookpro.cs2340.spacetrader.model.Market;
 import macbookpro.cs2340.spacetrader.model.MarketInfo;
@@ -21,17 +18,13 @@ import macbookpro.cs2340.spacetrader.model.TechLevel;
 import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 import macbookpro.cs2340.spacetrader.model.Universe.SolarSystem;
 
-import static macbookpro.cs2340.spacetrader.model.Event.NONE;
 import static org.junit.Assert.*;
 
-
 /**
- * Buy method unit test
- * Saachi Wadhwani
- * GT username: swadhwani6
+ * Sell unit test
+ * Hannah Kim
  */
-
-public class BuyTest {
+public class SellTest {
     private static final int TIMEOUT = 200;
     private Player player;
     private Ship ship;
@@ -40,8 +33,7 @@ public class BuyTest {
     private Market currMarket;
     private Random rand;
     private MarketInfo waterInfo;
-    private MarketInfo notAvailable;
-    private int buyQuanitity;
+    private MarketInfo gamesInfo;
 
     @Before
     public void setUp() {
@@ -51,41 +43,44 @@ public class BuyTest {
         ship = player.getShip();
         currPlanet = player.getCurrentPlanet();
         currMarket = currPlanet.getMarket();
-        //currMarket = new Market(TechLevel.HI_TECH, Resources.NO_SPECIAL_RESOURCES, Event.NONE);
         Water water = new Water();
         waterInfo = new MarketInfo(water, Event.COLD, TechLevel.AGRICULTURE, Resources.ARTISTIC);
-        notAvailable = null;
+        Games games = new Games();
+        gamesInfo = new MarketInfo(games, Event.COLD, TechLevel.AGRICULTURE, Resources.ARTISTIC);
+        ship.addItem(waterInfo, 5);
     }
 
-    @Test (timeout = TIMEOUT)
-    public void notEnoughCredits() {
+    @Test(timeout = TIMEOUT)
+    public void notInCargo() {
         Map<MarketInfo, Integer> cargo = ship.getCargo();
+        int credits = player.getCredits();
         int remainingCargo = ship.getRemainingCargo();
-        player.setCredits(0);
-        //make sure it didn't actually buy
-        assertFalse(player.buy(waterInfo, 1));
-        //make sure quantity of cargo didn't change
+        //checks if it buys when doesn't exist in cargo
+        assertFalse(player.sell(gamesInfo, 3));
+        //checks if cargo is still the same
         assertEquals(remainingCargo, ship.getRemainingCargo());
-        //make sure items in cargo didn't change
-        assertEquals(cargo, ship.getCargo());
+        assertEquals(credits, player.getCredits());
     }
 
-
-    @Test (timeout = TIMEOUT)
-    public void buyItem() {
-        int cost = waterInfo.getPrice();
-        int currCredits = player.getCredits();
-        int quant = 1;
-
+    @Test(timeout = TIMEOUT)
+    public void inCargo() {
         Map<MarketInfo, Integer> cargo = ship.getCargo();
-        cargo.put(waterInfo, quant);
+        int credits = player.getCredits();
+        int price = waterInfo.getPrice();
         int remainingCargo = ship.getRemainingCargo();
-
-        assertTrue(player.buy(waterInfo, quant));
-        assertEquals(currCredits - cost, player.getCredits());
-        assertEquals(cargo, ship.getCargo());
-        assertEquals(remainingCargo, ship.getRemainingCargo());
-
+        //checks if player can sell item in cargo and sells an item
+        player.sell(waterInfo, 1);
+        assertEquals(12, ship.getRemainingCargo());
+        //checks if credits match after selling
+        assertEquals(credits + price, player.getCredits());
     }
-
+    @Test(timeout = TIMEOUT)
+    public void sellUntilGone() {
+        //sells all the waters currently in the cargo
+        player.sell(waterInfo, 5);
+        //checks if remaining cargo equals the ship's starting empty cargo
+        assertEquals(15, ship.getRemainingCargo());
+        //checks if player can sell a nonexistent item
+        assertFalse(player.sell(waterInfo, 1));
+    }
 }

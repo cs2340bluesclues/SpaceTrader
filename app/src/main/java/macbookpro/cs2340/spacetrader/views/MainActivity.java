@@ -9,8 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import macbookpro.cs2340.spacetrader.R;
-
+/**
+ * Activity class for the Main Screen
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+
         if (id == R.id.action_settings) {
             return true;
         }

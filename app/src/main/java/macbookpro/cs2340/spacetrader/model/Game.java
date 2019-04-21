@@ -3,6 +3,10 @@ package macbookpro.cs2340.spacetrader.model;
 import macbookpro.cs2340.spacetrader.model.Universe.SolarSystem;
 import macbookpro.cs2340.spacetrader.model.Universe.Universe;
 
+/**
+ * The game class which initializes the game universe and
+ * holds a game difficulty
+ */
 public class Game {
 
     private GameDifficulty diff;
@@ -44,7 +48,7 @@ public class Game {
 
     /**
      * Setter for the game difficulty level
-     * @param diff
+     * @param diff The game difficulty
      */
     public void setDiff(GameDifficulty diff) {
         this.diff = diff;

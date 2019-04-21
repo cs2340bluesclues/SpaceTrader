@@ -4,8 +4,14 @@ import macbookpro.cs2340.spacetrader.model.Event;
 import macbookpro.cs2340.spacetrader.model.MarketItem;
 import macbookpro.cs2340.spacetrader.model.Resources;
 
+/**
+ * Class for MarketItem Meddicine
+ */
 public class Medicine extends MarketItem {
 
+    /**
+     * Constructor for Medicine class
+     */
     public Medicine () {
 
         super("Medicine",4, 1,6,650, -20, 10,

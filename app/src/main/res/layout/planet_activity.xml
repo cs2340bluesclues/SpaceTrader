@@ -15,7 +15,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/player_name"/>
+        android:text="@string/player_name"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/credits_label"
@@ -26,7 +27,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintRight_toLeftOf="@id/credits"
-        android:text="@string/credits_label"/>
+        android:text="@string/credits_label"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/credits"
@@ -38,7 +40,8 @@
         android:layout_marginBottom="8dp"
         android:paddingRight="25dp"
         android:text="####"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -132,7 +135,7 @@
                 android:id="@+id/increase_quantity_button"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:text="string/plus"
+                android:text="@+string/plus"
                 app:layout_constraintTop_toTopOf="@id/text_quantity_desired"
                 app:layout_constraintLeft_toRightOf="@id/text_quantity_desired" />
 
@@ -227,7 +230,7 @@
             <TextView
                 android:id="@+id/fueltanklabel"
                 android:layout_width="120dp"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_weight="1"
                 android:text="@string/fueltanklabel"
                 android:gravity="center_horizontal"
@@ -235,6 +238,7 @@
                 android:textColor="#03a464"
                 android:textSize="18sp"
                 />
+            <!--android:layout_height:"wrap_content"-->
 
             <TextView
                 android:id="@+id/current_fuel_label"

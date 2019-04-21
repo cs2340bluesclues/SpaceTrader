@@ -1,13 +1,15 @@
 package macbookpro.cs2340.spacetrader.model.Universe;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
+
+/**
+ * Class for the SolarSystems within the universe
+ */
 
 public class SolarSystem {
 
@@ -24,9 +26,9 @@ public class SolarSystem {
     private static final Set<Coord> coordsSet = new HashSet<>();
     private final Set<Planet> planets = new HashSet<>();
     private String name;
-    private  Coord coords;
-    private  int numPlanets;
-    private  Random r;
+    private Coord coords;
+
+    private Random r;
 
     /**
      * SolarSystem constructor that takes in a Random object and randomly generates a unique name
@@ -36,7 +38,7 @@ public class SolarSystem {
      */
     public SolarSystem(Random random) {
         r = random;
-
+        int numPlanets;
         // catches exception if the list of names is size of 0
         try {
             this.name = nameList.remove(r.nextInt(nameList.size()));
@@ -60,9 +62,6 @@ public class SolarSystem {
         }
     }
 
-    public SolarSystem() {
-
-    }
     /**
      * Getter method for SolarSystem name
      * @return String
@@ -79,6 +78,20 @@ public class SolarSystem {
         return coords;
     }
 
+    /**
+     * to string method
+     * @return coords as a string
+     */
+    public String coordsToString() {
+        return coords.toString();
+    }
+
+
+    /**
+     * Setter for the SolarSystem's coordinates. Used for testing
+     * @param x New x coordinate
+     * @param y New y coordinate
+     */
     public void setCoords(int x, int y) {
         coords = new Coord(x, y);
     }
@@ -108,8 +121,8 @@ public class SolarSystem {
      * prints the SolarSystem and its corresponding planet information to the logcat
      */
     public void printSolarSystem() {
-        Log.i("Universe" , "a Solar System made: " + getName() + ". Coordinates: ("
-                + getCoords().getX() + " , " + getCoords().getY() + ")");
+//        Log.i("Universe" , "a Solar System made: " + getName() + ". Coordinates: ("
+//                + getCoords().getX() + " , " + getCoords().getY() + ")");
         for (Planet p : planets) {
             p.printPlanet();
         }
@@ -125,7 +138,8 @@ public class SolarSystem {
         if (this == o) { return true; }
         if (!(o instanceof SolarSystem)) { return false; }
         SolarSystem s = (SolarSystem) o;
-        return this.getCoords().equals(((SolarSystem) o).getCoords());
+        Coord c = this.getCoords();
+        return c.equals(((SolarSystem) o).getCoords());
     }
 
 }

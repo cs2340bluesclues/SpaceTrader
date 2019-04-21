@@ -1,5 +1,6 @@
 package macbookpro.cs2340.spacetrader.views;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,13 +15,17 @@ import android.widget.EditText;
 //import com.google.firebase.database.Query;
 //import com.google.firebase.database.ValueEventListener;
 
-import macbookpro.cs2340.spacetrader.R;
 //import macbookpro.cs2340.spacetrader.model.Player;
 
+/**
+ * Activity class for the start screen
+ */
+@SuppressLint("Registered")
 public class StartActivity extends AppCompatActivity {
 
-    Button newGame, loadGame;
-    EditText nameInput;
+    private Button newGame;
+    private Button loadGame;
+    private EditText nameInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,13 +37,10 @@ public class StartActivity extends AppCompatActivity {
         loadGame = findViewById(R.id.load_button);
         nameInput = findViewById(R.id.input_name);
 
-        newGame.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        newGame.setOnClickListener(v -> {
 
-                Intent intent = new Intent(StartActivity.this, ConfigurationActivity.class);
-                startActivity(intent);
-            }
+            Intent intent = new Intent(StartActivity.this, ConfigurationActivity.class);
+            startActivity(intent);
         });
         loadGame.setOnClickListener(new View.OnClickListener() {
             String name = nameInput.getText().toString();
@@ -49,7 +51,8 @@ public class StartActivity extends AppCompatActivity {
 //                DatabaseReference playerNameRef = ref.child("players");
 //                Query queries = playerNameRef.orderByChild("name").equalTo(name);
 //
-//                ValueEventListener eventListener = ref.addValueEventListener(new ValueEventListener() {
+//                ValueEventListener eventListener =
+//                  ref.addValueEventListener(new ValueEventListener() {
 //                    @Override
 //                    public void onDataChange(DataSnapshot dataSnapshot) {
 //                        Player player = dataSnapshot.getValue(Player.class);

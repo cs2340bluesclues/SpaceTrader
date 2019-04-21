@@ -2,6 +2,11 @@ package macbookpro.cs2340.spacetrader.model;
 
 import java.util.Random;
 
+/**
+ * Class for MarketInfos, which hold market items and
+ * information about them
+ * Note: this class has a natural ordering that is inconsistent with equals.
+ */
 public class MarketInfo implements Comparable<MarketInfo> {
 
     private final MarketItem item;
@@ -51,17 +56,20 @@ public class MarketInfo implements Comparable<MarketInfo> {
         if (item.getIe() == null) {
             radicalPriceIncrease =  false;
         } else {
-            radicalPriceIncrease = ie.ordinal() == item.getIe().ordinal();
+            Event e = item.getIe();
+            radicalPriceIncrease = ie.ordinal() == e.ordinal();
         }
         if (item.getCr() == null) {
             cheapResource = false;
         } else {
-            cheapResource = item.getCr().ordinal() == resources.ordinal();
+            Resources r = item.getCr();
+            cheapResource = r.ordinal() == resources.ordinal();
         }
         if (item.getEr() == null) {
             expensiveResource =  false;
         } else {
-            expensiveResource =  item.getEr().ordinal() == resources.ordinal();
+            Resources r = item.getEr();
+            expensiveResource =  r.ordinal() == resources.ordinal();
         }
 
         Random rand = new Random();

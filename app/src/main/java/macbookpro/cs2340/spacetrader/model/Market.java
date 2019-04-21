@@ -17,8 +17,18 @@ import macbookpro.cs2340.spacetrader.model.Items.Ore;
 import macbookpro.cs2340.spacetrader.model.Items.Robots;
 import macbookpro.cs2340.spacetrader.model.Items.Water;
 
+/**
+ * Class for the market that sells objects to the player
+ */
 public class Market {
 
+    /**
+     * getter for market items
+     * @return items
+     */
+    public static MarketItem[] getItems() {
+        return items;
+    }
 
     private static final MarketItem[] items = {new Water(), new Furs(), new Food(), new Ore(), new Games(),
             new Firearms(), new Medicine(), new Machines(), new Narcotics(), new Robots()};
@@ -26,9 +36,16 @@ public class Market {
     private final Map<MarketInfo, Integer> map = new HashMap<>();
 
     private Event event;
+
     private final TechLevel techLevel;
     private final Resources resources;
 
+    /**
+     * Constructor for the market class, initializing data
+     * @param planetTechLevel The plaet's tech level
+     * @param planetResources The planet's resources
+     * @param ie The planet's ie
+     */
     public Market(TechLevel planetTechLevel, Resources planetResources, Event ie) {
         techLevel = planetTechLevel;
         resources = planetResources;
@@ -40,6 +57,7 @@ public class Market {
      * @param ie the event that happened to the planet
      */
     public void generateMarket(Event ie) {
+        Event event;
         event = ie;
         map.clear();
         for (int index = 0; index < items.length; index++) {
@@ -56,15 +74,16 @@ public class Market {
      * @param item item in the market
      * @return number of items in the market
      */
-    private int calculateQuantity(MarketItem item) {
+    public int calculateQuantity(MarketItem item) {
         Random rand = new Random();
         if (item.getMtlp() > techLevel.ordinal()) {
             return 0;
         }
-        int quantity = rand.nextInt(20);
+
+        int quantity = rand.nextInt(15) + 1;
         if (map.containsKey(item) && map.get(item) < 40) {
             if (item.getTtp() == techLevel.ordinal()) {
-                quantity += rand.nextInt(20);
+                quantity += rand.nextInt(5) + 15;
             }
         }
         return quantity;
@@ -95,7 +114,7 @@ public class Market {
      */
     public boolean sellAsPlayer(MarketInfo item) {
         map.remove(item);
-        map.put(item, map.containsKey(item) ? map.get(item) + 1 : 1);
+        map.put(item, map.containsKey(item) ? (map.get(item) + 1) : 1);
         return true;
     }
 
@@ -105,6 +124,38 @@ public class Market {
      */
     public Map<MarketInfo, Integer> getMarketGoods() {
         return map;
+    }
+
+    /**
+     * getter for events
+     * @return event
+     */
+    public Event getEvent() {
+        return event;
+    }
+
+    /**
+     * setter for events
+     * @param event event to be set
+     */
+    public void setEvent(Event event) {
+        this.event = event;
+    }
+
+    /**
+     * getter for tech level
+     * @return tech level
+     */
+    public TechLevel getTechLevel() {
+        return techLevel;
+    }
+
+    /**
+     * getter for resources
+     * @return resources
+     */
+    public Resources getResources() {
+        return resources;
     }
 
 }

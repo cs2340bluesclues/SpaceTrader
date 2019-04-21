@@ -19,13 +19,9 @@ import macbookpro.cs2340.spacetrader.model.Universe.Planet;
 
 import static macbookpro.cs2340.spacetrader.model.ModelFacade.*;
 
+
 /**
-<<<<<<< HEAD
- * manages the data between the view and model of the player's cargo
-=======
- * ViewModel for the cargo screen, maintaining data such as player, ship,
- * planet, market, and cargo
->>>>>>> Matt
+ * Manages the data between the view and the data for the ship cargo
  */
 public class CargoViewModel extends AndroidViewModel {
 
