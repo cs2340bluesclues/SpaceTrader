@@ -112,7 +112,7 @@ public class ModelFacade {
         }
         return true;
     }
-    public static void saveToDatabase(){
+//    public static void saveToDatabase(){
 //        // Get a reference to our posts
 //        final FirebaseDatabase database = FirebaseDatabase.getInstance();
 //        DatabaseReference ref = database.getReference();
