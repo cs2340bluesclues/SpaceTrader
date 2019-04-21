@@ -186,7 +186,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
                 if (buying && (ship.getRemainingCargo() >= quantityToTrade)) {
                     transaction(player, market, position, quantityToTrade);
-                    quantity.setText(mapData.get(mapKeys[position]));
+                    quantity.setText(Integer.toString(mapData.get(mapKeys[position])));
                     if (buying && ship.getRemainingCargo() >= quantityToTrade) {
                         transaction(player, market, position, quantityToTrade);
                         quantity.setText(Integer.toString(mapData.get(mapKeys[position])));
@@ -199,7 +199,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
                 } else {
                     transaction(player, market, position, quantityToTrade);
-                    quantity.setText(mapData.get(mapKeys[position]));
+                    quantity.setText(Integer.toString(mapData.get(mapKeys[position])));
 
                     quantityToTrade = 0;
                     totalTradePrice = 0;

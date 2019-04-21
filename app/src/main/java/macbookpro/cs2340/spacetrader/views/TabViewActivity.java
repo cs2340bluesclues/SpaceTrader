@@ -2,6 +2,7 @@ package macbookpro.cs2340.spacetrader.views;
 
 import android.content.Intent;
 import android.os.Bundle;
+import macbookpro.cs2340.spacetrader.R;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;

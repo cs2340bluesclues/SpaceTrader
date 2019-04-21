@@ -2,6 +2,7 @@ package macbookpro.cs2340.spacetrader.views;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import macbookpro.cs2340.spacetrader.R;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;

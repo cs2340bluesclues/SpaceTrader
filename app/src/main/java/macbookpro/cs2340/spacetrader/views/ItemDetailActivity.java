@@ -1,6 +1,7 @@
 package macbookpro.cs2340.spacetrader.views;
 
 import android.os.Bundle;
+import macbookpro.cs2340.spacetrader.R;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Button;

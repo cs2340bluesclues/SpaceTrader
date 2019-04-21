@@ -1,6 +1,7 @@
 package macbookpro.cs2340.spacetrader.views;
 
 import android.arch.lifecycle.ViewModelProviders;
+import macbookpro.cs2340.spacetrader.R;
 //import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
