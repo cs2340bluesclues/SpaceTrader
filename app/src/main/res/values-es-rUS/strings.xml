@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SpaceTrader</string>
+    <string name="player_name">Nombre</string>
+    <string name="price">Precio</string>
+    <string name="quantity">Cantidad</string>
+    <string name="quantity_to_buy">"Cantidad para comprar "</string>
+    <string name="ship_name_label">Nombre de la Nave</string>
+    <string name="submit">Entregar</string>
+    <string name="surrender">El acto de entrega</string>
+    <string name="total_price">El costo total</string>
+    <string name="market_item">Artículo de Mercado</string>
+    <string name="input_name">Ingrese su nombre</string>
+    <string name="fueltanklabel">Depósito de Combustible</string>
+    <string name="flee">¡Huir!</string>
+    <string name="fight">¡Pelear!</string>
+    <string name="bribe">Sobornar</string>
+    <string name="credits_label">Dinero:</string>
+    <string name="current_planet">Planeta Actual:</string>
+    <string name="action_settings">Configuración</string>
+    <string name="accept">Aceptar Inspección de Carga</string>
+    <string name="difficulty_label">Poner la dificultad</string>
+    <string name="go">Ir</string>
+</resources>

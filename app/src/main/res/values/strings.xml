@@ -4,8 +4,8 @@
     <string name="player_name">Name:</string>
     <string name="input_name">Enter name</string>
     <string name="difficulty_label">Set Difficulty</string>
-    <string name="plus">+</string>
-    <string name="minus">-</string>
+    <string name="plus" translatable="false">+</string>
+    <string name="minus" translatable="false">-</string>
     <string name="submit">Submit</string>
 
     <!--for planet activity xml-->
