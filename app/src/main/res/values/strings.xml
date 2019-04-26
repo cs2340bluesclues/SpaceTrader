@@ -8,8 +8,8 @@
     <string name="minus" translatable="false">-</string>
     <string name="submit">Submit</string>
 
-    <!--for planet activity xml-->
-    <string name="fueltanklabel">\nShip Fuel Tank</string>
+
+
 
     <!--For police xml-->
 
@@ -37,6 +37,7 @@
     <string name="surrender">Surrender</string>
     <string name="fight">Fight!</string>
     <string name="go">Go</string>
+
     <string name="total_price">Total Price:</string>
     <string name="quantity_to_buy">Quantity to buy</string>
     <string name="price">Price</string>
@@ -45,6 +46,40 @@
     <string name="current_planet">Current Planet:</string>
     <string name="credits_label">Credits:</string>
     <string name="ship_name_label">Ship Name:</string>
+
+
+    <!--for planet activity xml-->
+    <string name="fueltanklabel">\nShip Fuel Tank</string>
+    <string name="current_fuel">Current Fuel:</string>
+    <string name="max_ship_fuel">Max Ship Fuel:</string>
+    <string name="fuel_to_buy">Fuel to buy</string>
+    <string name="travel">Travel</string>
+    <string name="cargo">Cargo</string>
+    <string name="market">Market</string>
+    <string name="refuel">Refuel</string>
+
+    <!--Market Activity XML-->
+    <string name="name">name</string>
+    <string name="remaining_cargo">Remaining Cargo:</string>
+
+
+    <!--for Config.xml-->
+    <string name="set_skillpoints">Set Skillpoints</string>
+    <string name="pilot">Pilot</string>
+    <string name="fighter">Fighter</string>
+    <string name="trader">Trader</string>
+    <string name="engineer">Engineer</string>
+
+    <!--for travel activity XML-->
+    <string name="solar_system_map">Solar System Map</string>
+    <string name="current_coordinates">current coordinates</string>
+    <string name="travel_here">Travel here!</string>
+
+    <!--for start activity XML-->
+    <string name="new_game">New Game</string>
+    <string name="load_game">Load Game</string>
+
+    <string name="planet_map">Planet Map</string>
 
 
 </resources>

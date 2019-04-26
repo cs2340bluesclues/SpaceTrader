@@ -1,6 +1,9 @@
 package macbookpro.cs2340.spacetrader.views;
 
 //import android.content.Intent;
+import android.app.Activity;
+import android.app.Application;
+import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -27,6 +30,7 @@ import macbookpro.cs2340.spacetrader.model.Ship;
  * Creates ItemAdapter View for the market screen
  */
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder>{
+
 
     private OnMarketInfoClickListener listener;
 
@@ -187,15 +191,15 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                 if (buying && (ship.getRemainingCargo() >= quantityToTrade)) {
                     transaction(player, market, position, quantityToTrade);
                     quantity.setText(Integer.toString(mapData.get(mapKeys[position])));
-                    if (buying && ship.getRemainingCargo() >= quantityToTrade) {
-                        transaction(player, market, position, quantityToTrade);
-                        quantity.setText(Integer.toString(mapData.get(mapKeys[position])));
+//                    if (buying && ship.getRemainingCargo() >= quantityToTrade) {
+//                        transaction(player, market, position, quantityToTrade);
+//                        quantity.setText(Integer.toString(mapData.get(mapKeys[position])));
 
                     quantityToTrade = 0;
                     totalTradePrice = 0;
 
-                        buyQuantity.setText(Integer.toString(quantityToTrade));
-                        totalPrice.setText(Integer.toString(totalTradePrice));
+                    buyQuantity.setText(Integer.toString(quantityToTrade));
+                    totalPrice.setText(Integer.toString(totalTradePrice));
 
                 } else {
                     transaction(player, market, position, quantityToTrade);
@@ -210,7 +214,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
 
 
-                }
+
             });
 
         }

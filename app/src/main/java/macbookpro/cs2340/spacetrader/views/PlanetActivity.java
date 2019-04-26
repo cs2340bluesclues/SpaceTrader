@@ -3,6 +3,8 @@ package macbookpro.cs2340.spacetrader.views;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import macbookpro.cs2340.spacetrader.R;
+
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -50,7 +52,7 @@ public class PlanetActivity extends AppCompatActivity {
     private Button increase;
     private Button decrease;
     private Button refuelButton;
-    private Button save;
+    //private Button save;
     private ImageView fuelbar1;
     private ImageView fuelbar2;
     private ImageView fuelbar3;
@@ -62,6 +64,8 @@ public class PlanetActivity extends AppCompatActivity {
 
     private final FirebaseDatabase database = FirebaseDatabase.getInstance();
     private final DatabaseReference mDatabase = database.getReference("players");
+
+
 
 
     @Override
@@ -111,8 +115,8 @@ public class PlanetActivity extends AppCompatActivity {
         increase = findViewById(R.id.increase_quantity_button);
         decrease = findViewById(R.id.decrease_quantity_button);
         refuelButton = findViewById(R.id.refuel_button);
-        
-        save = findViewById(R.id.save_button);
+
+        //save = findViewById(R.id.save_button);
 
         increase.setOnClickListener(v -> {
             int temp = Integer.parseInt(fuelQuantity.getText().toString());
@@ -133,6 +137,8 @@ public class PlanetActivity extends AppCompatActivity {
         });
 
         refuelButton.setOnClickListener(v -> {
+            MediaPlayer select_audio = MediaPlayer.create(this, R.raw.electronicsound3);
+            select_audio.start();
             planetViewModel.refuelShip(Integer.parseInt(fuelQuantity.getText().toString()));
             recreate();
             Log.i("refueling", "refueled, amt: "
@@ -141,15 +147,26 @@ public class PlanetActivity extends AppCompatActivity {
         });
 
         marketButton.setOnClickListener(v -> {
+            MediaPlayer mp = MediaPlayer.create(PlanetActivity.this, R.raw.electronicsound3);
+            mp.start();
             goToMarket();
             //recreate();
         });
-        cargoButton.setOnClickListener(v -> goToCargo());
+        cargoButton.setOnClickListener(v -> {
+            MediaPlayer select_audio = MediaPlayer.create(this, R.raw.electronicsound3);
+            select_audio.start();
+            goToCargo();
+        });
 
-        travelButton.setOnClickListener(v -> goToTravel());
 
-        save.setOnClickListener(v -> {
-            DatabaseReference playersRef = mDatabase.child("player");
+        travelButton.setOnClickListener(v -> {
+            MediaPlayer select_audio = MediaPlayer.create(this, R.raw.electronicsound3);
+            select_audio.start();
+            goToTravel();
+        });
+
+//        save.setOnClickListener(v -> {
+//            DatabaseReference playersRef = mDatabase.child("player");
 
 //                List<Player> player = new ArrayList<>();
 //                player.add(planetViewModel.getPlayer());
@@ -169,7 +186,7 @@ public class PlanetActivity extends AppCompatActivity {
 
             //String playerID = mDatabase.push().getKey();
 //           playersRef.child(playerID).setValue(planetViewModel.getPlayer());
-        });
+//        });
 
     }
 

@@ -15,7 +15,7 @@
         android:layout_marginEnd="8dp"
         android:paddingLeft="25dp"
         android:paddingRight="5dp"
-        android:text="Name"
+        android:text="@string/name"
         app:layout_constraintEnd_toStartOf="@+id/remaining_cargo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Remaining Cargo: "
+        android:text="@string/remaining_cargo"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="168dp"
         tools:ignore="MissingConstraints" />
@@ -38,7 +38,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Credits: "
+        android:text="@string/credits_label"
         app:layout_constraintRight_toLeftOf="@id/credits"
         tools:ignore="MissingConstraints" />
 

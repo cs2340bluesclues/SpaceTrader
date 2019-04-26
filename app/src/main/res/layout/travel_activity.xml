@@ -37,7 +37,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Planet Map"
+                        android:text="@string/planet_map"
                         android:textStyle="bold" />
 
                     <RadioGroup
@@ -75,7 +75,7 @@
                         android:layout_height="wrap_content"
 
                         android:layout_gravity="center"
-                        android:text="Solar System Map"
+                        android:text="@string/solar_system_map"
                         android:textStyle="bold" />
 
                     <TextView
@@ -84,7 +84,7 @@
                         android:layout_height="wrap_content"
 
                         android:layout_gravity="center"
-                        android:text="current coordinates"
+                        android:text="@string/current_coordinates"
 
                         tools:layout_editor_absoluteX="163dp"
                         tools:layout_editor_absoluteY="16dp" />
@@ -109,7 +109,7 @@
                 android:layout_weight="1"
                 android:background="@color/blue"
                 android:padding="5dp"
-                android:text="Travel here!"
+                android:text="@string/travel_here"
                 android:textColor="@android:color/white" />
 <!--android:layout_height="wrap_content"-->
 

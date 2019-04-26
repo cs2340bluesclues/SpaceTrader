@@ -78,13 +78,13 @@
             android:id="@+id/market_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Market" />
+            android:text="@string/market" />
 
         <Button
             android:id="@+id/cargo_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cargo"/>
+            android:text="@string/cargo"/>
 
     </LinearLayout>
 
@@ -108,7 +108,7 @@
             android:id="@+id/travel_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Travel"/>
+            android:text="@string/travel"/>
 
     </LinearLayout>
 
@@ -128,7 +128,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="8dp"
                 android:paddingBottom="20dp"
-                android:text="Fuel to buy"
+                android:text="@string/fuel_to_buy"
                 app:layout_constraintTop_toBottomOf="@id/text_price_label" />
 
             <Button
@@ -163,7 +163,7 @@
                 android:maxLines="1"
                 android:paddingTop="25dp"
                 android:paddingEnd="10dp"
-                android:text="Max Ship Fuel: "
+                android:text="@string/max_ship_fuel"
                 app:layout_constraintTop_toBottomOf="@id/text_quantity_desired" />
 
             <TextView
@@ -204,17 +204,17 @@
                 android:id="@+id/refuel_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Refuel"
+                android:text="@string/refuel"
                 android:layout_marginLeft="16dp"
                 />
 
-            <Button
-                android:id="@+id/save_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Save"
-                android:layout_marginLeft="16dp"
-                />
+            <!--<Button-->
+                <!--android:id="@+id/save_button"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Save"-->
+                <!--android:layout_marginLeft="16dp"-->
+                <!--/>-->
 
         </LinearLayout>
 
@@ -245,7 +245,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:text="Current Fuel: "
+                android:text="@string/current_fuel"
                 tools:layout_editor_absoluteX="60dp" />
 
             <TextView

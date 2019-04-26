@@ -2,6 +2,7 @@ package macbookpro.cs2340.spacetrader.views;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import macbookpro.cs2340.spacetrader.R;
 import android.support.v7.app.AppCompatActivity;
@@ -61,6 +62,7 @@ public class TravelPlanetActivity extends AppCompatActivity {
         addSolarSystemButtons();
 
         travelHere.setOnClickListener( v -> {
+            MediaPlayer mp2 = MediaPlayer.create(this, R.raw.error_buzzer_audio);
                 if (travelToThisPlanet.equals(travelPlanetViewModel.getCurrPlanet())) {
                     Toast.makeText(getApplicationContext(),
                             "You are already at this planet",
@@ -73,12 +75,16 @@ public class TravelPlanetActivity extends AppCompatActivity {
                             Toast.LENGTH_LONG).show();
                 } else if (travelPlanetViewModel.policeEvent()) {
                     travelPlanetViewModel.travel(travelToThisSolarSystem, travelToThisPlanet);
+                    mp2.start();
                     goToPoliceActivity();
                 } else if (travelPlanetViewModel.pirateEvent()) {
                     travelPlanetViewModel.travel(travelToThisSolarSystem, travelToThisPlanet);
+                    mp2.start();
                     goToPirateActivity();
                 } else  {
                     travelPlanetViewModel.travel(travelToThisSolarSystem, travelToThisPlanet);
+                    MediaPlayer mp = MediaPlayer.create(this, R.raw.travel_audio);
+                    mp.start();
                     goToPlanetActivity();
                 }
         });

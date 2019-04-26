@@ -89,7 +89,7 @@
             android:id="@+id/increase_quantity_button"
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:text="+@string/add"
+            android:text="@string/plus"
             app:layout_constraintLeft_toRightOf="@id/text_quantity_desired"
             app:layout_constraintTop_toTopOf="@id/text_quantity_desired" />
 

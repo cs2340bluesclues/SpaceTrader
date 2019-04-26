@@ -58,7 +58,7 @@
             android:id="@+id/set_skills_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Set Skillpoints" />
+            android:text="@string/set_skillpoints" />
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
@@ -72,7 +72,7 @@
                 android:id="@+id/pilot_skill_label"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:text="Pilot" />
+                android:text="@string/pilot" />
 
             <Button
                 android:id="@+id/add_pilot_skill_button"
@@ -102,7 +102,7 @@
                 android:id="@+id/fighter_skill_label"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:text="Fighter" />
+                android:text="@string/fighter" />
 
             <Button
                 android:id="@+id/add_fighter_skill_button"
@@ -133,7 +133,7 @@
                 android:id="@+id/trader_skill_label"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:text="Trader" />
+                android:text="@string/trader" />
             <Button
                 android:id="@+id/add_trader_skill_button"
                 android:layout_width="36dp"
@@ -163,7 +163,7 @@
                 android:id="@+id/engineer_skill_label"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:text="Engineer" />
+                android:text="@string/engineer" />
             <Button
                 android:id="@+id/add_engineer_skill_button"
                 android:layout_width="36dp"

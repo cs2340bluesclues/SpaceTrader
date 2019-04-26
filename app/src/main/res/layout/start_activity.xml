@@ -19,7 +19,7 @@
             android:id="@+id/new_game_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Game" />
+            android:text="@string/new_game" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -53,7 +53,7 @@
             android:id="@+id/load_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Load Game" />
+            android:text="@string/load_game" />
 
 
     </LinearLayout>
